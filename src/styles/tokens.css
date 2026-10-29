@@ -9,8 +9,8 @@
   --gris-claro: #b2b2b1;
   --papel: #ffffff;
   --cal: #ffffff;
-  --tinta: #674c3d;
-  --tinta-suave: #57554f;
+  --tinta: #2e2a25;
+  --tinta-suave: rgba(46, 42, 37, 0.68);
   --arena: #efe6d8;
   --linea: #e6dfd5;
   --borde-control: #7d776e;
@@ -24,6 +24,11 @@
   --velo: rgba(46, 42, 37, 0.38);
   --velo-fuerte: rgba(46, 42, 37, 0.58);
   --velo-base: rgba(46, 42, 37, 0.72);
+  --filete: rgba(46, 42, 37, 0.22);
+  --velo-foto: rgba(46, 52, 36, 0.42);
+  --visor: rgba(20, 21, 16, 0.94);
+  --etiqueta-sobre-ground: #f1d9b9;
+  --whatsapp: #25d366;
   --space-05: 4px;
   --space-1: 8px;
   --space-15: 12px;
@@ -34,6 +39,13 @@
   --space-8: 64px;
   --space-12: 96px;
   --space-16: 128px;
+  --space-5: 24px;
+  --space-7: 48px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --header-height: 80px;
+  --content-max: 1200px;
+  --measure: 760px;
   --radius-none: 0;
   --radius-arco: 480px;
   --radius-full: 9999px;

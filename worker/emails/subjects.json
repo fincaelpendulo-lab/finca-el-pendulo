@@ -1,0 +1,17 @@
+{
+ "01-retiro-es": "Recibimos tu solicitud de retiro",
+ "02-evento-es": "Recibimos tu solicitud para el evento",
+ "03-boda-es": "Recibimos los datos de tu boda",
+ "04-contacto-es": "Recibimos tu mensaje",
+ "05-voluntariado-es": "Recibimos tu aplicación de voluntariado",
+ "06-bienvenida-es": "Te damos la bienvenida a la Finca",
+ "07-seguimiento-es": "¿Seguimos platicando, {{contact.first_name}}?",
+ "01-retiro-en": "We have your retreat request",
+ "02-evento-en": "We have your event request",
+ "03-boda-en": "We have your wedding details",
+ "04-contacto-en": "We have your message",
+ "05-voluntariado-en": "We have your volunteer application",
+ "06-bienvenida-en": "Welcome to the Finca",
+ "07-seguimiento-en": "Shall we keep talking, {{contact.first_name}}?",
+ "00-aviso-interno": "Nueva solicitud web: {{contact.name}}"
+}

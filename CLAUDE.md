@@ -29,6 +29,7 @@ Sitio de Finca El Péndulo (Tepatitlán de Morelos, Jalisco). Astro estático, e
 | Formularios al CRM (Retiros, Eventos y sus páginas, Bodas, Contacto) | `ContactForm.astro` con `crm="retiro|evento|boda|contacto"` + `[data-crm-form]` en `site.js`; piden correo y WhatsApp |
 | Aplicación de voluntariado (en el sitio, al CRM) | `VolunteerForm.astro` |
 | Formularios → GHL (pendiente de conectar) | `worker/src/index.js`: `FORMS` (etiqueta que dispara cada workflow: `web-retiro`, `web-evento`, `web-boda`, `web-contacto`, `web-voluntariado`), `FIELDS` (campos personalizados), newsletter → `/subscribe`, etiqueta `newsletter`. Mientras `formEndpoint` esté vacío, los formularios CRM y el newsletter abren WhatsApp. |
+| Correos de los workflows de GHL (ES/EN, aviso interno, bienvenida, seguimiento) | `worker/emails/build.py` → `python3 worker/emails/build.py`; fotos con `node worker/emails/images.mjs` → `public/email/`; ids en `ghl-templates.json`; subir con `sync.py --push` |
 | Descripción (alt y título) de cada foto de la galería | `src/data/fotos.json` |
 | Página de gracias tras formularios CRM (`?f=<form>` elige el mensaje; noindex, fuera del sitemap) | `src/views/Gracias.astro` |
 | Calificación de Google (actualizar a mano) | `src/data/site.json` → `reviews`; reseñas elegidas en `src/data/resenas-google.json` |

@@ -2,6 +2,8 @@
 
 Manual de identidad corporativa de Finca El Péndulo, centro de desarrollo integral en Tepatitlán de Morelos, Jalisco. Este sistema reúne los colores, la tipografía, los símbolos y los patrones de la marca para cualquier pieza: impresos, documentos, redes y web.
 
+Desde el 29 de octubre de 2026 el sistema sigue al sitio **fincaelpendulo.com.mx**: los tokens, los componentes y sus estilos son los mismos que usa la web (estructura de MexiSol World con los colores y la tipografía de la Finca). Si cambias algo aquí, cámbialo también en el sitio (`design-system/tokens.json` y `src/styles/global.css`), y al revés.
+
 ## ¿Quiénes somos?
 
 Somos una comunidad divergente que nace de encuentros sincrónicos con un objetivo en común, el descubrir, observar y experimentar los ires y venires de la vida.
@@ -28,10 +30,11 @@ Lo que dice fincaelpendulo.com.mx, para usar con las mismas palabras en cualquie
 - **Quiénes somos:** "Una comunidad holística". Un centro holístico en Tepatitlán de Morelos, Jalisco, que combina alojamiento, espacios para actividades, servicios holísticos y contacto con la naturaleza para favorecer el descanso, la claridad mental y el crecimiento personal. Una comunidad autosustentable que mantiene el lugar como un refugio accesible.
 - **Espacios:** "Un lugar que acompaña tu proceso". Cuatro hectáreas y más de 15 espacios: Osho Hut, Oráculo, Salón Ágora Gnosis, Sammasati, Terraza Ambú, Taller de arte, Lago, Caballerizas, Temazcal, Alberca, Gimnasio, Spa, El 27, Invernadero Gaia, Lobos, Hormiguero y Jardín de Rosas.
 - **Osho Hut:** edificio circular de piedra, con techo de palma y piso de mármol; el espacio más sagrado de la Finca.
-- **Hospedaje:** habitaciones deluxe, habitaciones sencillas, aldeas y cabañas, y el Hormiguero para grupos.
+- **Hospedaje:** diez tipos de habitación en Cloudbeds: penthouse y habitaciones deluxe con jacuzzi, habitaciones privadas, contenedores, aldeas, la Cabaña Burra y el Hormiguero para grupos. También **Day Pass** (un día en la Finca) y **Sesión de fotos**.
 - **Experiencias**, en tres familias: Bienestar ("Prácticas que invitan a la calma, la introspección y la conexión con el cuerpo"), Naturaleza ("Experiencias que conectan con el entorno y el ritmo natural de la finca") y Creatividad ("Espacios para explorar, crear y expresarse desde lo tangible").
-- **Retiros:** "Diseñado para facilitadores que buscan un lugar natural, funcional y con comunidad". Paquete base de 2 noches y 3 días, mínimo 12 personas, con hospedaje, 3 comidas, coffee break, canasta de bienvenida y 5 horas diarias de espacios.
-- **Eventos:** bodas, campamentos, conciertos, cenas románticas, festivales y retiros.
+- **Retiros:** "Diseñado para facilitadores que buscan un lugar natural, funcional y con comunidad". El paquete incluye hospedaje, 3 alimentos, coffee break y uso de los espacios. No se publican tarifas: se cotiza.
+- **Espacios incluidos:** "Los espacios están incluidos cuando reservas tu retiro o te hospedas".
+- **Eventos:** bodas, campamentos, conciertos, cenas románticas (menú de tres tiempos con jarra de clericot, $600 por persona) y festivales, cada uno con su página.
 - **Ubicación:** Camino al Saucillo 861, Tepatitlán, Jalisco.
 
 ## Colores corporativos
@@ -65,20 +68,22 @@ Cada color nace de un elemento del paisaje de la finca.
 
 ### Uso y contraste
 
-- Sobre `papel` (blanco), el texto de cuerpo va en `tinta` (`wood`, 7.8:1), `ground` (8.4:1) o `negro`.
-- `corn` (3.2:1) y `agave` (3.8:1) solo se usan en texto de 24px o más, en filetes o como fondo. El manual usa `agave` para sus títulos: así está bien en tamaño grande, no en párrafos.
-- Sobre `ground`, `wood` o `negro`, el texto va en blanco.
-- `gris-claro` es para líneas y fondos, nunca para texto.
+- En el sitio el texto va en `negro` (`tinta`, 14.3:1) sobre `cal` y `arena`; el texto secundario en `tinta-suave` (negro al 68 %, 5.1:1). `wood` queda para bloques y piezas impresas.
+- Las etiquetas en MAYÚSCULAS van en `ground` (8.4:1); sobre bloques oscuros, en `corn`, y sobre `ground` o `wood`, en `etiqueta-sobre-ground`.
+- `corn` (3.2:1) y `agave` (3.8:1) solo se usan en texto de 24px o más, en filetes, estrellas o como fondo.
+- Sobre `ground`, `wood`, `agave-oscuro`, `negro` o fotos con velo, el texto va en blanco.
+- Filetes de 1px en `filete` (negro al 22 %). `gris-claro` y `linea` quedan para piezas impresas, nunca para texto.
 - La referencia visual de inspiración está en el grupo **Referencias** (`paleta-inspiracion.png`).
 
 ## Tipografía
 
-Dos familias. El texto comparte Tenor Sans con MexiSol World, para que las piezas de ambas marcas convivan; los titulares llevan una serif editorial propia de la Finca.
+Dos familias, las mismas que en MexiSol World para el texto, con una serif editorial propia para los titulares.
 
-- **Newsreader** (`display`), peso 500, espaciado -0.02em: titulares, títulos de sección, nombres de espacios, fechas y cifras. Tipo oración ("Un lugar que acompaña tu proceso"). Es variable con tamaño óptico: en titulares grandes se afilan los remates.
-- **Tenor Sans** (`text`): todo lo que se lee: entradas, texto corrido, botones, notas. Tiene un solo peso; no se usa negrita falsa.
-- **Sin mayúsculas espaciadas.** Botones, navegación, etiquetas y estados van en tipo oración. Las etiquetas (`etiqueta`) solo aparecen cuando informan algo (el lugar, la categoría de un espacio).
-- **Escala:** 13, 17, 21, 28, 37, 49, 64 y 85 px (razón de 1.3). Texto corrido de 17 px con interlineado 1.6 y líneas de menos de 65 caracteres.
+- **Newsreader** (`display`), peso 400: titulares, títulos de sección, nombres de espacios, fechas y cifras. Tipo oración ("Un lugar que acompaña tu proceso"). Es variable con tamaño óptico.
+- **Tenor Sans** (`text`): todo lo que se lee: entradas, texto corrido, botones, menú, notas. Tiene un solo peso; no se usa negrita (el `<strong>` solo oscurece el color).
+- **Etiquetas en MAYÚSCULAS espaciadas** (`label`): 13px, espaciado 0.32em, en `ground`, encima de los títulos de sección. En tarjetas, fechas y campos van más juntas (`label--tight`, 0.1em). El menú (`nav`) y los botones chicos también van en MAYÚSCULAS con 0.1em.
+- **Escala del sitio** (escritorio → móvil): `display` 88 → 54px, `headline` 60 → 40, `heading` 48 → 36, `title` 28 → 24, `lead` 24 → 20, `body` 17px con interlineado 1.65, `button` 15, `caption` 14, `label` y `nav` 13.
+- Líneas de texto de 68 caracteres como máximo (`.prose`); entradas de 46.
 - El nombre FINCA EL PÉNDULO dentro del logotipo y del sello está dibujado como parte de la marca; no se recompone con estas fuentes.
 
 ## Logotipo
@@ -109,82 +114,87 @@ Una retícula de teselas cuadradas en los cuatro colores principales, con separa
 
 ## Composición: fotos, color sólido y nada más
 
-La Finca se cuenta con imágenes. Cada vista es casi toda fotografía real y bloques de color plano; el texto es poco y grande.
+La Finca se cuenta con imágenes. Cada vista es casi toda fotografía real y bloques de color plano; el texto es poco y grande. La estructura es la de MexiSol World.
 
-- **Fotos a sangre** en héroes y secciones, sin marcos, sin esquinas redondeadas, sin filtros. Si el texto va sobre la foto, usa `velo` (o `velo-fuerte` si la foto es clara).
-- **Bloques sólidos** de los colores de la marca al lado de las fotos: `ground`, `wood`, `agave-oscuro`, `corn` y `negro`. Nunca dos bloques del mismo color juntos; alterna. El texto va en `sobre-color`. `agave` (claro) solo con titulares grandes.
-- **Fondo de página** en `cal` (blanco); `arena` para alternar secciones.
-- **Esquinas rectas** en todo (`radius-none`): fotos, bloques, botones, campos. `radius-arco` queda como recurso opcional para una foto por vista.
-- **Sin sombras** para dar profundidad: la dan las fotos y el color. `sombra-lg` solo para menús y diálogos.
-- **Elementos mínimos:** filetes de 1px `linea` en listas, un filete de 2px `negro` al inicio de cada lista, puntos de estado. Nada más decorativo.
-- **Separación entre fotos y bloques:** `space-1` (8px) en mosaicos; a ras (0) cuando una foto y un bloque forman una sola sección.
-- **Movimiento:** solo responde a lo que hace la persona (abrir el menú, pasar sobre un botón). Las fotos no hacen zoom y las secciones no aparecen deslizándose.
-- Bordes de campos en `borde-control` (3:1 o más). Foco: anillo `foco` de 2px.
-- Sin degradados decorativos, sin brillos, sin bordes de color a un lado, sin emojis. La única excepción es el velo del `Hero`, que oscurece la franja inferior de la foto (`velo-base` a `velo`) para que el texto se lea.
+- **Fondo blanco** (`cal`); `arena` para alternar secciones. Nunca dos bloques del mismo color seguidos.
+- **Fotos a sangre** en el hero, los encabezados de página y las secciones `ColorSplit`, sin marcos ni filtros. Con texto encima llevan `velo-foto` y un degradado desde abajo; el texto va pegado al borde inferior.
+- **Bloques sólidos** en `agave-oscuro` (el más usado: pie de página, `ColorSplit`, `StatementBand`), `wood`, `ground` y `arena`. Texto blanco sobre los oscuros.
+- **Esquinas rectas** en todo (`radius-none`). La única pieza redonda es el botón de WhatsApp.
+- **Sin sombras.** La profundidad la dan las fotos, el color y los filetes de 1px (`filete`). Las listas empiezan con un filete `negro` y separan filas con `filete`.
+- **Separación de 12px** entre fotos en mosaicos, filas de fotos y tarjetas; a ras cuando una foto y un bloque forman una sola sección.
+- **Contenedor** de 1200px (`content-max`) con margen lateral `clamp(20px, 4vw, 48px)`; secciones con 96px arriba y abajo (64px en móvil).
+- **El mosaico** (`TileBand`) aparece una sola vez: encima del pie de página.
+- Sin degradados decorativos, sin brillos, sin bordes de color a un lado, sin emojis.
+
+## Movimiento
+
+El sitio se mueve poco y despacio. Todo se desactiva con "reducir movimiento".
+
+- **Al entrar en pantalla**, las secciones y tarjetas suben 28px con un fundido (0.9 s), escalonadas. Lo que es más alto que la pantalla no se anima.
+- **Al cargar**, la tarjeta del hero y los títulos de los encabezados de página suben con un fundido (1 s).
+- **Al pasar el cursor**, las fotos crecen un poco (3 % en tarjetas, 5 % en galerías) y los títulos de tarjeta se subrayan.
+- **La franja de fotos** del inicio (`GalleryMarquee`) avanza sola y se detiene al pasar el cursor.
+- **Los videos aéreos** se reproducen en silencio y en bucle, siempre con botón de pausa.
 
 ## Fotografía
 
-Los grupos **Paisaje**, **Espacios**, **Hospedaje**, **Bienestar**, **Animales** y **Detalles** reúnen las mejores fotos de la Finca, a 1800 px. El README de cada grupo dice para qué sirve cada foto.
+Los grupos **Paisaje**, **Espacios**, **Hospedaje**, **Bienestar**, **Animales** y **Detalles** reúnen fotos de la Finca. En el sitio están en `src/assets/photos/` (1800px máximo; la web sirve AVIF y WebP). El README de cada grupo dice para qué sirve cada foto.
 
-- Héroes y encabezados de página: los videos aéreos del grupo **Aereas** (inicio con `aerea-agaves-cabanas`; Espacios, Retiros y Experiencias con su propia toma). Las fotos de **Paisaje** sirven de respaldo.
-- Secciones de espacios y hospedaje: **Espacios** y **Hospedaje**, siempre con el espacio real del que se habla.
-- Retiros y experiencias: **Bienestar** (círculos, yoga, ceremonia) y **Animales**.
-- Mosaicos y redes: **Detalles** (altares, cempasúchil, artesanía).
-- Alberca: usa solo `alberca-01` a `alberca-04`. El 27 (el invernadero con mesa larga; no es el Invernadero Gaia): `02-014`, `02-015`, `02-017` y `el-27-*`. Osho Hut: `osho-hut-exterior`, `osho-hut-interior` y `osho-hut-ceremonia`.
+- Solo fotos de la selección de Carlos en buena calidad (mínimo ~1400px de lado largo). Las que solo existen a 1024px (habitaciones, fotos históricas) se escalaron 1.5x con nitidez.
+- **Nunca la misma foto dos veces en una sección**, ni la misma imagen con dos nombres. El hero y la franja animada del inicio no comparten fotos.
+- Hero del inicio: video aéreo `aerea-agaves-cabanas` a todo lo ancho. Espacios, Retiros y Experiencias abren con su propio video aéreo (grupo **Aereas**).
+- Cada espacio con sus fotos reales. Alberca: `alberca-01` a `alberca-04` y `alberca-mural`. El 27 (el invernadero con mesa larga; no es el Invernadero Gaia): `invernadero-mesa` y `el-27-*`. Osho Hut: exterior, interior (`osho-hut-sala`) y `osho-hut-arcoiris`.
+- Galería: todas las fotos menos las habitaciones; cada una con descripción (`alt`) y título.
 - Luz natural, colores cálidos. Antes de usar en anuncios una foto donde se reconozca a una persona, pide su permiso.
 
 ## Dirección de diseño
 
-Revisión hecha con la skill Frontend Design. La Finca no se debe confundir con cualquier retiro "boutique": su identidad sale de su propio manual, no de plantillas.
-
-- **Un solo elemento memorable: el mosaico.** Las teselas de colores del manual (`TileBand`, la portada) son la firma de la marca. Todo lo demás es callado: fotos reales, bloques de color plano y texto.
-- **El fondo es blanco**, como las piezas del manual, no crema. `arena` solo alterna secciones.
-- **Las fotos hacen el trabajo.** Ninguna sección se arma con tarjetas iguales con sombra; los bloques de color tienen tamaños distintos según lo que contienen.
-- **La estructura informa.** Números solo en secuencias reales (el horario de un día). Etiquetas solo cuando dicen algo. Nada de flechas en los enlaces ni cadenas con puntos medios ("A · B · C").
-- **Las palabras dicen qué pasa.** "Cotiza tu retiro", "Ver los espacios", "Hospédate con nosotros"; nunca "Conoce más". La misma acción conserva el mismo nombre en todo el sitio.
+- **Un solo elemento memorable: el mosaico.** Las teselas del manual (`TileBand`, la portada) son la firma. Todo lo demás es callado: fotos reales, bloques de color plano y texto.
+- **Las fotos hacen el trabajo.** Ninguna sección se arma con tarjetas iguales con sombra.
+- **La estructura informa.** Números solo en secuencias reales ("01 / Bienestar"). Etiquetas solo cuando dicen algo.
+- **Las palabras dicen qué pasa.** "Cotiza tu retiro", "Ver los espacios", "Hospédate con nosotros", "Reservar"; **nunca "Conoce más"**. La misma acción conserva el mismo nombre en todo el sitio.
+- **Solo datos confirmados.** No se menciona "mil ceremonias" ni se nombra a nadie del equipo sin confirmación (se puede nombrar a Marina Melgarejo, fundadora, y a los autores de los testimonios).
 - **Antes de publicar, quita un accesorio.** Si una sección tiene etiqueta, título, entrada, dos botones y una insignia, sobra algo.
+
+## Voz
+
+Pendiente la guía de voz de la Finca. Mientras tanto: cálida, serena y concreta; se habla de "la Finca" y se tutea en español. El sitio también está en inglés (`/en`), con las mismas reglas.
+
+## El sitio web
+
+- **Encabezado** (`SiteHeader`): blanco y fijo arriba, logotipo, menú en MAYÚSCULAS, EN/ES y "Reservar" (Cloudbeds). Menú: Inicio · Quiénes somos (Nuestra historia, Voluntariado, Comunidad, Casos de éxito, Blog, Contacto) · Hospedaje (Habitaciones, Day Pass, Sesión de fotos) · Retiros · Experiencias · Espacios · Eventos · Galería. Debajo de 1360px, botón "Menú" con panel a pantalla completa.
+- **Inicio**, en orden: `Hero` (video) → `GalleryMarquee` → Quiénes somos (`ColorSplit`) → Retiros, Eventos y Bodas (`PhotoTile`) → Hospedaje → Day Pass y Sesión de fotos → `ExperienceColumns` → espacios (`SpaceCard`) → `UpcomingEvents` → casos de éxito → `GoogleRating` → blog → `Faq` → ubicación → `NewsletterBanner` → `TileBand` → `SiteFooter`.
+- **Páginas interiores** abren con `PageHeader` y terminan igual que el inicio (newsletter, mosaico, pie).
+- **Espacios:** cada espacio con su foto principal, miniaturas debajo y el visor (`PhotoGallery`).
+- **Formularios:** Retiros, Eventos (y cada evento), Bodas, Contacto y Voluntariado van al CRM (GoHighLevel) con la casilla de Cloudflare Turnstile y llevan a la página de gracias; Temazcal, Day Pass y Sesión de fotos abren WhatsApp con las respuestas. El newsletter (franja y pop-up una vez por visita) también va al CRM.
+- **Siempre presentes:** botón flotante de WhatsApp (`WhatsAppFloat`), aviso de cookies (`CookieBanner`) y, en el pie, Reglamento y Aviso de privacidad. Los enlaces externos abren en otra pestaña.
 
 ## Calidad y accesibilidad
 
-Revisión hecha con la skill UI/UX Pro Max. Su búsqueda de estilos coincide con la dirección de la Finca ("Nature Distilled": terracota, arena y oliva, materiales hechos a mano, calidez); sus paletas y fuentes genéricas no se usan, porque la marca ya tiene las suyas.
-
-- **Contraste:** texto normal 4.5:1 o más, texto de 24px o más y bordes de control 3:1. Sobre fotos, el texto va en la franja de `velo-base`.
-- **Tamaño mínimo de texto:** 12px, incluidas etiquetas, estados y pies de foto.
-- **Áreas táctiles:** botones de 44px de alto como mínimo; enlaces con flecha de 32px.
-- **Foco visible:** anillo `foco` de 2px en botones, campos y tarjetas que son enlace.
-- **Texto alternativo:** toda foto con contenido lleva `alt` que describe el lugar real ("Osho Hut, edificio circular de piedra con techo de palma"); las miniaturas decorativas van con `alt` vacío.
-- **Movimiento:** con "reducir movimiento" activado no hay transiciones.
-- **Rendimiento:** fotos en JPEG a 1800 px máximo, con carga diferida (`loading="lazy"`); en producción, servir también WebP o AVIF.
-- **Responsive:** revisar cada página a 375, 768, 1024 y 1440 px; en móvil, las secciones de foto y color se apilan con la foto arriba.
+- **Contraste:** texto normal 4.5:1 o más; texto de 24px o más y bordes de control 3:1.
+- **Tamaño mínimo de texto:** 13px (etiquetas y menú).
+- **Áreas táctiles:** 44px como mínimo; botones de 48px.
+- **Foco visible:** anillo `foco` de 2px (blanco sobre bloques oscuros y fotos).
+- **Texto alternativo:** toda foto con contenido lleva `alt` que describe el lugar real; logotipos y adornos van con `alt` vacío.
+- **Rendimiento:** fotos en AVIF y WebP con carga diferida; videos con póster.
+- **Responsive:** sin scroll horizontal a 375px; revisado a 375, 768, 1024 y 1440px. En móvil las secciones de foto y texto se apilan con la foto arriba.
 
 ## Componentes
 
-Carga `tokens.css`, `components/bundle.css` y `components/bundle.js` (después de React 18). Todo está en `window.FincaElPendulo`.
+Carga `tokens.css`, `components/bundle.css` y `components/bundle.js` (después de React 18). Todo está en `window.FincaElPendulo`. Son los mismos componentes del sitio (Astro), con las mismas clases.
 
-- `Hero`: video aéreo o foto a sangre con titular y la navegación encima, o junto a un bloque sólido (`layout="block"`).
-- `PageHeader`: encabezado aéreo más bajo para páginas interiores.
-- `ColorSplit`: mitad foto, mitad bloque de color con texto. La sección base.
-- `PhotoMosaic`: rejilla de fotos con uno o dos bloques de color.
-- `SpaceCard`: foto vertical de un espacio con placa de color.
-- `StatementBand`: banda sólida con una frase grande, con o sin foto.
-- `SectionHeader`: etiqueta y titular para secciones sobre `cal`.
-- `SiteHeader`: navegación con logotipo, hasta 6 enlaces y "Cotiza tu retiro"; transparente sobre el héroe o sólida.
-- `FactStrip`: la Finca en una frase grande (cuatro hectáreas, más de 15 espacios, nueve caballos, más de mil ceremonias en el Osho Hut).
-- `TileBand`: el mosaico del manual como franja de borde de sección.
-- `ExperienceColumns`: Bienestar, Naturaleza y Creatividad con foto y lista.
-- `BookingBar`: "Cotiza tu retiro" y "Hospédate con nosotros" (Cloudbeds), fija abajo en móvil.
-- `SiteFooter`: pie con dirección, enlaces y reservas.
-- `DateList`: calendario de retiros y eventos con miniatura.
-- `DaySchedule`: programa de un día de retiro.
-- `Button`: rectangular, `primary`, `secondary` o `link`; `tone="light"` sobre fotos y color.
-- `Badge`, `Field`, `QuoteSummary`.
+- **Navegación:** `SiteHeader`, `SiteFooter`.
+- **Secciones:** `Hero`, `PageHeader`, `GalleryMarquee`, `ColorSplit`, `StatementBand`, `FactStrip`.
+- **Contenido:** `SectionHeader`, `SpaceCard`, `PhotoTile`, `ExperienceColumns`, `PhotoMosaic`, `PhotoGallery`, `UpcomingEvents`, `GoogleRating`, `Faq`.
+- **Acciones y formularios:** `Button`, `Field`, `NewsletterBanner`.
+- **Marca:** `TileBand`.
+- **Avisos:** `CookieBanner`, `WhatsAppFloat`.
 
-Orden de la página de inicio, según el patrón de confianza y conversión de UI/UX Pro Max (héroe → prueba → oferta → acción clara): `SiteHeader` (overlay) + `Hero` → `TileBand` → `FactStrip` → `ColorSplit` (quiénes somos) → `SpaceCard` ×3 → `ExperienceColumns` → `PhotoMosaic` → `StatementBand` (testimonio real) → `DateList` → `QuoteSummary` o formulario con `Field` → `SiteFooter`, con `BookingBar` fija en móvil. Cada sección termina en una acción; la principal siempre es "Cotiza tu retiro".
-
-Textos de interfaz en español, tipo oración y con verbos concretos, como en el sitio: "Cotiza tu retiro", "Conoce más", "Explorar", "Hospédate con nosotros".
+Se retiraron porque el sitio no los usa: `BookingBar` (la barra de reserva fija en móvil; "Reservar" está en el encabezado y WhatsApp flota), `DateList` (lo reemplaza `UpcomingEvents`), `DaySchedule`, `QuoteSummary` (los retiros no publican tarifas) y `Badge`.
 
 ## Pendientes
 
+- Guía de voz de la Finca.
 - Logotipo: versión en blanco con nombre, área de protección, tamaño mínimo y archivos vectoriales (los actuales son PNG).
 - Archivos vectoriales (SVG o AI) de las Lunas, el símbolo de Marina y el patrón: los actuales son recortes del manual en baja resolución.
 - Confirmar el RGB de PANTONE BLACK C.

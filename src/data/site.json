@@ -1,7 +1,7 @@
 {
   "name": "Finca El Péndulo",
   "url": "https://fincaelpendulo.com.mx",
-  "launched": false,
+  "launched": true,
   "email": "fincaelpendulo@gmail.com",
   "whatsapp": {
     "display": "+52 378 790 0992",

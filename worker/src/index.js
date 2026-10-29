@@ -102,7 +102,9 @@ async function subscribe(form, env, headers) {
   const res = await upsert(env, { email, ...(firstName ? { firstName, lastName: rest.join(' ') } : {}), source: `${env.SOURCE} ${list.source}` });
   const contactId = res?.contact?.id;
   if (!contactId) return reply({ ok: false, error: 'crm' }, 502, headers);
-  await tags(env, contactId, 'POST', [list.tag]);
+  const language = String(form.get('language') || '').slice(0, 5);
+  // lang-es / lang-en picks the email language in the GHL workflow.
+  await tags(env, contactId, 'POST', [list.tag, ...(['es', 'en'].includes(language) ? [`lang-${language}`] : [])]);
   return reply({ ok: true }, 200, headers);
 }
 

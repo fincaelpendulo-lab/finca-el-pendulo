@@ -9,6 +9,7 @@ const es = lang === 'es';
 ---
 <form class:list={['newsletter', deep && 'newsletter--deep']} data-newsletter data-endpoint={site.formEndpoint ? `${site.formEndpoint.replace(/\/$/, '')}/subscribe` : undefined} data-wa={site.whatsapp.number} data-lang={lang} novalidate>
   <input type="hidden" name="list" value="newsletter" />
+  <input type="hidden" name="language" value={lang} />
   <input type="hidden" name="_started" value="" />
   <input type="hidden" name="lang" value={lang} />
   <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
