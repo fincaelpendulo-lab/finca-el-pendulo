@@ -27,8 +27,8 @@
     "longitude": null
   },
   "maps": "https://www.google.com/maps/search/?api=1&query=Finca%20El%20P%C3%A9ndulo%20Tepatitl%C3%A1n&query_place_id=ChIJl-SHxpfZKIQR9TSdabRfndk",
-  "ga4Id": "",
-  "turnstileSiteKey": "",
+  "ga4Id": "G-STH85VTPEH",
+  "turnstileSiteKey": "0x4AAAAAAFqYBIq8NNXM5hHi",
   "formEndpoint": "",
   "booking": {
     "url": "https://us2.cloudbeds.com/es-es/reservation/1BtVyc/?currency=mxn",
