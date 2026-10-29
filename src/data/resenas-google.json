@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "rating": 5,
+    "context": { "es": "Aniversario de bodas", "en": "Wedding anniversary" },
+    "text": {
+      "es": "Una experiencia inolvidable. Disfrutamos el paseo a caballo y una relajante clase de yoga. Sin duda una excelente opción en los Altos de Jalisco para desconectarse y valorar lo más importante de la vida.",
+      "en": "An unforgettable experience. We enjoyed the horse ride and a relaxing yoga class. Without a doubt an excellent choice in Los Altos de Jalisco to disconnect and value what matters most in life."
+    }
+  },
+  {
+    "rating": 5,
+    "context": { "es": "Fin de semana en familia", "en": "Family weekend" },
+    "text": {
+      "es": "Un lugar con una energía muy bonita, hermosos paisajes, convivencia cercana con los animales de la finca y una atención cálida y agradable por cada uno de los miembros del equipo.",
+      "en": "A place with a beautiful energy, lovely landscapes, time close to the Finca's animals and warm, friendly care from every member of the team."
+    }
+  },
+  {
+    "rating": 5,
+    "context": { "es": "Estancia", "en": "Stay" },
+    "text": {
+      "es": "Es perfecto para conectar con la naturaleza y contigo mismo, el staff súper amigable y una energía simplemente inexplicable.",
+      "en": "It is perfect for connecting with nature and with yourself, the staff are super friendly and the energy is simply inexplicable."
+    }
+  },
+  {
+    "rating": 5,
+    "context": { "es": "Descanso", "en": "Getaway" },
+    "text": {
+      "es": "Un lugar increíble para desconectarte y disfrutar de la naturaleza. Todos son amables y siempre están atentos para que tu visita sea única.",
+      "en": "An incredible place to disconnect and enjoy nature. Everyone is kind and always attentive to make your visit unique."
+    }
+  }
+]

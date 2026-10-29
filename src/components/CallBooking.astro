@@ -1,0 +1,37 @@
+---
+// "Agenda una llamada": the GHL calendar (site.json → callBooking) for retreats, events and weddings.
+// The iframe is loaded with GHL's form_embed.js, which resizes it; both origins are allowed in the CSP (BaseLayout).
+import site from '../data/site.json';
+import SectionHeader from './SectionHeader.astro';
+import type { Lang } from '../lib/i18n';
+interface Props { lang: Lang; tone?: 'white' | 'arena'; title?: string; text?: string }
+const { lang, tone = 'white', title, text } = Astro.props;
+const es = lang === 'es';
+const cb = site.callBooking;
+---
+{cb?.embed && (
+  <section class:list={['section', tone === 'arena' && 'section--arena']} id="agenda">
+    <div class="wrap grid-2 call">
+      <div class="stack">
+        <SectionHeader eyebrow={es ? 'Agenda una llamada' : 'Book a call'} title={title ?? (es ? 'Platiquemos tu proyecto en una llamada' : 'Let’s talk about your plans on a call')}>
+          {text ?? (es ? 'Elige el día y la hora que te acomoden. En la llamada revisamos fechas, número de personas, espacios y actividades, y te enviamos una propuesta a la medida.' : 'Pick a day and time that suits you. On the call we go over dates, group size, spaces and activities, and then send you a tailored proposal.')}
+        </SectionHeader>
+        <ol class="rule-list call__steps">
+          <li>{es ? 'Agenda la llamada en el calendario' : 'Book the call in the calendar'}</li>
+          <li>{es ? 'Platicamos de tu grupo, fechas y lo que necesitas' : 'We talk about your group, dates and needs'}</li>
+          <li>{es ? 'Recibes la propuesta por correo o WhatsApp' : 'You receive the proposal by email or WhatsApp'}</li>
+          <li>{es ? 'Apartas la fecha con el 20% de anticipo' : 'You hold the date with a 20% deposit'}</li>
+        </ol>
+        <p class="muted"><a href={cb.url}>{es ? 'Abrir el calendario en otra pestaña' : 'Open the calendar in a new tab'}</a></p>
+      </div>
+      <div class="call__frame">
+        <iframe src={cb.embed} id={`${cb.id}_site`} title={es ? 'Calendario para agendar una llamada con Finca El Péndulo' : 'Calendar to book a call with Finca El Péndulo'} loading="lazy" allow="payment" scrolling="no" style="width:100%;border:none;overflow:hidden;min-height:640px"></iframe>
+      </div>
+    </div>
+  </section>
+)}
+{cb?.script && <script is:inline src={cb.script} defer></script>}
+<style>
+  .call { align-items: start; }
+  .call__frame { background: var(--white, #fff); min-height: 640px; }
+</style>

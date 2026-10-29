@@ -143,5 +143,79 @@
         "en": "Blankets only in the spaces"
       }
     }
+  ],
+  "types": [
+    {
+      "id": "holisticos",
+      "name": {
+        "es": "Retiros holísticos y de sanación",
+        "en": "Holistic and healing retreats"
+      },
+      "text": {
+        "es": "Ceremonias en el Osho Hut y el Oráculo, temazcal, ceremonia de cacao y círculos de fuego. Un entorno de naturaleza y silencio para trabajar cuerpo, mente y espíritu.",
+        "en": "Ceremonies in the Osho Hut and the Oráculo, temazcal, cacao ceremony and fire circles. Nature and quiet for work on body, mind and spirit."
+      },
+      "photo": "grupo-circulo-agaves"
+    },
+    {
+      "id": "yoga",
+      "name": {
+        "es": "Retiros de yoga y meditación",
+        "en": "Yoga and meditation retreats"
+      },
+      "text": {
+        "es": "Prácticas al amanecer frente al agavero, salas amplias para yoga, meditación y respiración, y colchones y cobijas en los espacios si tu grupo los necesita.",
+        "en": "Sunrise practice facing the agave fields, spacious rooms for yoga, meditation and breathwork, with mats and blankets set up if your group needs them."
+      },
+      "photo": "grupo-yoga-oraculo"
+    },
+    {
+      "id": "empresariales",
+      "name": {
+        "es": "Retiros empresariales e integración de equipos",
+        "en": "Company retreats and team building"
+      },
+      "text": {
+        "es": "El Salón Ágora Gnosis para juntas, presentaciones y planeación, con hospedaje y alimentos en el mismo lugar. Entre sesiones: caballos, fogata, lago y talleres para integrar al equipo.",
+        "en": "The Ágora Gnosis hall for meetings, presentations and planning, with lodging and meals on site. Between sessions: horses, bonfires, the lake and workshops that bring the team together."
+      },
+      "photo": "grupo-agora-gnosis"
+    },
+    {
+      "id": "liderazgo",
+      "name": {
+        "es": "Retiros de liderazgo y desarrollo personal",
+        "en": "Leadership and personal growth retreats"
+      },
+      "text": {
+        "es": "Espacios para círculos, dinámicas y trabajo personal, lejos del ruido de la ciudad. La naturaleza y el ritmo de la Finca ayudan a reflexionar, decidir y volver con claridad.",
+        "en": "Spaces for circles, group work and personal process, far from city noise. Nature and the pace of the Finca help people reflect, decide and return with clarity."
+      },
+      "photo": "circulo-de-piedra"
+    },
+    {
+      "id": "creatividad",
+      "name": {
+        "es": "Retiros de creatividad y arte",
+        "en": "Creative and art retreats"
+      },
+      "text": {
+        "es": "Taller de arte con cinco tornos de cerámica, mesas largas para trabajar en grupo y rincones para escribir, pintar o crear al aire libre.",
+        "en": "An art studio with five pottery wheels, long tables for group work and corners to write, paint or create outdoors."
+      },
+      "photo": "taller-creatividad"
+    },
+    {
+      "id": "bienestar",
+      "name": {
+        "es": "Retiros de bienestar y desconexión",
+        "en": "Wellbeing and digital detox retreats"
+      },
+      "text": {
+        "es": "Alberca, spa, gimnasio con pilates reformer, comida hecha con lo que crece en el invernadero y senderos alrededor del lago para descansar de verdad.",
+        "en": "A pool, spa, gym with pilates reformer, food made with what grows in the greenhouse and trails around the lake for real rest."
+      },
+      "photo": "grupo-temazcal"
+    }
   ]
 }

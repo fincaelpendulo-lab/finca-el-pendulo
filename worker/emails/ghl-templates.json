@@ -8,105 +8,105 @@
   "id": "6ae370f7cdce889d7bfdb3ed",
   "ghl_name": "Web 01 · Retiro ES",
   "workflow": "Web: Retiro",
-  "sha256": "ef6e561ef7bb0517e2048c188af828a9b763cd74fa0b4b8cfd5982e3c1eb3e59",
+  "sha256": "5523cf6727c36528e628bda9a1e95926e6a93247c2adbb9cf8f8188e73505489",
   "subject": "Recibimos tu solicitud de retiro"
  },
  "02-evento-es": {
   "id": "6ae370f85d800fef15a06b45",
   "ghl_name": "Web 02 · Evento ES",
   "workflow": "Web: Evento",
-  "sha256": "db379191ee05b9fff074685254566409758eaa78d6787a4e530d175e8fb66b5c",
+  "sha256": "4f28065bb28dfd957ff9efe6f91f5f14553ef5dffc00d2d3f46af0775bb8cd96",
   "subject": "Recibimos tu solicitud para el evento"
  },
  "03-boda-es": {
   "id": "6ae370f9b1ff58455732ac2a",
   "ghl_name": "Web 03 · Boda ES",
   "workflow": "Web: Boda",
-  "sha256": "7aaf2f0c4976bd07be6a3b1db39e35d798dca3b94e903fa367bb2324d8518bc6",
+  "sha256": "0432d08173c0b4020717653126d8107c0f3b82db411f59a965f889ad3f978f68",
   "subject": "Recibimos los datos de tu boda"
  },
  "04-contacto-es": {
   "id": "6ae370facdce889d7bfdb471",
   "ghl_name": "Web 04 · Contacto ES",
   "workflow": "Web: Contacto",
-  "sha256": "c8214255ad7f219096ddec7382bbfa56eebdbd8446d77a8475bb4eb336f0f934",
+  "sha256": "2f2f36d0a72086da4d929c792bab85b401d5d185c65e1a5dd93b1669f9b108ba",
   "subject": "Recibimos tu mensaje"
  },
  "05-voluntariado-es": {
   "id": "6ae370fa0cbc021f07585620",
   "ghl_name": "Web 05 · Voluntariado ES",
   "workflow": "Web: Voluntariado",
-  "sha256": "2bdd54fd6e385320da4fee9f0071c0db309eebdca73e77ffb824c381cead242c",
+  "sha256": "4b30a325cd95053315299b5847975e2aae1a5184c686aa6ce81195605667036b",
   "subject": "Recibimos tu aplicación de voluntariado"
  },
  "06-bienvenida-es": {
   "id": "6ae370fb96c503e784aff230",
   "ghl_name": "Web 06 · Bienvenida newsletter ES",
   "workflow": "Web: Newsletter bienvenida",
-  "sha256": "c0e5891844343fd18233f8b1cd813bd2e5237b4df26020afbf9245f779965ff5",
+  "sha256": "31918a162202910de443a49518e66ad3189a82b5c90f0f19404a4774501c2fd4",
   "subject": "Te damos la bienvenida a la Finca"
  },
  "07-seguimiento-es": {
   "id": "6ae370fc050bd1f5c1ca18a0",
   "ghl_name": "Web 07 · Seguimiento 3 días ES",
   "workflow": "Seguimiento a los 3 días (Retiro, Evento, Boda, Contacto)",
-  "sha256": "230de8ceadfa83853afa2710b6d1ef043b901bb85d16f8a38b8c544d76bd0831",
+  "sha256": "f25c6e6849342c4b47fafd9fb28a2a657a87e1b791bfd1b3d02383dadaca9a81",
   "subject": "¿Seguimos platicando, {{contact.first_name}}?"
  },
  "01-retiro-en": {
   "id": "6ae370fd5947e02374626e09",
   "ghl_name": "Web 01 · Retiro EN",
   "workflow": "Web: Retiro",
-  "sha256": "262e98db12438eb3c00b5851efe00949fd1e96e7b29a5a7d85ba1c1375caf291",
+  "sha256": "192b9002043fc6d0d5781970b3529c0d4a3517a92a2e657af24ca7375b8b7d46",
   "subject": "We have your retreat request"
  },
  "02-evento-en": {
   "id": "6ae370fd02316e72fd7b33b6",
   "ghl_name": "Web 02 · Evento EN",
   "workflow": "Web: Evento",
-  "sha256": "152bed70a51b911abc9543d8f7c57be5a1ef402bd61593ec4aaee9b532d147b0",
+  "sha256": "51c95abba31a70745499d070d6175e71db4838a2b0d464d1ffe64b8e9dffbe63",
   "subject": "We have your event request"
  },
  "03-boda-en": {
   "id": "6ae370fe96c503e784aff29f",
   "ghl_name": "Web 03 · Boda EN",
   "workflow": "Web: Boda",
-  "sha256": "ddb17a11bf8db63d2f24e0385ba81087cb57e92aab479fa6c4e316b63e62d7f6",
+  "sha256": "d17b7def5642588125ee756ddff9b5e244139bde31bd73504e8e207beba5891d",
   "subject": "We have your wedding details"
  },
  "04-contacto-en": {
   "id": "6ae370ff79173350f1e5e03d",
   "ghl_name": "Web 04 · Contacto EN",
   "workflow": "Web: Contacto",
-  "sha256": "27bb505d88181068e67c526c7e72af56730e328bf4c96ffa7a6fb81d927f5852",
+  "sha256": "b6d4c0859b062abf75d4cbbdd7696933ab3514788e8cf970bf1e9527e7fb1313",
   "subject": "We have your message"
  },
  "05-voluntariado-en": {
   "id": "6ae37100c3b3bfb3ee049665",
   "ghl_name": "Web 05 · Voluntariado EN",
   "workflow": "Web: Voluntariado",
-  "sha256": "d3fd0272507d7859d36c67ab67062752d4d306c136c815900dc747fa8f903081",
+  "sha256": "26bfe90cdcf7aecffb670db937118a5eceb2059efe874fce23de9176adb92506",
   "subject": "We have your volunteer application"
  },
  "06-bienvenida-en": {
   "id": "6ae3710080bccb24eca616e4",
   "ghl_name": "Web 06 · Bienvenida newsletter EN",
   "workflow": "Web: Newsletter bienvenida",
-  "sha256": "dbbdc0354acd746003736c0bc8617eb73544f85b7c6820f3cb743e88317cf0ee",
+  "sha256": "2239c97b1052c8d9e144b69f5be2438aab71f761461dc58bc0907d6d2d2f0f9f",
   "subject": "Welcome to the Finca"
  },
  "07-seguimiento-en": {
   "id": "6ae371015bcf8a798026906d",
   "ghl_name": "Web 07 · Seguimiento 3 días EN",
   "workflow": "Seguimiento a los 3 días (Retiro, Evento, Boda, Contacto)",
-  "sha256": "426f629cc540b0ed018232faeb0fd0b39f886d5799c8ba8d2ccc88527ed43303",
+  "sha256": "2a31f4f8d4a1b1f8f93fc361c24e2174b7d5c0fb1fd88ed7ddb2e2830716438b",
   "subject": "Shall we keep talking, {{contact.first_name}}?"
  },
  "00-aviso-interno": {
   "id": "6ae37102050bd1f5c1ca19cc",
   "ghl_name": "Web 00 · Aviso interno",
   "workflow": "Todos los formularios (aviso interno)",
-  "sha256": "022f27109cbbbbb09db3e0ce6d8f0df6ebf8dba03dae63e6a3719453695d42d7",
+  "sha256": "7565517a5945b69d506b91bf866a5f86e710596f230c29638da1978559d916a7",
   "subject": "Nueva solicitud web: {{contact.name}}"
  }
 }

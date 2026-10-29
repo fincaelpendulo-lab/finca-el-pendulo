@@ -71,7 +71,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
 const connect = ["'self'", 'https://challenges.cloudflare.com', 'https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com'];
 const formOrigin = site.formEndpoint ? new URL(site.formEndpoint).origin : '';
 if (formOrigin) connect.push(formOrigin);
-const bookingOrigin = site.booking.embed ? new URL(site.booking.embed).origin : '';
+const bookingOrigin = [site.booking.embed, site.callBooking?.embed].filter(Boolean).map((u) => new URL(u).origin).join(' ');
 const csp = [
   "default-src 'self'",
   `script-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com ${bookingOrigin}`.trim(),

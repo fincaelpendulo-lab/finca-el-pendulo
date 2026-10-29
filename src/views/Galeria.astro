@@ -22,7 +22,7 @@ for (const c of experiencias) { alts[c.photo] ??= c.alt[lang]; for (const d of c
 for (const x of eventos) alts[x.photo] ??= x.alt[lang];
 const pretty = (n: string) => { const s = n.replace(/^(card|esp)-/, '').replace(/-\d+$/, '').replace(/-/g, ' '); return s.charAt(0).toUpperCase() + s.slice(1); };
 // Rooms have their own page (/hospedaje), so they stay out of the gallery.
-const names = Object.keys(photos).filter((n) => !n.startsWith('hab-')).sort();
+const names = Object.keys(photos).filter((n) => !n.startsWith('hab-') && !n.startsWith('stock-')).sort();
 const schema = {
   '@type': 'ImageGallery',
   name: es ? 'Galería de fotos de Finca El Péndulo' : 'Finca El Péndulo photo gallery',

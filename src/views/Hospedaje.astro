@@ -16,6 +16,7 @@ const { lang } = Astro.props;
 const es = lang === 'es';
 const L = (p: string) => href(localize(p, lang));
 const path = localize('/hospedaje', lang);
+import Reviews from '../components/Reviews.astro';
 ---
 <BaseLayout lang={lang} path={path}
   title={es ? 'Hospedaje en Tepatitlán: habitaciones y cabañas | Finca El Péndulo' : 'Stay: rooms and cabins in Jalisco | Finca El Péndulo'}
@@ -65,6 +66,7 @@ const path = localize('/hospedaje', lang);
     </section>
   ))}
 
+  <Reviews lang={lang} limit={3} />
   <StatementBand tone="corn">
     {es ? '¿Tienes dudas sobre tu estancia?' : 'Questions about your stay?'}
     <div slot="action" class="actions">

@@ -1,21 +1,21 @@
 ---
 // Google reviews: rating and count from src/data/site.json → reviews (update by hand), and the reviews
-// the Finca chooses to show in src/data/resenas-google.json ({ by, date, rating, text: { es, en } }).
-// Volunteer testimonials live on /voluntariado and /comunidad, not here.
+// the Finca chooses to show in src/data/resenas-google.json ({ rating, context: { es, en }, text: { es, en } }).
+// Excerpts only, no reviewer names. Volunteer testimonials live only on /voluntariado.
 import site from '../data/site.json';
 import resenas from '../data/resenas-google.json';
 import type { Lang } from '../lib/i18n';
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; tone?: 'white' | 'arena'; limit?: number }
+const { lang, tone = 'white', limit } = Astro.props;
 const es = lang === 'es';
 const r = site.reviews;
-type Review = { by: string; date?: string; rating: number; text: { es: string; en: string } };
-const list = resenas as Review[];
+type Review = { rating: number; context?: { es: string; en: string }; text: { es: string; en: string } };
+const list = (resenas as Review[]).filter((q) => q.rating >= 4).slice(0, limit);
 const placeId = new URL(r.url).searchParams.get('query_place_id');
 const writeUrl = placeId ? `https://search.google.com/local/writereview?placeid=${placeId}` : r.url;
 const stars = (n: number) => '★★★★★'.slice(0, Math.round(n)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(n));
 ---
-<section class="section">
+<section class:list={['section', tone === 'arena' && 'section--arena']}>
   <div class="wrap">
     <p class="label">{es ? 'Opiniones en Google' : 'Google reviews'}</p>
     <div class="split-head">
@@ -38,7 +38,7 @@ const stars = (n: number) => '★★★★★'.slice(0, Math.round(n)) + '☆☆
           <figure class="card">
             <p class="g-rating__stars" aria-label={es ? `${q.rating} de 5 estrellas` : `${q.rating} out of 5 stars`}>{stars(q.rating)}</p>
             <blockquote class="t-lead review__text"><p>{q.text[lang]}</p></blockquote>
-            <figcaption class="label label--tight">{q.by}<span class="muted"> · Google{q.date ? ` · ${q.date}` : ''}</span></figcaption>
+            <figcaption class="label label--tight">{es ? 'Opinión en Google' : 'Google review'}{q.context && <span class="muted"> · {q.context[lang]}</span>}{!es && <span class="muted"> · translated from Spanish</span>}</figcaption>
           </figure>
         ))}
       </div>

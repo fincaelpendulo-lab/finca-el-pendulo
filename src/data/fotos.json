@@ -322,5 +322,77 @@
   "yoga-palapa": {
     "es": "Yoga bajo la palapa",
     "en": "Yoga under the palapa"
+  },
+  "grupo-osho-hut-circulo": {
+    "es": "Un grupo en círculo dentro del Osho Hut durante un retiro",
+    "en": "A group sitting in a circle inside the Osho Hut during a retreat"
+  },
+  "grupo-agora-gnosis": {
+    "es": "Sesión de trabajo de un retiro en el Salón Ágora Gnosis",
+    "en": "A retreat work session in the Ágora Gnosis hall"
+  },
+  "grupo-cena-retiro": {
+    "es": "Cena de un grupo de retiro en la mesa larga",
+    "en": "A retreat group sharing dinner at the long table"
+  },
+  "grupo-jardin-temazcal": {
+    "es": "Grupo reunido en el jardín junto al temazcal",
+    "en": "A group gathered in the garden beside the temazcal"
+  },
+  "grupo-celebracion": {
+    "es": "Celebración con cantos y música durante un retiro",
+    "en": "A celebration with songs and music during a retreat"
+  },
+  "grupo-fuente": {
+    "es": "Grupo de retiro junto a la fuente y las cabañas de palapa",
+    "en": "A retreat group by the fountain and the palapa cabins"
+  },
+  "grupo-yoga-oraculo": {
+    "es": "Práctica de yoga por la mañana en el Oráculo",
+    "en": "Morning yoga practice in the Oráculo"
+  },
+  "grupo-temazcal": {
+    "es": "Grupo frente al temazcal antes de entrar",
+    "en": "A group in front of the temazcal before going in"
+  },
+  "grupo-taller-arte": {
+    "es": "Grupo trabajando en el taller de arte",
+    "en": "A group working in the art studio"
+  },
+  "hike-cerro-campana": {
+    "es": "Ladera del Cerro de la Campana",
+    "en": "The slopes of the Cerro de la Campana"
+  },
+  "kambo-ceremonia": {
+    "es": "Ceremonia de kambo con acompañamiento",
+    "en": "A kambo ceremony with guidance"
+  },
+  "tambor-chamanico": {
+    "es": "Tambor chamánico en el Oráculo",
+    "en": "A shamanic drum in the Oráculo"
+  },
+  "barras-access": {
+    "es": "Sesión de Barras de Access",
+    "en": "An Access Bars session"
+  },
+  "cocina-tortillas": {
+    "es": "Tortillas hechas a mano en la cocina de la Finca",
+    "en": "Handmade tortillas in the Finca kitchen"
+  },
+  "grupo-danza": {
+    "es": "Grupo bailando en círculo por la noche",
+    "en": "A group dancing in a circle at night"
+  },
+  "canto-ukulele": {
+    "es": "Canto con ukulele durante un retiro",
+    "en": "Singing with a ukulele during a retreat"
+  },
+  "circulo-mujeres-osho": {
+    "es": "Círculo de mujeres dentro del Osho Hut",
+    "en": "A women’s circle inside the Osho Hut"
+  },
+  "grupo-circulo-agaves": {
+    "es": "Círculo de grupo entre los agaves",
+    "en": "A group circle among the agaves"
   }
 }

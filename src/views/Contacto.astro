@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ContactForm from '../components/ContactForm.astro';
+import CallBooking from '../components/CallBooking.astro';
 import Location from '../components/Location.astro';
 import TileBand from '../components/TileBand.astro';
 import Button from '../components/Button.astro';
@@ -36,6 +37,7 @@ const a = site.address;
       <ContactForm lang={lang} crm="contacto" />
     </div>
   </section>
+  <CallBooking lang={lang} tone="arena" title={es ? '¿Organizas un retiro, evento o boda? Agenda una llamada' : 'Planning a retreat, event or wedding? Book a call'} />
   <TileBand />
   <Location lang={lang} />
 </BaseLayout>

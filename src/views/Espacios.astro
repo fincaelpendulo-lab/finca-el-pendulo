@@ -18,6 +18,7 @@ const es = lang === 'es';
 const L = (p: string) => href(localize(p, lang));
 const path = localize('/espacios', lang);
 const tones = ['ground', 'agave-oscuro', 'wood', 'negro'] as const;
+import Reviews from '../components/Reviews.astro';
 ---
 <BaseLayout lang={lang} path={path}
   title={es ? 'Espacios: Osho Hut, temazcal, lago y más | Finca El Péndulo' : 'Spaces: Osho Hut, temazcal, lake and more | Finca El Péndulo'}
@@ -61,6 +62,7 @@ const tones = ['ground', 'agave-oscuro', 'wood', 'negro'] as const;
     </div>
   </section>
 
+  <Reviews lang={lang} limit={3} />
   <StatementBand tone="ground">
     {es ? 'Los espacios están incluidos cuando reservas tu retiro o te hospedas.' : 'The spaces are included when you book your retreat or stay with us.'}
     <div slot="action" class="actions">

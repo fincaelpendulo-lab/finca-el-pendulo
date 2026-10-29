@@ -23,8 +23,8 @@
     "country": "MX"
   },
   "geo": {
-    "latitude": null,
-    "longitude": null
+    "latitude": 20.8552543,
+    "longitude": -102.8346738
   },
   "maps": "https://www.google.com/maps/search/?api=1&query=Finca%20El%20P%C3%A9ndulo%20Tepatitl%C3%A1n&query_place_id=ChIJl-SHxpfZKIQR9TSdabRfndk",
   "ga4Id": "G-STH85VTPEH",
@@ -42,5 +42,11 @@
     "source": "Google",
     "checked": "2026-10-28",
     "url": "https://www.google.com/maps/search/?api=1&query=Finca%20El%20P%C3%A9ndulo%20Tepatitl%C3%A1n&query_place_id=ChIJl-SHxpfZKIQR9TSdabRfndk"
+  },
+  "callBooking": {
+    "url": "https://info.fincaelpendulo.com/widget/bookings/cotiza-tu-retiro",
+    "embed": "https://info.fincaelpendulo.com/widget/booking/opFfmVxKvArPQofXkFhC",
+    "script": "https://info.fincaelpendulo.com/js/form_embed.js",
+    "id": "opFfmVxKvArPQofXkFhC"
   }
 }

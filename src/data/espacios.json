@@ -9,7 +9,7 @@
       "es": "Salón ceremonial",
       "en": "Ceremonial hall"
     },
-    "photo": "esp-osho-hut-1",
+    "photo": "esp-osho-hut-3",
     "alt": {
       "es": "El Osho Hut, de piedra y techo de palapa, entre jardines",
       "en": "The Osho Hut, stone walls and a palm roof among gardens"
@@ -17,7 +17,7 @@
     "gallery": [
       "osho-hut-sala",
       "osho-hut-grupo",
-      "esp-osho-hut-3",
+      "esp-osho-hut-1",
       "osho-hut-arcoiris",
       "altar-oraculo",
       "oraculo-velas",
@@ -49,13 +49,13 @@
       "es": "Espacio al aire libre",
       "en": "Open-air space"
     },
-    "photo": "esp-oraculo-1",
+    "photo": "esp-oraculo-2",
     "alt": {
       "es": "El Oráculo, círculo de pilares de ónix entre árboles",
       "en": "The Oráculo, a circle of onyx pillars among trees"
     },
     "gallery": [
-      "esp-oraculo-2",
+      "esp-oraculo-1",
       "esp-oraculo-3",
       "yoga-matutino",
       "yoga-circulo",
@@ -88,13 +88,13 @@
       "es": "Sala de trabajo",
       "en": "Meeting room"
     },
-    "photo": "esp-agora-gnosis-1",
+    "photo": "esp-agora-gnosis-2",
     "alt": {
       "es": "El Salón Ágora Gnosis con mesa de juntas",
       "en": "The Ágora Gnosis hall with its meeting table"
     },
     "gallery": [
-      "esp-agora-gnosis-2"
+      "esp-agora-gnosis-1"
     ],
     "short": {
       "es": "Para juntas, presentaciones y talleres.",
@@ -152,17 +152,16 @@
       "es": "Espacio ceremonial",
       "en": "Ceremonial space"
     },
-    "photo": "esp-temazcal-1",
+    "photo": "esp-temazcal-3",
     "alt": {
       "es": "El temazcal, cúpula tradicional con tinas de agua fría",
       "en": "The temazcal, a traditional dome with cold-water tubs"
     },
     "gallery": [
       "esp-temazcal-2",
-      "esp-temazcal-3",
+      "esp-temazcal-1",
       "esp-temazcal-4",
       "card-temazcal",
-      "temazcal-saludo",
       "temazcal-interior",
       "temazcal-tinas",
       "sahumerio"

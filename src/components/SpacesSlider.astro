@@ -1,0 +1,44 @@
+---
+// Slider of the Finca's spaces (src/data/espacios.json): scroll-snap track with previous/next buttons.
+// Swipe or scroll on touch; each slide links to its space on /espacios. Buttons are wired in public/js/site.js (CSP blocks inline scripts).
+import Photo from './Photo.astro';
+import espacios from '../data/espacios.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; ids?: string[] }
+const { lang, ids } = Astro.props;
+const es = lang === 'es';
+const list = ids ? ids.map((id) => espacios.find((e) => e.id === id)!).filter(Boolean) : espacios;
+const L = (p: string) => href(localize(p, lang));
+---
+<div class="slider" data-slider>
+  <ul class="slider__track" data-slider-track aria-label={es ? 'Espacios de la Finca' : 'Spaces at the Finca'}>
+    {list.map((e) => (
+      <li class="slider__slide">
+        <a href={L(`/espacios#${e.id}`)} class="slider__link">
+          <div class="slider__media"><Photo name={e.photo} alt={e.alt[lang]} sizes="(max-width: 760px) 80vw, 420px" widths={[640, 960]} /></div>
+          <p class="label label--tight">{e.kind[lang]}</p>
+          <h3 class="slider__title">{e.name[lang]}</h3>
+          <p class="muted">{e.short[lang]}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <div class="slider__nav">
+    <button type="button" class="slider__btn" data-slider-prev aria-label={es ? 'Espacio anterior' : 'Previous space'}>←</button>
+    <button type="button" class="slider__btn" data-slider-next aria-label={es ? 'Siguiente espacio' : 'Next space'}>→</button>
+  </div>
+</div>
+<style>
+  .slider__track { display: flex; gap: 12px; margin: 0; padding: 0 0 8px; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .slider__slide { flex: none; width: clamp(260px, 30vw, 420px); scroll-snap-align: start; }
+  .slider__link { display: block; color: var(--ink); text-decoration: none; }
+  .slider__media { aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: var(--space-4); }
+  .slider__media :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .slider__link:hover .slider__media :global(img) { transform: scale(1.04); }
+  .slider__title { font-family: var(--font-display); font-weight: 400; font-size: 26px; margin: 4px 0 6px; }
+  .slider__nav { display: flex; gap: 8px; justify-content: flex-end; margin-top: var(--space-4); }
+  .slider__btn { width: 48px; height: 48px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 20px; cursor: pointer; }
+  .slider__btn:hover { background: var(--ink); color: var(--white, #fff); }
+  @media (prefers-reduced-motion: reduce) { .slider__media :global(img) { transition: none; } }
+</style>

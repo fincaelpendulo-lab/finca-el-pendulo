@@ -15,7 +15,7 @@ Sitio de Finca El Péndulo (Tepatitlán de Morelos, Jalisco). Astro estático, e
 | Equipo (Comunidad) | `src/data/equipo.json` |
 | Blog | `src/content/blog/<nombre>.<es|en>.md` (title, description, date, image, slug, pair) |
 | Newsletter (pop-up una vez por visita y franja sobre el pie) | `NewsletterForm.astro`, `[data-newsletter]` en `site.js`; sin Worker abre WhatsApp |
-| Testimonios | `src/data/testimonios.json` |
+| Testimonios de voluntarios (solo en /voluntariado; en correos y demás páginas van reseñas de Google) | `src/data/testimonios.json` |
 | Menú, pie de página, textos de botones | `src/data/ui.ts` |
 | Texto de cada página (ES y EN en el mismo archivo) | `src/views/*.astro` |
 | Rutas en inglés | `src/lib/i18n.ts` (`enRoutes`) |
@@ -32,7 +32,10 @@ Sitio de Finca El Péndulo (Tepatitlán de Morelos, Jalisco). Astro estático, e
 | Correos de los workflows de GHL (ES/EN, aviso interno, bienvenida, seguimiento) | `worker/emails/build.py` → `python3 worker/emails/build.py`; fotos con `node worker/emails/images.mjs` → `public/email/`; ids en `ghl-templates.json`; subir con `sync.py --push` |
 | Descripción (alt y título) de cada foto de la galería | `src/data/fotos.json` |
 | Página de gracias tras formularios CRM (`?f=<form>` elige el mensaje; noindex, fuera del sitemap) | `src/views/Gracias.astro` |
-| Calificación de Google (actualizar a mano) | `src/data/site.json` → `reviews`; reseñas elegidas en `src/data/resenas-google.json` |
+| Calificación de Google (actualizar a mano) | `src/data/site.json` → `reviews`; extractos de reseñas positivas (sin nombres) en `src/data/resenas-google.json`, los usan `Reviews.astro` y los correos |
+| Calendario para agendar llamadas (GHL "Cotiza tu retiro") | `src/data/site.json` → `callBooking`; `CallBooking.astro` en Retiros, Eventos, Bodas y Contacto; botón en los correos |
+| Slider de espacios | `SpacesSlider.astro` (lista de `ids` de `espacios.json`), en Retiros |
+| Tipos de retiro (SEO: holísticos, yoga, empresariales, liderazgo…) | `src/data/retiros.json` → `types`; preguntas de Retiros en `src/views/Retiros.astro` |
 | Day Pass y Sesión de fotos (precios, incluye) | `src/data/visitas.json` |
 | Reglamento (página /reglamento, enlazado en el pie) | `src/data/reglamento.json` |
 | Experiencias: cada actividad con foto y texto | `src/data/experiencias.json` → `details` |
@@ -57,13 +60,14 @@ Estructura copiada de mexisol.world (repo `~/Developer/mexisol-world`), con colo
 PENDIENTE: Carlos enviará la guía de voz. Mientras tanto: cálida, serena, concreta; habla de "la Finca"; tutea en español.
 
 ## Fotos
-- Solo fotos de la carpeta de Carlos en buena calidad (mín. ~1400 px de lado largo). Las que solo existen a 1024 px (habitaciones, fotos históricas, Gaia, Hormiguero) se escalaron 1.5x con nitidez.
+- Fotos de stock libres de derechos (Unsplash) solo en close-up y con nombre `stock-*` (comida: `stock-comida-*`), para que no parezcan de la Finca; nunca en la Galería. Por lo demás, solo fotos de la carpeta de Carlos en buena calidad (mín. ~1400 px de lado largo). Las que solo existen a 1024 px (habitaciones, fotos históricas, Gaia, Hormiguero) se escalaron 1.5x con nitidez.
 - Nunca la misma foto dos veces en una sección, ni dos nombres para la misma imagen. El hero y la tira animada del inicio no comparten fotos.
 - Alberca: `alberca-01`, `alberca-02`, `alberca-03`, `alberca-04-vertical`, `alberca-mural`.
 - Osho Hut: `esp-osho-hut-1` (interior), `osho-hut-sala`, `esp-osho-hut-3` (exterior), `osho-hut-arcoiris`.
 - Terraza Ambú: `esp-terraza-ambu-1..3`, `terraza-ambu-noche`, `terraza-ambu-fuente`, `cena-candiles`. Ágora Gnosis: `esp-agora-gnosis-1/2`. El 27: `invernadero-mesa`, `esp-el-27-3`. Atrio del maestro: `atrio-flores`, `atrio-meditacion`, `atrio-grupo`.
 - El 27 (invernadero con mesa larga) no es el Invernadero Gaia.
 - Pedir permiso antes de usar en anuncios fotos donde se reconozca a alguien.
+- Fotos de grupos de retiros (`grupo-*`): disco "FINCA EL PENDULO/MexiSoul" (retiro de mujeres jun 2026, enero 2026). Sin fotos que muestren medicinas (salvo Kambo en Experiencias, pedido por Carlos). Ruger (MexiSoul) no puede aparecer en ninguna foto.
 - Selección de Carlos: disco "FINCA EL PENDULO/Selección de fotos" (generales + `Hospedaje/` por tipo de habitación).
 
 ## Personas que se pueden nombrar

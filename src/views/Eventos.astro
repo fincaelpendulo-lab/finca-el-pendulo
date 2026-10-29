@@ -5,6 +5,8 @@ import SectionHeader from '../components/SectionHeader.astro';
 import SpaceCard from '../components/SpaceCard.astro';
 import ColorSplit from '../components/ColorSplit.astro';
 import ContactForm from '../components/ContactForm.astro';
+import CallBooking from '../components/CallBooking.astro';
+import Reviews from '../components/Reviews.astro';
 import Location from '../components/Location.astro';
 import Button from '../components/Button.astro';
 import UpcomingEvents from '../components/UpcomingEvents.astro';
@@ -49,6 +51,8 @@ const venues = ['terraza-ambu', 'osho-hut', 'sammasati', 'lago', 'el-27', 'jardi
     <p>{es ? 'Dinos la fecha, cuántas personas esperas y qué tienes en mente. Te respondemos con opciones de espacios, hospedaje y alimentos.' : 'Tell us the date, how many guests you expect and what you have in mind. We will reply with options for spaces, lodging and food.'}</p>
     <Button slot="action" href={whatsappUrl} tone="light" variant="secondary" track="whatsapp">{t('whatsapp', lang)}</Button>
   </ColorSplit>
-  <section class="section"><div class="wrap" style="max-width:860px"><ContactForm lang={lang} interest="evento" id="cotiza-evento" crm="evento" /></div></section>
+  <CallBooking lang={lang} tone="arena" title={es ? 'Platiquemos tu evento en una llamada' : 'Let’s talk about your event on a call'} />
+  <Reviews lang={lang} limit={3} />
+  <section class="section section--arena"><div class="wrap" style="max-width:860px"><ContactForm lang={lang} interest="evento" id="cotiza-evento" crm="evento" /></div></section>
   <Location lang={lang} />
 </BaseLayout>

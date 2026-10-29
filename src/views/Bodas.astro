@@ -6,6 +6,8 @@ import SectionHeader from '../components/SectionHeader.astro';
 import SpaceCard from '../components/SpaceCard.astro';
 import PhotoMosaic from '../components/PhotoMosaic.astro';
 import ContactForm from '../components/ContactForm.astro';
+import CallBooking from '../components/CallBooking.astro';
+import Reviews from '../components/Reviews.astro';
 import Location from '../components/Location.astro';
 import espacios from '../data/espacios.json';
 import { href } from '../lib/url';
@@ -65,6 +67,8 @@ const tones = ['ground', 'agave-oscuro', 'wood'] as const;
     </div>
   </section>
 
+  <Reviews lang={lang} limit={3} />
+  <CallBooking lang={lang} tone="arena" title={es ? 'Platiquemos tu boda en una llamada' : 'Let’s talk about your wedding on a call'} />
   <section class="section">
     <div class="wrap grid-2">
       <SectionHeader title={es ? 'Cuéntanos de tu boda' : 'Tell us about your wedding'}>

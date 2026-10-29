@@ -5,7 +5,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import ColorSplit from '../components/ColorSplit.astro';
 import Location from '../components/Location.astro';
 import Button from '../components/Button.astro';
-import testimonios from '../data/testimonios.json';
+import Reviews from '../components/Reviews.astro';
 import equipo from '../data/equipo.json';
 import Photo from '../components/Photo.astro';
 import { Image } from 'astro:assets';
@@ -58,14 +58,7 @@ const path = localize('/comunidad', lang);
       </div>
     </div>
   </section>
-  <section class="section">
-    <div class="wrap">
-      <SectionHeader class="section-head" title={es ? 'Testimonios' : 'In their words'} />
-      <div class="quotes">
-        {testimonios.map((q) => <blockquote class="quote"><p>“{q.text[lang]}”</p><cite>{q.by}, {q.role[lang]}</cite></blockquote>)}
-      </div>
-    </div>
-  </section>
+  <Reviews lang={lang} tone="arena" />
   <Location lang={lang} />
 </BaseLayout>
 <style>

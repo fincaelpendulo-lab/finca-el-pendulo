@@ -130,14 +130,14 @@
           "es": "Temazcal",
           "en": "Temazcal"
         },
-        "photo": "temazcal-saludo",
+        "photo": "temazcal-interior",
         "text": {
           "es": "Ceremonia de vapor de origen mesoamericano: calor, hierbas, cantos y oscuridad para purificar y renacer.",
           "en": "A Mesoamerican steam ceremony: heat, herbs, songs and darkness to cleanse and begin again."
         },
         "alt": {
-          "es": "Saludo a la entrada del temazcal",
-          "en": "A greeting at the temazcal entrance"
+          "es": "Grupo dentro del temazcal",
+          "en": "A group inside the temazcal"
         }
       },
       {
@@ -178,14 +178,14 @@
           "es": "Tambores chamánicos",
           "en": "Shamanic drumming"
         },
-        "photo": "esp-temazcal-3",
+        "photo": "tambor-chamanico",
         "text": {
           "es": "El ritmo constante del tambor acompaña viajes meditativos y estados de introspección profunda.",
           "en": "The steady beat of the drum guides meditative journeys and deep introspection."
         },
         "alt": {
-          "es": "Mujer tocando un tambor ceremonial",
-          "en": "A woman playing a ceremonial drum"
+          "es": "Hombre tocando un tambor chamánico",
+          "en": "A man playing a shamanic drum"
         }
       },
       {
@@ -194,14 +194,14 @@
           "es": "Kambo",
           "en": "Kambo"
         },
-        "photo": "ceremonia-pluma",
+        "photo": "kambo-ceremonia",
         "text": {
           "es": "Ceremonia de origen amazónico que se realiza con acompañamiento y preparación previa. Pregúntanos por fechas y requisitos.",
           "en": "A ceremony from the Amazon, done with guidance and prior preparation. Ask us about dates and requirements."
         },
         "alt": {
-          "es": "Ceremonia con pluma y sahumerio",
-          "en": "A ceremony with a feather and incense"
+          "es": "Aplicación de kambo con acompañamiento",
+          "en": "Kambo being applied with guidance"
         }
       },
       {
@@ -210,14 +210,14 @@
           "es": "Danzas de paz universal",
           "en": "Dances of Universal Peace"
         },
-        "photo": "ejercicio-grupo",
+        "photo": "grupo-danza",
         "text": {
           "es": "Danzas en círculo con cantos sencillos de distintas tradiciones, para moverse y celebrar en comunidad.",
           "en": "Circle dances with simple chants from many traditions, to move and celebrate together."
         },
         "alt": {
-          "es": "Grupo con los brazos en alto al aire libre",
-          "en": "A group with arms raised outdoors"
+          "es": "Grupo bailando en círculo",
+          "en": "A group dancing in a circle"
         }
       },
       {
@@ -274,14 +274,14 @@
           "es": "Activación de voz",
           "en": "Voice activation"
         },
-        "photo": "concierto-2",
+        "photo": "canto-ukulele",
         "text": {
           "es": "Ejercicios de respiración, sonido y canto para liberar la voz y expresarte con confianza.",
           "en": "Breath, sound and singing exercises to free your voice and express yourself with confidence."
         },
         "alt": {
-          "es": "Grupo sentado cantando bajo luces azules",
-          "en": "A seated group singing under blue lights"
+          "es": "Mujer cantando con un ukulele",
+          "en": "A woman singing with a ukulele"
         }
       },
       {
@@ -290,14 +290,14 @@
           "es": "Barras de Access",
           "en": "Access Bars"
         },
-        "photo": "osho-hut-sala",
+        "photo": "barras-access",
         "text": {
           "es": "Toques suaves en puntos de la cabeza que ayudan a relajar la mente y soltar tensión.",
           "en": "Gentle touch on points of the head that helps relax the mind and release tension."
         },
         "alt": {
-          "es": "Sala de piedra con sillas en círculo",
-          "en": "A stone hall with chairs in a circle"
+          "es": "Sesión de Barras de Access con las manos sobre la cabeza",
+          "en": "An Access Bars session with hands on the head"
         }
       },
       {
@@ -306,14 +306,14 @@
           "es": "Lectura del oráculo",
           "en": "Oracle reading"
         },
-        "photo": "altar-oraculo",
+        "photo": "card-oraculo",
         "text": {
           "es": "Una lectura con cartas de oráculo para reflexionar sobre tu momento y escuchar tu intuición.",
           "en": "A reading with oracle cards to reflect on where you are and listen to your intuition."
         },
         "alt": {
-          "es": "Altar con velas y flores en el Osho Hut",
-          "en": "An altar with candles and flowers in the Osho Hut"
+          "es": "El Oráculo de la Finca visto desde arriba",
+          "en": "The Finca’s Oráculo seen from above"
         }
       },
       {
@@ -322,14 +322,14 @@
           "es": "Círculos de mujeres",
           "en": "Women's circles"
         },
-        "photo": "circulo-mujeres",
+        "photo": "circulo-mujeres-osho",
         "text": {
           "es": "Encuentros para compartir, escucharse y acompañarse entre mujeres, en un espacio seguro.",
           "en": "Gatherings where women share, listen and support each other in a safe space."
         },
         "alt": {
-          "es": "Mujeres reunidas en el jardín",
-          "en": "Women gathered in the garden"
+          "es": "Círculo de mujeres dentro del Osho Hut",
+          "en": "A women’s circle inside the Osho Hut"
         }
       },
       {
@@ -338,14 +338,14 @@
           "es": "Lectura de tarot terapéutico",
           "en": "Therapeutic tarot reading"
         },
-        "photo": "altar-velas",
+        "photo": "stock-tarot",
         "text": {
           "es": "El tarot como herramienta de autoconocimiento: preguntas, símbolos y diálogo para ver con claridad.",
           "en": "Tarot as a tool for self-knowledge: questions, symbols and conversation to see more clearly."
         },
         "alt": {
-          "es": "Velas y flores sobre un altar",
-          "en": "Candles and flowers on an altar"
+          "es": "Cartas de tarot sobre la mesa",
+          "en": "Tarot cards on a table"
         }
       },
       {
@@ -354,14 +354,14 @@
           "es": "Hipnosis",
           "en": "Hypnosis"
         },
-        "photo": "oraculo-velas",
+        "photo": "stock-pendulo",
         "text": {
           "es": "Sesiones de relajación profunda guiada para trabajar hábitos, emociones y bienestar.",
           "en": "Guided deep-relaxation sessions to work on habits, emotions and wellbeing."
         },
         "alt": {
-          "es": "Mujer preparando velas en el Osho Hut",
-          "en": "A woman setting out candles in the Osho Hut"
+          "es": "Péndulo de cuarzo colgando de una cadena",
+          "en": "A quartz pendulum hanging from a chain"
         }
       }
     ]
@@ -405,14 +405,14 @@
           "es": "Hike al Cerro de la Campana",
           "en": "Hike up Cerro de la Campana"
         },
-        "photo": "aerea-complejo",
+        "photo": "hike-cerro-campana",
         "text": {
           "es": "Caminata hasta el Cerro de la Campana para mirar desde lo alto el valle y los campos de agave de Los Altos.",
           "en": "A hike up Cerro de la Campana to take in the valley and the agave fields of Los Altos from above."
         },
         "alt": {
-          "es": "Vista aérea de la Finca y el valle",
-          "en": "Aerial view of the Finca and the valley"
+          "es": "Ladera del Cerro de la Campana con una vaca pastando",
+          "en": "The slopes of the Cerro de la Campana with a grazing cow"
         }
       },
       {
@@ -542,14 +542,14 @@
           "es": "Arteterapia",
           "en": "Art therapy"
         },
-        "photo": "pintura-rostro",
+        "photo": "grupo-taller-arte",
         "text": {
           "es": "El arte como camino para expresar emociones y conocerte, sin necesidad de experiencia previa.",
           "en": "Art as a way to express emotions and know yourself, no experience needed."
         },
         "alt": {
-          "es": "Pintura de rostro durante una actividad",
-          "en": "Face painting during an activity"
+          "es": "Grupo trabajando en el taller de arte",
+          "en": "A group working in the art studio"
         }
       },
       {
@@ -590,14 +590,14 @@
           "es": "Taller de cocina y panadería",
           "en": "Cooking and baking workshop"
         },
-        "photo": "horno-talavera",
+        "photo": "cocina-tortillas",
         "text": {
           "es": "Cocina con ingredientes del huerto y hornea pan en el horno de leña de talavera.",
           "en": "Cook with ingredients from the garden and bake bread in the tiled wood-fired oven."
         },
         "alt": {
-          "es": "Horno de leña cubierto de talavera",
-          "en": "A wood-fired oven covered in talavera tiles"
+          "es": "Tortillas hechas a mano en el comal",
+          "en": "Handmade tortillas on the comal"
         }
       },
       {
@@ -622,14 +622,14 @@
           "es": "Creación de piñatas",
           "en": "Piñata making"
         },
-        "photo": "actividad-grupo",
+        "photo": "stock-pinata",
         "text": {
           "es": "Elabora una piñata tradicional mexicana desde cero, con papel, engrudo y mucho color.",
           "en": "Make a traditional Mexican piñata from scratch, with paper, paste and plenty of colour."
         },
         "alt": {
-          "es": "Grupo haciendo una actividad en el jardín",
-          "en": "A group doing an activity in the garden"
+          "es": "Piñata de colores",
+          "en": "A colourful piñata"
         }
       },
       {
@@ -638,14 +638,14 @@
           "es": "Actividades infantiles",
           "en": "Activities for children"
         },
-        "photo": "jacuzzi",
+        "photo": "stock-ninos-pintura",
         "text": {
           "es": "Juegos, talleres y naturaleza para que niñas y niños disfruten la Finca a su manera.",
           "en": "Games, workshops and nature so children can enjoy the Finca their own way."
         },
         "alt": {
-          "es": "Niños en el jacuzzi al aire libre",
-          "en": "Children in the outdoor jacuzzi"
+          "es": "Mano de un niño pintando con acuarelas",
+          "en": "A child’s hand painting with watercolours"
         }
       }
     ]

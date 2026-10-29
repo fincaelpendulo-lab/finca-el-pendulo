@@ -466,4 +466,17 @@
       io.observe(el);
     });
   }
+
+  // Spaces slider (SpacesSlider.astro): previous/next buttons scroll the track by one slide.
+  document.querySelectorAll('[data-slider]').forEach(function (el) {
+    var track = el.querySelector('[data-slider-track]');
+    if (!track) return;
+    var step = function () { var li = track.querySelector('li'); return (li ? li.offsetWidth : 300) + 12; };
+    var smooth = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    el.querySelectorAll('[data-slider-prev],[data-slider-next]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        track.scrollBy({ left: (b.hasAttribute('data-slider-prev') ? -1 : 1) * step(), behavior: smooth });
+      });
+    });
+  });
 })();

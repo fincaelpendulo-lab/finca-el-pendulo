@@ -4,11 +4,14 @@ import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import StatementBand from '../components/StatementBand.astro';
 import ExperienceColumns from '../components/ExperienceColumns.astro';
-import PhotoMosaic from '../components/PhotoMosaic.astro';
+import SpacesSlider from '../components/SpacesSlider.astro';
+import Photo from '../components/Photo.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Location from '../components/Location.astro';
 import TileBand from '../components/TileBand.astro';
 import Button from '../components/Button.astro';
+import CallBooking from '../components/CallBooking.astro';
+import Reviews from '../components/Reviews.astro';
 import retiros from '../data/retiros.json';
 import { t } from '../data/ui';
 import { href, whatsappUrl } from '../lib/url';
@@ -18,37 +21,97 @@ const { lang } = Astro.props;
 const es = lang === 'es';
 const L = (p: string) => href(localize(p, lang));
 const path = localize('/retiros', lang);
+const pay = retiros.payments.map((x) => `${x.pct}% ${x.when[lang].toLowerCase()}`).join(', ');
+const faqs: [string, string][] = es ? [
+  ['¿Dónde está la Finca y qué tan lejos queda de Guadalajara?', 'Finca El Péndulo está en Tepatitlán de Morelos, en Los Altos de Jalisco, a poco más de una hora de Guadalajara y de su aeropuerto internacional. Es una sede para retiros en la naturaleza sin tener que viajar lejos.'],
+  ['¿Qué tipos de retiro reciben?', 'Todo tipo de retiro: holísticos y de sanación, de yoga y meditación, empresariales, de liderazgo, de desarrollo personal, de creatividad y de bienestar, entre otros. Nuestro equipo trabajará cerca de ti para lograr experiencias inolvidables para tus huéspedes.'],
+  ['¿Pueden adaptar los alimentos a una dieta especial?', 'Sí. Preparamos menús adaptándonos a cualquier dieta: vegana, vegetariana, sin gluten, sin lácteos, ayuno, detox o alergias específicas. No importa qué tan complicado sea tu menú o tus requisitos.'],
+  ['¿Qué incluye el paquete para retiros?', `${retiros.includes.es.join(', ')}. Las actividades como temazcal, ceremonia de cacao, yoga o paseos a caballo se agregan según tu programa.`],
+  ['¿Cuál es el grupo mínimo?', `${retiros.minPeople} personas, incluyendo al staff del facilitador. El check-in es a las ${retiros.checkIn} y el check-out a las ${retiros.checkOut}.`],
+  ['¿Cómo se aparta la fecha?', `Los pagos se dividen así: ${pay}. ${retiros.cancellation.es}`],
+  ['¿Tienen transporte desde Guadalajara?', 'Sí. Tenemos transporte redondo desde el aeropuerto de Guadalajara o cualquier punto de la ciudad, con costo extra. Pídelo al cotizar tu retiro.'],
+  ['¿Puedo agendar una llamada antes de cotizar?', 'Sí. Elige día y hora en el calendario de esta página y platicamos de tu grupo, fechas y actividades. Después te enviamos la propuesta por correo o WhatsApp.'],
+] : [
+  ['Where is the Finca and how far is it from Guadalajara?', 'Finca El Péndulo is in Tepatitlán de Morelos, in the highlands of Jalisco, a little over an hour from Guadalajara and its international airport. It is a retreat venue in nature without a long journey.'],
+  ['What kinds of retreats do you host?', 'Every kind of retreat: holistic and healing, yoga and meditation, corporate, leadership, personal growth, creative and wellbeing, among others. Our team works closely with you to create unforgettable experiences for your guests.'],
+  ['Can you adapt the food to a special diet?', 'Yes. We prepare menus to suit any diet: vegan, vegetarian, gluten-free, dairy-free, fasting, detox or specific allergies. No matter how complex your menu or requirements are.'],
+  ['What does the retreat package include?', `${retiros.includes.en.join(', ')}. Activities such as temazcal, cacao ceremony, yoga or horse riding are added to suit your programme.`],
+  ['What is the minimum group size?', `${retiros.minPeople} people, including the facilitator's staff. Check-in is at ${retiros.checkIn} and check-out at ${retiros.checkOut}.`],
+  ['How do I hold the date?', `Payments are split like this: ${pay}. ${retiros.cancellation.en}`],
+  ['Do you offer transport from Guadalajara?', 'Yes. We offer round-trip transport from Guadalajara airport or anywhere in the city, at an extra cost. Ask for it when you request your quote.'],
+  ['Can I book a call before getting a quote?', 'Yes. Pick a day and time in the calendar on this page and we will talk about your group, dates and activities. Then we send the proposal by email or WhatsApp.'],
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: ans } })) };
+const serviceSchema = {
+  '@type': 'Service', name: es ? 'Sede para retiros en Jalisco' : 'Retreat venue in Jalisco, Mexico',
+  serviceType: retiros.types.map((x) => x.name[lang]),
+  areaServed: ['Guadalajara', 'Jalisco', 'México'], provider: { '@type': 'LodgingBusiness', name: 'Finca El Péndulo' },
+};
 ---
 <BaseLayout lang={lang} path={path}
-  title={es ? 'Sede para retiros holísticos cerca de Guadalajara | Finca El Péndulo' : 'Holistic retreat venue near Guadalajara, Mexico | Finca El Péndulo'}
-  description={es ? 'Sede para retiros holísticos cerca de Guadalajara. Hospedaje, 3 alimentos, coffee break y uso de los espacios incluidos. Cotiza tu retiro en línea.' : 'A retreat venue for facilitators in Tepatitlán, Jalisco. Lodging, 3 meals, coffee breaks and use of the spaces. Get a quote online.'}
-  ogImage="retreats" breadcrumbs={[{ name: es ? 'Retiros' : 'Retreats', path }]}>
-  <PageHeader lang={lang} video="aerea-palapa-agavero" image="aerea-palapa-agavero" alt={es ? 'La palapa larga frente al agavero y el valle de Los Altos' : 'The long palapa facing the agave field and the Los Altos valley'} eyebrow={es ? 'Retiros' : 'Retreats'} title={es ? 'Un lugar que sostiene tu retiro' : 'A place that holds your retreat'}>
+  title={es ? 'Retiros holísticos, de yoga y empresariales cerca de Guadalajara | Finca El Péndulo' : 'Holistic, yoga and corporate retreat venue near Guadalajara | Finca El Péndulo'}
+  description={es ? 'Sede para retiros holísticos, de yoga, meditación, liderazgo y empresariales en Jalisco, a una hora de Guadalajara. Hospedaje, 3 alimentos, coffee break y espacios incluidos.' : 'A venue for holistic, yoga, meditation, leadership and corporate retreats in Jalisco, an hour from Guadalajara. Lodging, 3 meals, coffee breaks and spaces included.'}
+  ogImage="retreats" schema={[serviceSchema, faqSchema]} breadcrumbs={[{ name: es ? 'Retiros' : 'Retreats', path }]}>
+  <PageHeader lang={lang} video="aerea-palapa-agavero" image="aerea-palapa-agavero" alt={es ? 'La palapa larga frente al agavero y el valle de Los Altos' : 'The long palapa facing the agave field and the Los Altos valley'} eyebrow={es ? 'Sede para retiros en Jalisco' : 'Retreat venue in Jalisco'} title={es ? 'Un lugar que sostiene tu retiro' : 'A place that holds your retreat'}>
     {es ? 'Para facilitadores que buscan un lugar natural, funcional y con comunidad para sostener experiencias de transformación, bienestar y conexión.' : 'For facilitators looking for a natural, practical place with a community behind it, to hold experiences of transformation, wellbeing and connection.'}
   </PageHeader>
 
-  <section class="section">
-    <div class="wrap grid-2">
-      <SectionHeader title={es ? 'Tú te enfocas en tu propósito. El espacio sostiene la experiencia.' : 'You focus on your purpose. The place holds the rest.'}>
-        {es ? 'Recibimos retiros de bienestar, desarrollo personal, creatividad y empresariales.' : 'We host wellbeing, personal growth, creative and company retreats.'}
-      </SectionHeader>
+  <section class="section compact">
+    <div class="wrap grid-2 media-split">
       <div class="stack">
-        <h3>{es ? 'El paquete incluye' : 'The package includes'}</h3>
+        <SectionHeader title={es ? 'Tú te enfocas en tu propósito. El espacio sostiene la experiencia.' : 'You focus on your purpose. The place holds the rest.'}>
+          {es ? 'Una sede para retiros holísticos, de yoga, de liderazgo y empresariales en Los Altos de Jalisco, a poco más de una hora de Guadalajara. Hospedaje, alimentos y espacios en un mismo lugar.' : 'A venue for holistic, yoga, leadership and corporate retreats in the highlands of Jalisco, a little over an hour from Guadalajara. Lodging, meals and spaces in one place.'}
+        </SectionHeader>
         <ul class="rule-list">{retiros.includes[lang].map((x) => <li>{x}</li>)}</ul>
         <dl class="facts">
           <div><dt>{es ? 'Grupo mínimo' : 'Minimum group'}</dt><dd>{es ? `${retiros.minPeople} personas, incluyendo staff` : `${retiros.minPeople} people, staff included`}</dd></div>
           <div><dt>Check-in / check-out</dt><dd>{retiros.checkIn} / {retiros.checkOut}</dd></div>
         </dl>
       </div>
+      <div class="media-split__photo"><Photo name="grupo-osho-hut-circulo" alt={es ? 'Un grupo en círculo dentro del Osho Hut durante un retiro' : 'A group sitting in a circle inside the Osho Hut during a retreat'} sizes="(max-width: 760px) 100vw, 50vw" /></div>
+    </div>
+  </section>
+
+  <section class="section section--arena compact" id="tipos">
+    <div class="wrap">
+      <SectionHeader class="section-head" eyebrow={es ? 'Tipos de retiro' : 'Kinds of retreat'} title={es ? 'Recibimos todo tipo de retiro' : 'We host every kind of retreat'}>
+        {es ? 'Nuestro equipo trabajará cerca de ti para lograr experiencias inolvidables para tus huéspedes. Algunos de los que más recibimos:' : 'Our team works closely with you to create unforgettable experiences for your guests. Some of the ones we host most often:'}
+      </SectionHeader>
+      <div class="cards cards--3">
+        {retiros.types.map((x) => (
+          <article class="type-card">
+            <div class="type-card__photo"><Photo name={x.photo} alt={x.name[lang]} sizes="(max-width: 520px) 100vw, (max-width: 800px) 50vw, 33vw" widths={[480, 800]} /></div>
+            <h3 class="type-card__title">{x.name[lang]}</h3>
+            <p class="muted type-card__text">{x.text[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="wrap grid-2 media-split">
+      <div class="media-split__photo"><Photo name="grupo-fuente" alt={es ? 'Grupo de retiro junto a la fuente y las cabañas de palapa' : 'A retreat group by the fountain and the palapa cabins'} sizes="(max-width: 760px) 100vw, 50vw" /></div>
+      <div class="stack">
+        <SectionHeader eyebrow={es ? 'Por qué la Finca' : 'Why the Finca'} title={es ? 'Una sede para retiros cerca de Guadalajara' : 'A retreat venue close to Guadalajara'}>
+          {es ? 'Tu grupo llega en poco más de una hora desde Guadalajara y se queda todo el retiro en un mismo lugar, sin traslados.' : 'Your group arrives in a little over an hour from Guadalajara and stays in one place for the whole retreat, with no transfers.'}
+        </SectionHeader>
+        <ul class="rule-list">
+          <li>{es ? 'Osho Hut, Oráculo, Salón Ágora Gnosis y Terraza Ambú' : 'The Osho Hut, the Oráculo, the Ágora Gnosis hall and the Ambú terrace'}</li>
+          <li>{es ? 'Habitaciones privadas, cabañas y aldeas compartidas' : 'Private rooms, cabins and shared villages'}</li>
+          <li>{es ? 'Temazcal, caballos, lago, cerámica, alberca y spa' : 'Temazcal, horses, a lake, pottery, a pool and spa'}</li>
+          <li>{es ? 'Una comunidad que cuida a tu grupo' : 'A community that looks after your group'}</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <TileBand />
-  <section class="section section--arena" id="cotizador">
+  <section class="section section--arena compact" id="cotizador">
     <div class="wrap grid-2">
       <div class="stack">
         <SectionHeader eyebrow={es ? 'Informes' : 'Enquiries'} title={es ? 'Cotiza tu retiro' : 'Plan your retreat'}>
-          {es ? 'Cuéntanos de tu retiro: fechas, número de personas y actividades. Te enviamos la información y una cotización a la medida.' : 'Tell us about your retreat and we will send a tailored quote on WhatsApp.'}
+          {es ? 'Cuéntanos fechas, número de personas y actividades. Te enviamos una cotización a la medida.' : 'Tell us your dates, group size and activities. We will send a tailored quote.'}
         </SectionHeader>
       </div>
       <div class="form-card"><ContactForm lang={lang} interest="retiro" id="cotiza" crm="retiro" /></div>
@@ -65,21 +128,77 @@ const path = localize('/retiros', lang);
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--arena compact">
     <div class="wrap">
-      <PhotoMosaic items={[
-        { image: 'circulo-de-piedra', alt: es ? 'Grupo en ceremonia sobre el círculo de piedra' : 'A group in ceremony on the stone circle', cols: 2, rows: 2 },
-        { image: 'yoga-matutino', alt: es ? 'Estiramientos matutinos en grupo' : 'Morning stretches as a group' },
-        { tone: 'agave-oscuro', title: es ? 'Ceremonias en el Osho Hut' : 'Ceremonies in the Osho Hut', text: es ? 'El espacio más sagrado de la Finca' : 'The most sacred space on the Finca' },
-        { image: 'circulo-de-fuego', alt: es ? 'Círculo de fuego por la noche' : 'A fire circle at night' },
-        { image: 'cena-velas', alt: es ? 'Cena a la luz de las velas' : 'Dinner by candlelight' },
-      ]} />
+      <SectionHeader class="section-head" eyebrow={es ? 'Espacios' : 'Spaces'} title={es ? 'Los espacios de la Finca para tu retiro' : 'The Finca’s spaces for your retreat'}>
+        {es ? 'Salas para ceremonia, práctica y trabajo, terrazas, temazcal, lago y jardines. Desliza para recorrerlos.' : 'Rooms for ceremony, practice and work, terraces, temazcal, a lake and gardens. Swipe to look around.'}
+      </SectionHeader>
+      <SpacesSlider lang={lang} ids={['osho-hut', 'oraculo', 'agora-gnosis', 'terraza-ambu', 'temazcal', 'sammasati', 'el-27', 'taller-de-arte', 'lago', 'caballerizas', 'alberca', 'spa', 'gaia', 'jardin-de-rosas']} />
+      <div class="actions"><Button href={L('/espacios')} variant="secondary">{es ? 'Ver los espacios' : 'See the spaces'}</Button></div>
     </div>
   </section>
 
+  <section class="section compact">
+    <div class="wrap grid-2 food">
+      <div class="stack">
+        <SectionHeader eyebrow={es ? 'Alimentación' : 'Food'} title={es ? 'Menús a la medida de tu grupo' : 'Menus made for your group'}>
+          {es ? 'Preparamos los menús de tu retiro adaptándonos a cualquier dieta: vegana, vegetariana, sin gluten, sin lácteos, ayuno, detox o lo que tu programa pida. No importa qué tan complicado sea tu menú o tus requisitos.' : 'We prepare your retreat menus to suit any diet: vegan, vegetarian, gluten-free, dairy-free, fasting, detox or whatever your programme calls for. No matter how complex your menu or requirements are.'}
+        </SectionHeader>
+        <ul class="rule-list">
+          <li>{es ? 'Tres alimentos al día y coffee break incluidos en el paquete' : 'Three meals a day and a coffee break included in the package'}</li>
+          <li>{es ? 'Alergias y restricciones atendidas persona por persona' : 'Allergies and restrictions handled person by person'}</li>
+          <li>{es ? 'Ingredientes frescos, algunos del invernadero de la Finca' : 'Fresh ingredients, some from the Finca’s greenhouse'}</li>
+          <li>{es ? 'Horarios de comida ajustados a tu programa' : 'Meal times fitted to your programme'}</li>
+        </ul>
+      </div>
+      <div class="food__photos">
+        <div class="food__wide"><Photo name="grupo-cena-retiro" alt={es ? 'Cena de un grupo de retiro en la mesa larga' : 'A retreat group sharing dinner at the long table'} sizes="(max-width: 760px) 100vw, 50vw" widths={[640, 960, 1280]} /></div>
+        <Photo name="stock-comida-ensalada" alt={es ? 'Ensalada fresca de hojas verdes y vegetales' : 'A fresh salad of greens and vegetables'} sizes="(max-width: 760px) 50vw, 300px" widths={[480, 800]} />
+        <Photo name="stock-comida-verduras" alt={es ? 'Zanahorias, champiñones y jitomates frescos' : 'Fresh carrots, mushrooms and tomatoes'} sizes="(max-width: 760px) 50vw, 300px" widths={[480, 800]} />
+      </div>
+    </div>
+  </section>
+
+  <CallBooking lang={lang} tone="arena" title={es ? 'Platiquemos tu retiro en una llamada' : 'Let’s talk about your retreat on a call'} />
+  <Reviews lang={lang} limit={3} />
+
   <StatementBand tone="wood" image="oraculo-noche" alt={es ? "El Oráculo iluminado al atardecer" : "The Oráculo lit up at dusk"}>
-    {es ? '¿Prefieres hablarlo? Escríbenos y agendamos una llamada.' : 'Would you rather talk it through? Message us and we will set up a call.'}
+    {es ? '¿Prefieres escribirnos? Te respondemos por WhatsApp.' : 'Would you rather message us? We reply on WhatsApp.'}
     <div slot="action" class="actions"><Button href={whatsappUrl} tone="light" track="whatsapp">{t('whatsapp', lang)}</Button></div>
   </StatementBand>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">{es ? 'Preguntas' : 'Questions'}</p>
+        <h2 class="t-heading">{es ? 'Preguntas sobre retiros' : 'Retreat questions'}</h2>
+      </div>
+      <div class="faq">
+        {faqs.map(([q, ans]) => <details><summary>{q}</summary><p>{ans}</p></details>)}
+      </div>
+    </div>
+  </section>
   <Location lang={lang} />
 </BaseLayout>
+<style>
+  .food { align-items: center; }
+  .food__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .food__photos :global(picture), .food__photos :global(img) { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .food__photos .food__wide { grid-column: 1 / -1; }
+  .food__photos .food__wide :global(img) { aspect-ratio: 16 / 10; }
+  /* Lighter text in the first part of the page: smaller lead and lists, each block paired with a photo. */
+  .compact :global(.fp-sh__title) { font-size: clamp(28px, 3vw, 40px); }
+  .compact :global(.fp-sh__lead) { font-size: 17px; line-height: 1.6; }
+  .compact :global(.rule-list li) { font-size: 16px; }
+  .compact :global(.facts) { font-size: 15px; }
+  .media-split { align-items: center; }
+  .compact :global(.rule-list li) { padding-top: 10px; padding-bottom: 10px; }
+  @media (max-width: 760px) { .media-split .media-split__photo { order: -1; } }
+  .media-split__photo { overflow: hidden; }
+  .media-split__photo :global(img) { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .type-card { display: flex; flex-direction: column; gap: 10px; }
+  .type-card__photo { overflow: hidden; }
+  .type-card__photo :global(img) { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .type-card__title { font-family: var(--font-display); font-weight: 400; font-size: 22px; margin: 6px 0 0; }
+  .type-card__text { font-size: 15px; line-height: 1.55; margin: 0; }
+</style>
