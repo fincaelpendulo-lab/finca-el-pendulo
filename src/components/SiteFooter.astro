@@ -1,0 +1,86 @@
+---
+// Footer (MexiSol structure): deep panel with the symbol and tagline, link columns, contact, legal row.
+// The mosaic band sits on top as the brand's signature.
+import { Image } from 'astro:assets';
+import symbolWhite from '../assets/brand/simbolo-blanco.png';
+import TileBand from './TileBand.astro';
+import NewsletterBanner from './NewsletterBanner.astro';
+import site from '../data/site.json';
+import { footerNav, t } from '../data/ui';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const to = (p: string) => href(localize(p, lang));
+const a = site.address;
+---
+<NewsletterBanner lang={lang} />
+<TileBand />
+<footer class="site-footer deep">
+  <div class="site-footer__top wrap">
+    <div class="site-footer__brand">
+      <a href={to('/')} class="site-footer__logo" aria-label={t('home', lang)}>
+        <Image src={symbolWhite} alt="" height={144} />
+        <span>Finca El Péndulo</span>
+      </a>
+      <p class="t-caption">{t('tagline', lang)}</p>
+      <a href={site.booking.url} class="fp-btn fp-btn--light fp-btn--secondary fp-btn--sm" data-track="booking">{t('book', lang)}</a>
+    </div>
+    <div class="site-footer__cols">
+      {footerNav.map((col) => (
+        <div class="site-footer__col">
+          <h2 class="label">{col.title[lang]}</h2>
+          <ul>{col.links.map((l) => <li><a href={to(l.path)}>{l[lang]}</a></li>)}</ul>
+        </div>
+      ))}
+      <div class="site-footer__col">
+        <h2 class="label">{t('contact', lang)}</h2>
+        <ul>
+          <li><a href={whatsappUrl} data-track="whatsapp">WhatsApp {site.whatsapp.display}</a></li>
+          <li><a href={`mailto:${site.email}`} data-track="email">{site.email}</a></li>
+          {site.instagram && <li><a href={site.instagram}>Instagram</a></li>}
+          {site.facebook && <li><a href={site.facebook}>Facebook</a></li>}
+          <li><p class="t-caption">{a.street},<br />{a.locality}, {a.region}<br /><a href={site.maps} data-track="directions">{t('directions', lang)}</a></p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__bottom wrap">
+    <p class="t-caption">© {new Date().getFullYear()} Finca El Péndulo. {t('rights', lang)}</p>
+    <ul class="site-footer__legal">
+      <li><a href={to('/reglamento')}>{es ? 'Reglamento' : 'House rules'}</a></li>
+      <li><a href={to('/aviso-de-privacidad')}>{es ? 'Aviso de privacidad' : 'Privacy notice'}</a></li>
+      <li><button type="button" class="site-footer__cookie" data-cookie-settings>{t('cookies', lang)}</button></li>
+    </ul>
+  </div>
+</footer>
+
+<style is:global>
+  .site-footer { padding: var(--space-9) var(--gutter) var(--space-7); }
+  .site-footer__top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-8); }
+  .site-footer__brand { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-5); max-width: 300px; }
+  .site-footer__logo { display: flex; align-items: center; gap: var(--space-4); text-decoration: none; }
+  .site-footer .site-footer__logo { color: var(--on-deep); }
+  .site-footer__logo img { height: 72px; width: auto; flex: none; }
+  .site-footer__logo span { font-family: var(--font-display); font-size: 28px; line-height: 1.05; }
+  .site-footer__cols { display: flex; flex-wrap: wrap; gap: var(--space-8); }
+  .site-footer__col h2 { margin: 0 0 var(--space-4); }
+  .site-footer__col ul, .site-footer__legal { list-style: none; margin: 0; padding: 0; }
+  .site-footer__col li { min-height: 44px; display: flex; align-items: center; }
+  .site-footer__col a, .site-footer__legal a { display: inline-flex; align-items: center; min-height: 44px; }
+  .site-footer .site-footer__col a, .site-footer .site-footer__legal a { font: var(--text-body); color: var(--on-deep); text-decoration: none; }
+  .site-footer .site-footer__col a:hover, .site-footer .site-footer__legal a:hover { color: var(--corn); }
+  .site-footer .site-footer__col .t-caption a { font: var(--text-caption); text-decoration: underline; min-height: 32px; }
+  .site-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-9); padding-top: var(--space-5); border-top: 1px solid rgba(255, 255, 255, 0.32); }
+  .site-footer__legal { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); }
+  .site-footer__legal li { min-height: 44px; display: flex; align-items: center; }
+  .site-footer__cookie { padding: 0; border: 0; background: none; font: var(--text-body); color: var(--on-deep); text-decoration: underline; cursor: pointer; min-height: 44px; }
+  .site-footer__cookie:hover { color: var(--corn); }
+  @media (max-width: 760px) {
+    .site-footer { padding-top: var(--space-8); }
+    .site-footer__cols { gap: var(--space-6) var(--space-7); }
+    .site-footer__col { flex: 1 1 200px; }
+    .site-footer__bottom { margin-top: var(--space-8); }
+  }
+</style>

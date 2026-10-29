@@ -1,0 +1,39 @@
+---
+// Thank-you page: CRM forms land here after a successful send (?f=<form>). Not indexed, not in the sitemap.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Button from '../components/Button.astro';
+import site from '../data/site.json';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/gracias', lang);
+const L = (p: string) => href(localize(p, lang));
+// One line per form; the script shows the one named in ?f=.
+const notes: Record<string, { es: string; en: string }> = {
+  retiro: { es: 'Recibimos tu solicitud de cotización. Te enviaremos la propuesta para tu retiro por correo o WhatsApp.', en: 'We have your quote request. We will send the proposal for your retreat by email or WhatsApp.' },
+  evento: { es: 'Recibimos tu solicitud para el evento. Te escribiremos con fechas y detalles.', en: 'We have your event request. We will write back with dates and details.' },
+  boda: { es: 'Recibimos los datos de tu boda. Te escribiremos para platicar fechas, espacios y hospedaje.', en: 'We have your wedding details. We will write to talk about dates, spaces and lodging.' },
+  contacto: { es: 'Recibimos tu mensaje. Te responderemos pronto.', en: 'We have your message. We will reply soon.' },
+  voluntariado: { es: 'Recibimos tu aplicación de voluntariado. La revisaremos y te escribiremos.', en: 'We have your volunteer application. We will review it and write to you.' },
+};
+---
+<BaseLayout lang={lang} path={path} header="solid" noindex
+  title={es ? 'Gracias | Finca El Péndulo' : 'Thank you | Finca El Péndulo'}
+  description={es ? 'Recibimos tu solicitud. Te escribiremos pronto.' : 'We have your request. We will write back soon.'}>
+  <section class="section">
+    <div class="wrap measure stack">
+      <SectionHeader level="h1" size="xl" eyebrow={es ? 'Gracias' : 'Thank you'} title={es ? 'Recibimos tu solicitud' : 'We have your request'}>
+        <span data-thanks-default>{es ? 'Te escribiremos pronto por correo o WhatsApp.' : 'We will write back soon by email or WhatsApp.'}</span>
+        {Object.entries(notes).map(([k, n]) => <span data-thanks={k} hidden>{n[lang]}</span>)}
+      </SectionHeader>
+      <p>{es ? '¿Es urgente? Escríbenos por WhatsApp al ' : 'Is it urgent? Message us on WhatsApp at '}<a href={whatsappUrl} data-track="whatsapp">{site.whatsapp.display}</a>.</p>
+      <div class="actions">
+        <Button href={L('/espacios')}>{es ? 'Ver los espacios' : 'See the spaces'}</Button>
+        <Button href={L('/')} variant="secondary">{es ? 'Volver al inicio' : 'Back to home'}</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

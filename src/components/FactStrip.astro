@@ -1,0 +1,8 @@
+---
+type Tone = 'ground' | 'wood' | 'corn' | 'agave' | 'agave-oscuro' | 'negro';
+interface Props { tone?: Tone }
+const { tone = 'agave-oscuro' } = Astro.props;
+---
+<section class:list={['section', 'deep', `fp-bg-${tone}`]}>
+  <p class="wrap measure center t-lead"><slot /></p>
+</section>

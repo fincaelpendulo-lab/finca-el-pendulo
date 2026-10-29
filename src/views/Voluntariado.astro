@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import SpaceCard from '../components/SpaceCard.astro';
+import Photo from '../components/Photo.astro';
+import StatementBand from '../components/StatementBand.astro';
+import VolunteerForm from '../components/VolunteerForm.astro';
+import Location from '../components/Location.astro';
+import testimonios from '../data/testimonios.json';
+import { type Lang, localize } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/voluntariado', lang);
+const areas = [
+  { title: es ? 'Especialidad' : 'Your skill', photo: 'lavanda-invernadero', alt: es ? 'Huerto en el invernadero' : 'Greenhouse vegetable beds', tone: 'agave-oscuro',
+    text: es ? 'Cada miembro aporta sus conocimientos al desarrollo de la Finca: redes sociales, fotografía, jardinería, pintura, construcción, yoga, diseño.' : 'Each member brings their own skills to the Finca: social media, photography, gardening, painting, building, yoga, design.' },
+  { title: es ? 'Servicio' : 'Service', photo: 'cena-velas', alt: es ? 'Huéspedes cenando a la luz de las velas' : 'Guests dining by candlelight', tone: 'ground',
+    text: es ? 'Todos participan en la experiencia de los huéspedes: atención, recepción, preparación de espacios, apoyo en actividades, cocina y trastes.' : 'Everyone takes part in the guest experience: hosting, reception, setting up spaces, helping with activities, cooking and dishes.' },
+  { title: es ? 'Mantenimiento' : 'Upkeep', photo: 'jardin-rosas', alt: es ? 'Rosas en el jardín' : 'Roses in the garden', tone: 'wood',
+    text: es ? 'Todos ayudan a mantener la Finca limpia, ordenada y funcionando: áreas comunes, habitaciones, baños, jardines, herramientas y talleres.' : 'Everyone helps keep the Finca clean, tidy and running: common areas, rooms, bathrooms, gardens, tools and workshops.' },
+] as const;
+const includes = es
+  ? ['Hospedaje', 'Alimentación, 3 comidas al día', 'Acceso a las instalaciones', 'Conexión con la naturaleza y la comunidad', 'Participación en actividades holísticas: ceremonias, temazcal, yoga, meditaciones', 'Servicios: agua, luz, internet y lavandería']
+  : ['Lodging', 'Food, 3 meals a day', 'Use of the facilities', 'Time in nature and in community', 'Holistic activities: ceremonies, temazcal, yoga, meditation', 'Utilities: water, power, internet and laundry'];
+const expect = es
+  ? ['Ser responsable, autónomo y comprometido.', 'Poder sostenerte económicamente durante tu estancia.', 'Tener buena condición física y disposición para todo, desde jardinería hasta limpieza.', 'Tener iniciativa, sin necesitar que te digan constantemente qué hacer.', 'Tener actitud de servicio.', 'Respetar los espacios, a los huéspedes y a la comunidad.', 'Estar dispuesto a participar en tareas que quizá no sean tu especialidad.', 'Contar con seguro médico o de viaje vigente durante tu estancia.', 'Tener interés genuino en la vida comunitaria, no solo en las actividades holísticas.', 'Hablar español es un plus, pero no un requisito.']
+  : ['Be responsible, independent and committed.', 'Be able to support yourself financially during your stay.', 'Be physically fit and willing to do anything from gardening to cleaning.', 'Take initiative without needing to be told what to do.', 'Have a service attitude.', 'Respect the spaces, the guests and the community.', 'Be willing to take on tasks that may not be your speciality.', 'Have valid health or travel insurance for your stay.', 'Be genuinely interested in community life, not only in the holistic activities.', 'Spanish is a plus, not a requirement.'];
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Voluntariado en comunidad: Finca Member | Finca El Péndulo' : 'Volunteer in community: Finca Member | Finca El Péndulo'}
+  description={es ? 'Vive en comunidad y sirve con propósito en Jalisco. Mínimo un mes, 5 horas al día, con hospedaje y 3 comidas. Contribución de $2,000 MXN al mes.' : 'Live in community and serve with purpose in Jalisco, Mexico. One month minimum, 5 hours a day, with lodging and 3 meals. Contribution of $2,000 MXN a month.'}
+  ogImage="volunteer" breadcrumbs={[{ name: es ? 'Voluntariado' : 'Volunteering', path }]}>
+  <PageHeader lang={lang} image="voluntariado-1" alt={es ? 'Voluntarios de la Finca reunidos frente a la casa' : 'Finca volunteers gathered in front of the house'} position="center 40%" eyebrow={es ? 'Voluntariado' : 'Volunteering'} title={es ? 'Vive en comunidad. Sirve con propósito.' : 'Live in community. Serve with purpose.'}>
+    {es ? 'Este espacio existe gracias a las personas que lo habitan, lo cuidan y lo sostienen desde el servicio, la presencia y el respeto.' : 'This place exists thanks to the people who live in it, care for it and keep it going through service, presence and respect.'}
+  </PageHeader>
+  <section class="section section--tight">
+    <div class="wrap grid-2">
+      <SectionHeader title="Finca Member">{es ? 'Un intercambio basado en el principio de Work as Meditation.' : 'An exchange built on the principle of Work as Meditation.'}</SectionHeader>
+      <div class="prose">
+        <p>{es ? 'La Finca es un espacio vivo: aquí recibimos huéspedes, facilitadores y personas en procesos personales profundos. Como voluntario formas parte de esa experiencia, apoyando la operación del lugar y el cuidado del ambiente que lo sostiene.' : 'The Finca is a living place: we welcome guests, facilitators and people going through deep personal processes. As a volunteer you are part of that, helping run the place and caring for the atmosphere that holds it.'}</p>
+        <p>{es ? 'El trabajo cotidiano es una forma de servicio, presencia y participación en la vida de la comunidad. No se viene únicamente a hacer la actividad que te gusta.' : 'Daily work is a form of service, presence and participation in community life. You do not come only to do the activity you enjoy.'}</p>
+        <dl class="facts">
+          <div><dt>{es ? 'Estancia' : 'Stay'}</dt><dd>{es ? 'Mínimo 1 mes' : 'One month minimum'}</dd></div>
+          <div><dt>{es ? 'Servicio' : 'Service'}</dt><dd>{es ? '5 horas al día, 6 días a la semana' : '5 hours a day, 6 days a week'}</dd></div>
+          <div><dt>{es ? 'Descanso' : 'Time off'}</dt><dd>{es ? '1 día libre a la semana' : '1 day off a week'}</dd></div>
+          <div><dt>{es ? 'Contribución' : 'Contribution'}</dt><dd>{es ? '$2,000 MXN al mes' : '$2,000 MXN a month'}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+  <div class="photo-row" style="--min: 220px; --h: 340px; padding: 0 12px">
+    <Photo name="voluntariado-grupo" alt={es ? 'La comunidad reunida a la mesa' : 'The community gathered at the table'} sizes="(max-width: 760px) 100vw, 25vw" widths={[480, 800]} />
+    <Photo name="voluntariado-cocina" alt={es ? 'Voluntarios sirviendo la cena' : 'Volunteers serving dinner'} sizes="(max-width: 760px) 100vw, 25vw" widths={[480, 800]} />
+    <Photo name="esp-el-27-3" alt={es ? 'Plantas dentro del invernadero' : 'Plants inside the greenhouse'} sizes="(max-width: 760px) 100vw, 25vw" widths={[480, 800]} />
+    <Photo name="esp-caballerizas-1" alt={es ? 'Las caballerizas de la Finca' : 'The Finca stables'} sizes="(max-width: 760px) 100vw, 25vw" widths={[480, 800]} />
+  </div>
+  <section class="section section--tight">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Áreas de trabajo' : 'Areas of work'} />
+      <div class="cards cards--3">{areas.map((a) => <SpaceCard image={a.photo} alt={a.alt} tone={a.tone} title={a.title} description={a.text} ratio="4 / 3" />)}</div>
+    </div>
+  </section>
+  <section class="section section--tight section--arena">
+    <div class="wrap grid-2">
+      <div class="stack"><h2 class="t-title">{es ? 'Tu intercambio incluye' : 'Your exchange includes'}</h2><ul class="rule-list">{includes.map((x) => <li>{x}</li>)}</ul></div>
+      <div class="stack"><h2 class="t-title">{es ? 'Qué esperamos de ti' : 'What we expect from you'}</h2><ul class="rule-list">{expect.map((x) => <li>{x}</li>)}</ul></div>
+    </div>
+  </section>
+  <StatementBand tone="ground" eyebrow={es ? 'Contribución a la comunidad' : 'Contribution to the community'}>
+    {es ? '$2,000 MXN al mes' : '$2,000 MXN a month'}
+    <p slot="action">{es ? 'Ayuda a cubrir parte de tu alimentación y hospedaje. No es un pago por horas de trabajo ni una tarifa de hospedaje: es tu participación en el sostenimiento de la Finca.' : 'It helps cover part of your food and lodging. It is not a payment for your hours or a room rate: it is your share in keeping the Finca going.'}</p>
+  </StatementBand>
+  <section class="section section--tight">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Testimonios' : 'In their words'} />
+      <div class="quotes">{testimonios.map((q) => <blockquote class="quote"><p>“{q.text[lang]}”</p><cite>{q.by}</cite></blockquote>)}</div>
+    </div>
+  </section>
+  <section class="section section--tight section--arena" id="aplicar">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">{es ? 'Aplica' : 'Apply'}</p>
+        <h2 class="t-heading">{es ? 'Quiero ser voluntario' : 'I want to volunteer'}</h2>
+        <p class="muted">{es ? 'Cuéntanos quién eres, qué sabes hacer y cuándo te gustaría llegar. Te escribimos para conocerte.' : 'Tell us who you are, what you can do and when you would like to come. We will write back to get to know you.'}</p>
+        <Photo name="lavanda-invernadero" alt={es ? 'Huerto dentro del invernadero' : 'Vegetable beds inside the greenhouse'} class="ratio-4-3" sizes="(max-width: 900px) 100vw, 45vw" widths={[480, 800, 1200]} />
+      </div>
+      <div class="form-card"><VolunteerForm lang={lang} id="aplica" /></div>
+    </div>
+  </section>
+  <Location lang={lang} />
+</BaseLayout>

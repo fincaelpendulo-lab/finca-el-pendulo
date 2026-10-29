@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Photo from '../components/Photo.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import StatementBand from '../components/StatementBand.astro';
+import Location from '../components/Location.astro';
+import Button from '../components/Button.astro';
+import hospedaje from '../data/hospedaje.json';
+import site from '../data/site.json';
+import { t } from '../data/ui';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/hospedaje', lang);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Hospedaje en Tepatitlán: habitaciones y cabañas | Finca El Péndulo' : 'Stay: rooms and cabins in Jalisco | Finca El Péndulo'}
+  description={es ? 'Penthouse y habitaciones con jacuzzi, privadas, contenedores, aldeas, la Cabaña Burra y el Hormiguero para grupos en Tepatitlán, Jalisco. Reserva en línea.' : 'Deluxe rooms with a jacuzzi tub, standard rooms, palm-roofed cabins for up to 7 guests and the Hormiguero for groups. Book online.'}
+  ogImage="stay" breadcrumbs={[{ name: es ? 'Hospedaje' : 'Stay', path }]}>
+  <PageHeader lang={lang} image="ventana-al-agavero" alt={es ? 'Ventana de una habitación con vista al agavero' : 'A room window looking over the agave field'} eyebrow={es ? 'Hospedaje' : 'Stay'} title={es ? 'Descansa en medio del agavero' : 'Rest among the agave fields'}>
+    {es ? 'Habitaciones y cabañas para descansar y reencontrarte contigo.' : 'Rooms and cabins to rest and reconnect with yourself.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap measure">
+      <SectionHeader title={es ? 'Elige cómo quedarte' : 'Choose how to stay'}>
+        {es ? 'Ya sea que busques rentar una habitación o cabaña en Tepatitlán para descansar un fin de semana, o vivir la experiencia completa de la Finca, aquí están todas las formas de quedarte.' : 'Whether you want a room or cabin near Tepatitlán for a restful weekend or the full Finca experience, here is every way to stay.'}
+      </SectionHeader>
+    </div>
+  </section>
+
+  <nav class="section section--tight section--arena" aria-label={es ? 'Tipos de habitación' : 'Room types'}>
+    <div class="wrap">
+      <p class="label">{es ? 'Habitaciones' : 'Rooms'}</p>
+      <ul class="room-index">
+        {hospedaje.map((h) => <li><a href={`#${h.id}`}><span class="t-title">{h.name[lang]}</span><span class="muted">{h.capacity[lang]}</span></a></li>)}
+      </ul>
+    </div>
+  </nav>
+
+  {hospedaje.map((h, i) => (
+    <section class="section room" id={h.id}>
+      <div class="wrap room__grid">
+        <div class="room__text stack">
+          <p class="label">{String(i + 1).padStart(2, '0')} / {h.capacity[lang]}</p>
+          <h2 class="t-heading">{h.name[lang]}</h2>
+          {h.rooms.length > 1 && <p class="label label--tight muted">{es ? 'Habitaciones' : 'Rooms'}: {h.rooms.join(' · ')}</p>}
+          <p>{h.body[lang]}</p>
+          <ul class="rule-list rule-list--soft">{h.features[lang].map((f) => <li>{f}</li>)}</ul>
+          <div class="cluster">
+            {h.id === 'hormiguero'
+              ? <Button href={L('/contacto?interes=hospedaje#solicitud')}>{es ? 'Pregunta por grupos' : 'Ask about groups'}</Button>
+              : <Button href={site.booking.url} track="booking">{es ? 'Reservar' : 'Book'}</Button>}
+          </div>
+        </div>
+        <div class="room__photos">
+          <Photo name={h.photo} alt={h.alt[lang]} class="room__main" sizes="(max-width: 900px) 100vw, 58vw" widths={[800, 1200, 1600]} />
+          {h.gallery.map((g) => <Photo name={g} alt={`${h.name[lang]}`} class="room__thumb" sizes="(max-width: 900px) 33vw, 19vw" widths={[480, 800]} />)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <StatementBand tone="corn">
+    {es ? '¿Tienes dudas sobre tu estancia?' : 'Questions about your stay?'}
+    <div slot="action" class="actions">
+      <Button href={whatsappUrl} track="whatsapp">{t('whatsapp', lang)}</Button>
+    </div>
+  </StatementBand>
+  <Location lang={lang} />
+</BaseLayout>
+<style>
+  .room-index { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0 32px; }
+  .room-index a { display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--hairline); color: var(--ink); text-decoration: none; }
+  .room-index a:hover .t-title { text-decoration: underline; text-underline-offset: 5px; }
+  .room-index .t-title { font-size: 21px; }
+  .room-index .muted { font-size: 14px; }
+  .room { scroll-margin-top: 90px; border-top: 1px solid var(--hairline); }
+  .room__grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+  .room:nth-of-type(odd) .room__photos { order: -1; }
+  .room__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .room__photos :global(picture:first-child) { grid-column: 1 / -1; }
+  .room__photos :global(.room__main) { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .room__photos :global(.room__thumb) { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  @media (max-width: 900px) { .room__grid { grid-template-columns: 1fr; gap: 32px; } .room:nth-of-type(odd) .room__photos { order: 0; } }
+</style>

@@ -1,0 +1,78 @@
+---
+// Volunteer application (Finca Member), filled in on the site. Posts to the Worker → GHL ([data-crm-form]);
+// the Worker saves the answers in custom fields and tags the contact web-voluntariado, which starts the
+// volunteer workflow. Until site.json has formEndpoint it falls back to WhatsApp with the answers written out.
+import Field from './Field.astro';
+import Button from './Button.astro';
+import site from '../data/site.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; id?: string }
+const { lang, id = 'aplica' } = Astro.props;
+const es = lang === 'es';
+const endpoint = site.formEndpoint ? site.formEndpoint.replace(/\/$/, '') : '';
+const durations = [
+  { value: '', label: es ? 'Elige una opción' : 'Choose one' },
+  { value: '1', label: es ? '1 mes' : '1 month' },
+  { value: '2-3', label: es ? '2 a 3 meses' : '2 to 3 months' },
+  { value: '4-6', label: es ? '4 a 6 meses' : '4 to 6 months' },
+  { value: '6+', label: es ? 'Más de 6 meses' : 'More than 6 months' },
+];
+const areas = es
+  ? ['Huerto e invernaderos', 'Caballos y animales', 'Cocina', 'Atención a huéspedes', 'Mantenimiento y jardines', 'Arte y talleres', 'Bienestar y terapias', 'Fotografía, video y redes']
+  : ['Vegetable garden and greenhouses', 'Horses and animals', 'Kitchen', 'Guest care', 'Upkeep and gardens', 'Art and workshops', 'Wellbeing and therapies', 'Photo, video and social media'];
+const heard = [
+  { value: '', label: es ? 'Elige una opción' : 'Choose one' },
+  ...(es ? ['Instagram o Facebook', 'Workaway u otra plataforma', 'Recomendación de alguien', 'Visité la Finca', 'Google', 'Otro'] : ['Instagram or Facebook', 'Workaway or another platform', 'Someone recommended it', 'I visited the Finca', 'Google', 'Other']).map((x) => ({ value: x, label: x })),
+];
+---
+<form id={id} class="form inquiry" data-crm-form="voluntariado" action={endpoint || undefined} method="post" data-wa={site.whatsapp.number} data-lang={lang} novalidate>
+  <input type="hidden" name="form" value="voluntariado" />
+  <input type="hidden" name="interest" value={es ? 'Voluntariado' : 'Volunteering'} />
+  <input type="hidden" name="_started" value="" />
+  <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+
+  <fieldset class="form">
+    <legend>{es ? '1. Sobre ti' : '1. About you'}</legend>
+    <div class="form__row">
+      <Field id={`${id}-name`} name="name" label={es ? 'Nombre completo' : 'Full name'} autocomplete="name" required validate />
+      <Field id={`${id}-age`} name="age" type="number" min={18} max={99} inputmode="numeric" label={es ? 'Edad' : 'Age'} required />
+    </div>
+    <div class="form__row">
+      <Field id={`${id}-email`} name="email" type="email" label={es ? 'Correo electrónico' : 'Email'} autocomplete="email" required validate />
+      <Field id={`${id}-phone`} name="phone" type="tel" label="WhatsApp" autocomplete="tel" inputmode="tel" placeholder="+52 33 1234 5678" required validate />
+    </div>
+    <div class="form__row">
+      <Field id={`${id}-city`} name="city" label={es ? 'Ciudad y país donde vives' : 'City and country you live in'} autocomplete="address-level2" required />
+      <Field id={`${id}-languages`} name="languages" label={es ? 'Idiomas que hablas' : 'Languages you speak'} placeholder={es ? 'Ej. español, inglés' : 'e.g. English, Spanish'} />
+    </div>
+  </fieldset>
+
+  <fieldset class="form">
+    <legend>{es ? '2. Tu estancia' : '2. Your stay'}</legend>
+    <div class="form__row">
+      <Field id={`${id}-arrival`} name="arrival" type="date" label={es ? 'Fecha en que te gustaría llegar' : 'When you would like to arrive'} required />
+      <Field id={`${id}-duration`} name="duration" as="select" options={durations} label={es ? '¿Cuánto tiempo te quedarías?' : 'How long would you stay?'} required />
+    </div>
+  </fieldset>
+
+  <fieldset class="form">
+    <legend>{es ? '3. Cómo te gustaría apoyar' : '3. How you would like to help'}</legend>
+    <div class="check-grid" role="group" aria-label={es ? 'Áreas de interés' : 'Areas of interest'}>
+      {areas.map((a, i) => <label class="check"><input type="checkbox" name="areas" value={a} id={`${id}-area-${i}`} /> <span>{a}</span></label>)}
+    </div>
+    <Field id={`${id}-skills`} name="skills" as="textarea" rows={3} label={es ? 'Tu especialidad, oficio o experiencia' : 'Your skill, trade or experience'} required />
+    <Field id={`${id}-motivation`} name="motivation" as="textarea" rows={4} label={es ? '¿Por qué quieres vivir en comunidad en la Finca?' : 'Why do you want to live in community at the Finca?'} required />
+    <Field id={`${id}-heard`} name="heard" as="select" options={heard} label={es ? '¿Cómo nos conociste?' : 'How did you hear about us?'} />
+  </fieldset>
+
+  <label class="check check--terms"><input type="checkbox" name="terms" value="yes" required id={`${id}-terms`} /> <span>{es ? 'Leí las condiciones: estancia mínima de 1 mes, 5 horas de servicio al día, 6 días a la semana, contribución de $2,000 MXN al mes y seguro médico o de viaje vigente.' : 'I have read the conditions: one month minimum, 5 hours of service a day, 6 days a week, a $2,000 MXN monthly contribution and valid health or travel insurance.'}</span></label>
+  <p id={`${id}-terms-error`} class="field-error"></p>
+
+  {site.turnstileSiteKey && endpoint && <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey}></div>}
+  <div class="inquiry__send">
+    <Button type="submit" size="lg">{es ? 'Enviar mi aplicación' : 'Send my application'}</Button>
+    <p class="small">{es ? 'Revisamos cada aplicación y te escribimos para conocerte.' : 'We read every application and write back to get to know you.'} <a href={href(localize('/aviso-de-privacidad', lang))}>{es ? 'Aviso de privacidad' : 'Privacy notice'}</a>.</p>
+  </div>
+  <div data-form-status role="status" tabindex="-1"></div>
+</form>

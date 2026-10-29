@@ -1,0 +1,32 @@
+---
+// Newsletter banner above the footer on every page (as on MexiSol World): small photo, text, email form.
+import Photo from './Photo.astro';
+import NewsletterForm from './NewsletterForm.astro';
+import type { Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+---
+<section class="nl-banner" aria-labelledby="nl-banner-title">
+  <div class="wrap nl-banner__inner">
+    <Photo name="lago-jardin" alt="" class="nl-banner__photo" sizes="(max-width: 760px) 100vw, 360px" widths={[400, 720]} />
+    <div class="nl-banner__text">
+      <p class="label label--tight">Newsletter</p>
+      <h2 id="nl-banner-title" class="t-title">{es ? 'Entérate de todos los eventos de la Finca' : 'Hear about every event at the Finca'}</h2>
+      <p class="muted">{es ? 'Retiros, festivales, conciertos y actividades abiertas, directo en tu correo.' : 'Retreats, festivals, concerts and open activities, straight to your inbox.'}</p>
+      <NewsletterForm lang={lang} id="nl-banner" />
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .nl-banner { background: var(--surface); padding: var(--space-8) var(--gutter); border-top: 1px solid var(--hairline); }
+  .nl-banner__inner { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: var(--space-7); align-items: center; }
+  .nl-banner__photo, .nl-banner__photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .nl-banner__text { display: flex; flex-direction: column; gap: var(--space-3); max-width: 560px; }
+  .nl-banner__text .newsletter { margin-top: var(--space-2); }
+  @media (max-width: 760px) {
+    .nl-banner__inner { grid-template-columns: 1fr; gap: var(--space-5); }
+    .nl-banner__photo, .nl-banner__photo img { aspect-ratio: 16 / 9; }
+  }
+</style>

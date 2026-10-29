@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Photo from '../components/Photo.astro';
+import experiencias from '../data/experiencias.json';
+import StatementBand from '../components/StatementBand.astro';
+import Location from '../components/Location.astro';
+import Button from '../components/Button.astro';
+import { t } from '../data/ui';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/experiencias', lang);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Experiencias: temazcal, yoga, caballos y talleres | Finca El Péndulo' : 'Experiences: temazcal, yoga, horses and workshops | Finca El Péndulo'}
+  description={es ? 'Temazcal, ceremonia de cacao, yoga, masajes, paseos a caballo, encuentros con lobos y talleres de cerámica para tu retiro, evento u hospedaje en Tepatitlán.' : 'Temazcal, cacao ceremony, yoga, massage, horse riding, time with the wolves and pottery workshops for your retreat, event or stay in Jalisco.'}
+  ogImage="experiences" breadcrumbs={[{ name: es ? 'Experiencias' : 'Experiences', path }]}>
+  <PageHeader lang={lang} video="aerea-lago" image="aerea-lago" alt={es ? 'El lago con su palapa y senderos de piedra' : 'The lake with its palapa and stone paths'} eyebrow={es ? 'Experiencias' : 'Experiences'} title={es ? 'Bienestar, naturaleza y creatividad' : 'Wellbeing, nature and creativity'}>
+    {es ? 'Más de 30 experiencias holísticas para complementar tu retiro, evento u hospedaje. Escríbenos para agendar y conocer la disponibilidad.' : 'More than 30 holistic experiences to add to your retreat, event or stay. Message us to book and check availability.'}
+  </PageHeader>
+  <nav class="section section--tight" aria-label={es ? 'Tipos de experiencia' : 'Kinds of experience'}>
+    <div class="wrap cluster">
+      {experiencias.map((c, i) => <a class="fp-btn fp-btn--secondary" href={`#${c.id}`}>0{i + 1} / {c.title[lang]}</a>)}
+    </div>
+  </nav>
+  {experiencias.map((c, i) => (
+    <section class:list={['section', i % 2 === 0 && 'section--arena']} id={c.id} aria-labelledby={`${c.id}-title`}>
+      <div class="wrap">
+        <p class="label">0{i + 1} / {c.title[lang]}</p>
+        <div class="split-head">
+          <h2 id={`${c.id}-title`} class="t-heading">{c.description[lang]}</h2>
+        </div>
+        <div class="grid exp-grid" style="--min: 280px; --gap: 48px 24px">
+          {c.details.map((d) => (
+            <article class="exp-item" id={d.id}>
+              <Photo name={d.photo} alt={d.alt[lang]} class="ratio-4-3" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[480, 800]} />
+              <h3 class="t-title">{d.name[lang]}</h3>
+              <p class="muted">{d.text[lang]}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+  <StatementBand tone="ground" image="card-temazcal" alt={es ? 'El temazcal de la Finca' : 'The Finca temazcal'}>
+    {es ? 'El temazcal: una ceremonia de vapor en el corazón de la Finca.' : 'The temazcal: a steam ceremony at the heart of the Finca.'}
+    <div slot="action" class="actions"><Button href={L('/temazcal')} tone="light">{es ? 'Ver el temazcal' : 'See the temazcal'}</Button></div>
+  </StatementBand>
+  <StatementBand tone="agave-oscuro">
+    {es ? 'Escríbenos y armamos juntos tu experiencia.' : 'Write to us and we will put your experience together.'}
+    <div slot="action" class="actions">
+      <Button href={L('/retiros#cotizador')} tone="light" track="cta_quote">{t('quote', lang)}</Button>
+      <Button href={whatsappUrl} tone="light" variant="secondary" track="whatsapp">{t('whatsapp', lang)}</Button>
+    </div>
+  </StatementBand>
+  <Location lang={lang} image="aerea-lago" />
+</BaseLayout>
+<style>
+  .exp-item { display: flex; flex-direction: column; gap: 12px; }
+  .exp-item .t-title { margin-top: 8px; }
+</style>

@@ -1,0 +1,51 @@
+---
+// Location: aerial photo and a solid panel with the address and directions, beside a Google Maps embed.
+import Photo from './Photo.astro';
+import Button from './Button.astro';
+import site from '../data/site.json';
+import { t } from '../data/ui';
+import { whatsappUrl } from '../lib/url';
+import type { Lang } from '../lib/i18n';
+interface Props { lang: Lang; image?: string }
+const { lang, image = 'aerea-complejo' } = Astro.props;
+const es = lang === 'es';
+const a = site.address;
+const q = encodeURIComponent(`Finca El Péndulo, ${a.street}, ${a.locality}, ${a.region}`);
+const embed = `https://www.google.com/maps?q=${q}&z=14&hl=${lang}&output=embed`;
+const waze = `https://waze.com/ul?q=${encodeURIComponent('Finca El Péndulo Tepatitlán')}&navigate=yes`;
+---
+<section class="loc" id="ubicacion">
+  <div class="loc__side">
+    <div class="loc__photo"><Photo name={image} alt={es ? 'Vista aérea de la Finca entre palapas y campos de agave' : 'Aerial view of the Finca among palapas and agave fields'} class="fp-img" sizes="(max-width: 900px) 100vw, 40vw" widths={[480, 800, 1200]} /></div>
+    <div class="loc__panel deep fp-bg-wood">
+      <p class="label">{t('location', lang)}</p>
+      <h2 class="t-heading">{es ? 'Te esperamos en Los Altos de Jalisco' : 'Find us in the highlands of Jalisco'}</h2>
+      <p class="loc__address">{a.street}<br />{a.postalCode} {a.locality}, {a.region}, {es ? 'México' : 'Mexico'}</p>
+      <p>{es ? 'En Tepatitlán de Morelos, cerca de Guadalajara.' : 'In Tepatitlán de Morelos, near Guadalajara.'}</p>
+      <div class="loc__actions">
+        <Button href={site.maps} tone="light" variant="secondary" track="directions">Google Maps</Button>
+        <Button href={waze} tone="light" variant="secondary" track="directions">Waze</Button>
+        <Button href={whatsappUrl} tone="light" variant="secondary" track="whatsapp">WhatsApp</Button>
+      </div>
+    </div>
+  </div>
+  <div class="loc__map">
+    <iframe src={embed} title={es ? 'Mapa de Finca El Péndulo' : 'Map of Finca El Péndulo'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+</section>
+<style>
+  .loc { display: grid; grid-template-columns: 5fr 7fr; }
+  .loc__side { display: grid; grid-template-rows: auto 1fr; }
+  .loc__photo { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+  .loc__photo :global(.fp-img) { position: absolute; inset: 0; }
+  .loc__panel { padding: var(--space-7); display: flex; flex-direction: column; gap: var(--space-4); }
+  .loc__address { font: var(--text-lead); }
+  .loc__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--space-2); }
+  .loc__map { position: relative; min-height: 560px; }
+  .loc__map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  @media (max-width: 900px) {
+    .loc { grid-template-columns: 1fr; }
+    .loc__map { min-height: 380px; }
+    .loc__panel { padding: var(--space-7) var(--gutter); }
+  }
+</style>

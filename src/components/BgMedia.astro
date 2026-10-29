@@ -1,0 +1,29 @@
+---
+// Background of Hero and PageHeader: an aerial video with its poster, or a photo.
+// The video is muted and decorative; public/js/site.js pauses it for reduced motion and wires the button.
+import Photo from './Photo.astro';
+import { t } from '../data/ui';
+import type { Lang } from '../lib/i18n';
+interface Props { image: string; alt: string; video?: string; position?: string; lang: Lang; priority?: boolean }
+const { image, alt, video, position, lang, priority = true } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// The poster is the video's own still, in public/video next to it.
+const posterSrc = video ? `${base}/video/${video}.jpg` : '';
+---
+{video ? (
+  <>
+    <video class="fp-img fp-video" data-bg-video src={`${base}/video/${video}.mp4`} poster={posterSrc} muted loop playsinline autoplay preload="metadata" aria-hidden="true" style={position ? `object-position:${position}` : undefined}></video>
+    <span class="fp-sr">{alt}</span>
+    <button type="button" class="fp-media-toggle" data-media-toggle aria-label={t('pause', lang)}>
+      <svg class="icon-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>
+      <svg class="icon-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1l10 6-10 6z" fill="currentColor"/></svg>
+    </button>
+  </>
+) : (
+  <Photo name={image} alt={alt} class="fp-img" priority={priority} style={position ? `object-position:${position}` : undefined} />
+)}
+<style is:global>
+  .fp-media-toggle .icon-play { display: none; }
+  .fp-media-toggle[data-paused="true"] .icon-play { display: block; }
+  .fp-media-toggle[data-paused="true"] .icon-pause { display: none; }
+</style>

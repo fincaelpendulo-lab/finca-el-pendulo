@@ -1,0 +1,31 @@
+---
+// Statement (MexiSol): over a photo, a full-width band with the green wash and the words at the foot;
+// without a photo, a deep panel in a brand colour with the words centred.
+import Photo from './Photo.astro';
+type Tone = 'ground' | 'wood' | 'corn' | 'agave' | 'agave-oscuro' | 'negro';
+interface Props { tone?: Tone; eyebrow?: string; quote?: boolean; by?: string; image?: string; alt?: string; position?: string }
+const { tone = 'agave-oscuro', eyebrow, quote, by, image, alt = '', position } = Astro.props;
+const Statement = quote ? 'blockquote' : 'p';
+---
+{image ? (
+  <section class="photo-band">
+    <Photo name={image} alt={alt} class="fp-img" sizes="100vw" style={position ? `object-position:${position}` : undefined} />
+    <div class="photo-band__wash">
+      <div class="wrap photo-band__text">
+        {eyebrow && <p class="label">{eyebrow}</p>}
+        <Statement class="t-headline fp-band__statement"><slot /></Statement>
+        {by && <p class="t-caption">{by}</p>}
+        {Astro.slots.has('action') && <div class="cluster"><slot name="action" /></div>}
+      </div>
+    </div>
+  </section>
+) : (
+  <section class:list={['section', 'deep', `fp-bg-${tone}`]}>
+    <div class="wrap measure center stack">
+      {eyebrow && <p class="label">{eyebrow}</p>}
+      <Statement class="t-headline fp-band__statement"><slot /></Statement>
+      {by && <p class="t-caption">{by}</p>}
+      {Astro.slots.has('action') && <div class="cluster"><slot name="action" /></div>}
+    </div>
+  </section>
+)}

@@ -1,0 +1,67 @@
+---
+// Temazcal page (keywords: temazcal en Jalisco, temazcal cerca de Guadalajara, temazcal en México).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import PhotoMosaic from '../components/PhotoMosaic.astro';
+import ColorSplit from '../components/ColorSplit.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Button from '../components/Button.astro';
+import Location from '../components/Location.astro';
+import espacios from '../data/espacios.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/temazcal', lang);
+const tz = espacios.find((e) => e.id === 'temazcal')!;
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Temazcal en Jalisco, cerca de Guadalajara | Finca El Péndulo' : 'Temazcal in Jalisco, near Guadalajara | Finca El Péndulo'}
+  description={es ? 'Temazcal tradicional en Tepatitlán, Los Altos de Jalisco: ceremonia de vapor para grupos, retiros y visitantes, con jardín y hospedaje en la Finca.' : 'A traditional temazcal in Tepatitlán, in the highlands of Jalisco: a steam ceremony for groups, retreats and visitors, with gardens and rooms at the Finca.'}
+  ogImage="experiences" breadcrumbs={[{ name: es ? 'Experiencias' : 'Experiences', path: localize('/experiencias', lang) }, { name: 'Temazcal', path }]}>
+  <PageHeader lang={lang} image="temazcal-saludo" alt={es ? 'Grupo dentro del temazcal' : 'A group inside the temazcal'} eyebrow={es ? 'Experiencias' : 'Experiences'} title={es ? 'Temazcal en Los Altos de Jalisco' : 'Temazcal in the highlands of Jalisco'}>
+    {es ? 'Una ceremonia de vapor heredada de los pueblos de Mesoamérica, en el corazón de la Finca.' : 'A steam ceremony inherited from the peoples of Mesoamerica, at the heart of the Finca.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? '¿Qué es un temazcal?' : 'What is a temazcal?'}>
+        {es ? 'El temazcal es un baño de vapor tradicional de México. Su nombre viene del náhuatl y significa “casa de vapor”.' : 'The temazcal is a traditional Mexican steam bath. Its name comes from Nahuatl and means “house of steam”.'}
+      </SectionHeader>
+      <div class="prose">
+        <p>{es ? 'Dentro de una estructura cerrada se vierten agua y hierbas sobre piedras calientes. El vapor, el calor y la oscuridad invitan a soltar, a respirar y a volver al cuerpo. Una persona guía la ceremonia con cantos y pausas.' : 'Inside a closed structure, water and herbs are poured over hot stones. The steam, the heat and the dark invite you to let go, to breathe and to come back to your body. A guide leads the ceremony with songs and pauses.'}</p>
+        {tz.body[lang].map((p) => <p>{p}</p>)}
+        <p>{es ? 'En la Finca el temazcal se vive dentro de un retiro, un evento o como experiencia para grupos. Escríbenos para conocer las próximas fechas.' : 'At the Finca the temazcal is part of a retreat, an event or a group experience. Message us for upcoming dates.'}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoMosaic items={[
+        { image: 'card-temazcal', alt: es ? 'El temazcal de la Finca' : 'The Finca temazcal', cols: 2, rows: 2 },
+        { image: 'temazcal-tinas', alt: es ? 'Tinas junto al temazcal' : 'Tubs beside the temazcal' },
+        { image: 'circulo-de-fuego', alt: es ? 'Círculo de fuego por la noche' : 'A fire circle at night' },
+        { image: 'altar-velas', alt: es ? 'Altar con velas y flores' : 'An altar with candles and flowers', cols: 2 },
+      ]} />
+    </div>
+  </section>
+
+  <ColorSplit image="ceremonia-circulo" alt={es ? 'Círculo de flores en una ceremonia' : 'A circle of flowers at a ceremony'} tone="ground" title={es ? 'Temazcal para tu retiro o grupo' : 'Temazcal for your retreat or group'}>
+    <p>{es ? 'Agrega el temazcal a tu retiro, evento u hospedaje. Lo organizamos para tu grupo.' : 'Add a temazcal to your retreat, event or stay. We arrange it for your group.'}</p>
+    <Button slot="action" href={L('/retiros#cotizador')} tone="light">{es ? 'Cotiza tu retiro' : 'Plan your retreat'}</Button>
+  </ColorSplit>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? 'Pregunta por el temazcal' : 'Ask about the temazcal'}>
+        {es ? 'Dinos cuántas personas y qué fechas te interesan.' : 'Tell us how many people and which dates suit you.'}
+      </SectionHeader>
+      <ContactForm lang={lang} interest="experiencia" id="temazcal-form" />
+    </div>
+  </section>
+  <Location lang={lang} />
+</BaseLayout>

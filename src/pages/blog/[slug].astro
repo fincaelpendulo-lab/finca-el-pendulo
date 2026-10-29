@@ -1,0 +1,6 @@
+---
+import BlogPost from '../../views/BlogPost.astro';
+import { posts } from '../../lib/blog';
+export const getStaticPaths = () => posts('es').map((p) => ({ params: { slug: p.slug } }));
+---
+<BlogPost lang="es" slug={Astro.params.slug!} />

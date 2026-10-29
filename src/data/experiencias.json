@@ -1,0 +1,653 @@
+[
+  {
+    "id": "bienestar",
+    "title": {
+      "es": "Bienestar",
+      "en": "Wellbeing"
+    },
+    "description": {
+      "es": "Prácticas que invitan a la calma, la introspección y la conexión con el cuerpo.",
+      "en": "Practices that invite calm, reflection and a return to the body."
+    },
+    "photo": "altar-flores",
+    "alt": {
+      "es": "Altar con flores y figuras",
+      "en": "An altar with flowers and figures"
+    },
+    "tone": "ground",
+    "items": {
+      "es": [
+        "Meditaciones",
+        "Meditación acústica",
+        "Yoga",
+        "Masajes (SPA)",
+        "Temazcal",
+        "Ceremonia de cacao",
+        "Círculo de fuego",
+        "Tambores chamánicos",
+        "Kambo",
+        "Danzas de paz universal",
+        "Constelaciones familiares",
+        "Barras de Access con caballos",
+        "Equinoterapia",
+        "Activación de voz",
+        "Barras de Access",
+        "Lectura del oráculo",
+        "Círculos de mujeres",
+        "Lectura de tarot terapéutico",
+        "Hipnosis"
+      ],
+      "en": [
+        "Meditation",
+        "Sound meditation",
+        "Yoga",
+        "Massage (spa)",
+        "Temazcal",
+        "Cacao ceremony",
+        "Fire circle",
+        "Shamanic drumming",
+        "Kambo",
+        "Dances of Universal Peace",
+        "Family constellations",
+        "Access Bars with horses",
+        "Equine therapy",
+        "Voice activation",
+        "Access Bars",
+        "Oracle reading",
+        "Women's circles",
+        "Therapeutic tarot reading",
+        "Hypnosis"
+      ]
+    },
+    "details": [
+      {
+        "id": "meditaciones",
+        "name": {
+          "es": "Meditaciones",
+          "en": "Meditation"
+        },
+        "photo": "meditacion-mujeres",
+        "text": {
+          "es": "Sesiones guiadas para aquietar la mente y volver a la respiración, en el Oráculo, el Atrio del maestro o al aire libre.",
+          "en": "Guided sessions to quiet the mind and return to the breath, in the Oráculo, the Atrio del maestro or outdoors."
+        },
+        "alt": {
+          "es": "Dos mujeres meditan sentadas en el suelo",
+          "en": "Two women meditating on the floor"
+        }
+      },
+      {
+        "id": "meditacion-acustica",
+        "name": {
+          "es": "Meditación acústica",
+          "en": "Sound meditation"
+        },
+        "photo": "cuencos-sonido",
+        "text": {
+          "es": "Un viaje de sonido con cuencos, tambores y otros instrumentos que acompaña la relajación profunda.",
+          "en": "A sound journey with bowls, drums and other instruments that supports deep relaxation."
+        },
+        "alt": {
+          "es": "Meditación con cuencos y flores",
+          "en": "A sound bowl meditation with flowers"
+        }
+      },
+      {
+        "id": "yoga",
+        "name": {
+          "es": "Yoga",
+          "en": "Yoga"
+        },
+        "photo": "yoga-exterior",
+        "text": {
+          "es": "Clases para todos los niveles en espacios abiertos, rodeados de árboles y con el ritmo de la mañana.",
+          "en": "Classes for every level in open-air spaces, surrounded by trees and the rhythm of the morning."
+        },
+        "alt": {
+          "es": "Clase de yoga al aire libre",
+          "en": "An open-air yoga class"
+        }
+      },
+      {
+        "id": "masajes",
+        "name": {
+          "es": "Masajes (SPA)",
+          "en": "Massage (spa)"
+        },
+        "photo": "card-spa",
+        "text": {
+          "es": "Masajes relajantes y terapéuticos en la cabina de spa de la Finca, para soltar el cansancio del cuerpo.",
+          "en": "Relaxing and therapeutic massage in the Finca spa room, to release the body's tiredness."
+        },
+        "alt": {
+          "es": "Cama de masaje en el spa",
+          "en": "A massage table in the spa"
+        }
+      },
+      {
+        "id": "temazcal",
+        "name": {
+          "es": "Temazcal",
+          "en": "Temazcal"
+        },
+        "photo": "temazcal-saludo",
+        "text": {
+          "es": "Ceremonia de vapor de origen mesoamericano: calor, hierbas, cantos y oscuridad para purificar y renacer.",
+          "en": "A Mesoamerican steam ceremony: heat, herbs, songs and darkness to cleanse and begin again."
+        },
+        "alt": {
+          "es": "Saludo a la entrada del temazcal",
+          "en": "A greeting at the temazcal entrance"
+        }
+      },
+      {
+        "id": "ceremonia-de-cacao",
+        "name": {
+          "es": "Ceremonia de cacao",
+          "en": "Cacao ceremony"
+        },
+        "photo": "ceremonia-cacao",
+        "text": {
+          "es": "El cacao ceremonial, bebida sagrada de los pueblos originarios, compartido en círculo para abrir el corazón.",
+          "en": "Ceremonial cacao, a sacred drink of Mexico's original peoples, shared in a circle to open the heart."
+        },
+        "alt": {
+          "es": "Ceremonia de cacao con ollas de barro",
+          "en": "A cacao ceremony with clay pots"
+        }
+      },
+      {
+        "id": "circulo-de-fuego",
+        "name": {
+          "es": "Círculo de fuego",
+          "en": "Fire circle"
+        },
+        "photo": "caminata-fuego",
+        "text": {
+          "es": "Un ritual nocturno alrededor del fuego para soltar lo que ya no sirve y fijar intenciones.",
+          "en": "A night ritual around the fire to let go of what no longer serves and set intentions."
+        },
+        "alt": {
+          "es": "Persona dentro de un círculo de fuego",
+          "en": "A person inside a ring of fire"
+        }
+      },
+      {
+        "id": "tambores-chamanicos",
+        "name": {
+          "es": "Tambores chamánicos",
+          "en": "Shamanic drumming"
+        },
+        "photo": "esp-temazcal-3",
+        "text": {
+          "es": "El ritmo constante del tambor acompaña viajes meditativos y estados de introspección profunda.",
+          "en": "The steady beat of the drum guides meditative journeys and deep introspection."
+        },
+        "alt": {
+          "es": "Mujer tocando un tambor ceremonial",
+          "en": "A woman playing a ceremonial drum"
+        }
+      },
+      {
+        "id": "kambo",
+        "name": {
+          "es": "Kambo",
+          "en": "Kambo"
+        },
+        "photo": "ceremonia-pluma",
+        "text": {
+          "es": "Ceremonia de origen amazónico que se realiza con acompañamiento y preparación previa. Pregúntanos por fechas y requisitos.",
+          "en": "A ceremony from the Amazon, done with guidance and prior preparation. Ask us about dates and requirements."
+        },
+        "alt": {
+          "es": "Ceremonia con pluma y sahumerio",
+          "en": "A ceremony with a feather and incense"
+        }
+      },
+      {
+        "id": "danzas-de-paz",
+        "name": {
+          "es": "Danzas de paz universal",
+          "en": "Dances of Universal Peace"
+        },
+        "photo": "ejercicio-grupo",
+        "text": {
+          "es": "Danzas en círculo con cantos sencillos de distintas tradiciones, para moverse y celebrar en comunidad.",
+          "en": "Circle dances with simple chants from many traditions, to move and celebrate together."
+        },
+        "alt": {
+          "es": "Grupo con los brazos en alto al aire libre",
+          "en": "A group with arms raised outdoors"
+        }
+      },
+      {
+        "id": "constelaciones",
+        "name": {
+          "es": "Constelaciones familiares",
+          "en": "Family constellations"
+        },
+        "photo": "ceremonia-circulo",
+        "text": {
+          "es": "Un trabajo en grupo para mirar los vínculos familiares desde otra perspectiva y encontrar nuevos caminos.",
+          "en": "Group work to look at family bonds from a new perspective and find new ways forward."
+        },
+        "alt": {
+          "es": "Círculo de personas alrededor de un mandala de flores",
+          "en": "A circle of people around a flower mandala"
+        }
+      },
+      {
+        "id": "access-caballos",
+        "name": {
+          "es": "Barras de Access con caballos",
+          "en": "Access Bars with horses"
+        },
+        "photo": "terapia-con-caballo",
+        "text": {
+          "es": "Una sesión de Barras de Access en presencia de los caballos de la Finca, que aportan calma y conexión.",
+          "en": "An Access Bars session in the company of the Finca horses, who bring calm and connection."
+        },
+        "alt": {
+          "es": "Mujer acariciando un caballo blanco",
+          "en": "A woman stroking a white horse"
+        }
+      },
+      {
+        "id": "equinoterapia",
+        "name": {
+          "es": "Equinoterapia",
+          "en": "Equine therapy"
+        },
+        "photo": "paseo-caballo",
+        "text": {
+          "es": "El contacto con el caballo como apoyo para el equilibrio físico y emocional, con acompañamiento.",
+          "en": "Contact with horses to support physical and emotional balance, with guidance."
+        },
+        "alt": {
+          "es": "Jinete sonriente sobre un caballo",
+          "en": "A smiling rider on a horse"
+        }
+      },
+      {
+        "id": "activacion-de-voz",
+        "name": {
+          "es": "Activación de voz",
+          "en": "Voice activation"
+        },
+        "photo": "concierto-2",
+        "text": {
+          "es": "Ejercicios de respiración, sonido y canto para liberar la voz y expresarte con confianza.",
+          "en": "Breath, sound and singing exercises to free your voice and express yourself with confidence."
+        },
+        "alt": {
+          "es": "Grupo sentado cantando bajo luces azules",
+          "en": "A seated group singing under blue lights"
+        }
+      },
+      {
+        "id": "barras-de-access",
+        "name": {
+          "es": "Barras de Access",
+          "en": "Access Bars"
+        },
+        "photo": "osho-hut-sala",
+        "text": {
+          "es": "Toques suaves en puntos de la cabeza que ayudan a relajar la mente y soltar tensión.",
+          "en": "Gentle touch on points of the head that helps relax the mind and release tension."
+        },
+        "alt": {
+          "es": "Sala de piedra con sillas en círculo",
+          "en": "A stone hall with chairs in a circle"
+        }
+      },
+      {
+        "id": "oraculo",
+        "name": {
+          "es": "Lectura del oráculo",
+          "en": "Oracle reading"
+        },
+        "photo": "altar-oraculo",
+        "text": {
+          "es": "Una lectura con cartas de oráculo para reflexionar sobre tu momento y escuchar tu intuición.",
+          "en": "A reading with oracle cards to reflect on where you are and listen to your intuition."
+        },
+        "alt": {
+          "es": "Altar con velas y flores en el Osho Hut",
+          "en": "An altar with candles and flowers in the Osho Hut"
+        }
+      },
+      {
+        "id": "circulos-de-mujeres",
+        "name": {
+          "es": "Círculos de mujeres",
+          "en": "Women's circles"
+        },
+        "photo": "circulo-mujeres",
+        "text": {
+          "es": "Encuentros para compartir, escucharse y acompañarse entre mujeres, en un espacio seguro.",
+          "en": "Gatherings where women share, listen and support each other in a safe space."
+        },
+        "alt": {
+          "es": "Mujeres reunidas en el jardín",
+          "en": "Women gathered in the garden"
+        }
+      },
+      {
+        "id": "tarot",
+        "name": {
+          "es": "Lectura de tarot terapéutico",
+          "en": "Therapeutic tarot reading"
+        },
+        "photo": "altar-velas",
+        "text": {
+          "es": "El tarot como herramienta de autoconocimiento: preguntas, símbolos y diálogo para ver con claridad.",
+          "en": "Tarot as a tool for self-knowledge: questions, symbols and conversation to see more clearly."
+        },
+        "alt": {
+          "es": "Velas y flores sobre un altar",
+          "en": "Candles and flowers on an altar"
+        }
+      },
+      {
+        "id": "hipnosis",
+        "name": {
+          "es": "Hipnosis",
+          "en": "Hypnosis"
+        },
+        "photo": "oraculo-velas",
+        "text": {
+          "es": "Sesiones de relajación profunda guiada para trabajar hábitos, emociones y bienestar.",
+          "en": "Guided deep-relaxation sessions to work on habits, emotions and wellbeing."
+        },
+        "alt": {
+          "es": "Mujer preparando velas en el Osho Hut",
+          "en": "A woman setting out candles in the Osho Hut"
+        }
+      }
+    ]
+  },
+  {
+    "id": "naturaleza",
+    "title": {
+      "es": "Naturaleza",
+      "en": "Nature"
+    },
+    "description": {
+      "es": "Experiencias que conectan con el entorno y el ritmo natural de la finca.",
+      "en": "Experiences that connect you with the land and the natural rhythm of the Finca."
+    },
+    "photo": "campo-de-agave",
+    "alt": {
+      "es": "Campo de agave azul",
+      "en": "A field of blue agave"
+    },
+    "tone": "agave-oscuro",
+    "items": {
+      "es": [
+        "Hike al Cerro de la Campana",
+        "Paseo a caballo",
+        "Cuidado equino",
+        "Cuidado de animales",
+        "Jardinería e invernadero"
+      ],
+      "en": [
+        "Hike up Cerro de la Campana",
+        "Horse riding",
+        "Horse care",
+        "Animal care",
+        "Gardening and greenhouse"
+      ]
+    },
+    "details": [
+      {
+        "id": "cerro-de-la-campana",
+        "name": {
+          "es": "Hike al Cerro de la Campana",
+          "en": "Hike up Cerro de la Campana"
+        },
+        "photo": "aerea-complejo",
+        "text": {
+          "es": "Caminata hasta el Cerro de la Campana para mirar desde lo alto el valle y los campos de agave de Los Altos.",
+          "en": "A hike up Cerro de la Campana to take in the valley and the agave fields of Los Altos from above."
+        },
+        "alt": {
+          "es": "Vista aérea de la Finca y el valle",
+          "en": "Aerial view of the Finca and the valley"
+        }
+      },
+      {
+        "id": "paseo-a-caballo",
+        "name": {
+          "es": "Paseo a caballo",
+          "en": "Horse riding"
+        },
+        "photo": "cabalgata",
+        "text": {
+          "es": "Recorridos a caballo por la Finca y sus alrededores, entre árboles y agaves.",
+          "en": "Rides around the Finca and its surroundings, among trees and agave fields."
+        },
+        "alt": {
+          "es": "Grupo a caballo entre los árboles",
+          "en": "A group on horseback among the trees"
+        }
+      },
+      {
+        "id": "cuidado-equino",
+        "name": {
+          "es": "Cuidado equino",
+          "en": "Horse care"
+        },
+        "photo": "esp-caballerizas-1",
+        "text": {
+          "es": "Aprende a cepillar, alimentar y convivir con los caballos en las caballerizas.",
+          "en": "Learn to groom, feed and spend time with the horses in the stables."
+        },
+        "alt": {
+          "es": "Las caballerizas de madera",
+          "en": "The wooden stables"
+        }
+      },
+      {
+        "id": "cuidado-de-animales",
+        "name": {
+          "es": "Cuidado de animales",
+          "en": "Animal care"
+        },
+        "photo": "esp-lobos-2",
+        "text": {
+          "es": "Acompaña las rutinas de cuidado de los animales de la Finca, incluidos los lobos rescatados.",
+          "en": "Join the care routines of the Finca animals, including the rescued wolves."
+        },
+        "alt": {
+          "es": "Uno de los lobos de la Finca",
+          "en": "One of the Finca wolves"
+        }
+      },
+      {
+        "id": "jardineria",
+        "name": {
+          "es": "Jardinería e invernadero",
+          "en": "Gardening and greenhouse"
+        },
+        "photo": "lavanda-invernadero",
+        "text": {
+          "es": "Siembra, cosecha y cuida el huerto y los invernaderos que alimentan a la comunidad.",
+          "en": "Sow, harvest and tend the vegetable garden and greenhouses that feed the community."
+        },
+        "alt": {
+          "es": "Invernadero rodeado de lavanda",
+          "en": "A greenhouse surrounded by lavender"
+        }
+      }
+    ]
+  },
+  {
+    "id": "creatividad",
+    "title": {
+      "es": "Creatividad",
+      "en": "Creativity"
+    },
+    "description": {
+      "es": "Espacios para explorar, crear y expresarse desde lo tangible.",
+      "en": "Room to explore, make things and express yourself with your hands."
+    },
+    "photo": "taller-manualidades",
+    "alt": {
+      "es": "Hombre trabajando en el taller",
+      "en": "A man working in the studio"
+    },
+    "tone": "wood",
+    "items": {
+      "es": [
+        "Taller de arte",
+        "Arteterapia",
+        "Taller de cerámica",
+        "Manualidades",
+        "Taller de cocina y panadería",
+        "Actividades y talleres de liderazgo",
+        "Creación de piñatas",
+        "Actividades infantiles"
+      ],
+      "en": [
+        "Art workshop",
+        "Art therapy",
+        "Pottery workshop",
+        "Crafts",
+        "Cooking and baking workshop",
+        "Leadership activities and workshops",
+        "Piñata making",
+        "Activities for children"
+      ]
+    },
+    "details": [
+      {
+        "id": "taller-de-arte",
+        "name": {
+          "es": "Taller de arte",
+          "en": "Art workshop"
+        },
+        "photo": "card-taller-de-arte",
+        "text": {
+          "es": "Un taller amplio con mesas y materiales para pintar, dibujar y experimentar.",
+          "en": "A spacious studio with tables and materials to paint, draw and experiment."
+        },
+        "alt": {
+          "es": "El taller de arte con mesas largas",
+          "en": "The art studio with long tables"
+        }
+      },
+      {
+        "id": "arteterapia",
+        "name": {
+          "es": "Arteterapia",
+          "en": "Art therapy"
+        },
+        "photo": "pintura-rostro",
+        "text": {
+          "es": "El arte como camino para expresar emociones y conocerte, sin necesidad de experiencia previa.",
+          "en": "Art as a way to express emotions and know yourself, no experience needed."
+        },
+        "alt": {
+          "es": "Pintura de rostro durante una actividad",
+          "en": "Face painting during an activity"
+        }
+      },
+      {
+        "id": "ceramica",
+        "name": {
+          "es": "Taller de cerámica",
+          "en": "Pottery workshop"
+        },
+        "photo": "esp-taller-de-arte-2",
+        "text": {
+          "es": "Moldea el barro con tus manos y crea tus propias piezas, guiado paso a paso.",
+          "en": "Shape clay with your hands and make your own pieces, guided step by step."
+        },
+        "alt": {
+          "es": "Persona trabajando en una mesa del taller",
+          "en": "A person working at a studio table"
+        }
+      },
+      {
+        "id": "manualidades",
+        "name": {
+          "es": "Manualidades",
+          "en": "Crafts"
+        },
+        "photo": "taller-pintura-2",
+        "text": {
+          "es": "Actividades manuales para crear en grupo, ideales para retiros, familias y celebraciones.",
+          "en": "Hands-on activities to make things together, ideal for retreats, families and celebrations."
+        },
+        "alt": {
+          "es": "Mujer sonriendo en el taller",
+          "en": "A woman smiling in the studio"
+        }
+      },
+      {
+        "id": "cocina",
+        "name": {
+          "es": "Taller de cocina y panadería",
+          "en": "Cooking and baking workshop"
+        },
+        "photo": "horno-talavera",
+        "text": {
+          "es": "Cocina con ingredientes del huerto y hornea pan en el horno de leña de talavera.",
+          "en": "Cook with ingredients from the garden and bake bread in the tiled wood-fired oven."
+        },
+        "alt": {
+          "es": "Horno de leña cubierto de talavera",
+          "en": "A wood-fired oven covered in talavera tiles"
+        }
+      },
+      {
+        "id": "liderazgo",
+        "name": {
+          "es": "Actividades y talleres de liderazgo",
+          "en": "Leadership activities and workshops"
+        },
+        "photo": "reunion-palapa",
+        "text": {
+          "es": "Dinámicas para equipos y organizaciones que fortalecen la comunicación, la confianza y el trabajo en conjunto.",
+          "en": "Activities for teams and organisations that build communication, trust and teamwork."
+        },
+        "alt": {
+          "es": "Grupo reunido bajo una palapa",
+          "en": "A group meeting under a palapa"
+        }
+      },
+      {
+        "id": "pinatas",
+        "name": {
+          "es": "Creación de piñatas",
+          "en": "Piñata making"
+        },
+        "photo": "actividad-grupo",
+        "text": {
+          "es": "Elabora una piñata tradicional mexicana desde cero, con papel, engrudo y mucho color.",
+          "en": "Make a traditional Mexican piñata from scratch, with paper, paste and plenty of colour."
+        },
+        "alt": {
+          "es": "Grupo haciendo una actividad en el jardín",
+          "en": "A group doing an activity in the garden"
+        }
+      },
+      {
+        "id": "infantiles",
+        "name": {
+          "es": "Actividades infantiles",
+          "en": "Activities for children"
+        },
+        "photo": "jacuzzi",
+        "text": {
+          "es": "Juegos, talleres y naturaleza para que niñas y niños disfruten la Finca a su manera.",
+          "en": "Games, workshops and nature so children can enjoy the Finca their own way."
+        },
+        "alt": {
+          "es": "Niños en el jacuzzi al aire libre",
+          "en": "Children in the outdoor jacuzzi"
+        }
+      }
+    ]
+  }
+]

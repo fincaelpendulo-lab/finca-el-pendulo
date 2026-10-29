@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Button from '../components/Button.astro';
+import { posts, postPath } from '../lib/blog';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+import site from '../data/site.json';
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const es = lang === 'es';
+const post = posts(lang).find((p) => p.slug === slug)!;
+const other = es ? 'en' : 'es';
+const twin = post.pair && posts(other).some((p) => p.slug === post.pair) ? postPath(other, post.pair) : null;
+const path = postPath(lang, slug);
+const { Content } = post;
+const article = { '@type': 'BlogPosting', headline: post.title, description: post.description, datePublished: post.date, inLanguage: es ? 'es-MX' : 'en', author: { '@id': `${site.url}/#organization` }, publisher: { '@id': `${site.url}/#organization` } };
+const fmt = new Date(`${post.date}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BaseLayout lang={lang} path={path} alternate={twin} ogType="article" title={`${post.title} | Finca El Péndulo`} description={post.description} schema={[article]}
+  breadcrumbs={[{ name: 'Blog', path: localize('/blog', lang) }, { name: post.title, path }]}>
+  <PageHeader lang={lang} image={post.image} alt={post.title} eyebrow={`Blog · ${fmt}`} title={post.title} />
+  <article class="section">
+    <div class="wrap prose post">
+      <p class="t-lead muted">{post.description}</p>
+      <Content />
+      <div class="cluster" style="margin-top: 48px">
+        <Button href={whatsappUrl} track="whatsapp">{es ? 'Escríbenos por WhatsApp' : 'Message us on WhatsApp'}</Button>
+        <Button href={href(localize('/blog', lang))} variant="secondary">{es ? 'Ver más artículos' : 'See more articles'}</Button>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .post { margin-left: auto; margin-right: auto; }
+  .post :global(ul) { padding-left: 1.2em; }
+</style>

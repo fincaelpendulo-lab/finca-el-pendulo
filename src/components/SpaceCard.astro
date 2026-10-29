@@ -1,0 +1,16 @@
+---
+// Card (MexiSol spaces grid): photo, uppercase label, serif title, muted text. Linked when `href` is set.
+import Photo from './Photo.astro';
+type Tone = 'ground' | 'wood' | 'corn' | 'agave' | 'agave-oscuro' | 'negro';
+interface Props { image: string; alt: string; position?: string; tone?: Tone; meta?: string; title: string; description?: string; href?: string; ratio?: string }
+const { image, alt, position, meta, title, description, href, ratio } = Astro.props;
+const Tag = href ? 'a' : 'article';
+---
+<Tag class="fp-space" href={href}>
+  <div class="fp-space__media" style={ratio ? `aspect-ratio:${ratio}` : undefined}>
+    <Photo name={image} alt={alt} class="fp-img" sizes="(max-width: 520px) 100vw, (max-width: 1100px) 50vw, 25vw" widths={[480, 800]} style={position ? `object-position:${position}` : undefined} />
+  </div>
+  {meta && <p class="label label--tight">{meta}</p>}
+  <h3 class="fp-space__title">{title}</h3>
+  {description && <p class="fp-space__desc">{description}</p>}
+</Tag>

@@ -1,0 +1,14 @@
+---
+// A photo that opens in the full-screen viewer (public/js/site.js, [data-lightbox]).
+// Photos with the same `group` page through together; the link works without JavaScript too.
+import { getImage } from 'astro:assets';
+import Photo from './Photo.astro';
+import { photo } from '../lib/photos';
+interface Props { name: string; alt: string; group: string; sizes?: string; widths?: number[]; class?: string; label?: string }
+const { name, alt, group, sizes, widths, class: className, label } = Astro.props;
+const src = photo(name);
+const full = await getImage({ src, width: Math.min(src.width, 1600), format: 'webp', quality: 64 });
+---
+<a class:list={['lb-link', className]} href={full.src} data-lightbox={group} data-caption={alt} aria-label={label ?? alt}>
+  <Photo name={name} alt={alt} sizes={sizes} widths={widths} />
+</a>

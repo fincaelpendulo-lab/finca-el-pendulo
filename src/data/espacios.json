@@ -1,0 +1,603 @@
+[
+  {
+    "id": "osho-hut",
+    "name": {
+      "es": "Osho Hut",
+      "en": "Osho Hut"
+    },
+    "kind": {
+      "es": "Salón ceremonial",
+      "en": "Ceremonial hall"
+    },
+    "photo": "esp-osho-hut-1",
+    "alt": {
+      "es": "El Osho Hut, de piedra y techo de palapa, entre jardines",
+      "en": "The Osho Hut, stone walls and a palm roof among gardens"
+    },
+    "gallery": [
+      "osho-hut-sala",
+      "osho-hut-grupo",
+      "esp-osho-hut-3",
+      "osho-hut-arcoiris",
+      "altar-oraculo",
+      "oraculo-velas",
+      "ceremonia-circulo",
+      "cuencos-sonido"
+    ],
+    "short": {
+      "es": "El corazón espiritual de la Finca.",
+      "en": "The spiritual heart of the Finca."
+    },
+    "body": {
+      "es": [
+        "El corazón espiritual de la Finca. Un espacio amplio, luminoso y silencioso, ideal para meditación, yoga, talleres, ceremonias y actividades grupales. Su arquitectura circular y su presencia serena permiten que cualquier práctica se sienta profunda y contenida.",
+        "Edificio circular de piedra recuperada de la misma Finca, con techo de palma y piso de mármol. Recibe meditaciones, clases de yoga, ceremonias tradicionales, conciertos, cenas e incluso proyecciones de cine."
+      ],
+      "en": [
+        "The spiritual heart of the Finca. A wide, bright and quiet space for meditation, yoga, workshops, ceremonies and group work. Its round architecture and calm presence let any practice feel deep and held.",
+        "A round building of stone gathered on the Finca itself, with a palm roof and a marble floor. It hosts meditations, yoga classes, traditional ceremonies, concerts, dinners and even film screenings."
+      ]
+    }
+  },
+  {
+    "id": "oraculo",
+    "name": {
+      "es": "Oráculo",
+      "en": "Oráculo"
+    },
+    "kind": {
+      "es": "Espacio al aire libre",
+      "en": "Open-air space"
+    },
+    "photo": "esp-oraculo-1",
+    "alt": {
+      "es": "El Oráculo, círculo de pilares de ónix entre árboles",
+      "en": "The Oráculo, a circle of onyx pillars among trees"
+    },
+    "gallery": [
+      "esp-oraculo-2",
+      "esp-oraculo-3",
+      "yoga-matutino",
+      "yoga-circulo",
+      "circulo-de-piedra",
+      "ejercicio-grupo",
+      "caminata-fuego"
+    ],
+    "short": {
+      "es": "Dieciséis pilares de ónix de Jalisco.",
+      "en": "Sixteen pillars of Jalisco onyx."
+    },
+    "body": {
+      "es": [
+        "Una construcción con 16 pilares de ónix provenientes de Jalisco. Un espacio creado para la reflexión y la búsqueda interior, ideal para actividades en grupo como yoga, clases al aire libre, cenas o meditaciones.",
+        "Cada columna está marcada con una runa distinta que, al acercarte con una pregunta, te ofrece una guía."
+      ],
+      "en": [
+        "Sixteen pillars of onyx from Jalisco. A space made for reflection and inner search, suited to group activities such as yoga, open-air classes, dinners or meditation.",
+        "Each column carries a different rune that offers guidance when you come to it with a question."
+      ]
+    }
+  },
+  {
+    "id": "agora-gnosis",
+    "name": {
+      "es": "Salón Ágora Gnosis",
+      "en": "Ágora Gnosis room"
+    },
+    "kind": {
+      "es": "Sala de trabajo",
+      "en": "Meeting room"
+    },
+    "photo": "esp-agora-gnosis-1",
+    "alt": {
+      "es": "El Salón Ágora Gnosis con mesa de juntas",
+      "en": "The Ágora Gnosis hall with its meeting table"
+    },
+    "gallery": [
+      "esp-agora-gnosis-2"
+    ],
+    "short": {
+      "es": "Para juntas, presentaciones y talleres.",
+      "en": "For meetings, presentations and workshops."
+    },
+    "body": {
+      "es": [
+        "Un espacio cerrado con mesa cuadrada, equipado con proyector y bocina. Perfecto para reuniones de trabajo, presentaciones y talleres.",
+        "El Ágora Gnosis fue diseñado para el trabajo y la concentración: retiros empresariales, juntas y reuniones de todo tipo."
+      ],
+      "en": [
+        "An indoor room with a square table, a projector and a speaker. Made for working sessions, presentations and workshops.",
+        "Ágora Gnosis was designed for focus and work: company retreats, planning sessions and meetings of every kind."
+      ]
+    }
+  },
+  {
+    "id": "sammasati",
+    "name": {
+      "es": "Sammasati",
+      "en": "Sammasati"
+    },
+    "kind": {
+      "es": "Área común",
+      "en": "Common area"
+    },
+    "photo": "card-sammasati",
+    "alt": {
+      "es": "Sammasati, mesa larga de madera junto al jacuzzi",
+      "en": "Sammasati, a long wooden table beside the jacuzzi"
+    },
+    "gallery": [],
+    "short": {
+      "es": "Mesa para 25, jacuzzi y fogata.",
+      "en": "A table for 25, a jacuzzi and a fire pit."
+    },
+    "body": {
+      "es": [
+        "En el centro de la Finca, Sammasati es un espacio abierto para la relajación y la convivencia.",
+        "Cuenta con un tablón de madera para 25 personas para cenas y eventos, jacuzzi para 8 personas y espacio para fogatas."
+      ],
+      "en": [
+        "At the centre of the Finca, Sammasati is an open space to rest and spend time together.",
+        "It has a wooden table for 25 people for dinners and gatherings, a jacuzzi for 8 and a fire pit."
+      ]
+    }
+  },
+  {
+    "id": "temazcal",
+    "name": {
+      "es": "Temazcal",
+      "en": "Temazcal"
+    },
+    "kind": {
+      "es": "Espacio ceremonial",
+      "en": "Ceremonial space"
+    },
+    "photo": "esp-temazcal-1",
+    "alt": {
+      "es": "El temazcal, cúpula tradicional con tinas de agua fría",
+      "en": "The temazcal, a traditional dome with cold-water tubs"
+    },
+    "gallery": [
+      "esp-temazcal-2",
+      "esp-temazcal-3",
+      "esp-temazcal-4",
+      "card-temazcal",
+      "temazcal-saludo",
+      "temazcal-interior",
+      "temazcal-tinas",
+      "sahumerio"
+    ],
+    "short": {
+      "es": "Calor, vapor y tinas de agua fría.",
+      "en": "Heat, steam and cold-water tubs."
+    },
+    "body": {
+      "es": [
+        "Uno de los espacios más significativos de la Finca: una estructura tradicional de calor y vapor que ofrece una experiencia profunda de purificación física, emocional y espiritual. Ideal para grupos que buscan una actividad ceremonial, retiros que integran prácticas ancestrales o visitantes que desean una experiencia regeneradora.",
+        "Al exterior, tinas de agua fría acompañan la experiencia con el cambio de temperatura."
+      ],
+      "en": [
+        "One of the Finca's most meaningful spaces: a traditional heat and steam lodge for a deep physical, emotional and spiritual cleanse. For groups looking for a ceremonial activity, retreats that work with ancestral practices, or anyone who wants a restoring experience.",
+        "Outside, cold-water tubs complete the session with a change of temperature."
+      ]
+    }
+  },
+  {
+    "id": "terraza-ambu",
+    "name": {
+      "es": "Terraza Ambú",
+      "en": "Ambú terrace"
+    },
+    "kind": {
+      "es": "Eventos hasta 200 personas",
+      "en": "Events for up to 200"
+    },
+    "photo": "esp-terraza-ambu-1",
+    "alt": {
+      "es": "Terraza Ambú: mesas bajo candiles con vista al agavero",
+      "en": "The Ambú terrace: tables under chandeliers looking out over the agave field"
+    },
+    "gallery": [
+      "esp-terraza-ambu-2",
+      "esp-terraza-ambu-3",
+      "terraza-ambu-noche",
+      "terraza-ambu-fuente",
+      "cena-candiles"
+    ],
+    "short": {
+      "es": "Vista al campo y a los agaves de Jalisco.",
+      "en": "A view over the fields and the Jalisco agave."
+    },
+    "body": {
+      "es": [
+        "Una terraza con vista al campo y a los agaves de Jalisco, para celebraciones y eventos de hasta 200 personas. Cuenta con iluminación, fuente y sanitarios accesibles.",
+        "También tiene un horno de pizzas, para que tus invitados preparen su propia comida."
+      ],
+      "en": [
+        "A terrace overlooking the fields and the Jalisco agave, for celebrations and events of up to 200 people. It has lighting, a fountain and accessible restrooms.",
+        "It also has a pizza oven, so your guests can make their own food."
+      ]
+    }
+  },
+  {
+    "id": "taller-de-arte",
+    "name": {
+      "es": "Taller de arte",
+      "en": "Art studio"
+    },
+    "kind": {
+      "es": "Cerámica y manualidades",
+      "en": "Pottery and crafts"
+    },
+    "photo": "taller-pintura-2",
+    "alt": {
+      "es": "Taller de arte con mesas de trabajo y estantes",
+      "en": "Art studio with work tables and shelves"
+    },
+    "gallery": [
+      "card-taller-de-arte",
+      "esp-taller-de-arte-2",
+      "taller-manualidades",
+      "taller-creatividad",
+      "taller-ceramica"
+    ],
+    "short": {
+      "es": "Cinco tornos de cerámica.",
+      "en": "Five pottery wheels."
+    },
+    "body": {
+      "es": [
+        "Un taller equipado con 5 tornos de cerámica y todas las herramientas para la producción de alfarería.",
+        "También tiene materiales para todo tipo de manualidades: pinturas, pinceles, tablas, lienzos y colores."
+      ],
+      "en": [
+        "A studio with 5 pottery wheels and all the tools for making ceramics.",
+        "It also has materials for all kinds of crafts: paints, brushes, boards, canvases and colours."
+      ]
+    }
+  },
+  {
+    "id": "caballerizas",
+    "name": {
+      "es": "Caballerizas",
+      "en": "Stables"
+    },
+    "kind": {
+      "es": "Nueve caballos",
+      "en": "Nine horses"
+    },
+    "photo": "esp-caballerizas-1",
+    "alt": {
+      "es": "El patio de madera de las caballerizas",
+      "en": "The wooden courtyard of the stables"
+    },
+    "gallery": [
+      "cabalgata",
+      "cabalgata-2",
+      "caballos-pareja",
+      "terapia-con-caballo",
+      "paseo-caballo"
+    ],
+    "short": {
+      "es": "Cinco nacieron en la Finca.",
+      "en": "Five were born on the Finca."
+    },
+    "body": {
+      "es": [
+        "En la Finca viven 9 caballos; 5 de ellos nacieron y se criaron aquí.",
+        "Los caballos están disponibles para recorridos y equinoterapia. Nuestro equipo enseña a personas de todas las edades a cuidarlos y manejarlos."
+      ],
+      "en": [
+        "Nine horses live on the Finca; five of them were born and raised here.",
+        "They are available for rides and equine therapy, and our team teaches people of every age how to care for and handle them."
+      ]
+    }
+  },
+  {
+    "id": "lago",
+    "name": {
+      "es": "Lago",
+      "en": "Lake"
+    },
+    "kind": {
+      "es": "Naturaleza",
+      "en": "Nature"
+    },
+    "photo": "esp-lago-1",
+    "alt": {
+      "es": "El lago con su palapa reflejada en el agua",
+      "en": "The lake with its palapa reflected in the water"
+    },
+    "gallery": [
+      "esp-lago-2",
+      "esp-lago-3",
+      "esp-lago-4",
+      "palapa-sobre-laguna",
+      "aerea-laguna-palapa",
+      "lago-jardin",
+      "circulo-lago",
+      "lago-1"
+    ],
+    "short": {
+      "es": "Peces koi, tortugas y senderos.",
+      "en": "Koi, turtles and footpaths."
+    },
+    "body": {
+      "es": [
+        "Un refugio de paz donde conviven peces koi, tortugas y la fauna silvestre que se acerca al área.",
+        "El lago tiene tumbonas, zonas soleadas y una mesa que se adapta para cenas y reuniones. Los senderos que lo rodean son para caminar al atardecer, cuando el cielo se tiñe de rosa y naranja."
+      ],
+      "en": [
+        "A peaceful corner shared by koi, turtles and the wildlife that comes down to the water.",
+        "There are loungers, sunny spots and a table that can be set for dinners and meetings. Footpaths circle the lake for walks at sunset, when the sky turns pink and orange."
+      ]
+    }
+  },
+  {
+    "id": "alberca",
+    "name": {
+      "es": "Alberca",
+      "en": "Pool"
+    },
+    "kind": {
+      "es": "Climatizada todo el año",
+      "en": "Heated all year"
+    },
+    "photo": "alberca-01",
+    "alt": {
+      "es": "La alberca rodeada de cipreses y edificios de ladrillo",
+      "en": "The pool surrounded by cypress trees and brick buildings"
+    },
+    "gallery": [
+      "alberca-02",
+      "alberca-03",
+      "alberca-04-vertical",
+      "alberca-mural",
+      "alberca-aerea"
+    ],
+    "short": {
+      "es": "Para refrescarse y descansar.",
+      "en": "To cool off and rest."
+    },
+    "body": {
+      "es": [
+        "Rodeada de naturaleza, la alberca es para refrescarse, descansar y convivir después de las actividades del día.",
+        "Tiene escaleras, bancos y climatización todos los días del año."
+      ],
+      "en": [
+        "Surrounded by greenery, the pool is the place to cool off, rest and spend time together after the day's activities.",
+        "It has steps, benches and is heated every day of the year."
+      ]
+    }
+  },
+  {
+    "id": "gimnasio",
+    "name": {
+      "es": "Gimnasio",
+      "en": "Gym"
+    },
+    "kind": {
+      "es": "Actividad física",
+      "en": "Fitness"
+    },
+    "photo": "card-gimnasio",
+    "alt": {
+      "es": "Gimnasio con caminadoras y bicicleta fija",
+      "en": "Gym with treadmills and a stationary bike"
+    },
+    "gallery": [
+      "gimnasio-1"
+    ],
+    "short": {
+      "es": "Pilates reformer, pesas y sala de juegos.",
+      "en": "Pilates reformer, weights and a games room."
+    },
+    "body": {
+      "es": [
+        "El gimnasio es para la actividad física personal y en grupo: zona de peso libre, máquina multifuncional, ab coaster, cama de pilates reformer, máquina de inmersión, caminadoras, bicicleta fija y bench.",
+        "Dentro del espacio también hay mesa de ping pong, mesa de billar y una sala de estar."
+      ],
+      "en": [
+        "The gym is for solo and group training: free weights, a multi-station machine, an ab coaster, a Pilates reformer, a dip station, treadmills, a stationary bike and a bench.",
+        "The same building has a ping-pong table, a pool table and a lounge."
+      ]
+    }
+  },
+  {
+    "id": "spa",
+    "name": {
+      "es": "Spa",
+      "en": "Spa"
+    },
+    "kind": {
+      "es": "Masajes y tratamientos",
+      "en": "Massage and treatments"
+    },
+    "photo": "card-spa",
+    "alt": {
+      "es": "Cama de masaje en el spa",
+      "en": "A massage table in the spa"
+    },
+    "gallery": [],
+    "short": {
+      "es": "Salón de masajes y sala de belleza.",
+      "en": "A massage room and a beauty room."
+    },
+    "body": {
+      "es": [
+        "El spa tiene un salón de masajes y una sala de tratamientos de belleza.",
+        "Dos profesionales con amplia experiencia realizan masajes relajantes y terapéuticos, faciales, microdermoabrasiones y más."
+      ],
+      "en": [
+        "The spa has a massage room and a beauty treatment room.",
+        "Two experienced therapists offer relaxing and therapeutic massage, facials, microdermabrasion and more."
+      ]
+    }
+  },
+  {
+    "id": "gaia",
+    "name": {
+      "es": "Invernadero Gaia",
+      "en": "Gaia greenhouse"
+    },
+    "kind": {
+      "es": "Huerto",
+      "en": "Kitchen garden"
+    },
+    "photo": "card-gaia",
+    "alt": {
+      "es": "Invernadero Gaia entre árboles",
+      "en": "The Gaia greenhouse among trees"
+    },
+    "gallery": [
+      "gaia-1"
+    ],
+    "short": {
+      "es": "Lo que se cosecha llega a la mesa.",
+      "en": "What grows here reaches the table."
+    },
+    "body": {
+      "es": [
+        "Un invernadero y huerto donde se cultivan hierbas, vegetales, frutas y plantas medicinales, al ritmo de la tierra y de las estaciones.",
+        "La cosecha de Gaia forma parte de la vida diaria de la Finca y alimenta a la comunidad y a los huéspedes. Más que un huerto, es un espacio de conexión con la tierra."
+      ],
+      "en": [
+        "A greenhouse and kitchen garden for herbs, vegetables, fruit and medicinal plants, grown to the rhythm of the land and the seasons.",
+        "Gaia's harvest is part of daily life on the Finca and feeds the community and its guests. More than a garden, it is a place to reconnect with the land."
+      ]
+    }
+  },
+  {
+    "id": "lobos",
+    "name": {
+      "es": "Lobos",
+      "en": "Wolves"
+    },
+    "kind": {
+      "es": "Dos lobos rescatados",
+      "en": "Two rescued wolves"
+    },
+    "photo": "esp-lobos-1",
+    "alt": {
+      "es": "Un lobo sobre su plataforma de madera",
+      "en": "A wolf on its wooden platform"
+    },
+    "gallery": [
+      "esp-lobos-2"
+    ],
+    "short": {
+      "es": "Encuentros guiados y respetuosos.",
+      "en": "Guided, respectful encounters."
+    },
+    "body": {
+      "es": [
+        "La Finca es hogar de dos lobos rescatados. Estos hermanos llegaron después de que sus cuidadores anteriores ya no pudieran hacerse cargo de ellos.",
+        "Dentro de su recinto, los huéspedes pueden conocerlos de forma respetuosa y guiada, en meditación o en alimentaciones dirigidas por el equipo. Muchos visitantes dicen que sostener la mirada de los lobos es algo profundo e inolvidable."
+      ],
+      "en": [
+        "The Finca is home to two rescued wolves, brothers who arrived when their previous keepers could no longer look after them.",
+        "Guests can meet them in their enclosure in a guided, respectful way, sitting in meditation or joining a feeding led by the team. Many visitors say that holding a wolf's gaze stays with them."
+      ]
+    }
+  },
+  {
+    "id": "hormiguero",
+    "name": {
+      "es": "Hormiguero",
+      "en": "Hormiguero"
+    },
+    "kind": {
+      "es": "Vivienda compartida",
+      "en": "Shared lodge"
+    },
+    "photo": "card-hormiguero",
+    "alt": {
+      "es": "El Hormiguero entre plataneros",
+      "en": "The Hormiguero among banana trees"
+    },
+    "gallery": [
+      "aerea-hormiguero"
+    ],
+    "short": {
+      "es": "Construido por voluntarios, para 20 personas.",
+      "en": "Built by volunteers, sleeps 20."
+    },
+    "body": {
+      "es": [
+        "Un edificio de dos niveles creado por voluntarios que han formado parte de la comunidad de la Finca, reflejo del trabajo colectivo.",
+        "Aloja hasta 20 personas, con cocina compartida y dos baños comunes. Fue diseñado para ser naturalmente aislante y está rodeado de plataneros. Afuera, un fogatero invita a reunirse bajo el cielo abierto."
+      ],
+      "en": [
+        "A two-storey building made by volunteers from the Finca's community, the result of shared work.",
+        "It sleeps up to 20, with a shared kitchen and two shared bathrooms. It was designed to insulate itself naturally and is surrounded by banana trees. Outside, a fire pit invites people to gather under the open sky."
+      ]
+    }
+  },
+  {
+    "id": "jardin-de-rosas",
+    "name": {
+      "es": "Jardín de Rosas",
+      "en": "Rose garden"
+    },
+    "kind": {
+      "es": "Detrás del Osho Hut",
+      "en": "Behind the Osho Hut"
+    },
+    "photo": "jardin-rosas",
+    "alt": {
+      "es": "Rosas amarillas y rojas en el Jardín de Rosas",
+      "en": "Yellow and red roses in the rose garden"
+    },
+    "gallery": [],
+    "short": {
+      "es": "Rosas de muchos colores.",
+      "en": "Roses in many colours."
+    },
+    "body": {
+      "es": [
+        "Justo detrás del Osho Hut, el Jardín de Rosas florece con rosas de muchos colores que perfuman el aire e invitan a la quietud.",
+        "Sus rosas decoran cenas románticas, encuentros y ocasiones especiales."
+      ],
+      "en": [
+        "Just behind the Osho Hut, the rose garden blooms in many colours, scenting the air and inviting stillness.",
+        "Its roses decorate romantic dinners, gatherings and special occasions."
+      ]
+    }
+  },
+  {
+    "id": "el-27",
+    "name": {
+      "es": "El 27",
+      "en": "El 27"
+    },
+    "kind": {
+      "es": "Comedor en invernadero",
+      "en": "Greenhouse dining room"
+    },
+    "photo": "invernadero-mesa",
+    "alt": {
+      "es": "El 27, invernadero de madera y vidrio con mesa larga y plantas colgantes",
+      "en": "El 27, a wood and glass greenhouse with a long table and hanging plants"
+    },
+    "gallery": [
+      "esp-el-27-3",
+      "el-27-techo",
+      "el-27-noche",
+      "lavanda-invernadero"
+    ],
+    "short": {
+      "es": "Una mesa larga entre plantas.",
+      "en": "A long table among plants."
+    },
+    "body": {
+      "es": [
+        "Un invernadero de madera y vidrio con una mesa larga y plantas colgantes, para comidas, cenas y reuniones entre plantas.",
+        "De noche, las lámparas de barro y las luces encendidas lo vuelven un comedor íntimo."
+      ],
+      "en": [
+        "A wood and glass greenhouse with a long table and hanging plants, for lunches, dinners and meetings surrounded by green.",
+        "At night, clay lamps and string lights turn it into an intimate dining room."
+      ]
+    }
+  }
+]

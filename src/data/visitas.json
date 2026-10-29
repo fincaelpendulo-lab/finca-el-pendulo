@@ -1,0 +1,37 @@
+{
+  "dayPass": {
+    "price": 400,
+    "hours": {
+      "es": "10:00 am a 7:00 pm",
+      "en": "10:00 am to 7:00 pm"
+    },
+    "childDiscount": {
+      "es": "Menores de 11 años: 50% de descuento",
+      "en": "Children under 11: 50% off"
+    },
+    "under5": {
+      "es": "Menores de 5 años: entrada gratuita",
+      "en": "Children under 5: free"
+    },
+    "includes": {
+      "es": [
+        "Acceso a áreas comunes",
+        "Alberca",
+        "Jacuzzi",
+        "Paseo a caballo (solo con reservación previa)"
+      ],
+      "en": [
+        "Access to the common areas",
+        "Pool",
+        "Jacuzzi",
+        "Horse ride (booked in advance only)"
+      ]
+    }
+  },
+  "sesionFotos": {
+    "price": 750,
+    "withHorse": 1000,
+    "maxHours": 3,
+    "extraHour": 100
+  }
+}

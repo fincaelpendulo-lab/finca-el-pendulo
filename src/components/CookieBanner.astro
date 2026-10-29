@@ -1,0 +1,34 @@
+---
+// Cookie consent. Nothing that sets cookies (GA4, YouTube) runs until the visitor
+// allows it; public/js/site.js stores the choice. Put a button with
+// data-cookie-settings in the footer so visitors can reopen it.
+import { href } from '../lib/url';
+
+interface Props { lang?: 'en' | 'es'; }
+const { lang = 'es' } = Astro.props;
+const t = lang === 'es'
+  ? { text: 'Usamos cookies para contar visitas y saber qué páginas ayudan. No guardamos nada en tu dispositivo hasta que elijas.', policy: 'Aviso de privacidad', privacy: '/aviso-de-privacidad#cookies', choose: 'Elige qué permitir', essential: 'Esenciales', essentialText: 'Recuerdan esta elección. Siempre activas.', analytics: 'Analítica', analyticsText: 'Google Analytics, para contar visitas y clics.', video: 'Video', videoText: 'YouTube, para reproducir videos.', reject: 'Rechazar', customize: 'Personalizar', save: 'Guardar', accept: 'Aceptar todo' }
+  : { text: 'We use cookies to count visits and see which pages help people. Nothing is stored on your device until you choose.', policy: 'Privacy policy', privacy: '/en/privacy#cookies', choose: 'Choose what to allow', essential: 'Essential', essentialText: 'Remembers this choice. Always on.', analytics: 'Analytics', analyticsText: 'Google Analytics, to count visits and clicks.', video: 'Video', videoText: 'YouTube, to play videos.', reject: 'Reject', customize: 'Customize', save: 'Save choices', accept: 'Accept all' };
+---
+<section class="cookie" data-cookie-banner hidden aria-labelledby="cookie-title" role="region">
+  <div class="cookie__text">
+    <h2 id="cookie-title">Cookies</h2>
+    <p>{t.text} <a href={href(t.privacy)}>{t.policy}</a>.</p>
+  </div>
+  <form class="cookie__options" data-cookie-options hidden>
+    <fieldset>
+      <legend>{t.choose}</legend>
+      <label><input type="checkbox" checked disabled /> <strong>{t.essential}</strong> {t.essentialText}</label>
+      <label><input type="checkbox" name="analytics" /> <strong>{t.analytics}</strong> {t.analyticsText}</label>
+      <label><input type="checkbox" name="media" /> <strong>{t.video}</strong> {t.videoText}</label>
+    </fieldset>
+  </form>
+  <!-- Reject and Accept look the same on purpose (no dark patterns). -->
+  <div class="cookie__actions">
+    <button type="button" data-cookie="reject">{t.reject}</button>
+    <button type="button" data-cookie="customize" aria-expanded="false">{t.customize}</button>
+    <button type="button" data-cookie="save" hidden>{t.save}</button>
+    <button type="button" data-cookie="accept">{t.accept}</button>
+  </div>
+</section>
+

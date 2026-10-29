@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ColorSplit from '../components/ColorSplit.astro';
+import Location from '../components/Location.astro';
+import Button from '../components/Button.astro';
+import testimonios from '../data/testimonios.json';
+import equipo from '../data/equipo.json';
+import Photo from '../components/Photo.astro';
+import { Image } from 'astro:assets';
+import symbol from '../assets/brand/simbolo-marina.png';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/comunidad', lang);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Comunidad y voluntariado | Finca El Péndulo' : 'Community and volunteering | Finca El Péndulo'}
+  description={es ? 'Finca El Péndulo es una comunidad consciente y autosustentable. Conoce cómo vivir aquí como voluntario o como parte del equipo.' : 'Finca El Péndulo is a conscious, self-sustaining community. See how to live here as a volunteer or as part of the team.'}
+  ogImage="community" breadcrumbs={[{ name: es ? 'Comunidad' : 'Community', path }]}>
+  <PageHeader lang={lang} image="voluntariado-1" alt={es ? 'Miembros de la comunidad reunidos frente a la casa principal' : 'Community members gathered in front of the main house'} position="center 40%" eyebrow={es ? 'Comunidad' : 'Community'} title={es ? 'Una comunidad consciente y autosustentable' : 'A conscious, self-sustaining community'} />
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? 'Las personas que sostienen la Finca' : 'The people who keep the Finca going'} />
+      <div class="prose">
+        <p class="lead">{es ? 'Las personas que viven en esta comunidad hacen posible que podamos ofrecer espacios de crecimiento para nuestros huéspedes.' : 'The people who live in this community make it possible for us to offer spaces for growth to our guests.'}</p>
+        <p>{es ? 'Somos hombres y mujeres en un amplio rango de edad. Juntos generamos un espacio de convivencia, aprendizaje y respeto: cuidamos los jardines y los animales, preparamos los espacios, recibimos a los huéspedes y compartimos la vida diaria.' : 'We are men and women of many ages. Together we make a place of shared life, learning and respect: we tend the gardens and the animals, prepare the spaces, welcome guests and share daily life.'}</p>
+        <p>{es ? 'El trabajo es parte de la experiencia comunitaria. Lo vivimos como meditación: una forma de servicio, presencia y participación.' : 'Work is part of community life. We practise it as meditation: a form of service, presence and participation.'}</p>
+      </div>
+    </div>
+  </section>
+  <ColorSplit image="lavanda-invernadero" alt={es ? 'Huerto dentro del invernadero' : 'Vegetable beds inside the greenhouse'} tone="agave-oscuro" title={es ? 'Voluntariado' : 'Volunteering'}>
+    <p>{es ? 'Finca Member es un intercambio basado en el principio de Work as Meditation. Mínimo un mes, cinco horas de servicio al día, seis días a la semana.' : 'Finca Member is an exchange built on the principle of Work as Meditation. At least one month, five hours of service a day, six days a week.'}</p>
+    <Button slot="action" href={L('/voluntariado')} tone="light">{es ? 'Ver el voluntariado' : 'See volunteering'}</Button>
+  </ColorSplit>
+  <section class="section" id="equipo">
+    <div class="wrap">
+      <p class="label">{es ? 'Equipo' : 'Team'}</p>
+      <div class="split-head">
+        <h2 class="t-heading">{es ? 'Quienes cuidan la Finca' : 'The people who care for the Finca'}</h2>
+        <p class="muted" style="max-width: 40ch">{es ? 'El equipo que recibe a los huéspedes, prepara los espacios y acompaña cada retiro.' : 'The team that welcomes guests, prepares the spaces and supports every retreat.'}</p>
+      </div>
+      <div class="cards">
+        {equipo.map((p) => (
+          <article class="fp-space">
+            <div class="fp-space__media team__media">
+              {p.photo ? <Photo name={p.photo} alt={p.name} class="fp-img" sizes="(max-width: 520px) 100vw, 25vw" widths={[480, 800]} /> : <Image src={symbol} alt="" class="team__symbol" height={160} />}
+            </div>
+            <p class="label label--tight">{p.role[lang]}</p>
+            <h3 class="fp-space__title">{p.name}</h3>
+            <p class="fp-space__desc">{p.bio[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Testimonios' : 'In their words'} />
+      <div class="quotes">
+        {testimonios.map((q) => <blockquote class="quote"><p>“{q.text[lang]}”</p><cite>{q.by}, {q.role[lang]}</cite></blockquote>)}
+      </div>
+    </div>
+  </section>
+  <Location lang={lang} />
+</BaseLayout>
+<style>
+  .team__media { display: grid; place-items: center; background: var(--arena); }
+  .team__symbol { width: 40%; height: auto; }
+</style>

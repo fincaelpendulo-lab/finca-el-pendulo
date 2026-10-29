@@ -1,0 +1,20 @@
+---
+// GuideSplit (MexiSol): text on one half, a tall photo on the other, edge to edge.
+// `tone` colours the panel: white by default, or a deep brand colour (agave-oscuro, ground, wood, negro).
+import Photo from './Photo.astro';
+type Tone = 'ground' | 'wood' | 'corn' | 'agave' | 'agave-oscuro' | 'negro' | 'cal' | 'arena';
+interface Props { image: string; alt: string; position?: string; tone?: Tone; eyebrow?: string; title: string; reverse?: boolean; id?: string }
+const { image, alt, position, tone = 'cal', eyebrow, title, reverse, id } = Astro.props;
+const deep = !['cal', 'arena', 'corn'].includes(tone);
+---
+<section class:list={['ms-guide', reverse && 'ms-guide--reverse', `fp-bg-${tone}`, deep && 'deep']} id={id}>
+  <div class="ms-guide__text">
+    {eyebrow && <p class="label">{eyebrow}</p>}
+    <h2 class="ms-guide__title">{title}</h2>
+    <div class="ms-guide__body stack"><slot /></div>
+    {Astro.slots.has('action') && <div class="cluster ms-guide__action"><slot name="action" /></div>}
+  </div>
+  <div class="ms-guide__photo">
+    <Photo name={image} alt={alt} class="fp-img" sizes="(max-width: 760px) 100vw, 50vw" style={position ? `object-position:${position}` : undefined} />
+  </div>
+</section>

@@ -1,0 +1,97 @@
+---
+// Photo sessions at the Finca: up to three hours on the grounds, with horses on request. Rates in src/data/visitas.json.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Photo from '../components/Photo.astro';
+import Button from '../components/Button.astro';
+import ColorSplit from '../components/ColorSplit.astro';
+import visitas from '../data/visitas.json';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/sesion-de-fotos', lang);
+const s = visitas.sesionFotos;
+const steps = es ? [
+  ['Al llegar', 'Pasa a recepción para firmar la extensión de responsabilidades y recibir la bienvenida a la Finca.'],
+  ['Caballos', 'Si quieres caballos en tu sesión, avísanos con anticipación y dinos si los necesitas ensillados o no.'],
+  ['Vestidores', 'Hay vestidores para cambios de vestimenta. Según la disponibilidad del hotel, podemos prestarte una habitación solo para cambiarte; te lo confirmamos en recepción y ahí te damos la llave.'],
+  ['Al salir', 'Pasa a recepción para el check out y, si se te prestó habitación, entrega ahí la llave.'],
+] : [
+  ['On arrival', 'Stop at reception to sign the liability waiver and be welcomed to the Finca.'],
+  ['Horses', 'If you want horses in your session, let us know in advance and tell us whether you need them saddled.'],
+  ['Changing rooms', 'There are changing rooms for outfit changes. Subject to hotel availability, we can lend you a room just for changing; reception confirms it and hands you the key.'],
+  ['When you leave', 'Check out at reception and, if you were lent a room, return the key there.'],
+];
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Sesión de fotos en Tepatitlán, Jalisco | Finca El Péndulo' : 'Photo sessions near Guadalajara, Jalisco | Finca El Péndulo'}
+  description={es ? `Hasta tres horas en Finca El Péndulo para tu sesión de fotos profesional, entre agaves, el lago y la Terraza Ambú. Desde $${s.price}; con caballo $${s.withHorse}.` : `Up to three hours at Finca El Péndulo for a professional photo session among agave fields, the lake and the Ambú terrace. From $${s.price} MXN; with a horse $${s.withHorse} MXN.`}
+  breadcrumbs={[{ name: es ? 'Sesión de fotos' : 'Photo sessions', path }]}>
+  <PageHeader lang={lang} image="terraza-ambu-fuente" alt={es ? 'La Terraza Ambú y su fuente al anochecer' : 'The Ambú terrace and its fountain at dusk'} eyebrow={es ? 'Visítanos' : 'Visit'} title={es ? 'Sesión de fotos en la Finca' : 'Photo sessions at the Finca'}>
+    {es ? 'Hasta tres horas en las instalaciones para tu sesión profesional. Puedes incluir caballos.' : 'Up to three hours on the grounds for your professional shoot. Horses can be included.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">{es ? 'Sesión de fotos' : 'Photo session'}</p>
+        <h2 class="t-heading">{es ? 'Agaves, lago, piedra y madera para tus fotos' : 'Agave, lake, stone and wood for your photos'}</h2>
+        <p class="t-lead">{es ? 'Disfruta de hasta tres horas en la Finca para realizar sesiones de fotos profesionales: retratos, preboda, quince años, moda o producto.' : 'Enjoy up to three hours at the Finca for professional photo sessions: portraits, engagement, quinceañera, fashion or product.'}</p>
+        <div class="cluster">
+          <Button href="#reserva-sesion">{es ? 'Aparta tu sesión' : 'Book your session'}</Button>
+          <Button href={whatsappUrl} variant="secondary" track="whatsapp">WhatsApp</Button>
+        </div>
+      </div>
+      <div class="stack">
+        <h2 class="t-title">{es ? 'Tarifas' : 'Rates'}</h2>
+        <ul class="rule-list">
+          <li>{es ? `Sesión: $${s.price}` : `Session: $${s.price} MXN`}</li>
+          <li>{es ? `Sesión con caballo: $${s.withHorse}` : `Session with a horse: $${s.withHorse} MXN`}</li>
+          <li>{es ? `Duración máxima: ${s.maxHours} horas` : `Maximum length: ${s.maxHours} hours`}</li>
+          <li>{es ? `Hora extra: $${s.extraHour} por hora adicional` : `Extra time: $${s.extraHour} MXN per additional hour`}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="photo-row" style="--min: 260px; --h: 420px; padding: 0 12px">
+    <Photo name="sesion-fotos" alt={es ? 'Fotógrafo durante una sesión en la Finca' : 'A photographer during a session at the Finca'} sizes="(max-width: 760px) 100vw, 33vw" widths={[480, 800, 1200]} />
+    <Photo name="paseo-caballo" alt={es ? 'Jinete sonriente sobre un caballo' : 'A smiling rider on a horse'} sizes="(max-width: 760px) 100vw, 33vw" widths={[480, 800, 1200]} />
+    <Photo name="casa-cactus" alt={es ? 'Casa de madera entre cactus y agaves' : 'A wooden house among cacti and agave'} sizes="(max-width: 760px) 100vw, 33vw" widths={[480, 800, 1200]} />
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="label">{es ? 'Cómo funciona' : 'How it works'}</p>
+      <h2 class="t-heading" style="margin: 24px 0 48px">{es ? 'Antes, durante y después de tu sesión' : 'Before, during and after your session'}</h2>
+      <div class="grid" style="--min: 240px; --gap: 32px">
+        {steps.map(([title, text], i) => (
+          <article class="stack">
+            <p class="label label--tight">0{i + 1} / {title}</p>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ColorSplit image="esp-lago-4" alt={es ? 'La palapa junto al lago' : 'The palapa by the lake'} tone="wood" title={es ? 'Importante' : 'Please note'}>
+    <p>{es ? 'El préstamo de habitación depende de la disponibilidad del hotel y no es obligatorio por parte de la Finca. Si se te presta una, es solo para cambios de vestimenta.' : 'Lending a room depends on hotel availability and is not guaranteed by the Finca. If you are lent one, it is only for changing clothes.'}</p>
+    <Button slot="action" href={L('/reglamento')} tone="light">{es ? 'Lee el reglamento' : 'Read the house rules'}</Button>
+  </ColorSplit>
+
+  <section class="section section--arena" id="reserva-sesion">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">{es ? 'Reserva' : 'Book'}</p>
+        <h2 class="t-heading">{es ? 'Aparta tu sesión' : 'Book your session'}</h2>
+        <p class="muted">{es ? 'Dinos la fecha, el horario y si necesitas caballo (ensillado o no). Para cualquier duda o solicitud adicional, escríbenos.' : 'Tell us the date, the time and whether you need a horse (saddled or not). For any question or extra request, message us.'}</p>
+      </div>
+      <div class="form-card"><ContactForm lang={lang} interest="sesion" id="sesion-form" /></div>
+    </div>
+  </section>
+</BaseLayout>

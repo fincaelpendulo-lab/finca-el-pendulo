@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import StatementBand from '../components/StatementBand.astro';
+import Photo from '../components/Photo.astro';
+import LightboxPhoto from '../components/LightboxPhoto.astro';
+import SpaceCard from '../components/SpaceCard.astro';
+import Button from '../components/Button.astro';
+import Location from '../components/Location.astro';
+import espacios from '../data/espacios.json';
+import { t } from '../data/ui';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/espacios', lang);
+const tones = ['ground', 'agave-oscuro', 'wood', 'negro'] as const;
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Espacios: Osho Hut, temazcal, lago y más | Finca El Péndulo' : 'Spaces: Osho Hut, temazcal, lake and more | Finca El Péndulo'}
+  description={es ? 'Más de 15 espacios en cuatro hectáreas: Osho Hut, Oráculo, temazcal, Terraza Ambú, salón Ágora Gnosis, lago, alberca, caballerizas, taller de arte, spa y más.' : 'More than 15 spaces on four hectares: the Osho Hut, Oráculo, temazcal, Ambú terrace, Ágora Gnosis room, lake, pool, stables, art studio, spa and more.'}
+  ogImage="spaces" breadcrumbs={[{ name: es ? 'Espacios' : 'Spaces', path }]}>
+  <PageHeader lang={lang} video="aerea-palapa-larga" image="aerea-palapa-larga" alt={es ? 'El edificio largo de palapa con la torre roja' : 'The long palapa building with the red tower'} eyebrow={es ? 'Espacios' : 'Spaces'} title={es ? 'Un lugar que acompaña tu proceso' : 'A place that supports your process'}>
+    {es ? 'Cuatro hectáreas con un espacio para cada necesidad y propósito.' : 'Four hectares with a space for every need and purpose.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Todos los espacios' : 'All the spaces'}>
+        {es ? `${espacios.length} espacios para retiros, ceremonias, eventos y descanso. Elige uno para ver más.` : `${espacios.length} spaces for retreats, ceremonies, events and rest. Pick one to see more.`}
+      </SectionHeader>
+      <div class="cards cards--3">
+        {espacios.map((e, i) => <SpaceCard href={`#${e.id}`} image={e.photo} alt={e.alt[lang]} tone={tones[i % tones.length]} meta={e.kind[lang]} title={e.name[lang]} description={e.short[lang]} ratio="4 / 3" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      {espacios.map((e) => (
+        <article class="space-detail" id={e.id}>
+          <div class="space-detail__media">
+            <LightboxPhoto name={e.photo} alt={e.alt[lang]} group={e.id} class="space-detail__main" sizes="(max-width: 900px) 100vw, 58vw" widths={[800, 1200, 1600]} label={es ? `Abrir la galería de ${e.name[lang]}` : `Open the ${e.name[lang]} gallery`} />
+            {e.gallery.length > 0 && (
+              <ul class="space-detail__thumbs" aria-label={es ? `Más fotos de ${e.name[lang]}` : `More photos of ${e.name[lang]}`}>
+                {e.gallery.map((g, i) => <li><LightboxPhoto name={g} alt={`${e.name[lang]}, ${es ? 'foto' : 'photo'} ${i + 2}`} group={e.id} class="space-detail__thumb" sizes="120px" widths={[240, 360]} /></li>)}
+              </ul>
+            )}
+            <p class="space-detail__count">{es ? `${e.gallery.length + 1} fotos · haz clic para verlas en grande` : `${e.gallery.length + 1} photos · click to view them large`}</p>
+          </div>
+          <div class="space-detail__text">
+            <p class="fp-eyebrow">{e.kind[lang]}</p>
+            <h2 class="space-detail__title">{e.name[lang]}</h2>
+            {e.body[lang].map((p) => <p>{p}</p>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <StatementBand tone="ground">
+    {es ? 'Los espacios están incluidos cuando reservas tu retiro o te hospedas.' : 'The spaces are included when you book your retreat or stay with us.'}
+    <div slot="action" class="actions">
+      <Button href={L('/retiros#cotizador')} tone="light" track="cta_quote">{t('quote', lang)}</Button>
+      <Button href={L('/eventos')} tone="light" variant="secondary">{es ? 'Planea tu evento' : 'Plan your event'}</Button>
+    </div>
+  </StatementBand>
+  <Location lang={lang} image="aerea-laguna-palapa" />
+</BaseLayout>

@@ -1,0 +1,46 @@
+{
+  "name": "Finca El Péndulo",
+  "url": "https://fincaelpendulo.com.mx",
+  "launched": false,
+  "email": "fincaelpendulo@gmail.com",
+  "whatsapp": {
+    "display": "+52 378 790 0992",
+    "number": "523787900992",
+    "message": "Hola, me interesa Finca El Péndulo"
+  },
+  "instagram": "",
+  "facebook": "",
+  "youtube": {
+    "id": "",
+    "channel": ""
+  },
+  "address": {
+    "name": "Finca El Péndulo",
+    "street": "Camino al Saucillo 861",
+    "postalCode": "47600",
+    "locality": "Tepatitlán de Morelos",
+    "region": "Jalisco",
+    "country": "MX"
+  },
+  "geo": {
+    "latitude": null,
+    "longitude": null
+  },
+  "maps": "https://www.google.com/maps/search/?api=1&query=Finca%20El%20P%C3%A9ndulo%20Tepatitl%C3%A1n&query_place_id=ChIJl-SHxpfZKIQR9TSdabRfndk",
+  "ga4Id": "",
+  "turnstileSiteKey": "",
+  "formEndpoint": "",
+  "booking": {
+    "url": "https://us2.cloudbeds.com/es-es/reservation/1BtVyc/?currency=mxn",
+    "urlEn": "https://us2.cloudbeds.com/en/reservation/1BtVyc/?currency=mxn",
+    "embed": "",
+    "script": ""
+  },
+  "reviews": {
+    "rating": 4.9,
+    "count": 175,
+    "source": "Google",
+    "checked": "2026-10-28",
+    "url": "https://www.google.com/maps/search/?api=1&query=Finca%20El%20P%C3%A9ndulo%20Tepatitl%C3%A1n&query_place_id=ChIJl-SHxpfZKIQR9TSdabRfndk"
+  }
+}

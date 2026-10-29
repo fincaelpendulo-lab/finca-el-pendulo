@@ -1,0 +1,147 @@
+{
+  "minPeople": 12,
+  "pricePerNight": {
+    "shared": 1690,
+    "deluxe": 2860
+  },
+  "spaces": {
+    "perHour": 500,
+    "perPersonHour": 25,
+    "hoursPerDay": 5
+  },
+  "checkIn": "2:00 pm",
+  "checkOut": "12:00 pm",
+  "payments": [
+    {
+      "pct": 20,
+      "when": {
+        "es": "Para reservar la fecha",
+        "en": "To hold the date"
+      }
+    },
+    {
+      "pct": 30,
+      "when": {
+        "es": "Un mes antes del retiro",
+        "en": "One month before the retreat"
+      }
+    },
+    {
+      "pct": 50,
+      "when": {
+        "es": "Al inicio del retiro",
+        "en": "When the retreat begins"
+      }
+    }
+  ],
+  "includes": {
+    "es": [
+      "Hospedaje",
+      "3 alimentos al día",
+      "Coffee break",
+      "Uso de espacios"
+    ],
+    "en": [
+      "Lodging",
+      "3 meals a day",
+      "Coffee break",
+      "Use of the spaces"
+    ]
+  },
+  "cancellation": {
+    "es": "En caso de cancelación se retiene el 50% de lo pagado.",
+    "en": "If a retreat is cancelled, 50% of the amount paid is kept."
+  },
+  "extras": [
+    {
+      "id": "fogata",
+      "mode": "group",
+      "price": 200,
+      "name": {
+        "es": "Fogata",
+        "en": "Bonfire"
+      }
+    },
+    {
+      "id": "yoga",
+      "mode": "group",
+      "price": 1000,
+      "name": {
+        "es": "Yoga o meditación",
+        "en": "Yoga or meditation"
+      }
+    },
+    {
+      "id": "temazcal",
+      "mode": "group",
+      "price": 6000,
+      "name": {
+        "es": "Temazcal",
+        "en": "Temazcal"
+      }
+    },
+    {
+      "id": "caballo",
+      "mode": "group",
+      "price": 1000,
+      "name": {
+        "es": "Montar a caballo",
+        "en": "Horse riding"
+      }
+    },
+    {
+      "id": "ceramica",
+      "mode": "group",
+      "price": 1500,
+      "name": {
+        "es": "Taller de cerámica",
+        "en": "Pottery workshop"
+      }
+    },
+    {
+      "id": "cacao",
+      "mode": "group",
+      "price": 5000,
+      "name": {
+        "es": "Ceremonia de cacao",
+        "en": "Cacao ceremony"
+      }
+    },
+    {
+      "id": "arte",
+      "mode": "group",
+      "price": 1500,
+      "name": {
+        "es": "Taller de arte",
+        "en": "Art workshop"
+      }
+    },
+    {
+      "id": "fuego",
+      "mode": "person",
+      "price": 150,
+      "name": {
+        "es": "Círculo de fuego",
+        "en": "Fire circle"
+      }
+    },
+    {
+      "id": "colchon",
+      "mode": "day",
+      "price": 1000,
+      "name": {
+        "es": "Colchones y cobijas en los espacios",
+        "en": "Mats and blankets set up in the spaces"
+      }
+    },
+    {
+      "id": "cobijas",
+      "mode": "day",
+      "price": 500,
+      "name": {
+        "es": "Solo cobijas en los espacios",
+        "en": "Blankets only in the spaces"
+      }
+    }
+  ]
+}

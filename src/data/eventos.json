@@ -1,0 +1,214 @@
+[
+  {
+    "id": "bodas",
+    "name": {
+      "es": "Bodas",
+      "en": "Weddings"
+    },
+    "photo": "evento-bodas",
+    "alt": {
+      "es": "Los novios firman frente a sus invitados",
+      "en": "The couple sign in front of their guests"
+    },
+    "tone": "ground",
+    "text": {
+      "es": "Ceremonia junto al lago, cena bajo la Terraza Ambú y hospedaje para tus invitados.",
+      "en": "A ceremony by the lake, dinner under the Ambú terrace and rooms for your guests."
+    },
+    "link": "/bodas"
+  },
+  {
+    "id": "campamentos",
+    "name": {
+      "es": "Campamentos",
+      "en": "Camps"
+    },
+    "photo": "circulo-de-fuego",
+    "alt": {
+      "es": "Grupo de campamento en el jardín",
+      "en": "A camp group in the garden"
+    },
+    "tone": "agave-oscuro",
+    "text": {
+      "es": "Grupos escolares, scouts y empresas: naturaleza, caballos y actividades al aire libre.",
+      "en": "School groups, scouts and companies: nature, horses and outdoor activities."
+    },
+    "link": "/campamentos",
+    "gallery": [
+      "cabalgata",
+      "actividad-grupo",
+      "lago-jardin"
+    ],
+    "intro": {
+      "es": "Grupos escolares, scouts, familias y empresas encuentran en la Finca cuatro hectáreas de naturaleza para convivir, aprender y salir de la rutina.",
+      "en": "School groups, scouts, families and companies find four hectares of nature at the Finca to spend time together, learn and step out of routine."
+    },
+    "points": {
+      "es": [
+        "Hospedaje para grupos en el Hormiguero, cabañas y habitaciones",
+        "Paseos a caballo y convivencia con los caballos",
+        "Fogatas y círculos al aire libre",
+        "Talleres de arte y cerámica",
+        "Alimentos para todo el grupo"
+      ],
+      "en": [
+        "Group lodging in the Hormiguero, cabins and rooms",
+        "Horse rides and time with the horses",
+        "Bonfires and open-air circles",
+        "Art and pottery workshops",
+        "Meals for the whole group"
+      ]
+    }
+  },
+  {
+    "id": "conciertos",
+    "name": {
+      "es": "Conciertos",
+      "en": "Concerts"
+    },
+    "photo": "evento-conciertos",
+    "alt": {
+      "es": "Concierto nocturno bajo los árboles iluminados",
+      "en": "A night concert under lit trees"
+    },
+    "tone": "negro",
+    "text": {
+      "es": "Escenario al aire libre entre árboles y agaves, con capacidad para festivales.",
+      "en": "An open-air stage among trees and agave, with room for festivals."
+    },
+    "link": "/conciertos",
+    "gallery": [
+      "concierto-1",
+      "concierto-2",
+      "concierto-3"
+    ],
+    "intro": {
+      "es": "Un escenario al aire libre entre árboles y agaves, salones con buena acústica y noches iluminadas para conciertos íntimos o con cientos de asistentes.",
+      "en": "An open-air stage among trees and agave, halls with good sound and lit nights for intimate concerts or audiences of hundreds."
+    },
+    "points": {
+      "es": [
+        "Terraza Ambú para hasta 200 personas",
+        "Osho Hut para conciertos de meditación y cuencos",
+        "Oráculo al aire libre con pilares iluminados",
+        "Hospedaje para músicos y asistentes",
+        "Alimentos y bebidas"
+      ],
+      "en": [
+        "The Ambú terrace for up to 200 guests",
+        "The Osho Hut for meditation and sound bowl concerts",
+        "The open-air Oráculo with lit pillars",
+        "Lodging for musicians and guests",
+        "Food and drinks"
+      ]
+    }
+  },
+  {
+    "id": "cenas",
+    "name": {
+      "es": "Cenas románticas",
+      "en": "Romantic dinners"
+    },
+    "photo": "cena-velas",
+    "alt": {
+      "es": "Cena para dos a la luz de las velas",
+      "en": "Dinner for two by candlelight"
+    },
+    "tone": "wood",
+    "text": {
+      "es": "Menú de tres tiempos con jarra de clericot, en un espacio decorado y a la luz de las velas.",
+      "en": "A three-course menu with a jug of clericot, in a decorated space by candlelight."
+    },
+    "link": "/cenas-romanticas",
+    "gallery": [
+      "cena-pareja",
+      "petalos",
+      "cena-candiles"
+    ],
+    "intro": {
+      "es": "Una cena para dos en un espacio decorado y a la luz de las velas: menú de tres tiempos con jarra de clericot, por $600 por persona. Podemos adaptar el espacio para ocasiones especiales y ayudarte a preparar experiencias como noches de pintura, propuestas de matrimonio o celebraciones de cumpleaños (con costo extra).",
+      "en": "Dinner for two in a decorated space by candlelight: a three-course menu with a jug of clericot, for $600 MXN per person. We can adapt the space for special occasions and help you plan experiences such as painting nights, marriage proposals or birthday celebrations (at an extra cost)."
+    },
+    "points": {
+      "es": [
+        "Menú de tres tiempos",
+        "Jarra de clericot",
+        "Espacio decorado, a la luz de las velas",
+        "$600 por persona",
+        "Ocasiones especiales con costo extra: noches de pintura, propuestas de matrimonio, cumpleaños"
+      ],
+      "en": [
+        "A three-course menu",
+        "A jug of clericot",
+        "A decorated space, by candlelight",
+        "$600 MXN per person",
+        "Special occasions at an extra cost: painting nights, marriage proposals, birthdays"
+      ]
+    },
+    "description": {
+      "es": "Cena romántica a la luz de las velas en la Finca: menú de tres tiempos y jarra de clericot por $600 por persona. Reserva por WhatsApp.",
+      "en": "A candlelit dinner at the Finca: three-course menu and a jug of clericot for $600 MXN per person. Book on WhatsApp."
+    }
+  },
+  {
+    "id": "festivales",
+    "name": {
+      "es": "Festivales",
+      "en": "Festivals"
+    },
+    "photo": "festival-1",
+    "alt": {
+      "es": "Asistentes al Festival Familia Sagrada entre los agaves",
+      "en": "Guests at the Familia Sagrada festival among the agave"
+    },
+    "tone": "corn",
+    "text": {
+      "es": "Festivales de música, arte y bienestar en cuatro hectáreas de campo.",
+      "en": "Music, art and wellbeing festivals on four hectares of countryside."
+    },
+    "link": "/festivales",
+    "gallery": [
+      "festival-2",
+      "festival-3",
+      "caminata-fuego"
+    ],
+    "intro": {
+      "es": "Festivales de música, arte y conciencia con espacio para escenarios, talleres simultáneos, mercado y campamento, entre los agaves de Los Altos de Jalisco.",
+      "en": "Music, art and wellbeing festivals with room for stages, parallel workshops, a market and camping, among the agave of the Jalisco highlands."
+    },
+    "points": {
+      "es": [
+        "Más de quince espacios para actividades simultáneas",
+        "Terraza Ambú para hasta 200 personas",
+        "Hospedaje y zona para acampar",
+        "Temazcal, yoga y círculos de fuego",
+        "Alimentos para asistentes y staff"
+      ],
+      "en": [
+        "More than fifteen spaces for parallel activities",
+        "The Ambú terrace for up to 200 guests",
+        "Lodging and camping space",
+        "Temazcal, yoga and fire circles",
+        "Meals for guests and staff"
+      ]
+    }
+  },
+  {
+    "id": "retiros",
+    "name": {
+      "es": "Retiros",
+      "en": "Retreats"
+    },
+    "photo": "circulo-palapa",
+    "alt": {
+      "es": "Círculo de mujeres bajo la palapa junto al lago",
+      "en": "A women's circle under the palapa by the lake"
+    },
+    "tone": "ground",
+    "text": {
+      "es": "Hospedaje, alimentos y espacios para facilitadores y sus grupos.",
+      "en": "Lodging, meals and spaces for facilitators and their groups."
+    },
+    "link": "/retiros"
+  }
+]

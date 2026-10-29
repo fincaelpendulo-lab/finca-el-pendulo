@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import SpaceCard from '../components/SpaceCard.astro';
+import ColorSplit from '../components/ColorSplit.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Location from '../components/Location.astro';
+import Button from '../components/Button.astro';
+import UpcomingEvents from '../components/UpcomingEvents.astro';
+import eventos from '../data/eventos.json';
+import espacios from '../data/espacios.json';
+import { t } from '../data/ui';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/eventos', lang);
+const venues = ['terraza-ambu', 'osho-hut', 'sammasati', 'lago', 'el-27', 'jardin-de-rosas'].map((id) => espacios.find((e) => e.id === id)!);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Eventos y bodas en Tepatitlán, Jalisco | Finca El Péndulo' : 'Weddings and events in Jalisco, Mexico | Finca El Péndulo'}
+  description={es ? 'Bodas, festivales, conciertos, campamentos y cenas románticas en una finca de cuatro hectáreas, con terraza para 200 personas, lago y jardín de rosas.' : 'Weddings, festivals, concerts, camps and romantic dinners on a four-hectare estate. The Ambú terrace for up to 200 guests, a lake, the Osho Hut and a rose garden.'}
+  ogImage="events" breadcrumbs={[{ name: es ? 'Eventos' : 'Events', path }]}>
+  <PageHeader lang={lang} image="fachada-nocturna" alt={es ? 'Fachada de la Finca iluminada de noche' : 'The Finca lit up at night'} eyebrow={es ? 'Eventos' : 'Events'} title={es ? 'Organizamos todo tipo de eventos' : 'We host every kind of event'}>
+    {es ? 'Desde bodas, festivales y conciertos hasta cenas románticas, campamentos y retiros: la Finca se adapta a lo que necesitas.' : 'From weddings, festivals and concerts to romantic dinners, camps and retreats, the Finca adapts to what you need.'}
+  </PageHeader>
+  <section class="section">
+    <div class="wrap">
+      <div class="cards cards--3">
+        {eventos.map((e) => <SpaceCard href={L(e.link)} image={e.photo} alt={e.alt[lang]} tone={e.tone as any} title={e.name[lang]} description={e.text[lang]} ratio="4 / 3" />)}
+      </div>
+    </div>
+  </section>
+  <UpcomingEvents lang={lang} deep />
+  <section class="section">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Dónde celebrar' : 'Where to celebrate'}>
+        {es ? 'Cada evento elige su escenario. Estos son los espacios más usados para celebraciones.' : 'Every event picks its setting. These are the spaces most used for celebrations.'}
+      </SectionHeader>
+      <div class="cards cards--3">
+        {venues.map((v, i) => <SpaceCard href={L(`/espacios#${v.id}`)} image={v.photo} alt={v.alt[lang]} tone={(['ground', 'agave-oscuro', 'wood'] as const)[i % 3]} meta={v.kind[lang]} title={v.name[lang]} description={v.short[lang]} ratio="4 / 3" />)}
+      </div>
+    </div>
+  </section>
+  <ColorSplit image="festival-2" alt={es ? 'Asistentes al Festival Familia Sagrada entre los agaves' : 'Guests at the Familia Sagrada festival among the agave'} tone="ground" title={es ? 'Cuéntanos de tu evento' : 'Tell us about your event'}>
+    <p>{es ? 'Dinos la fecha, cuántas personas esperas y qué tienes en mente. Te respondemos con opciones de espacios, hospedaje y alimentos.' : 'Tell us the date, how many guests you expect and what you have in mind. We will reply with options for spaces, lodging and food.'}</p>
+    <Button slot="action" href={whatsappUrl} tone="light" variant="secondary" track="whatsapp">{t('whatsapp', lang)}</Button>
+  </ColorSplit>
+  <section class="section"><div class="wrap" style="max-width:860px"><ContactForm lang={lang} interest="evento" id="cotiza-evento" crm="evento" /></div></section>
+  <Location lang={lang} />
+</BaseLayout>

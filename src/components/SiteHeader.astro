@@ -1,0 +1,118 @@
+---
+// Site header (MexiSol structure): white sticky bar, logo, uppercase links with dropdowns,
+// ES/EN and "Reservar" (Cloudbeds). Below 1360px the links open in a full-screen panel with a "Menú" button.
+// public/js/site.js wires [data-menu-toggle], [data-menu] and [data-dropdown].
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-color-transparente.png';
+import site from '../data/site.json';
+import { nav, t } from '../data/ui';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; path: string; switchTo?: string | null; variant?: 'overlay' | 'solid' }
+const { lang, path, switchTo } = Astro.props;
+const es = lang === 'es';
+const to = (p: string) => href(localize(p, lang));
+const isHere = (p: string) => { const lp = localize(p, lang); return lp === path || (p !== '/' && path.startsWith(lp + '/')); };
+const inGroup = (l: (typeof nav)[number]) => [l, ...(l.children ?? [])].some((c) => isHere(c.path));
+const chevron = '<svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1.5 3.5 5 7l3.5-3.5"></path></svg>';
+---
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a href={to('/')} class="site-header__logo" aria-label={t('home', lang)}>
+      <Image src={logo} alt="" height={104} loading="eager" />
+    </a>
+
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label={t('menuOpen', lang)} data-menu-toggle data-open={t('menu', lang)} data-close={t('close', lang)}>
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path class="menu-toggle__open" d="M2 6h18M2 11h18M2 16h18"></path><path class="menu-toggle__close" d="M4 4l14 14M18 4L4 18"></path></svg>
+      <span class="menu-toggle__label" aria-hidden="true">{t('menu', lang)}</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label={t('main', lang)} data-menu>
+      <ul class="site-nav__list">
+        {nav.map((l, i) => l.children ? (
+          <li class:list={['site-nav__item--menu', i === nav.length - 1 && 'site-nav__item--end']} data-dropdown>
+            <button type="button" class:list={['site-nav__link', inGroup(l) && 'is-current']} aria-expanded="false" aria-controls={`menu-${i}`}>{l[lang]} <Fragment set:html={chevron} /></button>
+            <ul id={`menu-${i}`} class="site-nav__sub">
+              {l.children.map((c) => <li><a href={to(c.path)} aria-current={localize(c.path, lang) === path ? 'page' : undefined}>{c[lang]}</a></li>)}
+            </ul>
+          </li>
+        ) : (
+          <li><a href={to(l.path)} class:list={['site-nav__link', inGroup(l) && 'is-current']} aria-current={localize(l.path, lang) === path ? 'page' : undefined}>{l[lang]}</a></li>
+        ))}
+      </ul>
+      <div class="site-nav__contact">
+        {switchTo && <a href={href(switchTo)} hreflang={es ? 'en' : 'es'} lang={es ? 'en' : 'es'}>{es ? 'English version' : 'Versión en español'}</a>}
+        <a href={to('/retiros#cotiza')} data-track="cta_quote">{t('quote', lang)}</a>
+        <a href={whatsappUrl} data-track="whatsapp">WhatsApp {site.whatsapp.display}</a>
+        <a href={`mailto:${site.email}`} data-track="email">{site.email}</a>
+      </div>
+    </nav>
+
+    {switchTo && <a href={href(switchTo)} class="site-header__lang" hreflang={es ? 'en' : 'es'} lang={es ? 'en' : 'es'} aria-label={es ? 'English version' : 'Versión en español'}>{es ? 'EN' : 'ES'}</a>}
+    <a href={site.booking.url} class="fp-btn fp-btn--primary fp-btn--sm site-header__cta" data-track="booking">{t('bookShort', lang)}</a>
+  </div>
+</header>
+
+<style is:global>
+  .site-header { position: sticky; top: 0; z-index: 50; background: var(--surface); color: var(--ink); border-bottom: 1px solid var(--hairline); }
+  .site-header__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-6); min-height: var(--header-height); padding: 12px var(--gutter); }
+  .site-header__logo { display: block; flex: none; }
+  .site-header__logo img { display: block; height: 52px; width: auto; }
+  .site-nav__list { display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 0 clamp(18px, 1.6vw, 28px); list-style: none; margin: 0; padding: 0; }
+  .site-nav__link { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; min-height: 44px; padding: 0; border: 0; background: transparent; font: var(--text-nav); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; cursor: pointer; }
+  .site-nav__link:hover { color: var(--accent-text); }
+  .site-nav__link.is-current { box-shadow: inset 0 -1px 0 var(--ink); }
+  .site-nav__item--menu { position: relative; }
+  .site-nav__sub { list-style: none; margin: 0; padding: 12px 0; position: absolute; top: 100%; left: -20px; min-width: 240px; background: var(--surface); border: 1px solid var(--hairline); z-index: 60; display: none; }
+  .site-nav__item--end .site-nav__sub { left: auto; right: -20px; }
+  .site-nav__sub a { display: block; padding: 12px 20px; font: var(--text-body); color: var(--ink); text-decoration: none; }
+  .site-nav__sub a:hover, .site-nav__sub a[aria-current="page"] { color: var(--accent-text); }
+  .site-nav__item--menu:hover .site-nav__sub,
+  .site-nav__item--menu:focus-within .site-nav__sub,
+  .site-nav__item--menu.is-open .site-nav__sub { display: block; }
+  .js .site-nav__item--menu:not(.is-open):not(:hover) .site-nav__sub { display: none; }
+  .site-nav__item--menu.is-open svg { transform: rotate(180deg); }
+  .site-nav__contact { display: none; }
+  .site-header__lang { flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font: var(--text-nav); letter-spacing: 0.1em; color: var(--ink); text-decoration: none; border: 1px solid var(--hairline); }
+  .site-header__lang:hover { border-color: var(--ink); color: var(--ink); }
+  .site-header__cta { flex: none; white-space: nowrap; }
+  .menu-toggle { display: none; }
+  @media (min-width: 1360px) { .site-nav { flex: 1 1 auto; } }
+  @media (max-width: 1359px) {
+    .site-header__bar { flex-wrap: nowrap; gap: var(--space-3); }
+    .site-header__logo { margin-right: auto; }
+    .site-header__lang, .site-header__cta { order: 2; }
+    .menu-toggle { order: 3; flex: none; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; min-width: 44px; padding: 0 12px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); font: var(--text-nav); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+    .menu-toggle__close { display: none; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__open { display: none; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__close { display: inline; }
+    .site-nav { position: fixed; inset: var(--menu-top, 81px) 0 0 0; z-index: 49; overflow-y: auto; background: var(--surface); padding: var(--space-5) var(--gutter) var(--space-8); border-top: 1px solid var(--hairline); display: none; }
+    .site-header.is-open .site-nav { display: block; }
+    .site-nav__list { display: block; }
+    .site-nav__list > li { border-bottom: 1px solid var(--hairline); }
+    .site-nav__link { width: 100%; justify-content: space-between; min-height: 56px; font-size: 15px; }
+    .site-nav__link.is-current { box-shadow: none; text-decoration: underline; text-underline-offset: 6px; }
+    .site-nav__sub, .site-nav__item--end .site-nav__sub { position: static; min-width: 0; border: 0; padding: 0 0 12px; }
+    .site-nav__item--menu:hover .site-nav__sub, .site-nav__item--menu:focus-within .site-nav__sub { display: none; }
+    .site-nav__item--menu.is-open .site-nav__sub { display: block; }
+    .site-nav__sub a { padding: 12px 0 12px var(--space-4); min-height: 44px; }
+    .site-nav__contact { display: flex; flex-direction: column; gap: 12px; margin-top: var(--space-6); }
+    .site-nav__contact a { font: var(--text-body); min-height: 44px; display: flex; align-items: center; color: var(--ink); text-decoration: none; }
+    .no-js .menu-toggle { display: none; }
+    .no-js .site-header__bar { flex-wrap: wrap; }
+    .no-js .site-nav { display: block; position: static; order: 4; flex-basis: 100%; padding: 0; border: 0; }
+    .no-js .site-nav__sub { display: block; }
+    .no-js .site-header { position: static; }
+  }
+  @media (max-width: 560px) {
+    .menu-toggle { padding: 0; width: 44px; }
+    .menu-toggle__label { display: none; }
+  }
+  @media (max-width: 420px) {
+    .site-header__bar { gap: 8px; padding-left: 12px; padding-right: 12px; }
+    .site-header__logo img { height: 40px; }
+    .site-header__lang { min-width: 40px; }
+    .site-header__cta { padding-left: 12px; padding-right: 12px; }
+  }
+  body.menu-open { overflow: hidden; }
+</style>

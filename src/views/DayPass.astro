@@ -1,0 +1,75 @@
+---
+// Day Pass: a day at the Finca without staying the night. Prices and inclusions in src/data/visitas.json.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Photo from '../components/Photo.astro';
+import Button from '../components/Button.astro';
+import ColorSplit from '../components/ColorSplit.astro';
+import Location from '../components/Location.astro';
+import visitas from '../data/visitas.json';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/day-pass', lang);
+const d = visitas.dayPass;
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? `Day Pass: un día en la Finca por $${d.price} | Finca El Péndulo` : `Day Pass: a day at the Finca for $${d.price} MXN | Finca El Péndulo`}
+  description={es ? `Pasa el día en Finca El Péndulo, Tepatitlán, de ${d.hours.es}: alberca, jacuzzi, áreas comunes y paseo a caballo. $${d.price} por persona.` : `Spend the day at Finca El Péndulo, Tepatitlán, ${d.hours.en}: pool, jacuzzi, common areas and a horse ride. $${d.price} MXN per person.`}
+  breadcrumbs={[{ name: 'Day Pass', path }]}>
+  <PageHeader lang={lang} image="alberca-03" alt={es ? 'La alberca de la Finca entre cipreses' : 'The Finca pool among cypress trees'} eyebrow={es ? 'Visítanos' : 'Visit'} title={es ? 'Visita la Finca por un día' : 'Visit the Finca for a day'}>
+    {es ? `De ${d.hours.es}, por $${d.price} por persona.` : `${d.hours.en}, for $${d.price} MXN per person.`}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">Day Pass</p>
+        <h2 class="t-heading">{es ? 'Un día para descansar y disfrutar de la naturaleza' : 'A day to rest and enjoy nature'}</h2>
+        <p class="t-lead">{es ? 'Ven a relajarte entre agaves, jardines y el lago. Nada en la alberca, descansa en el jacuzzi y recorre la Finca a tu ritmo.' : 'Come and unwind among agave fields, gardens and the lake. Swim in the pool, rest in the jacuzzi and explore the Finca at your own pace.'}</p>
+        <div class="cluster">
+          <Button href="#reserva-day-pass">{es ? 'Reserva tu Day Pass' : 'Book your Day Pass'}</Button>
+          <Button href={whatsappUrl} variant="secondary" track="whatsapp">WhatsApp</Button>
+        </div>
+      </div>
+      <div class="stack">
+        <h2 class="t-title">{es ? 'Incluye' : 'Includes'}</h2>
+        <ul class="rule-list">{d.includes[lang].map((x) => <li>{x}</li>)}</ul>
+        <h2 class="t-title">{es ? 'Tarifas' : 'Rates'}</h2>
+        <ul class="rule-list">
+          <li>{es ? `Adultos: $${d.price} por persona` : `Adults: $${d.price} MXN per person`}</li>
+          <li>{d.childDiscount[lang]}</li>
+          <li>{d.under5[lang]}</li>
+          <li>{es ? `Horario: ${d.hours.es}` : `Hours: ${d.hours.en}`}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="photo-row" style="--min: 260px; --h: 420px; padding: 0 12px">
+    <Photo name="jacuzzi" alt={es ? 'Familia en el jacuzzi al aire libre' : 'A family in the outdoor jacuzzi'} sizes="(max-width: 760px) 100vw, 33vw" widths={[480, 800, 1200]} />
+    <Photo name="cabalgata" alt={es ? 'Paseo a caballo entre los árboles' : 'A horse ride among the trees'} sizes="(max-width: 760px) 100vw, 33vw" widths={[480, 800, 1200]} />
+    <Photo name="lago-jardin" alt={es ? 'El lago con sus jardines' : 'The lake and its gardens'} sizes="(max-width: 760px) 100vw, 33vw" widths={[480, 800, 1200]} />
+  </div>
+
+  <ColorSplit image="alberca-mural" alt={es ? 'El mural junto a la alberca' : 'The mural beside the pool'} tone="agave-oscuro" title={es ? 'Antes de venir' : 'Before you come'}>
+    <p>{es ? 'El paseo a caballo se reserva con anticipación. Durante tu visita aplica el reglamento de la Finca: horario de alberca, sin envases de vidrio y sin alcohol dentro de las instalaciones.' : 'The horse ride must be booked in advance. During your visit the Finca house rules apply: pool hours, no glass containers and no alcohol on the premises.'}</p>
+    <Button slot="action" href={L('/reglamento')} tone="light">{es ? 'Lee el reglamento' : 'Read the house rules'}</Button>
+  </ColorSplit>
+
+  <section class="section section--arena" id="reserva-day-pass">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">{es ? 'Reserva' : 'Book'}</p>
+        <h2 class="t-heading">{es ? 'Aparta tu día en la Finca' : 'Save your day at the Finca'}</h2>
+        <p class="muted">{es ? 'Dinos la fecha, cuántos adultos y menores vienen y si quieren paseo a caballo. Te confirmamos por WhatsApp.' : 'Tell us the date, how many adults and children are coming and whether you want a horse ride. We confirm on WhatsApp.'}</p>
+      </div>
+      <div class="form-card"><ContactForm lang={lang} interest="daypass" id="daypass-form" /></div>
+    </div>
+  </section>
+  <Location lang={lang} image="aerea-complejo" />
+</BaseLayout>

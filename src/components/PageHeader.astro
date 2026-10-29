@@ -1,0 +1,17 @@
+---
+// Page header (MexiSol VideoBand): full-width aerial video or photo under a green wash, the h1 at the foot.
+import BgMedia from './BgMedia.astro';
+import type { Lang } from '../lib/i18n';
+interface Props { image: string; alt: string; video?: string; position?: string; eyebrow?: string; title: string; lang: Lang }
+const { image, alt, video, position, eyebrow, title, lang } = Astro.props;
+---
+<section class="photo-band photo-band--head">
+  <BgMedia image={image} alt={alt} video={video} position={position} lang={lang} />
+  <div class="photo-band__wash">
+    <div class="wrap photo-band__text">
+      {eyebrow && <p class="label">{eyebrow}</p>}
+      <h1 class="t-display">{title}</h1>
+      {Astro.slots.has('default') && <p class="t-subtitle"><slot /></p>}
+    </div>
+  </div>
+</section>

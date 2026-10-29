@@ -1,0 +1,22 @@
+---
+// Bienestar, Naturaleza and Creatividad as MexiSol articles: photo 4:3, "01 / Name" label, heading,
+// text, a soft hairline list of activities. `link` adds a link to each section of /experiencias.
+import Photo from './Photo.astro';
+import experiencias from '../data/experiencias.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; limit?: number; link?: boolean }
+const { lang, limit, link } = Astro.props;
+const more = lang === 'es' ? 'Ver' : 'See';
+---
+<div class="grid fp-exp" style="--min: 300px; --gap: 48px 32px">
+  {experiencias.map((c, i) => (
+    <article class="fp-exp__col" id={c.id}>
+      <Photo name={c.photo} alt={c.alt[lang]} class="ratio-4-3" sizes="(max-width: 900px) 100vw, 33vw" widths={[480, 800, 1200]} />
+      <p class="label label--tight">0{i + 1} / {c.title[lang]}</p>
+      <h3 class="t-title">{c.description[lang]}</h3>
+      <ul class="rule-list rule-list--soft">{(limit ? c.items[lang].slice(0, limit) : c.items[lang]).map((x) => <li>{x}</li>)}</ul>
+      {link && <div><a class="fp-btn fp-btn--secondary" href={href(localize(`/experiencias#${c.id}`, lang))}>{more} {c.title[lang].toLowerCase()}</a></div>}
+    </article>
+  ))}
+</div>

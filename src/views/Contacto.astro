@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Location from '../components/Location.astro';
+import TileBand from '../components/TileBand.astro';
+import Button from '../components/Button.astro';
+import site from '../data/site.json';
+import { t } from '../data/ui';
+import { whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+import { lodgingSchema } from '../lib/schema';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/contacto', lang);
+const a = site.address;
+---
+<BaseLayout lang={lang} path={path} header="solid"
+  title={es ? 'Contacto y cómo llegar | Finca El Péndulo' : 'Contact and directions | Finca El Péndulo'}
+  description={es ? 'Escríbenos por WhatsApp al +52 378 790 0992, por correo o con el formulario. Camino al Saucillo 861, Tepatitlán de Morelos, Jalisco.' : 'Message us on WhatsApp at +52 378 790 0992, by email or with the form. Camino al Saucillo 861, Tepatitlán de Morelos, Jalisco, Mexico.'}
+  schema={[lodgingSchema(lang)]}
+  breadcrumbs={[{ name: es ? 'Contacto' : 'Contact', path }]}>
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <SectionHeader level="h1" size="xl" title={es ? 'Contáctanos' : 'Get in touch'}>{es ? 'Respondemos más rápido por WhatsApp.' : 'WhatsApp is the fastest way to reach us.'}</SectionHeader>
+        <dl class="facts">
+          <div><dt>WhatsApp</dt><dd><a href={whatsappUrl} data-track="whatsapp">{site.whatsapp.display}</a></dd></div>
+          <div><dt>{es ? 'Correo' : 'Email'}</dt><dd><a href={`mailto:${site.email}`} data-track="email">{site.email}</a></dd></div>
+          <div><dt>{es ? 'Dirección' : 'Address'}</dt><dd>{a.street}, {a.postalCode} {a.locality}, {a.region}</dd></div>
+          <div><dt>{es ? 'Reservas de hospedaje' : 'Room bookings'}</dt><dd><a href={site.booking.url} data-track="booking">{t('book', lang)}</a></dd></div>
+        </dl>
+        <div class="actions"><Button href={whatsappUrl} track="whatsapp">{t('whatsapp', lang)}</Button><Button href={site.maps} variant="secondary" track="directions">{t('directions', lang)}</Button></div>
+      </div>
+      <ContactForm lang={lang} crm="contacto" />
+    </div>
+  </section>
+  <TileBand />
+  <Location lang={lang} />
+</BaseLayout>

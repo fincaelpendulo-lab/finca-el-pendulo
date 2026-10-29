@@ -1,0 +1,11 @@
+{
+  "home": { "photo": "src/assets/photos/vista-aerea-agaves-cabanas.jpg" },
+  "about": { "photo": "src/assets/photos/osho-hut-arcoiris.jpg" },
+  "spaces": { "photo": "src/assets/photos/aerea-palapa-larga.jpg" },
+  "stay": { "photo": "src/assets/photos/cabana-ventanal.jpg" },
+  "retreats": { "photo": "src/assets/photos/circulo-palapa.jpg" },
+  "experiences": { "photo": "src/assets/photos/temazcal-1.jpg" },
+  "events": { "photo": "src/assets/photos/evento-bodas.jpg", "position": "top" },
+  "community": { "photo": "src/assets/photos/voluntariado-1.jpg" },
+  "volunteer": { "photo": "src/assets/photos/voluntariado-1.jpg" }
+}

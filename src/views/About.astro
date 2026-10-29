@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ColorSplit from '../components/ColorSplit.astro';
+import StatementBand from '../components/StatementBand.astro';
+import PhotoMosaic from '../components/PhotoMosaic.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FactStrip from '../components/FactStrip.astro';
+import Location from '../components/Location.astro';
+import Button from '../components/Button.astro';
+import { t } from '../data/ui';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/sobre-la-finca', lang);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Sobre la Finca | Finca El Péndulo' : 'About the Finca | Finca El Péndulo'}
+  description={es ? 'La historia de Finca El Péndulo, una comunidad holística y autosustentable en Tepatitlán, Jalisco: del nacimiento de Fito al Osho Hut y más de 15 espacios.' : 'The story of Finca El Péndulo, a self-sustaining holistic community in Tepatitlán, Jalisco: from the birth of Fito the horse to the Osho Hut and more than 15 spaces.'}
+  ogImage="about" breadcrumbs={[{ name: es ? 'Sobre la Finca' : 'About', path }]}>
+  <PageHeader lang={lang} video="aerea-palapa-agavero" image="aerea-palapa-agavero" alt={es ? 'La palapa larga frente al agavero y el valle de Los Altos' : 'The long palapa facing the agave field and the Los Altos valley'} eyebrow={es ? 'Sobre la Finca' : 'About the Finca'} title={es ? 'Una comunidad holística' : 'A holistic community'} />
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? 'Quiénes somos' : 'Who we are'} />
+      <div class="prose">
+        <p class="lead">{es ? 'Somos una comunidad divergente que nace de encuentros sincrónicos con un objetivo en común: descubrir, observar y experimentar los ires y venires de la vida.' : 'We are a divergent community, born of synchronous encounters, with one shared aim: to discover, observe and experience the comings and goings of life.'}</p>
+        <p>{es ? 'Finca El Péndulo es un centro holístico diseñado para albergar retiros, experiencias de bienestar y hospedaje en la naturaleza. Integramos alojamiento, espacios para actividades, servicios holísticos y contacto con la naturaleza, creando las condiciones para el descanso, la claridad mental y el crecimiento personal.' : 'Finca El Péndulo is a holistic centre designed for retreats, wellbeing experiences and stays in nature. We bring together lodging, activity spaces, holistic services and time outdoors to make room for rest, clarity and personal growth.'}</p>
+        <p>{es ? 'Somos una comunidad autosustentable que, a través del hospedaje y la realización de retiros, mantiene y desarrolla este espacio como un refugio accesible para el bienestar y la transformación personal.' : 'We are a self-sustaining community: through stays and retreats we keep and grow this place as an accessible refuge for wellbeing and personal change.'}</p>
+      </div>
+    </div>
+  </section>
+
+  <ColorSplit image="historia-1" alt={es ? 'Un potro alazán junto a su madre y dos perros en el campo' : 'A chestnut foal beside its mother and two dogs in a field'} tone="ground" eyebrow={es ? 'Nuestra historia' : 'Our story'} title={es ? 'Todo empezó con el nacimiento de Fito' : 'It began with the birth of Fito'}>
+    <p>{es ? 'Finca El Péndulo fue fundada por Marina Melgarejo. Después del fallecimiento de su hermano José Carlos, Marina llegó a la Finca y fue recibida por un espacio que la llamó a convertirlo en algo más grande. Una mañana presenció el nacimiento de Fito, un caballo alazán claro, que marcó un antes y un después en esta historia.' : 'Finca El Péndulo was founded by Marina Melgarejo. After the death of her brother José Carlos, Marina came to the Finca and found a place that called her to make it something bigger. One morning she watched the birth of Fito, a light chestnut horse, and nothing was the same afterwards.'}</p>
+    <p>{es ? 'La primera construcción fueron las caballerizas y la modernización de la torre principal, donde hoy están los alojamientos de voluntarios, la cocina, la recepción y dos habitaciones.' : 'The first works were the stables and the renovation of the main tower, which now holds the volunteer quarters, the kitchen, reception and two guest rooms.'}</p>
+  </ColorSplit>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <p>{es ? 'La Finca ha seguido creciendo y ha estado en constante construcción. A partir de 2018 se comenzaron a facilitar ceremonias, y sin publicidad la Finca empezó a recibir cada vez más personas: huéspedes y voluntarios que buscaban una transformación profunda.' : 'The Finca has kept growing and has always been under construction. From 2018 ceremonies began to be held here, and with no advertising the Finca started receiving more and more people: guests and volunteers looking for deep change.'}</p>
+        <p>{es ? 'Con la creciente demanda de un espacio para ceremonias, en 2019 comenzó la construcción del Osho Hut: un edificio circular de piedra recuperada de la misma Finca, con techo de palma y piso de mármol. Empezó sin un objetivo fijo: Marina se acercó al lugar donde vio nacer a Fito y decidió excavar un círculo.' : 'As more people asked for a ceremonial space, building began on the Osho Hut in 2019: a round building of stone gathered on the Finca, with a palm roof and a marble floor. It started with no fixed plan: Marina went to the spot where she had seen Fito born and decided to dig a circle.'}</p>
+        <p>{es ? 'Poco a poco se convirtió en el espacio más sagrado de la Finca, donde muchas personas han vivido procesos de transformación.' : 'Little by little it became the most sacred space on the Finca, where many people have gone through deep change.'}</p>
+      </div>
+      <PhotoMosaic items={[
+        { image: 'historia-2', alt: es ? 'La excavación del círculo donde nació el Osho Hut' : 'Digging the circle where the Osho Hut was born', cols: 2 },
+        { image: 'historia-3', alt: es ? 'El Osho Hut en construcción, con el techo de palma a medio poner' : 'The Osho Hut under construction, its palm roof half laid', cols: 2, rows: 2 },
+      ]} />
+    </div>
+  </section>
+
+  <FactStrip tone="agave-oscuro">{es ? 'Hoy la Finca cuenta con más de 15 espacios dedicados a diferentes propósitos.' : 'Today the Finca has more than 15 spaces, each with its own purpose.'}</FactStrip>
+
+  <section class="section section--arena">
+    <div class="wrap grid-3">
+      <div class="stack"><h2>{es ? 'Visión' : 'Vision'}</h2><p>{es ? 'Contribuir al bienestar de la sociedad mediante la transformación individual, con las herramientas adecuadas para su desarrollo integral.' : 'To contribute to the wellbeing of society through individual transformation, with the right tools for whole-person growth.'}</p></div>
+      <div class="stack"><h2>{es ? 'Misión' : 'Mission'}</h2><p>{es ? 'Ser un centro de desarrollo integral que promueva el arte, el buen vivir y la consciencia.' : 'To be a centre for whole-person development that promotes art, good living and awareness.'}</p></div>
+      <div class="stack"><h2>{es ? 'Valores' : 'Values'}</h2><p>{es ? 'Valoramos y respetamos la individualidad, el pensamiento divergente y la independencia de cada persona, a quien reconocemos como responsable de su propia transformación.' : 'We value and respect individuality, divergent thinking and each person\'s independence, and we see every person as responsible for their own transformation.'}</p></div>
+    </div>
+  </section>
+
+  <StatementBand tone="negro">
+    {es ? 'Ven a conocer la Finca.' : 'Come and see the Finca.'}
+    <div slot="action" class="actions">
+      <Button href={L('/espacios')} tone="light">{t('spaces', lang)}</Button>
+      <Button href={L('/contacto')} tone="light" variant="secondary">{es ? 'Escríbenos' : 'Get in touch'}</Button>
+    </div>
+  </StatementBand>
+  <Location lang={lang} />
+</BaseLayout>

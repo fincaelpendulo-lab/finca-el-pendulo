@@ -1,0 +1,49 @@
+---
+// Every photo on the site, in one page. Alt text comes from the data files where the photo is described;
+// otherwise from the file name.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { photos } from '../lib/photos';
+import LightboxPhoto from '../components/LightboxPhoto.astro';
+import fotos from '../data/fotos.json';
+import espacios from '../data/espacios.json';
+import experiencias from '../data/experiencias.json';
+import eventos from '../data/eventos.json';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/galeria', lang);
+// Alt text (also the title) for every photo: fotos.json first, then the data files that describe it.
+const alts: Record<string, string> = {};
+for (const [k, v] of Object.entries(fotos)) alts[k] = v[lang];
+for (const e of espacios) { alts[e.photo] ??= e.alt[lang]; e.gallery.forEach((g, i) => (alts[g] ??= `${e.name[lang]} ${i + 2}`)); }
+for (const c of experiencias) { alts[c.photo] ??= c.alt[lang]; for (const d of c.details) alts[d.photo] ??= d.alt[lang]; }
+for (const x of eventos) alts[x.photo] ??= x.alt[lang];
+const pretty = (n: string) => { const s = n.replace(/^(card|esp)-/, '').replace(/-\d+$/, '').replace(/-/g, ' '); return s.charAt(0).toUpperCase() + s.slice(1); };
+// Rooms have their own page (/hospedaje), so they stay out of the gallery.
+const names = Object.keys(photos).filter((n) => !n.startsWith('hab-')).sort();
+const schema = {
+  '@type': 'ImageGallery',
+  name: es ? 'Galería de fotos de Finca El Péndulo' : 'Finca El Péndulo photo gallery',
+  description: es ? 'Fotos de los espacios, retiros, eventos y experiencias de la Finca.' : 'Photos of the Finca spaces, retreats, events and experiences.',
+};
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Galería de fotos | Finca El Péndulo' : 'Photo gallery | Finca El Péndulo'}
+  description={es ? 'Fotos de Finca El Péndulo: espacios, hospedaje, temazcal, retiros, bodas y eventos en Tepatitlán, Jalisco.' : 'Photos of Finca El Péndulo: spaces, rooms, temazcal, retreats, weddings and events in Tepatitlán, Jalisco.'}
+  schema={[schema]} breadcrumbs={[{ name: es ? 'Galería' : 'Gallery', path }]}>
+  <PageHeader lang={lang} video="aerea-agaves-cabanas" image="aerea-agaves-cabanas" alt={es ? 'Vista aérea de la Finca' : 'Aerial view of the Finca'} eyebrow={es ? 'Galería' : 'Gallery'} title={es ? 'La Finca en fotos' : 'The Finca in pictures'} />
+  <section class="section">
+    <div class="wrap">
+      <ul class="photo-wall">
+        {names.map((n) => <li><LightboxPhoto name={n} alt={alts[n] ?? pretty(n)} group="galeria" class="photo-wall__img" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" widths={[480, 800]} /></li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .photo-wall { list-style: none; margin: 0; padding: 0; columns: 4 240px; column-gap: var(--space-1); }
+  .photo-wall li { break-inside: avoid; margin-bottom: var(--space-1); }
+  .photo-wall :global(.photo-wall__img img) { display: block; width: 100%; height: auto; }
+</style>

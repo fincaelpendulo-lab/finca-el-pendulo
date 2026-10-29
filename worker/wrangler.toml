@@ -1,0 +1,16 @@
+# Cloudflare Worker that receives the website forms and writes to GoHighLevel.
+# Secrets (set once, never committed):
+#   npx wrangler secret put TURNSTILE_SECRET   (Cloudflare > Turnstile > this widget)
+#   npx wrangler secret put GHL_TOKEN          (GHL > Settings > Private Integrations, contacts scopes only)
+name = "finca-el-pendulo-form"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+# GoHighLevel location (sub-account) ID. Not secret: it only says which account to write to.
+GHL_LOCATION_ID = "Lkub474FFDoFMTUzhNv6"
+ALLOWED_ORIGINS = "https://fincaelpendulo.com.mx,https://www.fincaelpendulo.com.mx,https://fincaelpendulo-lab.github.io,http://localhost:4321,http://localhost:4322"
+SOURCE = "fincaelpendulo.com.mx"
+
+[observability]
+enabled = true

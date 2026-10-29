@@ -1,0 +1,9 @@
+---
+// Design system Button: square and solid. primary | secondary | link; tone="light" on photos and color blocks.
+interface Props { href?: string; variant?: 'primary' | 'secondary' | 'link'; size?: 'sm' | 'md' | 'lg'; tone?: 'default' | 'light'; block?: boolean; type?: 'button' | 'submit'; track?: string; class?: string; [key: string]: unknown }
+const { href, variant = 'primary', size = 'md', tone = 'default', block = false, type = 'button', track, class: className, ...rest } = Astro.props;
+const cls = ['fp-btn', `fp-btn--${variant}`, `fp-btn--${size}`, tone === 'light' && 'fp-btn--light', block && 'fp-btn--block', className].filter(Boolean).join(' ');
+---
+{href
+  ? <a href={href} class={cls} data-track={track} {...rest}><span><slot /></span></a>
+  : <button type={type} class={cls} data-track={track} {...rest}><span><slot /></span></button>}

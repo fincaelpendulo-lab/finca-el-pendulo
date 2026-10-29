@@ -1,0 +1,10 @@
+---
+// Section heading (MexiSol): uppercase tracked label, serif heading, muted lead. align="center" is the SectionIntro.
+interface Props { eyebrow?: string; title: string; align?: 'left' | 'center'; size?: 'md' | 'xl'; level?: 'h1' | 'h2' | 'h3'; class?: string }
+const { eyebrow, title, align = 'left', size = 'md', level: Tag = 'h2', class: className } = Astro.props;
+---
+<header class:list={['fp-sh', `fp-sh--${align}`, size === 'xl' && 'fp-sh--xl', className]}>
+  {eyebrow && <p class="label">{eyebrow}</p>}
+  <Tag class="fp-sh__title">{title}</Tag>
+  {Astro.slots.has('default') && <p class="fp-sh__lead"><slot /></p>}
+</header>

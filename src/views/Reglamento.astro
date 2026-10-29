@@ -1,0 +1,37 @@
+---
+// House rules for rooms and facilities, from the Finca's "Reglamento, Términos y Condiciones" (src/data/reglamento.json).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import reglamento from '../data/reglamento.json';
+import { whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/reglamento', lang);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Reglamento de habitaciones e instalaciones | Finca El Péndulo' : 'House rules for rooms and facilities | Finca El Péndulo'}
+  description={es ? 'Reglamento de Finca El Péndulo: check-in y check-out, pagos y cancelaciones, alberca, ruido, mascotas y uso de instalaciones.' : 'Finca El Péndulo house rules: check-in and check-out, payments and cancellations, pool, noise, pets and use of the facilities.'}
+  breadcrumbs={[{ name: es ? 'Reglamento' : 'House rules', path }]}>
+  <section class="section">
+    <div class="wrap measure stack">
+      <p class="label">{es ? 'Reglamento' : 'House rules'}</p>
+      <h1 class="t-heading">{es ? 'Reglamento para habitaciones e instalaciones' : 'Rooms and facilities regulations'}</h1>
+      <p class="t-lead">{es ? 'Queremos que tu estancia sea lo más placentera posible, por lo que te pedimos que leas y sigas nuestras políticas. Si tienes alguna pregunta, nuestro personal está aquí para ayudarte.' : 'We want your stay to be as pleasant as possible, so we ask that you read and follow our policies. If you have any questions, our staff is here to help.'}</p>
+      <ol class="rules">
+        {reglamento.sections.map((s) => (
+          <li>
+            <h2 class="t-title">{s.title[lang]}</h2>
+            <ul class="rule-list rule-list--soft">{s.items[lang].map((x) => <li>{x}</li>)}</ul>
+          </li>
+        ))}
+      </ol>
+      <p class="muted">{es ? '¿Tienes dudas? ' : 'Any questions? '}<a href={whatsappUrl} data-track="whatsapp">{es ? 'Escríbenos por WhatsApp' : 'Message us on WhatsApp'}</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .rules { list-style: none; margin: var(--space-6) 0; padding: 0; counter-reset: r; display: grid; gap: var(--space-6); }
+  .rules > li { counter-increment: r; }
+  .rules h2::before { content: counter(r, decimal-leading-zero) " / "; color: var(--label-ink); }
+</style>

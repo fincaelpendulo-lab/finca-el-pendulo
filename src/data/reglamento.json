@@ -1,0 +1,183 @@
+{
+  "source": "Reglamento, Términos y Condiciones Finca El Pendulo.pdf (Drive, feb 2025)",
+  "sections": [
+    {
+      "title": {
+        "es": "Reservas y check-in",
+        "en": "Reservations and check-in"
+      },
+      "items": {
+        "es": [
+          "Todas las reservas requieren información de pago válida.",
+          "El registro de entrada comienza a las 2:00 pm. Por favor, infórmanos tu hora de llegada con anticipación."
+        ],
+        "en": [
+          "All reservations require valid payment information.",
+          "Check-in starts at 2:00 pm. Please let us know your arrival time in advance."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Políticas de pago",
+        "en": "Payment policies"
+      },
+      "items": {
+        "es": [
+          "Métodos de pago aceptados: transferencias, tarjetas de crédito, depósitos y efectivo.",
+          "Cargos por cancelación: 20% si se notifica con más de 48 horas de anticipación; 50% si es con menos de 48 horas."
+        ],
+        "en": [
+          "Accepted payment methods: transfers, credit cards, deposits and cash.",
+          "Cancellation charges: 20% if notified more than 48 hours in advance; 50% if less than 48 hours."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Normas de conducta",
+        "en": "Rules of conduct"
+      },
+      "items": {
+        "es": [
+          "Mantener un comportamiento respetuoso. El incumplimiento puede llevar a la expulsión sin reembolso."
+        ],
+        "en": [
+          "Maintain respectful behaviour. Non-compliance may lead to expulsion without a refund."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Uso de instalaciones",
+        "en": "Use of facilities"
+      },
+      "items": {
+        "es": [
+          "Horario de la alberca: 9:00 am a 8:00 pm.",
+          "No se permite el consumo de alcohol dentro de las instalaciones.",
+          "No se permiten envases de vidrio en el área de la alberca.",
+          "No dejes objetos de valor sin supervisión; la Finca no se responsabiliza por pérdidas.",
+          "La preparación de alimentos requiere reserva previa; no contamos con restaurante.",
+          "Áreas para fogatas y parrillas a leña disponibles por un costo adicional."
+        ],
+        "en": [
+          "Pool hours: 9:00 am to 8:00 pm.",
+          "Alcohol consumption is not allowed inside the facilities.",
+          "No glass containers in the pool area.",
+          "Do not leave valuables unattended; the Finca is not responsible for losses.",
+          "Food preparation requires prior reservation; we do not have a restaurant.",
+          "Bonfire areas and wood-burning grills are available for an additional fee."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Política de no fumar",
+        "en": "No smoking policy"
+      },
+      "items": {
+        "es": [
+          "Todas las habitaciones y áreas de convivencia son estrictamente para no fumar. Hay áreas designadas para fumadores alejadas de las zonas comunes."
+        ],
+        "en": [
+          "All rooms and common areas are strictly non-smoking. Designated smoking areas are available away from common areas."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Cuidado de las habitaciones",
+        "en": "Room care"
+      },
+      "items": {
+        "es": [
+          "Informa al personal sobre cualquier daño o problema.",
+          "Apaga las luces que no estés utilizando.",
+          "No retires almohadas ni mantas de la habitación."
+        ],
+        "en": [
+          "Report any damage or problems to staff.",
+          "Turn off lights you are not using.",
+          "Do not remove pillows or blankets from the room."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Políticas de limpieza",
+        "en": "Cleaning policies"
+      },
+      "items": {
+        "es": [
+          "Valoramos la conservación del agua; solicita toallas adicionales según lo necesites.",
+          "El servicio de lavandería está disponible por un costo adicional."
+        ],
+        "en": [
+          "We value water conservation; please request additional towels as needed.",
+          "Laundry service is available for an additional fee."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Política de ruido",
+        "en": "Noise policy"
+      },
+      "items": {
+        "es": [
+          "El horario de silencio es de 10:00 pm a 9:00 am. Mantén el ruido al mínimo."
+        ],
+        "en": [
+          "Quiet hours are from 10:00 pm to 9:00 am. Keep noise to a minimum."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Mascotas",
+        "en": "Pets"
+      },
+      "items": {
+        "es": [
+          "Las mascotas son bienvenidas con aviso previo y un cargo adicional.",
+          "Las mascotas deben estar con correa dentro de la propiedad y no se les permite subir a camas ni sillones."
+        ],
+        "en": [
+          "Pets are welcome with prior notice and an additional fee.",
+          "Pets must be leashed on the property and are not allowed on beds or sofas."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Check-out",
+        "en": "Check-out"
+      },
+      "items": {
+        "es": [
+          "El registro de salida es a las 12:00 pm. Por favor, devuelve las llaves en la recepción.",
+          "Pueden aplicarse cargos adicionales por salidas tardías sin aviso previo."
+        ],
+        "en": [
+          "Check-out is at 12:00 pm. Please return keys to the front desk.",
+          "Additional fees may apply for late check-outs without prior notice."
+        ]
+      }
+    },
+    {
+      "title": {
+        "es": "Políticas de responsabilidad",
+        "en": "Liability policy"
+      },
+      "items": {
+        "es": [
+          "La Finca no se hace responsable por la pérdida o daño de pertenencias."
+        ],
+        "en": [
+          "The Finca is not responsible for loss of or damage to belongings."
+        ]
+      }
+    }
+  ]
+}

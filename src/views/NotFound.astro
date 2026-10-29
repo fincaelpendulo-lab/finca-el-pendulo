@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import TileBand from '../components/TileBand.astro';
+import Button from '../components/Button.astro';
+import { href } from '../lib/url';
+import { t } from '../data/ui';
+interface Props { code?: 404 | 403 }
+const { code = 404 } = Astro.props;
+const denied = code === 403;
+const title = denied ? 'Acceso restringido' : 'Esta página no existe o cambió de lugar';
+---
+<BaseLayout lang="es" path={`/${code}`} header="solid" noindex title={denied ? 'Acceso restringido | Finca El Péndulo' : 'Página no encontrada | Finca El Péndulo'} description={denied ? 'No tienes permiso para ver esta página.' : 'Esta página no existe o cambió de lugar.'}>
+  <section class="section">
+    <div class="wrap stack">
+      <SectionHeader level="h1" size="xl" eyebrow={String(code)} title={title}>
+        {denied ? 'You do not have permission to view this page.' : 'This page does not exist or has moved.'}
+      </SectionHeader>
+      <div class="actions">
+        <Button href={href('/')}>Ir al inicio</Button>
+        <Button href={href('/espacios')} variant="secondary">{t('spaces', 'es')}</Button>
+        <Button href={href('/en')} variant="secondary">English site</Button>
+      </div>
+    </div>
+  </section>
+  <TileBand />
+</BaseLayout>

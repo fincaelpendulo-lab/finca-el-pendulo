@@ -1,0 +1,21 @@
+---
+// Newsletter sign-up (footer and pop-up). public/js/site.js ([data-newsletter]) posts it to the
+// Worker (/subscribe → GHL, tag newsletter) when site.json has formEndpoint; until then it opens WhatsApp with the email written out.
+import site from '../data/site.json';
+import type { Lang } from '../lib/i18n';
+interface Props { lang: Lang; id: string; deep?: boolean }
+const { lang, id, deep } = Astro.props;
+const es = lang === 'es';
+---
+<form class:list={['newsletter', deep && 'newsletter--deep']} data-newsletter data-endpoint={site.formEndpoint ? `${site.formEndpoint.replace(/\/$/, '')}/subscribe` : undefined} data-wa={site.whatsapp.number} data-lang={lang} novalidate>
+  <input type="hidden" name="list" value="newsletter" />
+  <input type="hidden" name="_started" value="" />
+  <input type="hidden" name="lang" value={lang} />
+  <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+  <label class="visually-hidden" for={`${id}-email`}>{es ? 'Correo electrónico' : 'Email'}</label>
+  <div class="newsletter__row">
+    <input id={`${id}-email`} name="email" type="email" required autocomplete="email" placeholder={es ? 'Tu correo electrónico' : 'Your email'} class="newsletter__input" />
+    <button type="submit" class="fp-btn fp-btn--primary">{es ? 'Suscribirme' : 'Subscribe'}</button>
+  </div>
+  <p class="newsletter__status t-caption" data-newsletter-status role="status"></p>
+</form>

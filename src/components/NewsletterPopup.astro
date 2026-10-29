@@ -1,0 +1,20 @@
+---
+// Newsletter pop-up: opens once after 25 seconds or halfway down the page, then stays away for 30 days
+// (public/js/site.js, [data-newsletter-popup]). Never over the cookie banner or the open menu.
+import Photo from './Photo.astro';
+import NewsletterForm from './NewsletterForm.astro';
+import type { Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+---
+<dialog class="nl-popup" data-newsletter-popup aria-labelledby="nl-popup-title">
+  <div class="nl-popup__photo"><Photo name="festival-3" alt="" class="fp-img" sizes="320px" widths={[480]} /></div>
+  <div class="nl-popup__body">
+    <button type="button" class="nl-popup__close" data-newsletter-close aria-label={es ? 'Cerrar' : 'Close'}>×</button>
+    <p class="label">{es ? 'Próximos eventos' : 'Upcoming events'}</p>
+    <h2 id="nl-popup-title" class="t-title">{es ? 'Entérate de todos los eventos de la Finca' : 'Hear about every event at the Finca'}</h2>
+    <p class="muted">{es ? 'Festivales, conciertos, retiros abiertos, temazcales y cenas: te avisamos antes que a nadie. Sin spam.' : 'Festivals, concerts, open retreats, temazcales and dinners: you hear first. No spam.'}</p>
+    <NewsletterForm lang={lang} id="nl-popup" />
+  </div>
+</dialog>

@@ -1,0 +1,73 @@
+---
+// The "request information" form. Two modes:
+// - WhatsApp (default): opens WhatsApp with the answers written out (public/js/site.js, [data-wa-form]).
+// - CRM (`crm` set to the form key: retiro | evento | boda | contacto): also asks for email and WhatsApp and
+//   posts to the Worker → GHL ([data-crm-form]); the Worker tags the contact web-<key>, which starts that
+//   form's workflow. Until site.json has formEndpoint, CRM forms fall back to WhatsApp so no request is lost.
+// `interest` preselects the topic; links like /contacto?interes=evento#solicitud do the same.
+import Field from './Field.astro';
+import Button from './Button.astro';
+import site from '../data/site.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+
+export type Interest = 'hospedaje' | 'retiro' | 'evento' | 'boda' | 'experiencia' | 'daypass' | 'sesion' | 'voluntariado' | 'otro';
+interface Props { lang: Lang; interest?: Interest; id?: string; crm?: 'retiro' | 'evento' | 'boda' | 'contacto' }
+const { lang, interest = '', id = 'solicitud', crm } = Astro.props;
+const endpoint = site.formEndpoint ? site.formEndpoint.replace(/\/$/, '') : '';
+const es = lang === 'es';
+const options = [
+  { value: '', label: es ? 'Elige una opción' : 'Choose one' },
+  { value: 'hospedaje', label: es ? 'Hospedaje' : 'A stay' },
+  { value: 'retiro', label: es ? 'Organizar un retiro' : 'Hosting a retreat' },
+  { value: 'evento', label: es ? 'Un evento' : 'An event' },
+  { value: 'boda', label: es ? 'Una boda' : 'A wedding' },
+  { value: 'experiencia', label: es ? 'Temazcal o experiencias' : 'Temazcal or experiences' },
+  { value: 'daypass', label: 'Day Pass' },
+  { value: 'sesion', label: es ? 'Sesión de fotos' : 'A photo session' },
+  { value: 'voluntariado', label: es ? 'Voluntariado' : 'Volunteering' },
+  { value: 'otro', label: es ? 'Otra cosa' : 'Something else' },
+].map((o) => ({ ...o, selected: o.value === interest }));
+---
+{crm ? (
+<form id={id} class="form inquiry" data-crm-form={crm} action={endpoint || undefined} method="post" data-wa={site.whatsapp.number} data-lang={lang} novalidate>
+  <input type="hidden" name="form" value={crm} />
+  <input type="hidden" name="_started" value="" />
+  <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+  <div class="form__row">
+    <Field id={`${id}-name`} name="name" label={es ? 'Nombre' : 'Name'} autocomplete="name" required validate />
+    <Field id={`${id}-interest`} name="interest" as="select" label={es ? '¿Qué te interesa?' : 'What are you interested in?'} options={options} required />
+  </div>
+  <div class="form__row">
+    <Field id={`${id}-email`} name="email" type="email" label={es ? 'Correo electrónico' : 'Email'} autocomplete="email" required validate />
+    <Field id={`${id}-phone`} name="phone" type="tel" label="WhatsApp" autocomplete="tel" inputmode="tel" placeholder="+52 33 1234 5678" required validate />
+  </div>
+  <div class="form__row">
+    <Field id={`${id}-dates`} name="dates" label={es ? 'Fechas aproximadas' : 'Approximate dates'} placeholder={es ? 'Ej. 14 al 16 de marzo' : 'e.g. 14 to 16 March'} />
+    <Field id={`${id}-people`} name="people" type="number" min={1} max={500} inputmode="numeric" label={es ? 'Número de personas' : 'Number of people'} />
+  </div>
+  <Field id={`${id}-message`} name="message" as="textarea" rows={3} label={es ? 'Cuéntanos un poco más' : 'Tell us a little more'} />
+  {site.turnstileSiteKey && endpoint && <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey}></div>}
+  <div class="inquiry__send">
+    <Button type="submit" size="lg">{es ? 'Enviar solicitud' : 'Send request'}</Button>
+    <p class="small">{es ? 'Te respondemos por correo o WhatsApp.' : 'We reply by email or WhatsApp.'} <a href={href(localize('/aviso-de-privacidad', lang))}>{es ? 'Aviso de privacidad' : 'Privacy notice'}</a>.</p>
+  </div>
+  <div data-form-status role="status" tabindex="-1"></div>
+</form>
+) : (
+<form id={id} class="form inquiry" data-wa-form data-wa={site.whatsapp.number} data-lang={lang} novalidate>
+  <div class="form__row">
+    <Field id={`${id}-name`} name="name" label={es ? 'Nombre' : 'Name'} autocomplete="name" required />
+    <Field id={`${id}-interest`} name="interest" as="select" label={es ? '¿Qué te interesa?' : 'What are you interested in?'} options={options} required />
+  </div>
+  <div class="form__row">
+    <Field id={`${id}-dates`} name="dates" label={es ? 'Fechas aproximadas' : 'Approximate dates'} placeholder={es ? 'Ej. 14 al 16 de marzo' : 'e.g. 14 to 16 March'} />
+    <Field id={`${id}-people`} name="people" type="number" min={1} max={500} inputmode="numeric" label={es ? 'Número de personas' : 'Number of people'} />
+  </div>
+  <Field id={`${id}-message`} name="message" as="textarea" rows={3} label={es ? 'Cuéntanos un poco más' : 'Tell us a little more'} />
+  <div class="inquiry__send">
+    <Button type="submit" size="lg">{es ? 'Enviar por WhatsApp' : 'Send on WhatsApp'}</Button>
+    <p class="small">{es ? 'Se abre WhatsApp con tu mensaje listo para enviar.' : 'WhatsApp opens with your message ready to send.'} <a href={href(localize('/aviso-de-privacidad', lang))}>{es ? 'Aviso de privacidad' : 'Privacy notice'}</a>.</p>
+  </div>
+</form>
+)}

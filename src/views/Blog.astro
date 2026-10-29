@@ -1,0 +1,30 @@
+---
+// Blog index: newest first. Posts live in src/content/blog (see src/lib/blog.ts).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SpaceCard from '../components/SpaceCard.astro';
+import { posts, postPath } from '../lib/blog';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/blog', lang);
+const list = posts(lang);
+const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Blog: bienestar, retiros y vida en la Finca | Finca El Péndulo' : 'Blog: wellbeing, retreats and life at the Finca | Finca El Péndulo'}
+  description={es ? 'Artículos sobre temazcal, retiros holísticos, bienestar y la vida en comunidad en Finca El Péndulo, Jalisco.' : 'Articles on temazcal, holistic retreats, wellbeing and community life at Finca El Péndulo, Jalisco.'}
+  breadcrumbs={[{ name: 'Blog', path }]}>
+  <PageHeader lang={lang} image="yoga-palapa" alt={es ? 'La palapa preparada para una práctica de grupo' : 'The palapa set up for a group practice'} eyebrow="Blog" title={es ? 'Notas desde la Finca' : 'Notes from the Finca'}>
+    {es ? 'Bienestar, retiros, naturaleza y vida en comunidad.' : 'Wellbeing, retreats, nature and community life.'}
+  </PageHeader>
+  <section class="section">
+    <div class="wrap">
+      <div class="cards cards--3">
+        {list.map((p) => <SpaceCard href={href(postPath(lang, p.slug))} image={p.image} alt={p.title} meta={fmt(p.date)} title={p.title} description={p.description} ratio="4 / 3" />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

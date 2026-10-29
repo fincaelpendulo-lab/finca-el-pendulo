@@ -1,0 +1,426 @@
+[
+  {
+    "id": "penthouse",
+    "name": {
+      "es": "Penthouse panorámico con jacuzzi",
+      "en": "Panoramic penthouse with jacuzzi"
+    },
+    "capacity": {
+      "es": "2 adultos y 1 niño",
+      "en": "2 adults and 1 child"
+    },
+    "photo": "hab-penthouse-1",
+    "alt": {
+      "es": "Penthouse con cama king y jacuzzi frente a los ventanales",
+      "en": "Penthouse with a king bed and a jacuzzi by the windows"
+    },
+    "gallery": [
+      "hab-penthouse-2",
+      "hab-penthouse-3",
+      "hab-penthouse-4"
+    ],
+    "rooms": [
+      "Lechuza",
+      "Búho"
+    ],
+    "body": {
+      "es": "Las habitaciones estrella de la Finca. Ventanales de piso a techo, jacuzzi privado con vista panorámica al campo y una cama king o queen size, con opción de sofá cama.",
+      "en": "The Finca’s finest rooms. Floor-to-ceiling windows, a private jacuzzi with a panoramic view over the fields and a king or queen bed, with a sofa bed if you need it."
+    },
+    "features": {
+      "es": [
+        "Cama king o queen size",
+        "Jacuzzi privado panorámico",
+        "Sofá cama",
+        "Baño privado"
+      ],
+      "en": [
+        "King or queen bed",
+        "Private panoramic jacuzzi",
+        "Sofa bed",
+        "Private bathroom"
+      ]
+    }
+  },
+  {
+    "id": "deluxe-jacuzzi",
+    "name": {
+      "es": "Habitación deluxe con jacuzzi",
+      "en": "Deluxe room with jacuzzi"
+    },
+    "capacity": {
+      "es": "Hasta 3 personas",
+      "en": "Up to 3 guests"
+    },
+    "photo": "hab-deluxe-jacuzzi-1",
+    "alt": {
+      "es": "Habitación deluxe de muros verdes con cama queen",
+      "en": "A deluxe room with green walls and a queen bed"
+    },
+    "gallery": [
+      "hab-deluxe-jacuzzi-2",
+      "hab-deluxe-jacuzzi-3",
+      "hab-deluxe-jacuzzi-4"
+    ],
+    "rooms": [
+      "Jumanji",
+      "Tilopa"
+    ],
+    "body": {
+      "es": "Habitaciones amplias con cama queen size y jacuzzi privado dentro de la habitación. Cada una tiene su propia decoración y vista a los jardines.",
+      "en": "Spacious rooms with a queen bed and a private jacuzzi inside the room. Each has its own decoration and a view of the gardens."
+    },
+    "features": {
+      "es": [
+        "Cama queen size",
+        "Jacuzzi privado",
+        "Cafetera",
+        "Wifi"
+      ],
+      "en": [
+        "Queen bed",
+        "Private jacuzzi",
+        "Coffee maker",
+        "Wi-Fi"
+      ]
+    }
+  },
+  {
+    "id": "agaves",
+    "name": {
+      "es": "Habitación privada Agaves",
+      "en": "Agaves private room"
+    },
+    "capacity": {
+      "es": "Hasta 2 personas",
+      "en": "Up to 2 guests"
+    },
+    "photo": "hab-agaves-1",
+    "alt": {
+      "es": "Habitación Agave con muro turquesa y cama matrimonial",
+      "en": "The Agave room with a turquoise wall and a double bed"
+    },
+    "gallery": [
+      "hab-agaves-2",
+      "hab-agaves-3",
+      "hab-agaves-4"
+    ],
+    "rooms": [
+      "Agave",
+      "Maguey",
+      "Elote"
+    ],
+    "body": {
+      "es": "Habitaciones contemporáneas en planta alta, detrás del centro de meditación. Tienen la vista más amplia hacia los campos de agave y el corral donde los caballos pastan libres, y el mejor lugar para ver el amanecer.",
+      "en": "Contemporary upstairs rooms behind the meditation centre, with the widest view over the agave fields and the paddock where the horses graze freely, and the best spot to watch the sunrise."
+    },
+    "features": {
+      "es": [
+        "Cama matrimonial",
+        "Baño completo privado",
+        "Vista a los agaves y los caballos",
+        "Cafetera y wifi"
+      ],
+      "en": [
+        "Double bed",
+        "Private full bathroom",
+        "View of the agave and the horses",
+        "Coffee maker and Wi-Fi"
+      ]
+    }
+  },
+  {
+    "id": "rancho",
+    "name": {
+      "es": "Habitación privada estilo rancho",
+      "en": "Ranch-style private room"
+    },
+    "capacity": {
+      "es": "Hasta 2 personas",
+      "en": "Up to 2 guests"
+    },
+    "photo": "hab-rancho-1",
+    "alt": {
+      "es": "Habitación estilo rancho con cabecera de rueda de carreta",
+      "en": "A ranch-style room with a cartwheel headboard"
+    },
+    "gallery": [
+      "hab-rancho-2",
+      "hab-rancho-3",
+      "hab-rancho-4"
+    ],
+    "rooms": [
+      "Lobo",
+      "Loba"
+    ],
+    "body": {
+      "es": "Habitaciones amplias estilo cabaña, rústicas y acogedoras. Tienen terraza y vista a los jardines principales y al Oráculo de la Luna, la explanada de pilares de ónix que se encienden por la noche.",
+      "en": "Spacious, cosy cabin-style rooms with a terrace and a view of the main gardens and the Oráculo de la Luna, the plaza of onyx pillars that light up at night."
+    },
+    "features": {
+      "es": [
+        "Cama matrimonial",
+        "Baño privado",
+        "Terraza",
+        "Vista al Oráculo"
+      ],
+      "en": [
+        "Double bed",
+        "Private bathroom",
+        "Terrace",
+        "View of the Oráculo"
+      ]
+    }
+  },
+  {
+    "id": "caballerizas",
+    "name": {
+      "es": "Habitación privada Caballerizas",
+      "en": "Stables private room"
+    },
+    "capacity": {
+      "es": "Hasta 3 personas",
+      "en": "Up to 3 guests"
+    },
+    "photo": "hab-caballerizas-1",
+    "alt": {
+      "es": "Habitación Cactus con muros de madera y vitral",
+      "en": "The Cactus room with wooden walls and stained glass"
+    },
+    "gallery": [
+      "hab-caballerizas-2",
+      "hab-caballerizas-3",
+      "hab-caballerizas-4"
+    ],
+    "rooms": [
+      "Cactus",
+      "Oeste"
+    ],
+    "body": {
+      "es": "Habitaciones de estilo rústico en el edificio de las caballerizas, con baño privado y cama matrimonial o queen size. Comparten una terraza en lo alto con vista al amanecer.",
+      "en": "Rustic rooms in the stables building, with a private bathroom and a double or queen bed. They share a rooftop terrace facing the sunrise."
+    },
+    "features": {
+      "es": [
+        "Cama matrimonial o queen size",
+        "Baño privado",
+        "Terraza común",
+        "Junto a los caballos"
+      ],
+      "en": [
+        "Double or queen bed",
+        "Private bathroom",
+        "Shared terrace",
+        "Next to the horses"
+      ]
+    }
+  },
+  {
+    "id": "bonanza",
+    "name": {
+      "es": "Habitación doble Bonanza",
+      "en": "Bonanza double room"
+    },
+    "capacity": {
+      "es": "Hasta 4 personas",
+      "en": "Up to 4 guests"
+    },
+    "photo": "hab-bonanza-1",
+    "alt": {
+      "es": "Habitación Bonanza con dos camas matrimoniales",
+      "en": "The Bonanza room with two double beds"
+    },
+    "gallery": [
+      "hab-bonanza-2",
+      "hab-bonanza-3",
+      "hab-bonanza-4"
+    ],
+    "rooms": [
+      "Bonanza"
+    ],
+    "body": {
+      "es": "Habitación campestre en el edificio estilo Viejo Oeste junto a las caballerizas, con dos camas matrimoniales. Ideal para compartir con familia o amigos.",
+      "en": "A country room in the Old West–style building by the stables, with two double beds. Made for family or friends."
+    },
+    "features": {
+      "es": [
+        "2 camas matrimoniales",
+        "Baño completo privado",
+        "Televisión",
+        "Terraza con vista al amanecer"
+      ],
+      "en": [
+        "2 double beds",
+        "Private full bathroom",
+        "TV",
+        "Terrace facing the sunrise"
+      ]
+    }
+  },
+  {
+    "id": "contenedores",
+    "name": {
+      "es": "Contenedores",
+      "en": "Container rooms"
+    },
+    "capacity": {
+      "es": "1 persona",
+      "en": "1 guest"
+    },
+    "photo": "hab-contenedor-1",
+    "alt": {
+      "es": "Habitación contenedor con terraza de madera",
+      "en": "A container room with a wooden deck"
+    },
+    "gallery": [
+      "hab-contenedor-2",
+      "hab-contenedor-3",
+      "hab-contenedor-4"
+    ],
+    "rooms": [
+      "Contenedor 1",
+      "Contenedor 2"
+    ],
+    "body": {
+      "es": "Habitaciones individuales en contenedores adaptados, con terraza de madera, baño privado, aire acondicionado, calefacción y escritorio. Perfectas para quien viene solo a descansar o a trabajar.",
+      "en": "Single rooms in converted containers, with a wooden deck, private bathroom, air conditioning, heating and a desk. Made for solo guests who come to rest or work."
+    },
+    "features": {
+      "es": [
+        "Cama individual",
+        "Baño privado",
+        "Aire acondicionado y calefacción",
+        "Escritorio"
+      ],
+      "en": [
+        "Single bed",
+        "Private bathroom",
+        "Air conditioning and heating",
+        "Desk"
+      ]
+    }
+  },
+  {
+    "id": "aldeas",
+    "name": {
+      "es": "Aldeas",
+      "en": "Aldeas cabins"
+    },
+    "capacity": {
+      "es": "Hasta 4 personas",
+      "en": "Up to 4 guests"
+    },
+    "photo": "hab-aldeas-1",
+    "alt": {
+      "es": "Interior de una aldea con techo de palapa y cabecera de madera",
+      "en": "Inside an aldea, with a palm roof and a wooden headboard"
+    },
+    "gallery": [
+      "hab-aldeas-2",
+      "hab-aldeas-3",
+      "hab-aldeas-4"
+    ],
+    "rooms": [
+      "Agua",
+      "Fuego",
+      "Tierra",
+      "Aire"
+    ],
+    "body": {
+      "es": "Cuatro cabañas de palapa entre los agaves, una por cada elemento. Tienen cama king y cama matrimonial y baño privado, en un espacio pensado para el descanso y la renovación.",
+      "en": "Four palm-roofed cabins among the agave, one for each element. Each has a king bed, a double bed and a private bathroom, in a space made for rest and renewal."
+    },
+    "features": {
+      "es": [
+        "Cama king y cama matrimonial",
+        "Baño privado",
+        "Techo de palapa",
+        "Entre los agaves"
+      ],
+      "en": [
+        "King bed and double bed",
+        "Private bathroom",
+        "Palm roof",
+        "Among the agave"
+      ]
+    }
+  },
+  {
+    "id": "cabana-burra",
+    "name": {
+      "es": "Cabaña Burra",
+      "en": "Cabaña Burra"
+    },
+    "capacity": {
+      "es": "Hasta 7 personas",
+      "en": "Up to 7 guests"
+    },
+    "photo": "hab-cabana-burra-1",
+    "alt": {
+      "es": "Cabaña Burra con camas matrimoniales y literas",
+      "en": "Cabaña Burra with double beds and bunks"
+    },
+    "gallery": [
+      "hab-cabana-burra-2",
+      "hab-cabana-burra-3",
+      "hab-cabana-burra-4"
+    ],
+    "rooms": [
+      "Burra"
+    ],
+    "body": {
+      "es": "Cabaña de ladrillo para familias o grupos pequeños, con camas matrimoniales, literas y un porche frente al jardín.",
+      "en": "A brick cabin for families or small groups, with double beds, bunks and a porch facing the garden."
+    },
+    "features": {
+      "es": [
+        "Camas matrimoniales y literas",
+        "Porche al jardín",
+        "Para familias y grupos"
+      ],
+      "en": [
+        "Double beds and bunks",
+        "Porch on the garden",
+        "For families and groups"
+      ]
+    }
+  },
+  {
+    "id": "hormiguero",
+    "name": {
+      "es": "Hormiguero",
+      "en": "Hormiguero"
+    },
+    "capacity": {
+      "es": "Grupos de hasta 16 personas",
+      "en": "Groups of up to 16"
+    },
+    "photo": "card-hormiguero",
+    "alt": {
+      "es": "El Hormiguero entre plataneros",
+      "en": "The Hormiguero among banana trees"
+    },
+    "gallery": [
+      "aerea-hormiguero"
+    ],
+    "rooms": [],
+    "body": {
+      "es": "Edificio construido con materiales sustentables para grupos y voluntarios. La planta baja tiene 8 camas individuales y la alta 6; además hay un cuarto privado con cama matrimonial, cocina y baños para hombres y mujeres.",
+      "en": "A building made with sustainable materials for groups and volunteers. There are 8 single beds downstairs and 6 upstairs, plus a private room with a double bed, a kitchen and separate bathrooms for men and women."
+    },
+    "features": {
+      "es": [
+        "14 camas individuales",
+        "Cuarto privado con cama matrimonial",
+        "Cocina",
+        "Baños para hombres y mujeres"
+      ],
+      "en": [
+        "14 single beds",
+        "Private room with a double bed",
+        "Kitchen",
+        "Separate bathrooms for men and women"
+      ]
+    }
+  }
+]

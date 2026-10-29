@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import site from '../data/site.json';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const path = localize('/aviso-de-privacidad', lang);
+---
+<BaseLayout lang={lang} path={path} header="solid"
+  title={es ? 'Aviso de privacidad y términos | Finca El Péndulo' : 'Privacy notice and terms | Finca El Péndulo'}
+  description={es ? 'Cómo Finca El Péndulo trata tus datos personales, qué cookies usa el sitio y los términos de uso del sitio web.' : 'How Finca El Péndulo handles your personal data, which cookies the site uses and the website terms of use.'}
+  breadcrumbs={[{ name: es ? 'Aviso de privacidad' : 'Privacy notice', path }]}>
+  <section class="section">
+    <div class="wrap prose">
+      <SectionHeader level="h1" title={es ? 'Aviso de privacidad' : 'Privacy notice'} />
+      {es ? <>
+        <p>Finca El Péndulo, con domicilio en Camino al Saucillo 861, Tepatitlán de Morelos, Jalisco, México, es responsable del tratamiento de tus datos personales. Para cualquier tema de privacidad escríbenos a <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+        <h2>Datos que recopilamos</h2>
+        <p>A través del sitio y sus formularios recopilamos: nombre completo, correo electrónico, número de teléfono o WhatsApp, ciudad o país de residencia y la información que nos compartas sobre tu retiro, evento o estancia. No recopilamos datos sensibles, financieros ni información médica.</p>
+        <h2>Para qué los usamos</h2>
+        <p>Finalidades primarias: gestionar registros de facilitadores y participantes; contactarte y dar seguimiento a tus solicitudes; comunicarnos contigo sobre servicios, eventos o actividades.</p>
+        <p>Finalidades secundarias: enviarte información promocional o contenido relevante e invitarte a eventos, experiencias o colaboraciones. Puedes pedirnos en cualquier momento que dejemos de hacerlo.</p>
+        <h2>Transferencia de datos</h2>
+        <p>No vendemos ni compartimos tus datos con terceros para sus propios fines. Los gestionamos con herramientas que trabajan por encargo nuestro: nuestro CRM (GoHighLevel), Cloudflare para recibir los formularios y protegerlos contra spam, y Google Analytics si aceptas las cookies de analítica.</p>
+        <h2>Protección</h2>
+        <p>Resguardamos tus datos con medidas administrativas, técnicas y físicas para evitar su pérdida, uso indebido, acceso no autorizado o divulgación.</p>
+        <h2>Derechos ARCO y revocación</h2>
+        <p>Tienes derecho a acceder, rectificar, cancelar u oponerte al uso de tus datos, y a revocar tu consentimiento. Escríbenos a <a href={`mailto:${site.email}`}>{site.email}</a> con tu nombre completo, la descripción de tu solicitud y un medio de contacto.</p>
+        <h2 id="cookies">Cookies</h2>
+        <p>El sitio no guarda cookies en tu dispositivo hasta que eliges. Las esenciales solo recuerdan tu elección. Las de analítica (Google Analytics) cuentan visitas y clics de forma agregada, y se activan solo si las aceptas. El formulario usa Cloudflare Turnstile para distinguir personas de bots. Puedes cambiar tu elección con el enlace “Cookies” al pie de cada página.</p>
+        <h2>Cambios</h2>
+        <p>Podemos modificar este aviso en cualquier momento; los cambios se publicarán en esta página. Al enviarnos tus datos a través de este sitio aceptas este aviso de privacidad.</p>
+        <h2 id="terminos">Términos y condiciones</h2>
+        <p>Al usar este sitio aceptas utilizarlo de forma responsable y conforme a la ley, y declaras que la información que envías en los formularios es veraz. Podemos rechazar solicitudes con información falsa o incompleta.</p>
+        <p>Los precios y la disponibilidad de espacios, hospedaje y experiencias pueden cambiar sin previo aviso; las cotizaciones del sitio son estimadas y el equipo de la Finca confirma la cotización final. Todo el contenido del sitio (textos, imágenes, diseño y logotipos) es propiedad de Finca El Péndulo y no puede reproducirse sin autorización.</p>
+        <p>No somos responsables de decisiones tomadas con base en la información del sitio, de fallas técnicas o interrupciones, ni del contenido de sitios de terceros enlazados. Estos términos se rigen por las leyes de los Estados Unidos Mexicanos.</p>
+      </> : <>
+        <p>Finca El Péndulo, of Camino al Saucillo 861, Tepatitlán de Morelos, Jalisco, Mexico, is responsible for your personal data. For any privacy matter, write to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+        <h2>What we collect</h2>
+        <p>Through the site and its forms we collect your full name, email, phone or WhatsApp number, city or country, and anything you tell us about your retreat, event or stay. We do not collect sensitive, financial or medical information.</p>
+        <h2>How we use it</h2>
+        <p>Primary purposes: managing facilitator and participant registrations; contacting you and following up on your requests; telling you about services, events or activities.</p>
+        <p>Secondary purposes: sending promotional information or relevant content and inviting you to events, experiences or collaborations. You can ask us to stop at any time.</p>
+        <h2>Sharing</h2>
+        <p>We do not sell your data or share it with third parties for their own use. We handle it with tools that work on our behalf: our CRM (GoHighLevel), Cloudflare to receive the forms and keep out spam, and Google Analytics if you accept analytics cookies.</p>
+        <h2>Protection</h2>
+        <p>We protect your data with administrative, technical and physical measures against loss, misuse, unauthorised access or disclosure.</p>
+        <h2>Your rights</h2>
+        <p>You can access, correct, delete or object to the use of your data, and withdraw your consent. Write to <a href={`mailto:${site.email}`}>{site.email}</a> with your full name, a description of your request and a way to reach you.</p>
+        <h2 id="cookies">Cookies</h2>
+        <p>Nothing is stored on your device until you choose. Essential cookies only remember that choice. Analytics cookies (Google Analytics) count visits and clicks in aggregate and only run if you accept them. The form uses Cloudflare Turnstile to tell people from bots. You can change your choice with the “Cookies” link at the foot of every page.</p>
+        <h2>Changes</h2>
+        <p>We may update this notice at any time; changes will be posted on this page. By sending us your details through this site you accept this privacy notice.</p>
+        <h2 id="terminos">Terms of use</h2>
+        <p>By using this site you agree to use it responsibly and lawfully, and you confirm that the information you send through the forms is accurate. We may decline requests with false or incomplete information.</p>
+        <p>Prices and availability of spaces, lodging and experiences may change without notice; estimates on this site are approximate and the Finca team confirms the final quote. All site content (text, images, design and logos) belongs to Finca El Péndulo and may not be reproduced without permission.</p>
+        <p>We are not responsible for decisions made based on the information on the site, for technical failures or interruptions, or for the content of linked third-party sites. These terms are governed by the laws of Mexico.</p>
+      </>}
+    </div>
+  </section>
+</BaseLayout>

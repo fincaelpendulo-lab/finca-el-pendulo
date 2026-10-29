@@ -1,0 +1,36 @@
+---
+// A strip of photos that drifts slowly sideways (pauses on hover or focus; still for reduced motion).
+// The list is rendered twice so the loop has no seam; the copy is hidden from screen readers.
+import Photo from './Photo.astro';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; items: { image: string; alt: string }[] }
+const { lang, items } = Astro.props;
+const es = lang === 'es';
+---
+<section class="marquee" aria-label={es ? 'Fotos de la Finca' : 'Photos of the Finca'}>
+  <div class="marquee__track">
+    {[0, 1].map((copy) => (
+      <ul class="marquee__list" aria-hidden={copy ? 'true' : undefined}>
+        {items.map((it) => <li><Photo name={it.image} alt={copy ? '' : it.alt} sizes="(max-width: 760px) 60vw, 340px" widths={[640, 960, 1280]} /></li>)}
+      </ul>
+    ))}
+  </div>
+  <p class="marquee__more"><a href={href(localize('/galeria', lang))}>{es ? 'Ver la galería completa' : 'See the full gallery'} →</a></p>
+</section>
+<style>
+  .marquee { overflow: hidden; padding: 12px 0 0; }
+  .marquee__track { display: flex; width: max-content; animation: marquee 70s linear infinite; }
+  .marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
+  .marquee__list { display: flex; gap: 12px; margin: 0; padding: 0 12px 0 0; list-style: none; }
+  .marquee__list li { flex: none; width: clamp(220px, 24vw, 340px); height: clamp(260px, 28vw, 400px); overflow: hidden; }
+  .marquee__list :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .marquee__more { padding: 12px var(--gutter) 0; text-align: right; font: var(--text-nav); letter-spacing: 0.1em; text-transform: uppercase; }
+  .marquee__more a { color: var(--ink); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { overflow-x: auto; }
+    .marquee__track { animation: none; }
+    .marquee__list[aria-hidden] { display: none; }
+  }
+</style>

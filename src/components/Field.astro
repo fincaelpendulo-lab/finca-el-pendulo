@@ -1,0 +1,16 @@
+---
+// Design system Field: label, control, hint or error.
+interface Props { id: string; name: string; label: string; as?: 'input' | 'select' | 'textarea'; type?: astroHTML.JSX.HTMLInputTypeAttribute; required?: boolean; validate?: boolean; hint?: string; options?: { value: string; label: string; selected?: boolean }[]; autocomplete?: astroHTML.JSX.InputHTMLAttributes['autocomplete']; placeholder?: string; min?: number; max?: number; inputmode?: 'numeric' | 'text' | 'email' | 'tel' | 'url'; rows?: number }
+const { id, name, label, as = 'input', type = 'text', required, validate, hint, options = [], ...rest } = Astro.props;
+const described = `${id}-error${hint ? ` ${id}-hint` : ''}`;
+---
+<div class:list={['fp-field', as === 'select' && 'fp-field--select']}>
+  <label for={id} class="fp-field__label">{label}{required && ' *'}</label>
+  {as === 'select'
+    ? <select id={id} name={name} class="fp-field__control" required={required} data-validate={validate ? '' : undefined} aria-describedby={described}>{options.map((o) => <option value={o.value} selected={o.selected}>{o.label}</option>)}</select>
+    : as === 'textarea'
+      ? <textarea id={id} name={name} class="fp-field__control" required={required} maxlength="2000" rows={rest.rows ?? 4} aria-describedby={described} placeholder={rest.placeholder}></textarea>
+      : <input id={id} name={name} type={type} class="fp-field__control" required={required} data-validate={validate ? '' : undefined} aria-describedby={described} {...rest} />}
+  {hint && <p id={`${id}-hint`} class="fp-field__msg">{hint}</p>}
+  <p id={`${id}-error`} class="field-error"></p>
+</div>

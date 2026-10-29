@@ -1,0 +1,43 @@
+/* Finca El Péndulo: generated from design-system/tokens.json (npm run tokens). Do not edit by hand. */
+:root {
+  --ground: #8b2d1e;
+  --wood: #674c3d;
+  --corn: #b98a5b;
+  --agave: #80866d;
+  --negro: #2e2a25;
+  --gris-oscuro: #57554f;
+  --gris-claro: #b2b2b1;
+  --papel: #ffffff;
+  --cal: #ffffff;
+  --tinta: #674c3d;
+  --tinta-suave: #57554f;
+  --arena: #efe6d8;
+  --linea: #e6dfd5;
+  --borde-control: #7d776e;
+  --foco: #8b2d1e;
+  --sobre-color: #ffffff;
+  --ground-tenue: #f4e3df;
+  --agave-tenue: #eceee6;
+  --agave-oscuro: #4f5440;
+  --corn-tenue: #f6ead9;
+  --corn-oscuro: #7a4f1c;
+  --velo: rgba(46, 42, 37, 0.38);
+  --velo-fuerte: rgba(46, 42, 37, 0.58);
+  --velo-base: rgba(46, 42, 37, 0.72);
+  --space-05: 4px;
+  --space-1: 8px;
+  --space-15: 12px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --radius-none: 0;
+  --radius-arco: 480px;
+  --radius-full: 9999px;
+  --sombra-lg: 0 4px 10px rgba(46, 42, 37, 0.06), 0 28px 60px -16px rgba(46, 42, 37, 0.24);
+  --font-display: "Newsreader Variable", Newsreader, Georgia, "Times New Roman", serif;
+  --font-text: "Tenor Sans", system-ui, sans-serif;
+}

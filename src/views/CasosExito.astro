@@ -1,0 +1,62 @@
+---
+// Casos de éxito: organizers who hold their retreats at the Finca, with links to their sites.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Photo from '../components/Photo.astro';
+import Button from '../components/Button.astro';
+import Reviews from '../components/Reviews.astro';
+import { t } from '../data/ui';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/casos-de-exito', lang);
+const mexisol = es ? 'https://mexisol.world/es' : 'https://mexisol.world/';
+const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https://mexisol.world/finca-el-pendulo';
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Casos de éxito: retiros en Finca El Péndulo | Jalisco' : 'Success stories: retreats at Finca El Péndulo | Jalisco'}
+  description={es ? 'Organizadores que realizan sus retiros en Finca El Péndulo, centro holístico cerca de Guadalajara. Conoce a MexiSol World y cómo trabaja con la Finca.' : 'Organizers who hold their retreats at Finca El Péndulo, a holistic centre near Guadalajara. Meet MexiSol World and how it works with the Finca.'}
+  breadcrumbs={[{ name: es ? 'Casos de éxito' : 'Success stories', path }]}>
+  <PageHeader lang={lang} image="esp-osho-hut-1" alt={es ? 'Interior del Osho Hut preparado para un retiro' : 'Inside the Osho Hut, set up for a retreat'} eyebrow={es ? 'Quiénes somos' : 'About us'} title={es ? 'Casos de éxito' : 'Success stories'}>
+    {es ? 'Facilitadores y organizaciones que eligieron la Finca como casa para sus retiros.' : 'Facilitators and organizations that chose the Finca as the home for their retreats.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap grid-2" style="align-items: center">
+      <div class="stack">
+        <p class="label">01 / MexiSol World</p>
+        <h2 class="t-heading">{es ? 'Retiros de bienestar con grupos internacionales' : 'Wellbeing retreats with international groups'}</h2>
+        <p>{es ? 'MexiSol World organiza retiros de bienestar y sanación para grupos pequeños que llegan de distintos países. Eligió Finca El Péndulo como su casa en Los Altos de Jalisco: aquí sus participantes se hospedan, comen y viven cada ceremonia y actividad en los espacios de la Finca.' : 'MexiSol World runs wellbeing and healing retreats for small groups who come from many countries. It chose Finca El Péndulo as its home in the highlands of Jalisco: its guests stay, eat and take part in every ceremony and activity in the Finca’s spaces.'}</p>
+        <ul class="rule-list rule-list--soft">
+          <li>{es ? 'Hospedaje, alimentos y espacios para todo el grupo' : 'Lodging, meals and spaces for the whole group'}</li>
+          <li>{es ? 'Ceremonias en el Osho Hut y el Oráculo' : 'Ceremonies in the Osho Hut and the Oráculo'}</li>
+          <li>{es ? 'Temazcal, caballos, lago y talleres entre sesiones' : 'Temazcal, horses, the lake and workshops between sessions'}</li>
+        </ul>
+        <div class="cluster">
+          <a class="fp-btn fp-btn--primary" href={mexisol} rel="noopener" target="_blank">{es ? 'Visita MexiSol World' : 'Visit MexiSol World'}</a>
+          <a class="fp-btn fp-btn--secondary" href={mexisolFinca} rel="noopener" target="_blank">{es ? 'Sus retiros en la Finca' : 'Their retreats at the Finca'}</a>
+        </div>
+      </div>
+      <div class="pair">
+        <Photo name="esp-oraculo-1" alt={es ? 'El Oráculo iluminado de noche' : 'The Oráculo lit at night'} class="ratio-3-4" sizes="(max-width: 900px) 50vw, 25vw" widths={[480, 800]} />
+        <Photo name="esp-temazcal-1" alt={es ? 'El temazcal de la Finca' : 'The Finca temazcal'} class="ratio-3-4" sizes="(max-width: 900px) 50vw, 25vw" widths={[480, 800]} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section deep">
+    <div class="wrap measure center stack">
+      <p class="label">{es ? 'Tu retiro' : 'Your retreat'}</p>
+      <h2 class="t-headline">{es ? '¿Quieres ser el próximo caso de éxito?' : 'Could your retreat be next?'}</h2>
+      <p class="muted">{es ? 'Cuéntanos de tu grupo y te enviamos la información para organizar tu retiro en la Finca.' : 'Tell us about your group and we will send you everything you need to host your retreat at the Finca.'}</p>
+      <div class="cluster"><Button href={L('/retiros#cotiza')} track="cta_quote">{t('quote', lang)}</Button></div>
+    </div>
+  </section>
+  <Reviews lang={lang} />
+</BaseLayout>
+<style>
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+</style>

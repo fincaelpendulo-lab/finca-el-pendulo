@@ -1,0 +1,30 @@
+---
+// Design system PhotoMosaic: a grid of photos with one or two color blocks.
+import Photo from './Photo.astro';
+import { Image } from 'astro:assets';
+import symbol from '../assets/brand/simbolo-blanco.png';
+type Tone = 'ground' | 'wood' | 'corn' | 'agave' | 'agave-oscuro' | 'negro';
+type Item = { image: string; alt: string; caption?: string; position?: string; cols?: number; rows?: number }
+  | { tone: Tone; title?: string; text?: string; eyebrow?: string; symbol?: boolean; cols?: number; rows?: number };
+interface Props { items: Item[] }
+const { items } = Astro.props;
+---
+<div class="fp-mosaic">
+  {items.map((it) => {
+    const style = `grid-column: span ${it.cols || 1}; grid-row: span ${it.rows || 1}`;
+    if ('image' in it) return (
+      <figure class="fp-mosaic__tile" style={style}>
+        <Photo name={it.image} alt={it.alt} class="fp-img" sizes={`(max-width: 760px) ${50 * (it.cols || 1)}vw, ${25 * (it.cols || 1)}vw`} widths={[480, 800, 1200]} style={it.position ? `object-position:${it.position}` : undefined} />
+        {it.caption && <figcaption class="fp-mosaic__cap">{it.caption}</figcaption>}
+      </figure>
+    );
+    return (
+      <div class:list={['fp-mosaic__tile fp-mosaic__block', `fp-bg-${it.tone}`, it.tone === 'corn' ? 'fp-on-light' : 'fp-on-dark']} style={style}>
+        {it.symbol && <Image src={symbol} alt="" class="fp-mosaic__symbol" width={112} />}
+        {it.eyebrow && <p class="fp-eyebrow">{it.eyebrow}</p>}
+        {it.title && <p class="fp-mosaic__title">{it.title}</p>}
+        {it.text && <p class="fp-mosaic__text">{it.text}</p>}
+      </div>
+    );
+  })}
+</div>

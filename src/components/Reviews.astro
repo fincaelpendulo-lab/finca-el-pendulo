@@ -1,0 +1,52 @@
+---
+// Google reviews: rating and count from src/data/site.json → reviews (update by hand), and the reviews
+// the Finca chooses to show in src/data/resenas-google.json ({ by, date, rating, text: { es, en } }).
+// Volunteer testimonials live on /voluntariado and /comunidad, not here.
+import site from '../data/site.json';
+import resenas from '../data/resenas-google.json';
+import type { Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const r = site.reviews;
+type Review = { by: string; date?: string; rating: number; text: { es: string; en: string } };
+const list = resenas as Review[];
+const placeId = new URL(r.url).searchParams.get('query_place_id');
+const writeUrl = placeId ? `https://search.google.com/local/writereview?placeid=${placeId}` : r.url;
+const stars = (n: number) => '★★★★★'.slice(0, Math.round(n)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(n));
+---
+<section class="section">
+  <div class="wrap">
+    <p class="label">{es ? 'Opiniones en Google' : 'Google reviews'}</p>
+    <div class="split-head">
+      <h2 class="t-heading">{es ? 'Lo que dicen quienes han venido' : 'What our guests say'}</h2>
+      <div class="cluster">
+        <a class="fp-btn fp-btn--secondary" href={r.url}>{es ? 'Lee las opiniones en Google' : 'Read the reviews on Google'}</a>
+        <a class="fp-btn fp-btn--secondary" href={writeUrl}>{es ? 'Escribe tu opinión' : 'Write a review'}</a>
+      </div>
+    </div>
+    <div class="g-rating">
+      <p class="g-rating__score">{r.rating.toFixed(1)}</p>
+      <div>
+        <p class="g-rating__stars" aria-label={es ? `${r.rating} de 5 estrellas` : `${r.rating} out of 5 stars`}>{stars(r.rating)}</p>
+        <p class="muted">{es ? `${r.count} opiniones en Google` : `${r.count} reviews on Google`}</p>
+      </div>
+    </div>
+    {list.length > 0 && (
+      <div class="grid" style="--min: 280px; --gap: 12px">
+        {list.map((q) => (
+          <figure class="card">
+            <p class="g-rating__stars" aria-label={es ? `${q.rating} de 5 estrellas` : `${q.rating} out of 5 stars`}>{stars(q.rating)}</p>
+            <blockquote class="t-lead review__text"><p>{q.text[lang]}</p></blockquote>
+            <figcaption class="label label--tight">{q.by}<span class="muted"> · Google{q.date ? ` · ${q.date}` : ''}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+<style is:global>
+  .g-rating { display: flex; align-items: center; gap: var(--space-5); margin: var(--space-6) 0; }
+  .g-rating__score { font-family: var(--font-display); font-size: 72px; line-height: 1; margin: 0; }
+  .g-rating__stars { color: var(--corn); font-size: 22px; letter-spacing: 2px; margin: 0; }
+</style>

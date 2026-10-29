@@ -1,0 +1,269 @@
+---
+// Home: hero, moving photo strip, who we are, retreats/events/weddings, stays (compact), experiences,
+// then spaces, upcoming events, success stories, reviews, blog, questions and location.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import BgMedia from '../components/BgMedia.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import SpaceCard from '../components/SpaceCard.astro';
+import ExperienceColumns from '../components/ExperienceColumns.astro';
+import Location from '../components/Location.astro';
+import Button from '../components/Button.astro';
+import Photo from '../components/Photo.astro';
+import Reviews from '../components/Reviews.astro';
+import GalleryMarquee from '../components/GalleryMarquee.astro';
+import UpcomingEvents from '../components/UpcomingEvents.astro';
+import { posts, postPath } from '../lib/blog';
+import { Image } from 'astro:assets';
+import symbol from '../assets/brand/simbolo-marina.png';
+import espacios from '../data/espacios.json';
+import hospedaje from '../data/hospedaje.json';
+import retiros from '../data/retiros.json';
+import site from '../data/site.json';
+import { t } from '../data/ui';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+import { lodgingSchema } from '../lib/schema';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const featured = ['osho-hut', 'temazcal', 'oraculo', 'lago'].map((id) => espacios.find((e) => e.id === id)!);
+const a = site.address;
+const latest = posts(lang).slice(0, 3);
+const stays = ['penthouse', 'agaves', 'aldeas', 'hormiguero'].map((id) => hospedaje.find((h) => h.id === id)!);
+
+const faqs = es
+  ? [
+      ['¿Dónde está Finca El Péndulo?', `En ${a.street}, ${a.locality}, ${a.region}, en Los Altos de Jalisco, cerca de Guadalajara. En la sección de ubicación encontrarás el mapa y la ruta en Google Maps y Waze.`],
+      ['¿Cómo reservo una habitación?', 'Reserva en línea con disponibilidad en tiempo real desde el botón "Reservar", o escríbenos por WhatsApp y te ayudamos a elegir.'],
+      ['¿Qué incluye un retiro en la Finca?', `${retiros.includes.es.join(', ')}. Recibimos grupos desde ${retiros.minPeople} personas.`],
+      ['¿Cómo se paga un retiro?', retiros.payments.map((p) => `${p.pct}% ${p.when.es.toLowerCase()}`).join(', ') + `. ${retiros.cancellation.es}`],
+      ['¿Cuántas personas caben en un evento?', 'La Terraza Ambú recibe hasta 200 personas. Para grupos más pequeños hay salones, el Oráculo al aire libre y el jardín.'],
+      ['¿Puedo venir solo a una experiencia?', 'Sí. Temazcal, cabalgata, talleres y otras experiencias se pueden reservar por separado. Escríbenos con la fecha y el número de personas.'],
+    ]
+  : [
+      ['Where is Finca El Péndulo?', `At ${a.street}, ${a.locality}, ${a.region}, in the highlands of Jalisco near Guadalajara. The location section has the map and directions for Google Maps and Waze.`],
+      ['How do I book a room?', 'Book online with live availability from the "Book" button, or message us on WhatsApp and we will help you choose.'],
+      ['What does a retreat at the Finca include?', `${retiros.includes.en.join(', ')}. We host groups of ${retiros.minPeople} people or more.`],
+      ['How is a retreat paid?', retiros.payments.map((p) => `${p.pct}% ${p.when.en.toLowerCase()}`).join(', ') + `. ${retiros.cancellation.en}`],
+      ['How many guests can an event have?', 'The Ambú terrace holds up to 200 guests. Smaller groups can use the halls, the open-air Oráculo and the garden.'],
+      ['Can I come for a single experience?', 'Yes. Temazcal, horse riding, workshops and other experiences can be booked on their own. Write to us with the date and number of people.'],
+    ];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: ans } })) };
+---
+<BaseLayout
+  lang={lang} path={localize('/', lang)}
+  title={es ? 'Finca El Péndulo | Retiros, hospedaje y bienestar en Tepatitlán, Jalisco' : 'Finca El Péndulo | Retreats, stays and wellbeing in Jalisco, Mexico'}
+  description={es ? 'Centro holístico en Tepatitlán, Jalisco, cerca de Guadalajara: cuatro hectáreas para retiros, hospedaje en la naturaleza, temazcal, eventos y bienestar.' : 'A holistic centre in Tepatitlán de Morelos, Jalisco: four hectares and more than 15 spaces for retreats, nature stays, temazcal, events and wellbeing experiences.'}
+  schema={[lodgingSchema(lang), faqSchema]}
+>
+  <Hero
+    lang={lang} video="aerea-agaves-cabanas" image="aerea-agaves-cabanas"
+    alt={es ? 'Vista aérea de las cabañas de palapa entre hileras de agave azul' : 'Aerial view of palm-roofed cabins among rows of blue agave'}
+    eyebrow="Tepatitlán de Morelos, Jalisco"
+    title={es ? 'Un espacio para crear experiencias con propósito' : 'A place to create experiences with purpose'}
+  >
+    {es ? 'Centro holístico con retiros, hospedaje, temazcal y eventos en cuatro hectáreas de Los Altos de Jalisco, cerca de Guadalajara.' : 'A holistic retreat centre with stays, temazcal and events on four hectares in the highlands of Jalisco, near Guadalajara.'}
+    <Fragment slot="actions">
+      <Button href={site.booking.url} track="booking">{t('book', lang)}</Button>
+      <Button href={L('/retiros#cotiza')} variant="secondary" track="cta_quote">{t('quote', lang)}</Button>
+    </Fragment>
+  </Hero>
+
+  <GalleryMarquee lang={lang} items={[
+    { image: 'esp-oraculo-1', alt: es ? 'Yoga al anochecer entre las columnas iluminadas' : 'Yoga at dusk among the lit columns' },
+    { image: 'cuencos-sonido', alt: es ? 'Meditación con cuencos y flores' : 'Sound bowl meditation with flowers' },
+    { image: 'esp-terraza-ambu-1', alt: es ? 'La Terraza Ambú frente al agavero' : 'The Ambú terrace facing the agave field' },
+    { image: 'paseo-caballo', alt: es ? 'Paseo a caballo en la Finca' : 'A horse ride at the Finca' },
+    { image: 'esp-temazcal-1', alt: es ? 'El temazcal de la Finca' : 'The Finca temazcal' },
+    { image: 'cena-mesa-larga', alt: es ? 'Cena en una mesa larga a la luz de las velas' : 'Dinner at a long candlelit table' },
+    { image: 'esp-lago-1', alt: es ? 'La palapa reflejada en el lago' : 'The palapa reflected in the lake' },
+    { image: 'osho-hut-arcoiris', alt: es ? 'El Osho Hut bajo un arcoíris' : 'The Osho Hut under a rainbow' },
+    { image: 'festival-3', alt: es ? 'Danza con fuego en un festival' : 'A fire dance at a festival' },
+    { image: 'invernadero-mesa', alt: es ? 'El 27, comedor dentro del invernadero' : 'El 27, the dining room inside the greenhouse' },
+    { image: 'atrio-flores', alt: es ? 'El Atrio del maestro entre buganvilias' : 'The Atrio del maestro among bougainvillea' },
+    { image: 'esp-lobos-1', alt: es ? 'Uno de los lobos rescatados' : 'One of the rescued wolves' },
+  ]} />
+
+  <section class="section">
+    <div class="wrap measure center stack" style="--stack: 24px">
+      <Image src={symbol} alt="" height={96} class="intro-symbol" />
+      <p class="label">{es ? 'Quiénes somos' : 'Who we are'}</p>
+      <h2 class="t-heading">{es ? 'Una comunidad holística en Los Altos de Jalisco' : 'A holistic community in the highlands of Jalisco'}</h2>
+      <p class="t-lead muted">{es ? 'Finca El Péndulo es un centro holístico en Tepatitlán de Morelos. Integramos hospedaje, espacios para actividades, servicios holísticos y contacto con la naturaleza para el descanso, la claridad mental y el crecimiento personal. Somos una comunidad autosustentable: lo que generan el hospedaje y los retiros mantiene vivo este refugio.' : 'Finca El Péndulo is a holistic centre in Tepatitlán de Morelos. We bring together lodging, spaces for group work, holistic services and time outdoors for rest, clarity and personal growth. We are a self-sustaining community: what stays and retreats bring in keeps this refuge alive.'}</p>
+      <div class="cluster">
+        <Button href={L('/sobre-la-finca')} variant="secondary">{es ? 'Lee nuestra historia' : 'Read our story'}</Button>
+        <Button href={L('/comunidad')} variant="secondary">{es ? 'Conoce la comunidad' : 'Meet the community'}</Button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label={es ? 'Organiza en la Finca' : 'Host at the Finca'}>
+    <div class="grid gutter-x" style="--min: 300px; --gap: 12px">
+      <a class="tile" href={L('/retiros')}>
+        <Photo name="circulo-palapa" alt={es ? 'Círculo bajo la palapa junto al lago' : 'A circle under the palapa by the lake'} sizes="(max-width: 760px) 100vw, 33vw" />
+        <div class="tile__wash">
+          <p class="label">{es ? 'Para facilitadores' : 'For facilitators'}</p>
+          <h2 class="tile__title">{es ? 'Organiza tu retiro' : 'Host your retreat'}</h2>
+          <p>{es ? 'Hospedaje, 3 alimentos al día, coffee break y uso de espacios.' : 'Lodging, 3 meals a day, coffee break and use of the spaces.'}</p>
+        </div>
+      </a>
+      <a class="tile" href={L('/eventos')}>
+        <Photo name="festival-1" alt={es ? 'Asistentes bailando en un festival' : 'Guests dancing at a festival'} sizes="(max-width: 760px) 100vw, 33vw" />
+        <div class="tile__wash">
+          <p class="label">{es ? 'Eventos' : 'Events'}</p>
+          <h2 class="tile__title">{es ? 'Festivales, conciertos y cenas' : 'Festivals, concerts and dinners'}</h2>
+          <p>{es ? 'La Terraza Ambú recibe hasta 200 personas.' : 'The Ambú terrace holds up to 200 guests.'}</p>
+        </div>
+      </a>
+      <a class="tile" href={L('/bodas')}>
+        <Photo name="evento-bodas" alt={es ? 'Los novios firman frente a sus invitados' : 'The couple sign in front of their guests'} sizes="(max-width: 760px) 100vw, 33vw" />
+        <div class="tile__wash">
+          <p class="label">{es ? 'Bodas' : 'Weddings'}</p>
+          <h2 class="tile__title">{es ? 'Celebra tu boda' : 'Celebrate your wedding'}</h2>
+          <p>{es ? 'Ceremonia junto al lago y hospedaje para tus invitados.' : 'A ceremony by the lake and rooms for your guests.'}</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="label">{es ? 'Hospedaje' : 'Stay'}</p>
+      <div class="split-head">
+        <h2 class="t-heading">{es ? 'Quédate en la Finca' : 'Stay at the Finca'}</h2>
+        <div class="cluster">
+          <Button href={site.booking.url} track="booking">{t('book', lang)}</Button>
+          <Button href={L('/hospedaje')} variant="secondary">{es ? 'Ver las 10 opciones' : 'See all 10 options'}</Button>
+        </div>
+      </div>
+      <div class="stays">
+        {stays.map((h) => (
+          <a class="stay" href={L(`/hospedaje#${h.id}`)}>
+            <Photo name={h.photo} alt={h.alt[lang]} sizes="(max-width: 760px) 40vw, 160px" widths={[480]} />
+            <span><span class="label label--tight">{h.capacity[lang]}</span><span class="stay__name">{h.name[lang]}</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section aria-label={es ? 'Visita la Finca' : 'Visit the Finca'}>
+    <div class="grid gutter-x" style="--min: 340px; --gap: 12px">
+      <a class="tile" href={L('/day-pass')}>
+        <Photo name="alberca-01" alt={es ? 'La alberca de la Finca' : 'The Finca pool'} sizes="(max-width: 760px) 100vw, 50vw" />
+        <div class="tile__wash">
+          <p class="label">Day Pass</p>
+          <h2 class="tile__title">{es ? 'Visita la Finca por un día' : 'Visit the Finca for a day'}</h2>
+          <p>{es ? 'Alberca, jacuzzi y áreas comunes de 10:00 am a 7:00 pm, por $400 por persona.' : 'Pool, jacuzzi and common areas from 10:00 am to 7:00 pm, for $400 MXN per person.'}</p>
+        </div>
+      </a>
+      <a class="tile" href={L('/sesion-de-fotos')}>
+        <Photo name="sesion-fotos" alt={es ? 'Fotógrafo durante una sesión en la Finca' : 'A photographer during a session at the Finca'} sizes="(max-width: 760px) 100vw, 50vw" />
+        <div class="tile__wash">
+          <p class="label">{es ? 'Sesión de fotos' : 'Photo sessions'}</p>
+          <h2 class="tile__title">{es ? 'Haz tu sesión de fotos aquí' : 'Shoot your photos here'}</h2>
+          <p>{es ? 'Hasta tres horas en la Finca, con caballos si lo deseas. Desde $750.' : 'Up to three hours at the Finca, with horses if you like. From $750 MXN.'}</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section section--arena">
+    <div class="wrap">
+      <p class="label">{es ? 'Experiencias' : 'Experiences'}</p>
+      <div class="split-head">
+        <h2 class="t-heading">{es ? 'Bienestar, naturaleza y creatividad' : 'Wellbeing, nature and creativity'}</h2>
+        <a href={L('/experiencias')} class="fp-btn fp-btn--secondary">{es ? 'Ver todas las experiencias' : 'See all experiences'}</a>
+      </div>
+      <ExperienceColumns lang={lang} limit={4} />
+    </div>
+  </section>
+
+  <section class="photo-band" style="--h: 560px">
+    <BgMedia image="aerea-lago" video="aerea-lago" alt={es ? 'Vista aérea del lago y la palapa' : 'Aerial view of the lake and the palapa'} lang={lang} priority={false} />
+    <div class="photo-band__wash">
+      <div class="wrap photo-band__text">
+        <p class="label">{es ? 'La tierra' : 'The land'}</p>
+        <p class="t-headline fp-band__statement">{es ? 'Cuatro hectáreas, un lago, nueve caballos y más de quince espacios.' : 'Four hectares, a lake, nine horses and more than fifteen spaces.'}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHeader class="section-head" align="center" eyebrow={es ? 'Espacios' : 'Spaces'} title={es ? 'Un lugar que acompaña tu proceso' : 'A place that supports your process'}>
+        {es ? 'Salones ceremoniales, un temazcal, un oráculo al aire libre y la naturaleza alrededor.' : 'Ceremonial halls, a temazcal, an open-air oracle and nature all around.'}
+      </SectionHeader>
+      <div class="cards">
+        {featured.map((e, i) => <SpaceCard href={L(`/espacios#${e.id}`)} image={e.photo} alt={e.alt[lang]} meta={`0${i + 1} / ${e.kind[lang]}`} title={e.name[lang]} description={e.short[lang]} />)}
+      </div>
+      <div class="actions" style="justify-content: center"><Button href={L('/espacios')} variant="secondary">{t('spaces', lang)}</Button></div>
+    </div>
+  </section>
+
+  <UpcomingEvents lang={lang} deep />
+
+  <section class="section">
+    <div class="wrap grid-2" style="align-items: center">
+      <div class="stack">
+        <p class="label">{es ? 'Casos de éxito' : 'Success stories'}</p>
+        <h2 class="t-heading">{es ? 'MexiSol World eligió la Finca para sus retiros' : 'MexiSol World chose the Finca for its retreats'}</h2>
+        <p class="muted">{es ? 'Grupos internacionales que llegan a Los Altos de Jalisco para vivir retiros de bienestar con hospedaje, alimentos y espacios de la Finca.' : 'International groups who come to the highlands of Jalisco for wellbeing retreats with the Finca’s lodging, meals and spaces.'}</p>
+        <div class="cluster">
+          <Button href={L('/casos-de-exito')} variant="secondary">{es ? 'Ver casos de éxito' : 'See success stories'}</Button>
+          <a class="fp-btn fp-btn--link" href={es ? 'https://mexisol.world/es' : 'https://mexisol.world/'} rel="noopener" target="_blank">mexisol.world</a>
+        </div>
+      </div>
+      <Photo name="esp-osho-hut-1" alt={es ? 'Interior del Osho Hut preparado para un retiro' : 'Inside the Osho Hut, set up for a retreat'} class="ratio-4-3" sizes="(max-width: 900px) 100vw, 50vw" />
+    </div>
+  </section>
+
+  <Reviews lang={lang} />
+
+  {latest.length > 0 && (
+    <section class="section section--arena">
+      <div class="wrap">
+        <p class="label">Blog</p>
+        <div class="split-head">
+          <h2 class="t-heading">{es ? 'Notas desde la Finca' : 'Notes from the Finca'}</h2>
+          <a href={L('/blog')} class="fp-btn fp-btn--secondary">{es ? 'Ver el blog' : 'See the blog'}</a>
+        </div>
+        <div class="cards cards--3">
+          {latest.map((p) => <SpaceCard href={href(postPath(lang, p.slug))} image={p.image} alt={p.title} title={p.title} description={p.description} ratio="3 / 2" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <p class="label">{es ? 'Preguntas' : 'Questions'}</p>
+        <h2 class="t-heading">{es ? 'Antes de venir' : 'Before you come'}</h2>
+        <p class="muted">{es ? '¿Tienes otra pregunta? Escríbenos y te respondemos.' : 'Another question? Write to us and we will answer.'}</p>
+        <div class="cluster"><Button href={L('/contacto')} variant="secondary">{es ? 'Escríbenos' : 'Write to us'}</Button></div>
+      </div>
+      <div class="faq">
+        {faqs.map(([q, ans]) => <details><summary>{q}</summary><p>{ans}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <Location lang={lang} />
+</BaseLayout>
+
+<style>
+  .gutter-x { padding-left: 12px; padding-right: 12px; }
+  .intro-symbol { height: 96px; width: auto; margin-left: auto; margin-right: auto; }
+  .stays { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .stay { display: flex; align-items: center; gap: 16px; padding: 12px; border: 1px solid var(--hairline); color: var(--ink); text-decoration: none; }
+  .stay :global(picture) { flex: none; width: 96px; height: 96px; overflow: hidden; }
+  .stay :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .stay > span { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .stay__name { font-family: var(--font-display); font-size: 21px; line-height: 1.15; }
+  .stay:hover { border-color: var(--ink); color: var(--ink); }
+  @media (max-width: 1100px) { .stays { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .stays { grid-template-columns: 1fr; } }
+</style>

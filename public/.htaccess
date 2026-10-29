@@ -1,0 +1,75 @@
+# Hostinger (Apache / LiteSpeed).
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+# /en is a page (en.html) and also a folder of subpages: never add a slash.
+DirectorySlash Off
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+
+# Never serve dotfiles or source maps.
+<FilesMatch "(^\.|\.map$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # fincaelpendulo.com (with or without www) -> the main domain. Works once that domain points to this hosting.
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?fincaelpendulo\.com$ [NC]
+  RewriteRule ^ https://fincaelpendulo.com.mx%{REQUEST_URI} [R=301,L]
+
+  # Force HTTPS and the bare domain (www.fincaelpendulo.com.mx -> fincaelpendulo.com.mx).
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # /about.html -> /about (one canonical URL per page).
+  RewriteCond %{THE_REQUEST} \s/([^.?\s]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # Trailing slash -> no slash, except the home page and folders.
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # Pages of the old GoHighLevel site that changed address.
+  RewriteRule ^home/?$ / [R=301,L]
+  RewriteRule ^quienes-somos/?$ /sobre-la-finca [R=301,L]
+  RewriteRule ^contact-us/?$ /contacto [R=301,L]
+  # /es was never a page: Spanish lives at the root.
+  RewriteRule ^es/?$ / [R=301,L]
+
+  # /sitemap.xml serves the sitemap index (the name most tools expect).
+  RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L]
+
+  # Clean URLs: /espacios serves espacios.html. /en serves en.html even though an en/ folder exists.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  # The full policy is a <meta> in BaseLayout; frame-ancestors only works as a header.
+  Header always set Content-Security-Policy "frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+  # Static files: a week (files in /_astro/ get a new name whenever they change).
+  <FilesMatch "\.(avif|webp|jpg|jpeg|png|ico|svg|woff2|css|js|mp4|webm)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt|webmanifest)$">
+    Header set Cache-Control "public, max-age=300"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType video/webm .webm
+  AddType application/manifest+json .webmanifest
+</IfModule>

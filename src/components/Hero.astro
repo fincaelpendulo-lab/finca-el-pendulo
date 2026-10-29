@@ -1,0 +1,29 @@
+---
+// HeroSplit (MexiSol structure): tall aerial video or photo on the left, a white card with the h1
+// overlapping it on the right, and two detail photos below the card. Without thumbs the video fills the
+// width and the card sits over its lower right corner.
+import BgMedia from './BgMedia.astro';
+import Photo from './Photo.astro';
+import type { Lang } from '../lib/i18n';
+interface Thumb { image: string; alt: string; position?: string }
+interface Props { image: string; alt: string; video?: string; position?: string; eyebrow?: string; title: string; lang: Lang; thumbs?: Thumb[]; strongVeil?: boolean }
+const { image, alt, video, position, eyebrow, title, lang, thumbs = [] } = Astro.props;
+---
+<section class:list={['ms-hero', thumbs.length === 0 && 'ms-hero--full']}>
+  <div class="ms-hero__photo">
+    <BgMedia image={image} alt={alt} video={video} position={position} lang={lang} />
+  </div>
+  <div class="ms-hero__side">
+    <div class="ms-hero__card">
+      {eyebrow && <p class="label label--tight">{eyebrow}</p>}
+      <h1 class="ms-hero__title">{title}</h1>
+      {Astro.slots.has('default') && <p class="ms-hero__body"><slot /></p>}
+      {Astro.slots.has('actions') && <div class="cluster"><slot name="actions" /></div>}
+    </div>
+    {thumbs.length > 0 && (
+      <div class="ms-hero__thumbs">
+        {thumbs.map((th) => <Photo name={th.image} alt={th.alt} class="fp-img" sizes="(max-width: 760px) 50vw, 20vw" widths={[400, 640, 900]} style={th.position ? `object-position:${th.position}` : undefined} />)}
+      </div>
+    )}
+  </div>
+</section>

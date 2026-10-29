@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import StatementBand from '../components/StatementBand.astro';
+import ExperienceColumns from '../components/ExperienceColumns.astro';
+import PhotoMosaic from '../components/PhotoMosaic.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Location from '../components/Location.astro';
+import TileBand from '../components/TileBand.astro';
+import Button from '../components/Button.astro';
+import retiros from '../data/retiros.json';
+import { t } from '../data/ui';
+import { href, whatsappUrl } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/retiros', lang);
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Sede para retiros holísticos cerca de Guadalajara | Finca El Péndulo' : 'Holistic retreat venue near Guadalajara, Mexico | Finca El Péndulo'}
+  description={es ? 'Sede para retiros holísticos cerca de Guadalajara. Hospedaje, 3 alimentos, coffee break y uso de los espacios incluidos. Cotiza tu retiro en línea.' : 'A retreat venue for facilitators in Tepatitlán, Jalisco. Lodging, 3 meals, coffee breaks and use of the spaces. Get a quote online.'}
+  ogImage="retreats" breadcrumbs={[{ name: es ? 'Retiros' : 'Retreats', path }]}>
+  <PageHeader lang={lang} video="aerea-palapa-agavero" image="aerea-palapa-agavero" alt={es ? 'La palapa larga frente al agavero y el valle de Los Altos' : 'The long palapa facing the agave field and the Los Altos valley'} eyebrow={es ? 'Retiros' : 'Retreats'} title={es ? 'Un lugar que sostiene tu retiro' : 'A place that holds your retreat'}>
+    {es ? 'Para facilitadores que buscan un lugar natural, funcional y con comunidad para sostener experiencias de transformación, bienestar y conexión.' : 'For facilitators looking for a natural, practical place with a community behind it, to hold experiences of transformation, wellbeing and connection.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? 'Tú te enfocas en tu propósito. El espacio sostiene la experiencia.' : 'You focus on your purpose. The place holds the rest.'}>
+        {es ? 'Recibimos retiros de bienestar, desarrollo personal, creatividad y empresariales.' : 'We host wellbeing, personal growth, creative and company retreats.'}
+      </SectionHeader>
+      <div class="stack">
+        <h3>{es ? 'El paquete incluye' : 'The package includes'}</h3>
+        <ul class="rule-list">{retiros.includes[lang].map((x) => <li>{x}</li>)}</ul>
+        <dl class="facts">
+          <div><dt>{es ? 'Grupo mínimo' : 'Minimum group'}</dt><dd>{es ? `${retiros.minPeople} personas, incluyendo staff` : `${retiros.minPeople} people, staff included`}</dd></div>
+          <div><dt>Check-in / check-out</dt><dd>{retiros.checkIn} / {retiros.checkOut}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <TileBand />
+  <section class="section section--arena" id="cotizador">
+    <div class="wrap grid-2">
+      <div class="stack">
+        <SectionHeader eyebrow={es ? 'Informes' : 'Enquiries'} title={es ? 'Cotiza tu retiro' : 'Plan your retreat'}>
+          {es ? 'Cuéntanos de tu retiro: fechas, número de personas y actividades. Te enviamos la información y una cotización a la medida.' : 'Tell us about your retreat and we will send a tailored quote on WhatsApp.'}
+        </SectionHeader>
+      </div>
+      <div class="form-card"><ContactForm lang={lang} interest="retiro" id="cotiza" crm="retiro" /></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Actividades adicionales' : 'Extra activities'}>
+        {es ? 'Las experiencias complementan el trabajo de cada retiro con momentos de conexión, exploración y presencia. Cada actividad se integra según las necesidades del grupo.' : 'Experiences add moments of connection, exploration and presence to the work of each retreat. Each one is fitted to what the group needs.'}
+      </SectionHeader>
+      <ExperienceColumns lang={lang} limit={5} />
+      <div class="actions"><Button href={L('/experiencias')} variant="secondary">{es ? 'Ver todas las experiencias' : 'See all experiences'}</Button></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoMosaic items={[
+        { image: 'circulo-de-piedra', alt: es ? 'Grupo en ceremonia sobre el círculo de piedra' : 'A group in ceremony on the stone circle', cols: 2, rows: 2 },
+        { image: 'yoga-matutino', alt: es ? 'Estiramientos matutinos en grupo' : 'Morning stretches as a group' },
+        { tone: 'agave-oscuro', title: es ? 'Ceremonias en el Osho Hut' : 'Ceremonies in the Osho Hut', text: es ? 'El espacio más sagrado de la Finca' : 'The most sacred space on the Finca' },
+        { image: 'circulo-de-fuego', alt: es ? 'Círculo de fuego por la noche' : 'A fire circle at night' },
+        { image: 'cena-velas', alt: es ? 'Cena a la luz de las velas' : 'Dinner by candlelight' },
+      ]} />
+    </div>
+  </section>
+
+  <StatementBand tone="wood" image="oraculo-noche" alt={es ? "El Oráculo iluminado al atardecer" : "The Oráculo lit up at dusk"}>
+    {es ? '¿Prefieres hablarlo? Escríbenos y agendamos una llamada.' : 'Would you rather talk it through? Message us and we will set up a call.'}
+    <div slot="action" class="actions"><Button href={whatsappUrl} tone="light" track="whatsapp">{t('whatsapp', lang)}</Button></div>
+  </StatementBand>
+  <Location lang={lang} />
+</BaseLayout>

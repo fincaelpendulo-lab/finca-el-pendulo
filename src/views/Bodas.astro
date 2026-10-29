@@ -1,0 +1,77 @@
+---
+// Weddings landing page (keywords: venue para bodas en Jalisco, boda en el campo cerca de Guadalajara).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import SpaceCard from '../components/SpaceCard.astro';
+import PhotoMosaic from '../components/PhotoMosaic.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Location from '../components/Location.astro';
+import espacios from '../data/espacios.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const L = (p: string) => href(localize(p, lang));
+const path = localize('/bodas', lang);
+const venues = ['terraza-ambu', 'lago', 'jardin-de-rosas', 'el-27', 'osho-hut', 'sammasati'].map((id) => espacios.find((e) => e.id === id)!);
+const tones = ['ground', 'agave-oscuro', 'wood'] as const;
+---
+<BaseLayout lang={lang} path={path}
+  title={es ? 'Bodas en el campo en Jalisco, cerca de Guadalajara | Finca El Péndulo' : 'Countryside wedding venue in Jalisco, near Guadalajara | Finca El Péndulo'}
+  description={es ? 'Venue para bodas en Tepatitlán, Los Altos de Jalisco: ceremonia junto al lago, recepción en la Terraza Ambú para hasta 200 invitados y hospedaje en la Finca.' : 'A wedding venue in Tepatitlán, in the highlands of Jalisco: a ceremony by the lake, a reception on the Ambú terrace for up to 200 guests and rooms at the Finca.'}
+  ogImage="events" breadcrumbs={[{ name: es ? 'Eventos' : 'Events', path: localize('/eventos', lang) }, { name: es ? 'Bodas' : 'Weddings', path }]}>
+  <PageHeader lang={lang} image="terraza-ambu-noche" alt={es ? 'La Terraza Ambú iluminada al anochecer' : 'The Ambú terrace lit up at dusk'} eyebrow={es ? 'Bodas' : 'Weddings'} title={es ? 'Una boda en el campo, entre agaves' : 'A wedding in the countryside, among the agave'}>
+    {es ? 'Ceremonia junto al lago, recepción bajo la Terraza Ambú y hospedaje para tus invitados, en Los Altos de Jalisco.' : 'A ceremony by the lake, a reception under the Ambú terrace and rooms for your guests, in the highlands of Jalisco.'}
+  </PageHeader>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? 'Tu boda en Finca El Péndulo' : 'Your wedding at Finca El Péndulo'}>
+        {es ? 'Cuatro hectáreas de jardines, agave azul, un lago y espacios techados para celebrar con calma, en Tepatitlán de Morelos, cerca de Guadalajara.' : 'Four hectares of gardens, blue agave, a lake and covered spaces to celebrate unhurried, in Tepatitlán de Morelos, near Guadalajara.'}
+      </SectionHeader>
+      <div class="stack prose">
+        <p>{es ? 'Puedes casarte al aire libre junto al lago o en el jardín de rosas, recibir a tus invitados en la Terraza Ambú con vista al agavero y cerrar la noche con fogata. Tus invitados pueden quedarse a dormir en la Finca, en habitaciones o cabañas.' : 'You can marry outdoors by the lake or in the rose garden, welcome your guests on the Ambú terrace overlooking the agave field and end the night by the fire. Guests can stay over at the Finca, in rooms or cabins.'}</p>
+        <dl class="facts">
+          <div><dt>{es ? 'Recepción' : 'Reception'}</dt><dd>{es ? 'Terraza Ambú, hasta 200 personas' : 'Ambú terrace, up to 200 guests'}</dd></div>
+          <div><dt>{es ? 'Ceremonia' : 'Ceremony'}</dt><dd>{es ? 'Junto al lago, jardín de rosas u Osho Hut' : 'By the lake, in the rose garden or the Osho Hut'}</dd></div>
+          <div><dt>{es ? 'Hospedaje' : 'Lodging'}</dt><dd><a href={L('/hospedaje')}>{es ? 'Habitaciones y cabañas en la Finca' : 'Rooms and cabins at the Finca'}</a></dd></div>
+          <div><dt>{es ? 'Ubicación' : 'Location'}</dt><dd>{es ? 'Tepatitlán de Morelos, Jalisco' : 'Tepatitlán de Morelos, Jalisco'}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoMosaic items={[
+        { image: 'evento-bodas', alt: es ? 'Los novios firman frente a sus invitados' : 'The couple sign in front of their guests', cols: 2, rows: 2 },
+        { image: 'evento-cenas', alt: es ? 'Mesa montada junto al estanque' : 'A table set by the pond' },
+        { image: 'cena-candiles', alt: es ? 'Cena bajo candiles' : 'Dinner under chandeliers' },
+        { image: 'esp-terraza-ambu-1', alt: es ? 'La Terraza Ambú con vista al agavero' : 'The Ambú terrace overlooking the agave field', cols: 2 },
+      ]} />
+    </div>
+  </section>
+
+  <section class="section section--arena">
+    <div class="wrap">
+      <SectionHeader class="section-head" title={es ? 'Dónde celebrar' : 'Where to celebrate'}>
+        {es ? 'Elige el escenario para cada momento del día.' : 'Pick a setting for each moment of the day.'}
+      </SectionHeader>
+      <div class="cards cards--3">
+        {venues.map((v, i) => <SpaceCard href={L(`/espacios#${v.id}`)} image={v.photo} alt={v.alt[lang]} tone={tones[i % 3]} meta={v.kind[lang]} title={v.name[lang]} description={v.short[lang]} ratio="4 / 3" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <SectionHeader title={es ? 'Cuéntanos de tu boda' : 'Tell us about your wedding'}>
+        {es ? 'Dinos la fecha y cuántos invitados esperas. Te respondemos con opciones y disponibilidad.' : 'Tell us the date and how many guests you expect. We will reply with options and availability.'}
+      </SectionHeader>
+      <ContactForm lang={lang} interest="boda" id="boda" crm="boda" />
+    </div>
+  </section>
+  <Location lang={lang} />
+</BaseLayout>

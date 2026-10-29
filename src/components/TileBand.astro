@@ -1,0 +1,8 @@
+---
+// Design system TileBand: the mosaic from the identity manual, used as a section edge. The one signature element.
+interface Props { rows?: 1 | 2; columns?: number }
+const { rows = 1, columns = 100 } = Astro.props;
+const tiles: number[] = [];
+for (let c = 0; c < columns; c++) for (let r = 0; r < rows; r++) tiles.push((c + r) % 4);
+---
+<div class="fp-tiles" style={`--fp-rows:${rows}`} aria-hidden="true">{tiles.map((n) => <span class={`t${n}`}></span>)}</div>

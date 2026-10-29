@@ -1,0 +1,7 @@
+# gitleaks default rules. The Turnstile *site* key is public by design (it is in
+# every page). When it exists, allow that exact key here, for example:
+#   [allowlist]
+#   regexes = ['''0x4AAAA-the-exact-site-key''']
+# Never add an empty or broad pattern: it would hide every finding. Secret keys never go in the repo.
+[extend]
+useDefault = true
