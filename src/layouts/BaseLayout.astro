@@ -69,17 +69,20 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
 
 // CSP: add an origin here whenever a new third party is embedded, or it will be blocked.
 const connect = ["'self'", 'https://challenges.cloudflare.com', 'https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com'];
+// Google Ads conversion tag (site.adsId): counts form submissions that reach /gracias.
+const ads = site.adsId ? ['https://www.googleadservices.com', 'https://googleads.g.doubleclick.net', 'https://www.google.com'] : [];
+if (site.adsId) connect.push(...ads, 'https://*.doubleclick.net', 'https://pagead2.googlesyndication.com');
 const formOrigin = site.formEndpoint ? new URL(site.formEndpoint).origin : '';
 if (formOrigin) connect.push(formOrigin);
 const bookingOrigin = [site.booking.embed, site.callBooking?.embed].filter(Boolean).map((u) => new URL(u).origin).join(' ');
 const csp = [
   "default-src 'self'",
-  `script-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com ${bookingOrigin}`.trim(),
+  `script-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com ${ads.join(' ')} ${bookingOrigin}`.replace(/\s+/g, ' ').trim(),
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://www.googletagmanager.com",
+  `img-src 'self' data: https://i.ytimg.com https://*.google-analytics.com https://www.googletagmanager.com${site.adsId ? ' https://googleads.g.doubleclick.net https://www.google.com https://www.google.com.mx https://*.googleadservices.com' : ''}`,
   "font-src 'self'",
   `connect-src ${connect.join(' ')}`,
-  `frame-src https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com ${bookingOrigin}`.trim(),
+  `frame-src https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com${site.adsId ? ' https://td.doubleclick.net https://www.googletagmanager.com' : ''} ${bookingOrigin}`.trim(),
   "media-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
@@ -94,8 +97,8 @@ const v = Date.now().toString(36);
 <html lang={lang} class="no-js">
 <head>
   <meta charset="utf-8" />
-  <script is:inline src={`${base}/js/boot.js?v=${v}`} data-ga={site.ga4Id || undefined}></script>
-  {site.ga4Id && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id}`}></script>}
+  <script is:inline src={`${base}/js/boot.js?v=${v}`} data-ga={site.ga4Id || undefined} data-ads={site.adsId || undefined}></script>
+  {(site.ga4Id || site.adsId) && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id || site.adsId}`}></script>}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content={csp} />
   <meta name="referrer" content="strict-origin-when-cross-origin" />

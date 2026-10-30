@@ -28,6 +28,7 @@
   },
   "maps": "https://www.google.com/maps/search/?api=1&query=Finca%20El%20P%C3%A9ndulo%20Tepatitl%C3%A1n&query_place_id=ChIJl-SHxpfZKIQR9TSdabRfndk",
   "ga4Id": "G-STH85VTPEH",
+  "adsId": "AW-18545025252",
   "turnstileSiteKey": "0x4AAAAAAFqYBIq8NNXM5hHi",
   "formEndpoint": "https://finca-el-pendulo-form.fincaelpendulo.workers.dev",
   "booking": {

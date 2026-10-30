@@ -96,7 +96,8 @@
   var options = document.querySelector('[data-cookie-options]');
   var consent = readConsent();
   function applyConsent(c) {
-    window.gtag('consent', 'update', { analytics_storage: c.analytics ? 'granted' : 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    var ads = c.ads ? 'granted' : 'denied';
+    window.gtag('consent', 'update', { analytics_storage: c.analytics ? 'granted' : 'denied', ad_storage: ads, ad_user_data: ads, ad_personalization: 'denied' });
   }
   function setCustomize(open) {
     options.hidden = !open;
@@ -108,13 +109,14 @@
   function showBanner(customize) {
     banner.hidden = false;
     body.classList.add('banner-open');
-    var c = consent || { analytics: false, media: false };
+    var c = consent || { analytics: false, ads: false, media: false };
     options.analytics.checked = !!c.analytics;
+    options.ads.checked = !!c.ads;
     options.media.checked = !!c.media;
     setCustomize(!!customize);
   }
   function choose(c) {
-    consent = { analytics: !!c.analytics, media: !!c.media, at: new Date().toISOString() };
+    consent = { analytics: !!c.analytics, ads: !!c.ads, media: !!c.media, at: new Date().toISOString() };
     writeConsent(consent);
     applyConsent(consent);
     banner.hidden = true;
@@ -125,10 +127,10 @@
       var btn = e.target.closest('[data-cookie]');
       if (!btn) return;
       var action = btn.getAttribute('data-cookie');
-      if (action === 'accept') choose({ analytics: true, media: true });
-      else if (action === 'reject') choose({ analytics: false, media: false });
+      if (action === 'accept') choose({ analytics: true, ads: true, media: true });
+      else if (action === 'reject') choose({ analytics: false, ads: false, media: false });
       else if (action === 'customize') setCustomize(true);
-      else if (action === 'save') choose({ analytics: options.analytics.checked, media: options.media.checked });
+      else if (action === 'save') choose({ analytics: options.analytics.checked, ads: options.ads.checked, media: options.media.checked });
     });
     Array.prototype.forEach.call(document.querySelectorAll('[data-cookie-settings]'), function (b) {
       b.addEventListener('click', function () { showBanner(true); });

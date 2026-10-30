@@ -18,9 +18,11 @@ window.gtag('consent', 'default', {
 try {
   var saved = JSON.parse(localStorage.getItem('finca-el-pendulo-consent-v1') || 'null');
   if (saved && saved.analytics) window.gtag('consent', 'update', { analytics_storage: 'granted' });
+  if (saved && saved.ads) window.gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted' });
 } catch (e) { /* storage blocked */ }
 var gaId = document.currentScript && document.currentScript.getAttribute('data-ga');
-if (gaId) {
-  window.gtag('js', new Date());
-  window.gtag('config', gaId);
-}
+var adsId = document.currentScript && document.currentScript.getAttribute('data-ads');
+if (gaId || adsId) window.gtag('js', new Date());
+if (gaId) window.gtag('config', gaId);
+// Google Ads: the conversion is the visit to /gracias, counted from this config alone.
+if (adsId) window.gtag('config', adsId);
