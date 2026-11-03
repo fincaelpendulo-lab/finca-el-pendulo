@@ -1,0 +1,58 @@
+---
+// Casos de éxito (src/data/casos.json): one block per organizer (logo, text, links) beside a photo
+// slider of their retreats at the Finca. Arrows use the data-slider wiring of SpacesSlider (public/js/site.js).
+// Logos live in src/assets/brand/<logo>.png.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Photo from './Photo.astro';
+import casos from '../data/casos.json';
+import fotos from '../data/fotos.json';
+import { href } from '../lib/url';
+import { localize, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/brand/*.png', { eager: true });
+const logo = (name: string) => logos[`../assets/brand/${name}.png`]?.default;
+const alt = (name: string) => (fotos as Record<string, { es: string; en: string }>)[name]?.[lang] ?? '';
+---
+<div class="cases">
+  <ul class="cases__track" aria-label={es ? 'Casos de éxito' : 'Success stories'}>
+    {casos.map((c) => (
+      <li class="cases__slide">
+        <div class="cases__intro stack">
+          {logo(c.logo) && <Image src={logo(c.logo)!} alt={c.name} class="cases__logo" width={240} />}
+          <h3 class="cases__title">{c.title[lang]}</h3>
+          <p class="muted">{c.text[lang]}</p>
+          <div class="cluster">
+            <a class="fp-btn fp-btn--secondary" href={c.url[lang]} rel="noopener" target="_blank">{es ? `Visita ${c.name}` : `Visit ${c.name}`}</a>
+            <a class="fp-btn fp-btn--link" href={href(localize('/casos-de-exito', lang))}>{es ? 'Ver casos de éxito' : 'See success stories'}</a>
+          </div>
+        </div>
+        <div class="cases__gallery" data-slider>
+          <ul class="cases__photos" data-slider-track aria-label={es ? `Retiros de ${c.name} en la Finca` : `${c.name} retreats at the Finca`}>
+            {c.photos.map((p) => <li><Photo name={p} alt={alt(p)} sizes="(max-width: 760px) 70vw, 280px" widths={[480, 800]} /></li>)}
+          </ul>
+          <div class="cases__nav">
+            <button type="button" class="cases__btn" data-slider-prev aria-label={es ? 'Foto anterior' : 'Previous photo'}>←</button>
+            <button type="button" class="cases__btn" data-slider-next aria-label={es ? 'Siguiente foto' : 'Next photo'}>→</button>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+<style>
+  .cases__track { display: grid; gap: clamp(48px, 6vw, 80px); margin: 0; padding: 0; list-style: none; }
+  .cases__slide { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  .cases__logo { width: 200px; height: auto; }
+  .cases__title { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); margin: 0; }
+  .cases__photos { display: flex; gap: 12px; margin: 0; padding: 0 0 8px; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .cases__photos li { flex: none; width: clamp(220px, 22vw, 300px); aspect-ratio: 4 / 5; overflow: hidden; scroll-snap-align: start; }
+  .cases__photos :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .cases__gallery { min-width: 0; }
+  .cases__nav { display: flex; gap: 8px; justify-content: flex-end; margin-top: var(--space-4); }
+  .cases__btn { width: 48px; height: 48px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 20px; cursor: pointer; }
+  .cases__btn:hover { background: var(--ink); color: var(--white, #fff); }
+  @media (max-width: 900px) { .cases__slide { grid-template-columns: minmax(0, 1fr); } .cases__logo { width: 160px; } .cases__photos li { width: 70vw; } }
+</style>

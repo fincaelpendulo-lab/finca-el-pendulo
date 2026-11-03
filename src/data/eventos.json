@@ -12,8 +12,8 @@
     },
     "tone": "ground",
     "text": {
-      "es": "Ceremonia junto al lago, cena bajo la Terraza Ambú y hospedaje para tus invitados.",
-      "en": "A ceremony by the lake, dinner under the Ambú terrace and rooms for your guests."
+      "es": "Ceremonia junto al Lago Ávalon, cena bajo la Terraza Ambú y hospedaje para tus invitados.",
+      "en": "A ceremony by Lake Ávalon, dinner under the Ambú terrace and rooms for your guests."
     },
     "link": "/bodas"
   },
@@ -40,8 +40,8 @@
       "lago-jardin"
     ],
     "intro": {
-      "es": "Grupos escolares, scouts, familias y empresas encuentran en la Finca cuatro hectáreas de naturaleza para convivir, aprender y salir de la rutina.",
-      "en": "School groups, scouts, families and companies find four hectares of nature at the Finca to spend time together, learn and step out of routine."
+      "es": "Grupos escolares, scouts, familias y empresas encuentran en la Finca seis hectáreas de naturaleza para convivir, aprender y salir de la rutina.",
+      "en": "School groups, scouts, families and companies find six hectares of nature at the Finca to spend time together, learn and step out of routine."
     },
     "points": {
       "es": [
@@ -163,8 +163,8 @@
     },
     "tone": "corn",
     "text": {
-      "es": "Festivales de música, arte y bienestar en cuatro hectáreas de campo.",
-      "en": "Music, art and wellbeing festivals on four hectares of countryside."
+      "es": "Festivales de música, arte y bienestar en seis hectáreas de campo.",
+      "en": "Music, art and wellbeing festivals on six hectares of countryside."
     },
     "link": "/festivales",
     "gallery": [
@@ -201,8 +201,8 @@
     },
     "photo": "circulo-palapa",
     "alt": {
-      "es": "Círculo de mujeres bajo la palapa junto al lago",
-      "en": "A women's circle under the palapa by the lake"
+      "es": "Círculo de mujeres bajo la palapa junto al Lago Ávalon",
+      "en": "A women's circle under the palapa by Lake Ávalon"
     },
     "tone": "ground",
     "text": {

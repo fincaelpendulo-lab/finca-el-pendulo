@@ -469,7 +469,7 @@
     });
   }
 
-  // Spaces slider (SpacesSlider.astro): previous/next buttons scroll the track by one slide.
+  // Sliders (SpacesSlider.astro, CasesSlider.astro): previous/next buttons scroll the track by one slide.
   document.querySelectorAll('[data-slider]').forEach(function (el) {
     var track = el.querySelector('[data-slider-track]');
     if (!track) return;

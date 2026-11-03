@@ -1,0 +1,25 @@
+[
+  {
+    "id": "mexisol",
+    "name": "MexiSol World",
+    "logo": "mexisol-world",
+    "url": { "es": "https://mexisol.world/es", "en": "https://mexisol.world/" },
+    "title": {
+      "es": "Retiros de bienestar con grupos internacionales",
+      "en": "Wellbeing retreats with international groups"
+    },
+    "text": {
+      "es": "MexiSol World organiza retiros de bienestar y sanación para grupos pequeños que llegan de distintos países. Eligió la Finca como su casa en Los Altos de Jalisco: sus participantes se hospedan, comen y viven cada ceremonia y actividad en nuestros espacios.",
+      "en": "MexiSol World runs wellbeing and healing retreats for small groups who come from many countries. It chose the Finca as its home in the highlands of Jalisco: its guests stay, eat and take part in every ceremony and activity in our spaces."
+    },
+    "photos": [
+      "grupo-circulo-agaves",
+      "grupo-yoga-oraculo",
+      "grupo-temazcal",
+      "grupo-celebracion",
+      "grupo-taller-arte",
+      "grupo-danza",
+      "grupo-cabana"
+    ]
+  }
+]

@@ -5,6 +5,8 @@ import PageHeader from '../components/PageHeader.astro';
 import Photo from '../components/Photo.astro';
 import Button from '../components/Button.astro';
 import Reviews from '../components/Reviews.astro';
+import { Image } from 'astro:assets';
+import mexisolLogo from '../assets/brand/mexisol-world.png';
 import { t } from '../data/ui';
 import { href } from '../lib/url';
 import { localize, type Lang } from '../lib/i18n';
@@ -27,13 +29,14 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
   <section class="section">
     <div class="wrap grid-2" style="align-items: center">
       <div class="stack">
+        <Image src={mexisolLogo} alt="MexiSol World" class="case-logo" width={240} />
         <p class="label">01 / MexiSol World</p>
         <h2 class="t-heading">{es ? 'Retiros de bienestar con grupos internacionales' : 'Wellbeing retreats with international groups'}</h2>
         <p>{es ? 'MexiSol World organiza retiros de bienestar y sanación para grupos pequeños que llegan de distintos países. Eligió Finca El Péndulo como su casa en Los Altos de Jalisco: aquí sus participantes se hospedan, comen y viven cada ceremonia y actividad en los espacios de la Finca.' : 'MexiSol World runs wellbeing and healing retreats for small groups who come from many countries. It chose Finca El Péndulo as its home in the highlands of Jalisco: its guests stay, eat and take part in every ceremony and activity in the Finca’s spaces.'}</p>
         <ul class="rule-list rule-list--soft">
           <li>{es ? 'Hospedaje, alimentos y espacios para todo el grupo' : 'Lodging, meals and spaces for the whole group'}</li>
           <li>{es ? 'Ceremonias en el Osho Hut y el Oráculo' : 'Ceremonies in the Osho Hut and the Oráculo'}</li>
-          <li>{es ? 'Temazcal, caballos, lago y talleres entre sesiones' : 'Temazcal, horses, the lake and workshops between sessions'}</li>
+          <li>{es ? 'Temazcal, caballos, Lago Ávalon y talleres entre sesiones' : 'Temazcal, horses, Lake Ávalon and workshops between sessions'}</li>
         </ul>
         <div class="cluster">
           <a class="fp-btn fp-btn--primary" href={mexisol} rel="noopener" target="_blank">{es ? 'Visita MexiSol World' : 'Visit MexiSol World'}</a>
@@ -59,4 +62,5 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
 </BaseLayout>
 <style>
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .case-logo { width: 200px; height: auto; }
 </style>

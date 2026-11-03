@@ -5,6 +5,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import StatementBand from '../components/StatementBand.astro';
 import ExperienceColumns from '../components/ExperienceColumns.astro';
 import SpacesSlider from '../components/SpacesSlider.astro';
+import CasesSlider from '../components/CasesSlider.astro';
 import Photo from '../components/Photo.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Location from '../components/Location.astro';
@@ -160,7 +161,13 @@ const serviceSchema = {
   </section>
 
   <CallBooking lang={lang} tone="arena" title={es ? 'Platiquemos tu retiro en una llamada' : 'Let’s talk about your retreat on a call'} />
-  <Reviews lang={lang} limit={3} />
+  <section class="section compact" id="casos">
+    <div class="wrap">
+      <SectionHeader class="section-head" eyebrow={es ? 'Casos de éxito' : 'Success stories'} title={es ? 'Organizadores que hacen sus retiros en la Finca' : 'Organizers who hold their retreats at the Finca'} />
+      <CasesSlider lang={lang} />
+    </div>
+  </section>
+  <Reviews lang={lang} limit={3} tone="arena" />
 
   <StatementBand tone="wood" image="oraculo-noche" alt={es ? "El Oráculo iluminado al atardecer" : "The Oráculo lit up at dusk"}>
     {es ? '¿Prefieres escribirnos? Te respondemos por WhatsApp.' : 'Would you rather message us? We reply on WhatsApp.'}

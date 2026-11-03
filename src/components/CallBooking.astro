@@ -1,6 +1,7 @@
 ---
 // "Agenda una llamada": the GHL calendar (site.json → callBooking) for retreats, events and weddings.
 // The iframe is loaded with GHL's form_embed.js, which resizes it; both origins are allowed in the CSP (BaseLayout).
+// No loading="lazy": form_embed.js parks the iframe off-screen until it loads, so a lazy one never loads on phones.
 import site from '../data/site.json';
 import SectionHeader from './SectionHeader.astro';
 import type { Lang } from '../lib/i18n';
@@ -25,7 +26,7 @@ const cb = site.callBooking;
         <p class="muted"><a href={cb.url}>{es ? 'Abrir el calendario en otra pestaña' : 'Open the calendar in a new tab'}</a></p>
       </div>
       <div class="call__frame">
-        <iframe src={cb.embed} id={`${cb.id}_site`} title={es ? 'Calendario para agendar una llamada con Finca El Péndulo' : 'Calendar to book a call with Finca El Péndulo'} loading="lazy" allow="payment" scrolling="no" style="width:100%;border:none;overflow:hidden;min-height:640px"></iframe>
+        <iframe src={cb.embed} id={`${cb.id}_site`} title={es ? 'Calendario para agendar una llamada con Finca El Péndulo' : 'Calendar to book a call with Finca El Péndulo'} allow="payment" scrolling="no" style="width:100%;border:none;overflow:hidden;min-height:640px"></iframe>
       </div>
     </div>
   </section>

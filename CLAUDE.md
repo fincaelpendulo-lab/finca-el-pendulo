@@ -35,6 +35,7 @@ Sitio de Finca El Péndulo (Tepatitlán de Morelos, Jalisco). Astro estático, e
 | Calificación de Google (actualizar a mano) | `src/data/site.json` → `reviews`; extractos de reseñas positivas (sin nombres) en `src/data/resenas-google.json`, los usan `Reviews.astro` y los correos |
 | Calendario para agendar llamadas (GHL "Cotiza tu retiro") | `src/data/site.json` → `callBooking`; `CallBooking.astro` en Retiros, Eventos, Bodas y Contacto; botón en los correos |
 | Slider de espacios | `SpacesSlider.astro` (lista de `ids` de `espacios.json`), en Retiros |
+| Casos de éxito (logo, texto, fotos de sus retiros) | `src/data/casos.json` + logos en `src/assets/brand/<logo>.png`; `CasesSlider.astro` en Retiros; página `src/views/CasosExito.astro` |
 | Tipos de retiro (SEO: holísticos, yoga, empresariales, liderazgo…) | `src/data/retiros.json` → `types`; preguntas de Retiros en `src/views/Retiros.astro` |
 | Day Pass y Sesión de fotos (precios, incluye) | `src/data/visitas.json` |
 | Reglamento (página /reglamento, enlazado en el pie) | `src/data/reglamento.json` |
@@ -58,6 +59,9 @@ Estructura copiada de mexisol.world (repo `~/Developer/mexisol-world`), con colo
 
 ## Voz de marca
 PENDIENTE: Carlos enviará la guía de voz. Mientras tanto: cálida, serena, concreta; habla de "la Finca"; tutea en español.
+
+## Datos de la Finca
+- Seis hectáreas. El lago se llama Lago Ávalon (Lake Ávalon). Voluntariado: cuota de recuperación de $2,000 MXN por mes o fracción.
 
 ## Fotos
 - Fotos de stock libres de derechos (Unsplash) solo en close-up y con nombre `stock-*` (comida: `stock-comida-*`), para que no parezcan de la Finca; nunca en la Galería. Por lo demás, solo fotos de la carpeta de Carlos en buena calidad (mín. ~1400 px de lado largo). Las que solo existen a 1024 px (habitaciones, fotos históricas, Gaia, Hormiguero) se escalaron 1.5x con nitidez.

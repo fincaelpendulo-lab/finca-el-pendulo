@@ -30,7 +30,7 @@ const expect = es
 ---
 <BaseLayout lang={lang} path={path}
   title={es ? 'Voluntariado en comunidad: Finca Member | Finca El Péndulo' : 'Volunteer in community: Finca Member | Finca El Péndulo'}
-  description={es ? 'Vive en comunidad y sirve con propósito en Jalisco. Mínimo un mes, 5 horas al día, con hospedaje y 3 comidas. Contribución de $2,000 MXN al mes.' : 'Live in community and serve with purpose in Jalisco, Mexico. One month minimum, 5 hours a day, with lodging and 3 meals. Contribution of $2,000 MXN a month.'}
+  description={es ? 'Vive en comunidad y sirve con propósito en Jalisco. Mínimo un mes, 5 horas al día, con hospedaje y 3 comidas. Cuota de recuperación de $2,000 MXN por mes o fracción.' : 'Live in community and serve with purpose in Jalisco, Mexico. One month minimum, 5 hours a day, with lodging and 3 meals. Recovery fee of $2,000 MXN per month or part of a month.'}
   ogImage="volunteer" breadcrumbs={[{ name: es ? 'Voluntariado' : 'Volunteering', path }]}>
   <PageHeader lang={lang} image="voluntariado-1" alt={es ? 'Voluntarios de la Finca reunidos frente a la casa' : 'Finca volunteers gathered in front of the house'} position="center 40%" eyebrow={es ? 'Voluntariado' : 'Volunteering'} title={es ? 'Vive en comunidad. Sirve con propósito.' : 'Live in community. Serve with purpose.'}>
     {es ? 'Este espacio existe gracias a las personas que lo habitan, lo cuidan y lo sostienen desde el servicio, la presencia y el respeto.' : 'This place exists thanks to the people who live in it, care for it and keep it going through service, presence and respect.'}
@@ -45,7 +45,7 @@ const expect = es
           <div><dt>{es ? 'Estancia' : 'Stay'}</dt><dd>{es ? 'Mínimo 1 mes' : 'One month minimum'}</dd></div>
           <div><dt>{es ? 'Servicio' : 'Service'}</dt><dd>{es ? '5 horas al día, 6 días a la semana' : '5 hours a day, 6 days a week'}</dd></div>
           <div><dt>{es ? 'Descanso' : 'Time off'}</dt><dd>{es ? '1 día libre a la semana' : '1 day off a week'}</dd></div>
-          <div><dt>{es ? 'Contribución' : 'Contribution'}</dt><dd>{es ? '$2,000 MXN al mes' : '$2,000 MXN a month'}</dd></div>
+          <div><dt>{es ? 'Cuota de recuperación' : 'Recovery fee'}</dt><dd>{es ? '$2,000 MXN por mes o fracción' : '$2,000 MXN per month or part of a month'}</dd></div>
         </dl>
       </div>
     </div>
@@ -68,8 +68,8 @@ const expect = es
       <div class="stack"><h2 class="t-title">{es ? 'Qué esperamos de ti' : 'What we expect from you'}</h2><ul class="rule-list">{expect.map((x) => <li>{x}</li>)}</ul></div>
     </div>
   </section>
-  <StatementBand tone="ground" eyebrow={es ? 'Contribución a la comunidad' : 'Contribution to the community'}>
-    {es ? '$2,000 MXN al mes' : '$2,000 MXN a month'}
+  <StatementBand tone="ground" eyebrow={es ? 'Cuota de recuperación' : 'Recovery fee'}>
+    {es ? '$2,000 MXN por mes o fracción' : '$2,000 MXN per month or part of a month'}
     <p slot="action">{es ? 'Ayuda a cubrir parte de tu alimentación y hospedaje. No es un pago por horas de trabajo ni una tarifa de hospedaje: es tu participación en el sostenimiento de la Finca.' : 'It helps cover part of your food and lodging. It is not a payment for your hours or a room rate: it is your share in keeping the Finca going.'}</p>
   </StatementBand>
   <section class="section section--tight">

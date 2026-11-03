@@ -57,7 +57,7 @@ const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@
 <BaseLayout
   lang={lang} path={localize('/', lang)}
   title={es ? 'Finca El Péndulo | Retiros, hospedaje y bienestar en Tepatitlán, Jalisco' : 'Finca El Péndulo | Retreats, stays and wellbeing in Jalisco, Mexico'}
-  description={es ? 'Centro holístico en Tepatitlán, Jalisco, cerca de Guadalajara: cuatro hectáreas para retiros, hospedaje en la naturaleza, temazcal, eventos y bienestar.' : 'A holistic centre in Tepatitlán de Morelos, Jalisco: four hectares and more than 15 spaces for retreats, nature stays, temazcal, events and wellbeing experiences.'}
+  description={es ? 'Centro holístico en Tepatitlán, Jalisco, cerca de Guadalajara: seis hectáreas para retiros, hospedaje en la naturaleza, temazcal, eventos y bienestar.' : 'A holistic centre in Tepatitlán de Morelos, Jalisco: six hectares and more than 15 spaces for retreats, nature stays, temazcal, events and wellbeing experiences.'}
   schema={[lodgingSchema(lang), faqSchema]}
 >
   <Hero
@@ -66,7 +66,7 @@ const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@
     eyebrow="Tepatitlán de Morelos, Jalisco"
     title={es ? 'Un espacio para crear experiencias con propósito' : 'A place to create experiences with purpose'}
   >
-    {es ? 'Centro holístico con retiros, hospedaje, temazcal y eventos en cuatro hectáreas de Los Altos de Jalisco, cerca de Guadalajara.' : 'A holistic retreat centre with stays, temazcal and events on four hectares in the highlands of Jalisco, near Guadalajara.'}
+    {es ? 'Centro holístico con retiros, hospedaje, temazcal y eventos en seis hectáreas de Los Altos de Jalisco, cerca de Guadalajara.' : 'A holistic retreat centre with stays, temazcal and events on six hectares in the highlands of Jalisco, near Guadalajara.'}
     <Fragment slot="actions">
       <Button href={site.booking.url} track="booking">{t('book', lang)}</Button>
       <Button href={L('/retiros#cotiza')} variant="secondary" track="cta_quote">{t('quote', lang)}</Button>
@@ -104,7 +104,7 @@ const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@
   <section aria-label={es ? 'Organiza en la Finca' : 'Host at the Finca'}>
     <div class="grid gutter-x" style="--min: 300px; --gap: 12px">
       <a class="tile" href={L('/retiros')}>
-        <Photo name="circulo-palapa" alt={es ? 'Círculo bajo la palapa junto al lago' : 'A circle under the palapa by the lake'} sizes="(max-width: 760px) 100vw, 33vw" />
+        <Photo name="circulo-palapa" alt={es ? 'Círculo bajo la palapa junto al Lago Ávalon' : 'A circle under the palapa by Lake Ávalon'} sizes="(max-width: 760px) 100vw, 33vw" />
         <div class="tile__wash">
           <p class="label">{es ? 'Para facilitadores' : 'For facilitators'}</p>
           <h2 class="tile__title">{es ? 'Organiza tu retiro' : 'Host your retreat'}</h2>
@@ -124,7 +124,7 @@ const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@
         <div class="tile__wash">
           <p class="label">{es ? 'Bodas' : 'Weddings'}</p>
           <h2 class="tile__title">{es ? 'Celebra tu boda' : 'Celebrate your wedding'}</h2>
-          <p>{es ? 'Ceremonia junto al lago y hospedaje para tus invitados.' : 'A ceremony by the lake and rooms for your guests.'}</p>
+          <p>{es ? 'Ceremonia junto al Lago Ávalon y hospedaje para tus invitados.' : 'A ceremony by Lake Ávalon and rooms for your guests.'}</p>
         </div>
       </a>
     </div>
@@ -188,7 +188,7 @@ const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, ans]) => ({ '@
     <div class="photo-band__wash">
       <div class="wrap photo-band__text">
         <p class="label">{es ? 'La tierra' : 'The land'}</p>
-        <p class="t-headline fp-band__statement">{es ? 'Cuatro hectáreas, un lago, nueve caballos y más de quince espacios.' : 'Four hectares, a lake, nine horses and more than fifteen spaces.'}</p>
+        <p class="t-headline fp-band__statement">{es ? 'Seis hectáreas, el Lago Ávalon, nueve caballos y más de quince espacios.' : 'Six hectares, Lake Ávalon, nine horses and more than fifteen spaces.'}</p>
       </div>
     </div>
   </section>

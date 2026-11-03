@@ -66,7 +66,7 @@ const heard = [
     <Field id={`${id}-heard`} name="heard" as="select" options={heard} label={es ? '¿Cómo nos conociste?' : 'How did you hear about us?'} />
   </fieldset>
 
-  <label class="check check--terms"><input type="checkbox" name="terms" value="yes" required id={`${id}-terms`} /> <span>{es ? 'Leí las condiciones: estancia mínima de 1 mes, 5 horas de servicio al día, 6 días a la semana, contribución de $2,000 MXN al mes y seguro médico o de viaje vigente.' : 'I have read the conditions: one month minimum, 5 hours of service a day, 6 days a week, a $2,000 MXN monthly contribution and valid health or travel insurance.'}</span></label>
+  <label class="check check--terms"><input type="checkbox" name="terms" value="yes" required id={`${id}-terms`} /> <span>{es ? 'Leí las condiciones: estancia mínima de 1 mes, 5 horas de servicio al día, 6 días a la semana, cuota de recuperación de $2,000 MXN por mes o fracción y seguro médico o de viaje vigente.' : 'I have read the conditions: one month minimum, 5 hours of service a day, 6 days a week, a recovery fee of $2,000 MXN per month or part of a month and valid health or travel insurance.'}</span></label>
   <p id={`${id}-terms-error`} class="field-error"></p>
 
   {site.turnstileSiteKey && endpoint && <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey}></div>}
