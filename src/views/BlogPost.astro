@@ -14,10 +14,10 @@ const other = es ? 'en' : 'es';
 const twin = post.pair && posts(other).some((p) => p.slug === post.pair) ? postPath(other, post.pair) : null;
 const path = postPath(lang, slug);
 const { Content } = post;
-const article = { '@type': 'BlogPosting', headline: post.title, description: post.description, datePublished: post.date, inLanguage: es ? 'es-MX' : 'en', author: { '@id': `${site.url}/#organization` }, publisher: { '@id': `${site.url}/#organization` } };
+const article = { '@type': 'BlogPosting', headline: post.title, description: post.description, datePublished: post.date, inLanguage: es ? 'es-MX' : 'en', mainEntityOfPage: `${site.url}${path}`, ...(post.og && { image: `${site.url}/og/${post.og}.jpg` }), author: { '@id': `${site.url}/#organization` }, publisher: { '@id': `${site.url}/#organization` } };
 const fmt = new Date(`${post.date}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
-<BaseLayout lang={lang} path={path} alternate={twin} ogType="article" title={`${post.title} | Finca El Péndulo`} description={post.description} schema={[article]}
+<BaseLayout lang={lang} path={path} alternate={twin} ogType="article" ogImage={post.og} title={`${post.title} | Finca El Péndulo`} description={post.description} schema={[article]}
   breadcrumbs={[{ name: 'Blog', path: localize('/blog', lang) }, { name: post.title, path }]}>
   <PageHeader lang={lang} image={post.image} alt={post.title} eyebrow={`Blog · ${fmt}`} title={post.title} />
   <article class="section">

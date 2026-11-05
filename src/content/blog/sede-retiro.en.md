@@ -5,6 +5,7 @@ date: 2026-10-20
 image: circulo-palapa
 slug: choosing-a-retreat-venue
 pair: como-elegir-sede-para-tu-retiro
+og: post-sede-retiro
 ---
 
 Choosing the venue is one of the decisions that shapes a retreat the most. These are the questions worth asking before you book.

@@ -5,6 +5,7 @@ date: 2026-10-20
 image: circulo-palapa
 slug: como-elegir-sede-para-tu-retiro
 pair: choosing-a-retreat-venue
+og: post-sede-retiro
 ---
 
 Elegir la sede es una de las decisiones que más influyen en la experiencia de un retiro. Estas son las preguntas que conviene hacerse antes de reservar.

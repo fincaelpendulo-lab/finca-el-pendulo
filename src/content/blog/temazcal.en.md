@@ -5,6 +5,7 @@ date: 2026-10-28
 image: esp-temazcal-1
 slug: what-is-a-temazcal
 pair: que-es-un-temazcal
+og: post-temazcal
 ---
 
 The temazcal is a steam bath that dates back to pre-Hispanic Mexico. Its name comes from the Nahuatl *temazcalli*, "house of steam". Inside a small dome, stones heated in a fire are placed at the centre and sprinkled with water and herbal infusions. The steam fills the space and the session moves through stages, with songs, silence or intentions.

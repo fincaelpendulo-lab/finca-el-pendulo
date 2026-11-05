@@ -1,7 +1,8 @@
 // Blog posts: Markdown files in src/content/blog/<name>.<es|en>.md.
-// Front matter: title, description, date (YYYY-MM-DD), image (a photo name), slug, pair (the other language's slug).
+// Front matter: title, description, date (YYYY-MM-DD), image (a photo name), slug, pair (the other language's slug),
+// og (optional: a social image in public/og/, made from scripts/og.json with `npm run icons`).
 import type { Lang } from './i18n';
-interface Frontmatter { title: string; description: string; date: string | Date; image: string; slug: string; pair?: string }
+interface Frontmatter { title: string; description: string; date: string | Date; image: string; slug: string; pair?: string; og?: string }
 type Module = { frontmatter: Frontmatter; Content: any };
 const files = import.meta.glob<Module>('/src/content/blog/*.md', { eager: true });
 const iso = (d: unknown) => (d instanceof Date ? d.toISOString() : String(d)).slice(0, 10);

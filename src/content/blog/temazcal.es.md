@@ -5,6 +5,7 @@ date: 2026-10-28
 image: esp-temazcal-1
 slug: que-es-un-temazcal
 pair: what-is-a-temazcal
+og: post-temazcal
 ---
 
 El temazcal es un baño de vapor de origen prehispánico. Su nombre viene del náhuatl *temazcalli*, "casa del vapor". Dentro de una pequeña construcción en forma de domo, piedras calentadas en el fuego se colocan al centro y se rocían con agua e infusiones de plantas. El vapor llena el espacio y la sesión avanza en etapas, acompañada de cantos, silencio o intenciones.
