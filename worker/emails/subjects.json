@@ -13,5 +13,7 @@
  "05-voluntariado-en": "We have your volunteer application",
  "06-bienvenida-en": "Welcome to the Finca",
  "07-seguimiento-en": "Shall we keep talking, {{contact.first_name}}?",
+ "08-reserva-confirmacion": "Tu visita a la Finca está confirmada",
+ "09-reserva-recordatorio": "Hoy te esperamos en la Finca",
  "00-aviso-interno": "Nueva solicitud web: {{contact.name}}"
 }

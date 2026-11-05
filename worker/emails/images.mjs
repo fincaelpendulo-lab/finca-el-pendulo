@@ -14,6 +14,8 @@ const PHOTOS = {
   voluntariado: ['campo-de-agave', 1200, 720],
   bienvenida: ['esp-lago-1', 1200, 720],
   seguimiento: ['cabana-ventanal', 1200, 720],
+  reserva: ['alberca-01', 1200, 720],
+  recordatorio: ['aerea-complejo', 1200, 720],
   'tile-espacios': ['esp-osho-hut-3', 600, 450],
   'tile-hospedaje': ['hab-agaves-1', 600, 450],
   'tile-eventos': ['esp-lago-2', 600, 450],

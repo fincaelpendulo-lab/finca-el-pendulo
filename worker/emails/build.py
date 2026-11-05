@@ -10,7 +10,7 @@ from html import escape
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, '..', '..', 'src', 'data')
 load = lambda name: json.load(open(os.path.join(DATA, name + '.json'), encoding='utf-8'))
-site, retiros, eventos, proximos, resenas = (load(n) for n in ('site', 'retiros', 'eventos', 'proximos', 'resenas-google'))
+site, retiros, eventos, proximos, resenas, reglamento = (load(n) for n in ('site', 'retiros', 'eventos', 'proximos', 'resenas-google', 'reglamento'))
 TODAY = date.fromisoformat(sys.argv[sys.argv.index('--today') + 1]) if '--today' in sys.argv else date.today()
 
 SITE = site['url']
@@ -335,6 +335,46 @@ def build():
                 button(S('Escríbenos por WhatsApp', 'Message us on WhatsApp'), wa_link(lang), 'outline')) +
             quote(0, lang) + tiles(lang) +
             row(p(SIGN[lang], INK, 16, 0), '#ffffff', '8px 48px 40px'), marketing=True)
+
+    # 08-09 Service bookings (Day Pass, romantic dinner, activities), Spanish only. Claude fills the "Reserva …" fields
+    # and adds the tag reserva-servicio: workflow "Reservas · Confirmación" sends 08, "Reservas · Recordatorio" sends 09
+    # at 8:00 am on the "Reserva fecha" day. Transactional: no unsubscribe link, no prices.
+    rules = {x for s in reglamento['sections'] for x in s['items']['es']}
+    pick_rules = lambda *starts: [x for st in starts for x in rules if x.startswith(st)]
+    SERV = '<span style="white-space:pre-line;">{{contact.reserva_servicios}}</span>'
+    booking = [('Fecha', '{{contact.reserva_fecha_texto}}'), ('Hora', '{{contact.reserva_hora}}'), ('Personas', '{{contact.reserva_personas}}'), ('Reservaste', SERV)]
+    maps = button('Abrir en Google Maps', site['maps'])
+    a = site['address']
+
+    key = '08-reserva-confirmacion'
+    subjects[key] = 'Tu visita a la Finca está confirmada'
+    out[key] = email('es', subjects[key], 'Los detalles de tu reserva y lo que necesitas saber antes de venir.',
+        hero('reserva', 'La alberca de la Finca entre árboles y palapas', 'Reserva confirmada', 'Te esperamos en la Finca') +
+        row(p(HI['es']) +
+            p('Confirmamos tu reserva. Estos son los detalles de tu visita:') + facts(booking) +
+            p('El día de tu visita te enviaremos un recordatorio por la mañana. Si algo cambió, responde a este correo o escríbenos por WhatsApp.', MUTED, 15, 0)) +
+        row(label('Cómo llegar') + h2('Camino al Saucillo 861') +
+            p(f'Estamos en {a["locality"]}, {a["region"]}, en Los Altos de Jalisco. Si vienes desde Guadalajara, calcula alrededor de una hora de camino.', INK, 16, 24) +
+            maps, ARENA, '40px 48px') +
+        deep_panel('Antes de venir', 'Para que disfrutes tu visita',
+                   ['Si tu reserva incluye alberca o jacuzzi, trae tu traje de baño.'] +
+                   pick_rules('Horario de la alberca', 'No se permite el consumo de alcohol', 'No se permiten envases', 'La preparación de alimentos', 'Todas las habitaciones y áreas')) +
+        row(label('Cambios y cancelaciones') +
+            p('Si necesitas cambiar o cancelar, avísanos lo antes posible por WhatsApp. ' + pick_rules('Cargos por cancelación')[0], INK, 16, 0), '#ffffff', '40px 48px 8px') +
+        quote(1, lang='es', bg=ARENA) + row(p(SIGN['es'], INK, 16, 0), '#ffffff', '36px 48px 8px') + question('es'))
+
+    key = '09-reserva-recordatorio'
+    subjects[key] = 'Hoy te esperamos en la Finca'
+    out[key] = email('es', subjects[key], 'Tu reserva de hoy a las {{contact.reserva_hora}}: dirección y detalles.',
+        hero('recordatorio', 'Vista aérea de las cabañas y jardines de la Finca', 'Tu visita es hoy', 'Hoy te esperamos') +
+        row(p(HI['es']) +
+            p('Te recordamos tu reserva de hoy en Finca El Péndulo.') + facts(booking[1:]) +
+            p('Si vas tarde o algo cambió, avísanos por WhatsApp.', MUTED, 15, 24) +
+            maps + button('Escríbenos por WhatsApp', wa_link('es'), 'outline')) +
+        deep_panel('Para tu visita', 'Lo que conviene recordar',
+                   ['Si tu reserva incluye alberca o jacuzzi, trae tu traje de baño.'] +
+                   pick_rules('Horario de la alberca', 'No se permite el consumo de alcohol', 'No se permiten envases', 'No dejes objetos')) +
+        row(p(SIGN['es'], INK, 16, 0), '#ffffff', '36px 48px 40px'))
 
     # 00 Internal notification for the Finca team (Spanish only).
     key = '00-aviso-interno'

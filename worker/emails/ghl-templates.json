@@ -108,5 +108,17 @@
   "workflow": "Todos los formularios (aviso interno)",
   "sha256": "7565517a5945b69d506b91bf866a5f86e710596f230c29638da1978559d916a7",
   "subject": "Nueva solicitud web: {{contact.name}}"
+ },
+ "08-reserva-confirmacion": {
+  "id": "6aecf7916c2a664c1b80d50a",
+  "ghl_name": "Reservas 08 · Confirmación",
+  "sha256": "",
+  "subject": ""
+ },
+ "09-reserva-recordatorio": {
+  "id": "6aecf7926c2a664c1b80d52e",
+  "ghl_name": "Reservas 09 · Recordatorio",
+  "sha256": "",
+  "subject": ""
  }
 }

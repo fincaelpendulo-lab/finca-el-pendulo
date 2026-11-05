@@ -1,0 +1,38 @@
+{
+ "c2027_formadores": {
+  "id": "6ae3d072050bd1f5c1d66cee",
+  "ghl_name": "Campaña 2027 · Formadores",
+  "subject": "Tu calendario 2027 empieza en la Finca",
+  "tag": "c2027_formadores"
+ },
+ "c2027_yoga_meditacion": {
+  "id": "6ae3d074b1ff5845573f1fc5",
+  "ghl_name": "Campaña 2027 · Yoga y meditación",
+  "subject": "Tu retiro de yoga 2027: el clima de marzo te espera",
+  "tag": "c2027_yoga_meditacion"
+ },
+ "c2027_holistico_ceremonial": {
+  "id": "6ae3d07680bccb24ecb2a900",
+  "ghl_name": "Campaña 2027 · Holístico y ceremonial",
+  "subject": "Un lugar para sostener tus ceremonias en 2027",
+  "tag": "c2027_holistico_ceremonial"
+ },
+ "c2027_terapeutas_circulos": {
+  "id": "6ae3d07879173350f1f26076",
+  "ghl_name": "Campaña 2027 · Terapeutas y círculos",
+  "subject": "Tus talleres y círculos de 2027, en la Finca",
+  "tag": "c2027_terapeutas_circulos"
+ },
+ "c2027_grupos_grandes": {
+  "id": "6ae3d07a050bd1f5c1d67048",
+  "ghl_name": "Campaña 2027 · Grupos grandes",
+  "subject": "La Finca entera para tu grupo en 2027",
+  "tag": "c2027_grupos_grandes"
+ },
+ "c2027_exploradores": {
+  "id": "6ae3d07ccdce889d7b0a504e",
+  "ghl_name": "Campaña 2027 · Exploradores",
+  "subject": "Cuando quieras hacer tu retiro, aquí estamos",
+  "tag": "c2027_exploradores"
+ }
+}
