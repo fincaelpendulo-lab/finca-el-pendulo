@@ -22,7 +22,7 @@
   "id": "6ae370f9b1ff58455732ac2a",
   "ghl_name": "Web 03 · Boda ES",
   "workflow": "Web: Boda",
-  "sha256": "0432d08173c0b4020717653126d8107c0f3b82db411f59a965f889ad3f978f68",
+  "sha256": "27565436b013650ac1ff99a9056a6c84c91ed2c059bc61cd419db4c99692b05f",
   "subject": "Recibimos los datos de tu boda"
  },
  "04-contacto-es": {
@@ -71,7 +71,7 @@
   "id": "6ae370fe96c503e784aff29f",
   "ghl_name": "Web 03 · Boda EN",
   "workflow": "Web: Boda",
-  "sha256": "d17b7def5642588125ee756ddff9b5e244139bde31bd73504e8e207beba5891d",
+  "sha256": "75b677e5d7694238bbc50752f6e1c8c062b838c0147cd4c26a202afd90be3ff6",
   "subject": "We have your wedding details"
  },
  "04-contacto-en": {
@@ -112,13 +112,13 @@
  "08-reserva-confirmacion": {
   "id": "6aecf7916c2a664c1b80d50a",
   "ghl_name": "Reservas 08 · Confirmación",
-  "sha256": "",
-  "subject": ""
+  "sha256": "127adc4b138d194a2af5f2b1b61cadb3aa5b3570d54c6fd5c7d426f3310747fd",
+  "subject": "Tu visita a la Finca está confirmada"
  },
  "09-reserva-recordatorio": {
   "id": "6aecf7926c2a664c1b80d52e",
   "ghl_name": "Reservas 09 · Recordatorio",
-  "sha256": "",
-  "subject": ""
+  "sha256": "72a888fabc5787422db030a2e4e59f5c92adc56d1cd0c57d55a2f1baf705d728",
+  "subject": "Hoy te esperamos en la Finca"
  }
 }
