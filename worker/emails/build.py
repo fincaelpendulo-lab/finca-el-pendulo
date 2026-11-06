@@ -17,6 +17,7 @@ SITE = site['url']
 IMG = SITE + '/email/'
 WA = 'https://wa.me/' + site['whatsapp']['number']
 CALL = site['callBooking']['url']  # GHL calendar to book a call about retreats, events and weddings
+EXPERIENCIAS_PDF = 'https://drive.google.com/file/d/1JgO9pVDI_h-fFl8Csm6IEY6mMckcDpFK/view?usp=sharing'  # Experiences catalogue (Drive), linked in the booking confirmation
 GHL_CONTACT = 'https://app.gohighlevel.com/v2/location/Lkub474FFDoFMTUzhNv6/contacts/detail/{{contact.id}}'
 EN_PATHS = {'/': '/en', '/retiros': '/en/retreats', '/espacios': '/en/spaces', '/eventos': '/en/events', '/hospedaje': '/en/stay',
             '/comunidad': '/en/community', '/bodas': '/en/weddings', '/aviso-de-privacidad': '/en/privacy', '/experiencias': '/en/experiences'}
@@ -356,6 +357,10 @@ def build():
         row(label('Cómo llegar') + h2('Camino al Saucillo 861') +
             p(f'Estamos en {a["locality"]}, {a["region"]}, en Los Altos de Jalisco. Si vienes desde Guadalajara, calcula alrededor de una hora de camino.', INK, 16, 24) +
             maps, ARENA, '40px 48px') +
+        row(label('Descubre la Finca') + h2('Lo que puedes vivir aquí') +
+            p('Revisa las experiencias que ofrecemos por si quieres sumar alguna a tu visita, y conoce la historia de la Finca.', INK, 16, 24) +
+            button('Ver las experiencias', EXPERIENCIAS_PDF) + button('Lee nuestra historia', f'{SITE}/sobre-la-finca', 'outline') +
+            p(f'O visita <a href="{SITE}" style="color:{GROUND};">fincaelpendulo.com.mx</a>', MUTED, 15, 0), '#ffffff', '40px 48px') +
         deep_panel('Antes de venir', 'Para que disfrutes tu visita',
                    ['Si tu reserva incluye alberca o jacuzzi, trae tu traje de baño.'] +
                    pick_rules('Horario de la alberca', 'No se permite el consumo de alcohol', 'No se permiten envases', 'La preparación de alimentos', 'Todas las habitaciones y áreas')) +
