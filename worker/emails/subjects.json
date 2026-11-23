@@ -15,5 +15,8 @@
  "07-seguimiento-en": "Shall we keep talking, {{contact.first_name}}?",
  "08-reserva-confirmacion": "Tu visita a la Finca está confirmada",
  "09-reserva-recordatorio": "Hoy te esperamos en la Finca",
+ "10-meta-retiro": "Tu retiro 2027 en la Finca, {{contact.first_name}}",
+ "11-meta-seguimiento": "¿Seguimos con tu retiro 2027, {{contact.first_name}}?",
+ "12-meta-aviso-interno": "Lead de Meta (retiro): {{contact.name}}",
  "00-aviso-interno": "Nueva solicitud web: {{contact.name}}"
 }

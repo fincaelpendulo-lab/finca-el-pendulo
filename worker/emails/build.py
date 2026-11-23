@@ -3,7 +3,7 @@
 # Tenor Sans text, spaced uppercase labels in ground, agave-oscuro panels, the tile band over the footer.
 # Facts come from src/data/*.json; past dates in proximos.json are left out on every rebuild.
 # Run: python3 worker/emails/build.py [--today YYYY-MM-DD]   (images: node worker/emails/images.mjs)
-import json, os, sys
+import json, os, re, sys
 from datetime import date
 from html import escape
 
@@ -200,6 +200,13 @@ SIGN = {'es': 'Con cariño,<br>Finca El Péndulo', 'en': 'Warmly,<br>Finca El P�
 DATES = '{{contact.requested_dates}}'
 PEOPLE = '{{contact.number_of_people}}'
 MESSAGE = '{{contact.website_message}}'
+INTEREST = '{{contact.interest}}'
+# Volunteer application fields (VolunteerForm.astro -> Worker FIELDS).
+VOL = lambda S: [(S('Edad', 'Age'), '{{contact.volunteer_age}}'), (S('Vive en', 'Lives in'), '{{contact.volunteer_city_and_country}}'),
+                 (S('Idiomas', 'Languages'), '{{contact.volunteer_languages}}'), (S('Llegada', 'Arrival'), '{{contact.volunteer_arrival_date}}'),
+                 (S('Estancia (meses)', 'Stay (months)'), '{{contact.volunteer_stay_length}}'), (S('Áreas', 'Areas'), '{{contact.volunteer_areas}}'),
+                 (S('Especialidad', 'Skills'), '{{contact.volunteer_skills}}'), (S('Por qué la Finca', 'Why the Finca'), '{{contact.volunteer_motivation}}'),
+                 (S('Cómo nos conoció', 'How they heard'), '{{contact.how_they_heard_about_us}}')]
 bodas = next(e for e in eventos if e['id'] == 'bodas')
 kinds = [e['name'] for e in eventos if e['id'] not in ('retiros', 'bodas')]
 PAY = lambda lang: ', '.join(f'{x["pct"]}% {x["when"][lang].lower()}' for x in retiros['payments'])
@@ -219,7 +226,8 @@ def build():
             row(p(HI[lang]) +
                 p(S('Recibimos tu solicitud de cotización. Revisamos las fechas, el tamaño del grupo y los espacios que necesitas, y te enviamos la propuesta por correo o WhatsApp.',
                     'We have your quote request. We will look at your dates, group size and the spaces you need, and send you the proposal by email or WhatsApp.')) +
-                facts([(S('Fechas', 'Dates'), DATES), (S('Personas', 'People'), PEOPLE),
+                facts([(S('Interés', 'Interest'), INTEREST), (S('Fechas', 'Dates'), DATES), (S('Personas', 'People'), PEOPLE),
+                       (S('Tu mensaje', 'Your message'), MESSAGE),
                        (S('Grupo mínimo', 'Minimum group'), S(f'{retiros["minPeople"]} personas, incluyendo staff', f'{retiros["minPeople"]} people, staff included')),
                        ('Check-in / check-out', f'{retiros["checkIn"]} / {retiros["checkOut"]}')]) +
                 p(S('Si algo cambió, responde a este correo y lo ajustamos.', 'If anything has changed, reply to this email and we will adjust it.'), MUTED, 15, 0)) +
@@ -244,7 +252,8 @@ def build():
             row(p(HI[lang]) +
                 p(S('Recibimos tu solicitud. Te escribiremos con fechas, espacios y lo que necesitas saber para tu evento.',
                     'We have your request. We will write back with dates, spaces and what you need to know for your event.')) +
-                facts([(S('Fechas', 'Dates'), DATES), (S('Personas', 'People'), PEOPLE)]) +
+                facts([(S('Interés', 'Interest'), INTEREST), (S('Fechas', 'Dates'), DATES), (S('Personas', 'People'), PEOPLE),
+                       (S('Tu mensaje', 'Your message'), MESSAGE)]) +
                 p(S('En la Finca organizamos ', 'At the Finca we host ') + ', '.join(k[lang].lower() for k in kinds[:-1]) + S(' y ', ' and ') + kinds[-1][lang].lower() + '.', INK, 16, 24) +
                 button(S('Ver los eventos', 'See the events'), url('/eventos', lang), 'outline')) +
             steps(lang, [(S('Agenda una llamada', 'Book a call'), S('Elige día y hora en el calendario y platicamos de tu evento.', 'Pick a day and time in the calendar and we talk about your event.')),
@@ -262,7 +271,8 @@ def build():
             row(p(HI[lang]) +
                 p(S('Recibimos los datos de tu boda. Te escribiremos para platicar fechas, espacios y hospedaje para tus invitados.',
                     'We have your wedding details. We will write to talk about dates, spaces and rooms for your guests.')) +
-                facts([(S('Fecha', 'Date'), DATES), (S('Invitados', 'Guests'), PEOPLE)])) +
+                facts([(S('Interés', 'Interest'), INTEREST), (S('Fecha', 'Date'), DATES), (S('Invitados', 'Guests'), PEOPLE),
+                       (S('Tu mensaje', 'Your message'), MESSAGE)])) +
             steps(lang, [(S('Agenda una llamada', 'Book a call'), S('Elige día y hora en el calendario y platicamos de tu boda.', 'Pick a day and time in the calendar and we talk about your wedding.')),
                          (S('Recibe la propuesta', 'Receive the proposal'), S('Espacios para la ceremonia y la fiesta, hospedaje para tus invitados y alimentos.', 'Spaces for the ceremony and the party, rooms for your guests and food.')),
                          (S('Aparta la fecha', 'Hold the date'), S('Con el anticipo confirmamos tu fecha en la Finca.', 'A deposit confirms your date at the Finca.')),
@@ -279,6 +289,7 @@ def build():
                  S('Gracias por escribirnos', 'Thank you for writing to us')) +
             row(p(HI[lang]) +
                 p(S('Recibimos tu mensaje y te responderemos pronto por correo o WhatsApp.', 'We have your message and will reply soon by email or WhatsApp.')) +
+                facts([(S('Interés', 'Interest'), INTEREST), (S('Fechas', 'Dates'), DATES), (S('Personas', 'People'), PEOPLE)]) +
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 24px;"><tr><td style="padding:16px 20px;border-left:3px solid {CORN};background:{ARENA};font-size:15px;line-height:1.6;color:{INK};">{MESSAGE}</td></tr></table>\n' +
                 p(S('Mientras tanto, puedes ver las habitaciones y reservar en línea.', 'Meanwhile, you can see the rooms and book online.'), INK, 16, 24) +
                 button(S('Hospédate con nosotros', 'Stay with us'), site['booking']['url' if es else 'urlEn'])) +
@@ -297,6 +308,7 @@ def build():
             row(p(HI[lang]) +
                 p(S('Recibimos tu aplicación de voluntariado. La revisaremos con calma y te escribiremos para platicar.',
                     'We have your volunteer application. We will review it carefully and write to you to talk.')) +
+                facts(VOL(S)) +
                 p(S('Si quieres agregar algo, responde a este correo.', 'If you want to add anything, reply to this email.'), MUTED, 15, 24) +
                 button(S('Ver la comunidad', 'See the community'), url('/comunidad', lang), 'outline')) +
             steps(lang, [(S('Revisamos tu aplicación', 'We review your application'), S('La leemos con calma junto con el equipo de la Finca.', 'We read it carefully with the Finca team.')),
@@ -381,14 +393,85 @@ def build():
                    pick_rules('Horario de la alberca', 'No se permite el consumo de alcohol', 'No se permiten envases', 'No dejes objetos')) +
         row(p(SIGN['es'], INK, 16, 0), '#ffffff', '36px 48px 40px'))
 
+    # 10-12 Meta Ads leads ("Retiros 2027 · Cotiza tu retiro" instant form), Spanish only. Workflow "Meta: Retiros 2027":
+    # 10 right away, 12 to the team, 11 after 3 days if the opportunity is still in "Nuevo lead".
+    # The 10 % off the retreat total holds when a 2027 date is booked by 31 Dec 2026 (Carlos, 2026-11-06).
+    TIPO = '{{contact.tipo_de_retiro}}'
+    GRUPO = '{{contact.personas_del_grupo}}'  # texto del formulario de Meta ("12 a 20")
+    DISC = 'Si apartas tu fecha de 2027 antes del 31 de diciembre, tienes 10 % de descuento sobre el total del retiro.'
+    utm = lambda u, c: u + ('&' if '?' in u else '?') + f'utm_source=ghl&utm_medium=email&utm_campaign=retiros-2027&utm_content={c}'
+
+    key = '10-meta-retiro'
+    subjects[key] = 'Tu retiro 2027 en la Finca, {{contact.first_name}}'
+    out[key] = email('es', subjects[key], 'Agenda una llamada y te enviamos la propuesta para tu grupo. 10 % de descuento apartando antes del 31 de diciembre.',
+        hero('retiro', 'La Terraza Ambú abierta al agavero', 'Retiros 2027', 'Gracias por pensar en la Finca para tu retiro') +
+        row(p(HI['es']) +
+            p('Recibimos tus datos. Te escribimos por WhatsApp en menos de 24 horas para conocer tu retiro y armar la propuesta para tu grupo.') +
+            facts([('Tipo de retiro', TIPO), ('Personas', GRUPO), ('Temporada', DATES),
+                   ('Grupo mínimo', f'{retiros["minPeople"]} personas, incluyendo staff')]) +
+            p('Si quieres adelantar, elige día y hora en el calendario y lo platicamos en una llamada corta.', INK, 16, 24) +
+            button('Agenda una llamada', utm(CALL, 'meta-10-llamada'))) +
+        row(label('Apartando antes del 31 de diciembre') + h2('10 % de descuento en tu retiro 2027') +
+            p(DISC + ' Con el anticipo queda tu fecha reservada.', INK, 16, 0), ARENA, '40px 48px') +
+        deep_panel('El paquete incluye', 'Todo listo para que te enfoques en tu grupo', retiros['includes']['es'],
+                   button('Ver los espacios', utm(url('/espacios', 'es'), 'meta-10-espacios'), 'light')) +
+        row(label('Alimentación') + h2('Menús a la medida de tu grupo') +
+            p('Preparamos los menús adaptándonos a cualquier dieta: vegana, vegetariana, sin gluten, sin lácteos, ayuno, detox o alergias específicas.', INK, 16, 0), '#ffffff', '40px 48px 8px') +
+        retreat_types('es') + quote(0, 'es') +
+        row(p(SIGN['es'], INK, 16, 0), '#ffffff', '36px 48px 8px') + question('es'))
+
+    key = '11-meta-seguimiento'
+    subjects[key] = '¿Seguimos con tu retiro 2027, {{contact.first_name}}?'
+    out[key] = email('es', subjects[key], 'Una llamada corta y te enviamos la propuesta. El 10 % de descuento vale hasta el 31 de diciembre.',
+        hero('seguimiento', 'Cabaña con ventanal frente al agavero', 'Retiros 2027', 'Seguimos aquí para tu retiro') +
+        row(p(HI['es']) +
+            p('Hace unos días nos dejaste tus datos para un retiro en la Finca. Queremos saber si sigues pensando en venir y si te falta algún dato para decidir.') +
+            p(DISC, INK, 16, 16) +
+            p('Lo más fácil es una llamada corta: elige día y hora en el calendario y lo vemos juntos. También puedes responder a este correo o escribirnos por WhatsApp.', INK, 16, 24) +
+            button('Agenda una llamada', utm(CALL, 'meta-11-llamada')) +
+            button('Escríbenos por WhatsApp', wa_link('es'), 'outline')) +
+        quote(1, 'es') + tiles('es') +
+        row(p(SIGN['es'], INK, 16, 0), '#ffffff', '8px 48px 40px'), marketing=True)
+
+    # Suggested WhatsApp message for email 12, built only from the lead's custom fields (no logic:
+    # GHL dropped the email when it had Liquid conditions). Labels keep it readable for every form answer.
+    wa_msg = ('Hola, {{contact.first_name}}. Te escribo de Finca El Péndulo, gracias por dejarnos tus datos para tu retiro 2027.<br><br>'
+        'Esto es lo que nos compartiste:<br>'
+        'Tipo de retiro: ' + TIPO + '<br>'
+        'Personas: ' + GRUPO + '<br>'
+        'Temporada: ' + DATES + '<br><br>'
+        '¿Me cuentas un poco más de tu grupo y las fechas que tienes en mente para armarte la propuesta? '
+        'Si apartas tu fecha antes del 31 de diciembre, tienes 10 % de descuento sobre el total del retiro.')
+
+    # Same message for the wa.me link (wa.me/+52..., the + is safe in the path, not in ?phone=): fixed text is URL-encoded, merge fields stay as they are
+    # (GHL fills them in; the browser encodes their spaces and accents when the link opens).
+    from urllib.parse import quote as urlquote
+    wa_text = ''.join(part if part.startswith('{{') else urlquote(part, safe='')
+                      for part in re.split(r'(\{\{[^}]+\}\})', wa_msg.replace('<br>', '\n')))
+
+    key = '12-meta-aviso-interno'
+    subjects[key] = 'Lead de Meta (retiro): {{contact.name}}'
+    out[key] = email('es', subjects[key], 'Nuevo lead del anuncio de retiros 2027. Escríbele por WhatsApp hoy.',
+        row(label('Lead de Meta Ads · Retiros 2027') + h2('{{contact.name}}') +
+            facts([('Correo', '{{contact.email}}'), ('WhatsApp', '{{contact.phone}}'), ('Tipo de retiro', TIPO),
+                   ('Personas', GRUPO), ('Temporada', DATES), ('Fechas que escribió', '{{contact.website_message}}'),
+                   ('Ciudad', '{{contact.city}}')]) +
+            label('Mensaje sugerido para WhatsApp') +
+            f'<div style="margin:0 0 16px;padding:18px 20px;background:{ARENA};font-size:16px;line-height:1.6;color:{INK};">{wa_msg}</div>\n' +
+            button('Abrir el chat de WhatsApp', 'https://wa.me/{{contact.phone}}?text=' + wa_text) +
+            p('El botón abre el chat con su número y este mensaje ya escrito; revísalo y ajústalo antes de enviarlo.', MUTED, 14, 24) +
+            p('Ya está en el pipeline <b>Clientes Web</b> como “Nuevo lead” con la etiqueta <b>meta-retiro</b>. Escríbele por WhatsApp hoy (la meta es responder en menos de 24 horas), invítalo a agendar en el <a href="' + CALL + '">calendario “Cotiza tu retiro”</a> y mueve la oportunidad a “Contactado”. Si aparta antes del 31 de diciembre, aplica el 10 % de descuento sobre el total.', INK, 15, 24) +
+            button('Abrir el contacto', GHL_CONTACT), '#ffffff', '8px 48px 40px'))
+
     # 00 Internal notification for the Finca team (Spanish only).
     key = '00-aviso-interno'
     subjects[key] = 'Nueva solicitud web: {{contact.name}}'
     out[key] = email('es', subjects[key], 'Nueva solicitud desde el sitio. Responde en las primeras 24 horas.',
         row(label('Solicitud desde el sitio') + h2('{{contact.name}}') +
-            facts([('Correo', '{{contact.email}}'), ('WhatsApp', '{{contact.phone}}'), ('Interés', '{{contact.interest}}'),
+            facts([('Correo', '{{contact.email}}'), ('WhatsApp', '{{contact.phone}}'), ('Interés', INTEREST),
                    ('Fechas', DATES), ('Personas', PEOPLE), ('Mensaje', MESSAGE)]) +
-            p('Ya está en el pipeline <b>Clientes Web</b> como “Nuevo lead”. Escríbele o invítalo a agendar una llamada en el <a href="' + CALL + '">calendario “Cotiza tu retiro”</a>, y mueve la oportunidad a “Contactado”. La nota del contacto tiene todos los datos del formulario.', INK, 15, 24) +
+            label('Solo voluntariado') + facts(VOL(lambda e, n: e)) +
+            p('Ya está en el pipeline <b>Clientes Web</b> como “Nuevo lead”. Escríbele o invítalo a agendar una llamada en el <a href="' + CALL + '">calendario “Cotiza tu retiro”</a>, y mueve la oportunidad a “Contactado”. Los datos también están en los campos y la nota del contacto.', INK, 15, 24) +
             button('Abrir el contacto', GHL_CONTACT), '#ffffff', '8px 48px 40px'))
     return out, subjects
 
