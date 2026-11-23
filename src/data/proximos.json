@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "date": "2026-12-31",
+    "endDate": "2027-01-01",
+    "kind": {
+      "es": "Año Nuevo",
+      "en": "New Year"
+    },
+    "title": {
+      "es": "Celebra Año Nuevo en la Finca",
+      "en": "Celebrate New Year at the Finca"
+    },
+    "text": {
+      "es": "Una noche, del 31 de diciembre al 1 de enero: cena de año nuevo, fogata y el concierto \"Mitos y mantras\", con hospedaje. Desde $1,650 MXN por persona. Reserva por WhatsApp.",
+      "en": "One night, December 31 to January 1: New Year dinner, a bonfire and the \"Mitos y mantras\" concert, with lodging. From $1,650 MXN per person. Book on WhatsApp."
+    },
+    "link": "https://wa.me/523787900992?text=Hola%2C%20quiero%20reservar%20A%C3%B1o%20Nuevo%202027%20en%20Finca%20El%20P%C3%A9ndulo"
+  }
+]

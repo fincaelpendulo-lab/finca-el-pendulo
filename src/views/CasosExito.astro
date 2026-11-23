@@ -7,6 +7,8 @@ import Button from '../components/Button.astro';
 import Reviews from '../components/Reviews.astro';
 import { Image } from 'astro:assets';
 import mexisolLogo from '../assets/brand/mexisol-world.png';
+import vatLogo from '../assets/brand/viviendo-a-tope.png';
+import franciskaLogo from '../assets/brand/franciska-decodifica.png';
 import { t } from '../data/ui';
 import { href } from '../lib/url';
 import { localize, type Lang } from '../lib/i18n';
@@ -20,7 +22,7 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
 ---
 <BaseLayout lang={lang} path={path}
   title={es ? 'Casos de éxito: retiros en Finca El Péndulo | Jalisco' : 'Success stories: retreats at Finca El Péndulo | Jalisco'}
-  description={es ? 'Organizadores que realizan sus retiros en Finca El Péndulo, centro holístico cerca de Guadalajara. Conoce a MexiSol World y cómo trabaja con la Finca.' : 'Organizers who hold their retreats at Finca El Péndulo, a holistic centre near Guadalajara. Meet MexiSol World and how it works with the Finca.'}
+  description={es ? 'Organizadores que realizan sus retiros en Finca El Péndulo, centro holístico cerca de Guadalajara. MexiSol World, Viviendo a Tope, Franciska Decodifica y cómo trabajan con la Finca.' : 'Organizers who hold their retreats at Finca El Péndulo, a holistic centre near Guadalajara. MexiSol World, Viviendo a Tope, Franciska Decodifica and how they work with the Finca.'}
   breadcrumbs={[{ name: es ? 'Casos de éxito' : 'Success stories', path }]}>
   <PageHeader lang={lang} image="esp-osho-hut-1" alt={es ? 'Interior del Osho Hut preparado para un retiro' : 'Inside the Osho Hut, set up for a retreat'} eyebrow={es ? 'Quiénes somos' : 'About us'} title={es ? 'Casos de éxito' : 'Success stories'}>
     {es ? 'Facilitadores y organizaciones que eligieron la Finca como casa para sus retiros.' : 'Facilitators and organizations that chose the Finca as the home for their retreats.'}
@@ -50,6 +52,52 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
     </div>
   </section>
 
+  <section class="section section--arena">
+    <div class="wrap grid-2" style="align-items: center">
+      <div class="stack">
+        <Image src={vatLogo} alt="Viviendo a Tope" class="case-logo" width={240} />
+        <p class="label">02 / Viviendo a Tope</p>
+        <h2 class="t-heading">{es ? 'Mindfulness en la vida cotidiana' : 'Mindfulness in Everyday Life'}</h2>
+        <p>{es ? 'Juan Cruz y Antonio León, de Viviendo a Tope, comparten yoga, meditación y bienestar para todas las personas. Su retiro Mindfulness en la vida cotidiana suma ocho ediciones; la más reciente la hicieron en la Finca, con 45 participantes.' : 'Juan Cruz and Antonio León of Viviendo a Tope share yoga, meditation and wellbeing for everyone. Their retreat Mindfulness in Everyday Life has run eight times; the latest edition took place at the Finca, with 45 participants.'}</p>
+        <ul class="rule-list rule-list--soft">
+          <li>{es ? 'Retiro de yoga y meditación' : 'Yoga and meditation retreat'}</li>
+          <li>{es ? '45 participantes en su edición más reciente' : '45 participants in the latest edition'}</li>
+          <li>{es ? 'Ocho ediciones, la más reciente en la Finca' : 'Eight editions, the latest at the Finca'}</li>
+        </ul>
+        <div class="cluster">
+          <a class="fp-btn fp-btn--primary" href="https://viviendoatope.com/" rel="noopener" target="_blank">{es ? 'Visita Viviendo a Tope' : 'Visit Viviendo a Tope'}</a>
+        </div>
+      </div>
+      <blockquote class="case-quote">
+        <p>{es ? '“El espíritu de servicio de todo su personal y las instalaciones son óptimas y muy bien cuidadas. Tienen una organización excelente y el personal es grandioso.”' : '“The whole staff has a true spirit of service, and the facilities are excellent and very well kept. The organization is excellent and the staff is wonderful.”'}</p>
+        <footer class="label">Viviendo a Tope</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2" style="align-items: center">
+      <div class="stack">
+        <Image src={franciskaLogo} alt="Franciska Decodifica" class="case-logo" width={240} />
+        <p class="label">03 / Franciska Decodifica</p>
+        <h2 class="t-heading">Mujer Origen</h2>
+        <p>{es ? 'Franciska Decodifica es terapeuta en biodescodificación con más de 20 años en el camino del bienestar. Su retiro Mujer Origen acompaña a mujeres en un regreso a sí mismas: magia femenina, sensualidad, sanación de linaje y trauma. Lo ha realizado trece veces; en la Finca reunió a 15 mujeres.' : 'Franciska Decodifica is a biodecoding therapist with more than 20 years on the path of wellbeing. Her retreat Mujer Origen guides women back to themselves: feminine magic, sensuality, lineage healing and trauma. She has run it thirteen times; at the Finca it brought together 15 women.'}</p>
+        <ul class="rule-list rule-list--soft">
+          <li>{es ? 'Retiro para mujeres' : 'Retreat for women'}</li>
+          <li>{es ? '15 participantes en su edición en la Finca' : '15 participants in its edition at the Finca'}</li>
+          <li>{es ? 'Trece ediciones, una en la Finca' : 'Thirteen editions, one at the Finca'}</li>
+        </ul>
+        <div class="cluster">
+          <a class="fp-btn fp-btn--primary" href="https://www.franciska-decodifica.com/" rel="noopener" target="_blank">{es ? 'Visita Franciska Decodifica' : 'Visit Franciska Decodifica'}</a>
+        </div>
+      </div>
+      <blockquote class="case-quote case-quote--arena">
+        <p>{es ? '“Es un lugar con mucha belleza, paz y armonía, lo cual es muy necesario para retiros de trabajo personal y desarrollo.”' : '“It is a place of great beauty, peace and harmony, which is essential for retreats of personal work and growth.”'}</p>
+        <footer class="label">Franciska Decodifica</footer>
+      </blockquote>
+    </div>
+  </section>
+
   <section class="section deep">
     <div class="wrap measure center stack">
       <p class="label">{es ? 'Tu retiro' : 'Your retreat'}</p>
@@ -62,5 +110,8 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
 </BaseLayout>
 <style>
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .case-logo { width: 200px; height: auto; }
+  .case-logo { width: auto; height: auto; max-width: 200px; max-height: 140px; }
+  .case-quote--arena { background: var(--arena); }
+  .case-quote { margin: 0; padding: clamp(24px, 4vw, 48px); background: var(--white, #fff); }
+  .case-quote p { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 30px); line-height: 1.35; margin: 0 0 var(--space-4); }
 </style>

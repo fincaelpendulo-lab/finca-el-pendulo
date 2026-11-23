@@ -29,6 +29,12 @@ const alt = (name: string) => (fotos as Record<string, { es: string; en: string 
             <a class="fp-btn fp-btn--link" href={href(localize('/casos-de-exito', lang))}>{es ? 'Ver casos de éxito' : 'See success stories'}</a>
           </div>
         </div>
+        {c.photos.length === 0 && c.quote ? (
+          <blockquote class="cases__quote">
+            <p>“{c.quote[lang]}”</p>
+            <footer class="label">{c.name}</footer>
+          </blockquote>
+        ) : (
         <div class="cases__gallery" data-slider>
           <ul class="cases__photos" data-slider-track aria-label={es ? `Retiros de ${c.name} en la Finca` : `${c.name} retreats at the Finca`}>
             {c.photos.map((p) => <li><Photo name={p} alt={alt(p)} sizes="(max-width: 760px) 70vw, 280px" widths={[480, 800]} /></li>)}
@@ -38,6 +44,7 @@ const alt = (name: string) => (fotos as Record<string, { es: string; en: string 
             <button type="button" class="cases__btn" data-slider-next aria-label={es ? 'Siguiente foto' : 'Next photo'}>→</button>
           </div>
         </div>
+        )}
       </li>
     ))}
   </ul>
@@ -45,14 +52,16 @@ const alt = (name: string) => (fotos as Record<string, { es: string; en: string 
 <style>
   .cases__track { display: grid; gap: clamp(48px, 6vw, 80px); margin: 0; padding: 0; list-style: none; }
   .cases__slide { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
-  .cases__logo { width: 200px; height: auto; }
+  .cases__logo { width: auto; height: auto; max-width: 200px; max-height: 140px; }
   .cases__title { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); margin: 0; }
   .cases__photos { display: flex; gap: 12px; margin: 0; padding: 0 0 8px; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
   .cases__photos li { flex: none; width: clamp(220px, 22vw, 300px); aspect-ratio: 4 / 5; overflow: hidden; scroll-snap-align: start; }
   .cases__photos :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .cases__gallery { min-width: 0; }
+  .cases__quote { margin: 0; padding: clamp(24px, 4vw, 48px); background: var(--arena); }
+  .cases__quote p { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 30px); line-height: 1.35; margin: 0 0 var(--space-4); }
   .cases__nav { display: flex; gap: 8px; justify-content: flex-end; margin-top: var(--space-4); }
   .cases__btn { width: 48px; height: 48px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 20px; cursor: pointer; }
   .cases__btn:hover { background: var(--ink); color: var(--white, #fff); }
-  @media (max-width: 900px) { .cases__slide { grid-template-columns: minmax(0, 1fr); } .cases__logo { width: 160px; } .cases__photos li { width: 70vw; } }
+  @media (max-width: 900px) { .cases__slide { grid-template-columns: minmax(0, 1fr); } .cases__logo { max-width: 160px; } .cases__photos li { width: 70vw; } }
 </style>

@@ -10,5 +10,7 @@
   "volunteer": { "photo": "src/assets/photos/voluntariado-1.jpg" },
   "post-kundalini": { "photo": "src/assets/photos/stock-meditacion-mala.jpg" },
   "post-temazcal": { "photo": "src/assets/photos/esp-temazcal-1.jpg" },
-  "post-sede-retiro": { "photo": "src/assets/photos/circulo-palapa.jpg" }
+  "post-sede-retiro": { "photo": "src/assets/photos/circulo-palapa.jpg" },
+  "post-caso-viviendo-a-tope": { "photo": "src/assets/photos/yoga-matutino.jpg" },
+  "post-caso-mujer-origen": { "photo": "src/assets/photos/meditacion-mujeres.jpg" }
 }
