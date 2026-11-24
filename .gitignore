@@ -11,3 +11,18 @@ worker/.dev.vars
 
 # Raw image dump from the old GHL site (reference only, ~116 MB)
 brand-src/ghl/
+marketing/hub/dist/
+
+# Producción de redes: archivos pesados fuera de git
+marketing/contenidos/**/*.mp4
+marketing/contenidos/**/*.mov
+marketing/contenidos/**/*.jpg
+marketing/contenidos/**/*.png
+marketing/contenidos/**/*.mp3
+marketing/contenidos/**/*.wav
+marketing/contenidos/**/*.m4a
+marketing/contenidos/_catalogo/
+
+# Blog worker
+blog/.photo-candidates/
+blog/.review/

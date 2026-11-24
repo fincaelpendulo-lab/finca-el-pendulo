@@ -3,7 +3,10 @@
     "id": "mexisol",
     "name": "MexiSol World",
     "logo": "mexisol-world",
-    "url": { "es": "https://mexisol.world/es", "en": "https://mexisol.world/" },
+    "url": {
+      "es": "https://mexisol.world/es",
+      "en": "https://mexisol.world/"
+    },
     "title": {
       "es": "Retiros de bienestar con grupos internacionales",
       "en": "Wellbeing retreats with international groups"
@@ -21,5 +24,49 @@
       "grupo-danza",
       "grupo-cabana"
     ]
+  },
+  {
+    "id": "viviendo-a-tope",
+    "name": "Viviendo a Tope",
+    "logo": "viviendo-a-tope",
+    "url": {
+      "es": "https://viviendoatope.com/",
+      "en": "https://viviendoatope.com/"
+    },
+    "title": {
+      "es": "Mindfulness en la vida cotidiana: retiro de yoga y meditación",
+      "en": "Mindfulness in everyday life: a yoga and meditation retreat"
+    },
+    "text": {
+      "es": "Juan Cruz y Antonio León, de Viviendo a Tope, guían el retiro Mindfulness en la vida cotidiana, que ya suma ocho ediciones. Su edición más reciente fue en la Finca, con 45 personas que practicaron yoga y meditación entre agaves y jardines.",
+      "en": "Juan Cruz and Antonio León of Viviendo a Tope lead Mindfulness in Everyday Life, a retreat now in its eighth edition. Their latest edition took place at the Finca, with 45 people practising yoga and meditation among agaves and gardens."
+    },
+    "quote": {
+      "es": "El espíritu de servicio de todo su personal y las instalaciones son óptimas y muy bien cuidadas. Tienen una organización excelente y el personal es grandioso.",
+      "en": "The whole staff has a true spirit of service, and the facilities are excellent and very well kept. The organization is excellent and the staff is wonderful."
+    },
+    "photos": []
+  },
+  {
+    "id": "franciska-decodifica",
+    "name": "Franciska Decodifica",
+    "logo": "franciska-decodifica",
+    "url": {
+      "es": "https://www.franciska-decodifica.com/",
+      "en": "https://www.franciska-decodifica.com/"
+    },
+    "title": {
+      "es": "Mujer Origen: retiro de sanación para mujeres",
+      "en": "Mujer Origen: a healing retreat for women"
+    },
+    "text": {
+      "es": "Franciska Decodifica, terapeuta en biodescodificación, guía Mujer Origen, un retiro para mujeres sobre magia femenina, sensualidad, sanación de linaje y trauma. Lo ha realizado trece veces; en su edición en la Finca reunió a 15 mujeres.",
+      "en": "Franciska Decodifica, a biodecoding therapist, leads Mujer Origen, a retreat for women on feminine magic, sensuality, lineage healing and trauma. She has run it thirteen times; its edition at the Finca brought together 15 women."
+    },
+    "quote": {
+      "es": "Es un lugar con mucha belleza, paz y armonía, lo cual es muy necesario para retiros de trabajo personal y desarrollo.",
+      "en": "It is a place of great beauty, peace and harmony, which is essential for retreats of personal work and growth."
+    },
+    "photos": []
   }
 ]

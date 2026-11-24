@@ -26,49 +26,30 @@ const FORMS = {
   voluntariado: 'web-voluntariado', // /voluntariado, application
 };
 
-// Contact custom fields, found by name or created if missing, cached while the Worker is warm.
-// Add one entry per value the GHL emails need ({{contact.<field_key>}}).
+// Contact custom fields in GHL (Settings > Custom Fields), by id so the Worker does not
+// need to list or create fields. Emails use {{contact.<key>}}.
 const FIELDS = {
-  interest: { name: 'Interest', dataType: 'TEXT' },
-  message: { name: 'Website message', dataType: 'LARGE_TEXT' },
+  interest: { id: 'yOqvQZK8XUxrxA8MSHFA', key: 'interest' },
+  message: { id: 'nTddFOrOzb6Kjlnr244v', key: 'website_message' },
   // Retreat, event, wedding and contact forms.
-  dates: { name: 'Requested dates', dataType: 'TEXT' },
-  people: { name: 'Number of people', dataType: 'NUMERICAL' },
+  dates: { id: '96ocX1vAV6lhYMhieApn', key: 'requested_dates' },
+  people: { id: 'WidsfYA9oCSS7pAbR9zA', key: 'number_of_people' },
   // Volunteer application (/voluntariado).
-  age: { name: 'Volunteer age', dataType: 'NUMERICAL' },
-  city: { name: 'Volunteer city and country', dataType: 'TEXT' },
-  languages: { name: 'Volunteer languages', dataType: 'TEXT' },
-  arrival: { name: 'Volunteer arrival date', dataType: 'TEXT' },
-  duration: { name: 'Volunteer stay length', dataType: 'TEXT' },
-  areas: { name: 'Volunteer areas', dataType: 'LARGE_TEXT' },
-  skills: { name: 'Volunteer skills', dataType: 'LARGE_TEXT' },
-  motivation: { name: 'Volunteer motivation', dataType: 'LARGE_TEXT' },
-  heard: { name: 'How they heard about us', dataType: 'TEXT' },
+  age: { id: 'iKgEhFGFkWZLn785FNI5', key: 'volunteer_age' },
+  city: { id: 'ZM8yILnwne7GdEJUtPxX', key: 'volunteer_city_and_country' },
+  languages: { id: 'oySDn4sLb0Sr66kNGiTR', key: 'volunteer_languages' },
+  arrival: { id: 'p842P796gKW0OqIr7NZU', key: 'volunteer_arrival_date' },
+  duration: { id: 'K9IDYnM3IlwU1zQYMfO5', key: 'volunteer_stay_length' },
+  areas: { id: 'Z9cUKYb9sI8l7k6AcXlp', key: 'volunteer_areas' },
+  skills: { id: 'x0HseXBfit4j11ksbCXF', key: 'volunteer_skills' },
+  motivation: { id: 'zw8xCF2KFWMCLD29Qk2b', key: 'volunteer_motivation' },
+  heard: { id: 'zuVI9rumD8u3eGEAT8O5', key: 'how_they_heard_about_us' },
 };
 
 // Sign-up lists for /subscribe: form field list=<key>.
 const LISTS = {
   newsletter: { tag: 'newsletter', source: 'website newsletter' },
 };
-
-let fieldIds = null;
-async function ensureFields(env) {
-  if (fieldIds) return fieldIds;
-  const base = `${GHL}/locations/${env.GHL_LOCATION_ID}/customFields`;
-  const list = await fetch(base, { headers: GHL_HEADERS(env.GHL_TOKEN) }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-  if (!list) return null;
-  const ids = {};
-  for (const [key, def] of Object.entries(FIELDS)) {
-    const found = (list.customFields || []).find((f) => f.name.toLowerCase() === def.name.toLowerCase());
-    if (found) { ids[key] = found.id; continue; }
-    const made = await fetch(base, { method: 'POST', headers: GHL_HEADERS(env.GHL_TOKEN), body: JSON.stringify({ ...def, model: 'contact' }) })
-      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    if (made?.customField?.id) ids[key] = made.customField.id;
-  }
-  // Only remember a complete set, so a field that failed is tried again next time.
-  if (Object.keys(ids).length === Object.keys(FIELDS).length) fieldIds = ids;
-  return ids;
-}
 
 // Upsert replaces every tag on the contact, so tags always go through their own endpoint.
 function tags(env, contactId, method, list) {
@@ -179,11 +160,10 @@ export default {
     if (!check.success) return reply({ ok: false, error: 'captcha' }, 403, headers);
 
     const [firstName, ...rest] = lead.name.split(/\s+/);
-    const ids = (await ensureFields(env)) || {};
     const values = { interest: lead.interest, message: lead.message, dates: lead.dates, people: lead.people && Number(lead.people), age: lead.age && Number(lead.age), city: lead.city, languages: lead.languages, arrival: lead.arrival, duration: lead.duration, areas: lead.areas, skills: lead.skills, motivation: lead.motivation, heard: lead.heard };
     const customFields = Object.entries(values)
-      .filter(([key, value]) => ids[key] && value !== '' && value != null)
-      .map(([key, value]) => ({ id: ids[key], field_value: value }));
+      .filter(([key, value]) => FIELDS[key] && value !== '' && value != null && !Number.isNaN(value))
+      .map(([key, value]) => ({ id: FIELDS[key].id, key: FIELDS[key].key, field_value: value }));
     const saved = await upsert(env, {
       firstName,
       lastName: rest.join(' '),
@@ -195,6 +175,13 @@ export default {
     });
     const contactId = saved?.contact?.id;
     if (!contactId) return reply({ ok: false, error: 'crm' }, 502, headers);
+    // Upsert can skip custom fields on an existing contact, so write them again explicitly.
+    // Fields must be saved before the trigger tag, because the workflow emails read them.
+    if (customFields.length) {
+      const put = await fetch(`${GHL}/contacts/${contactId}`, { method: 'PUT', headers: GHL_HEADERS(env.GHL_TOKEN), body: JSON.stringify({ customFields }) })
+        .catch((e) => ({ ok: false, status: String(e) }));
+      if (!put.ok) console.log('custom fields not saved', put.status, put.text ? await put.text() : '');
+    }
 
     // Fields first, then tags. Removing the trigger tag before adding it again makes
     // the workflow start for repeat requests too.
