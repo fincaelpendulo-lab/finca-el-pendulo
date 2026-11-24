@@ -22,3 +22,7 @@ marketing/contenidos/**/*.mp3
 marketing/contenidos/**/*.wav
 marketing/contenidos/**/*.m4a
 marketing/contenidos/_catalogo/
+
+# Blog worker
+blog/.photo-candidates/
+blog/.review/

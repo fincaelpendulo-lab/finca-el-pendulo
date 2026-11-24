@@ -1,0 +1,38 @@
+name: Publish scheduled blog posts
+
+# Approved posts are merged ahead of time with a future date, and the site leaves them out until that date
+# (src/lib/blog.ts). Hostinger only rebuilds on a push to main, so on a day when a post is due this pushes an
+# empty commit at 06:30 in Guadalajara (12:30 UTC) and Hostinger rebuilds with the post in it. A push made with
+# GITHUB_TOKEN does not start other workflows, so it also starts the GitHub Pages preview by hand.
+# GitHub's scheduler can run hours late; the blog worker's 18:00 run checks the page and can rerun this.
+on:
+  schedule:
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find posts dated today
+        id: due
+        run: |
+          today=$(TZ=America/Mexico_City date +%Y-%m-%d)
+          due=$(grep -l "^date: ${today}\s*$" src/content/blog/*.es.md 2>/dev/null | xargs -r -n1 basename | sed 's/\.es\.md$//' | tr '\n' ' ')
+          echo "slugs=${due}" >> "$GITHUB_OUTPUT"
+          echo "Due today (${today}): ${due:-none}"
+      - name: Trigger a rebuild
+        if: steps.due.outputs.slugs != '' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Publish scheduled posts: ${{ steps.due.outputs.slugs || 'manual rebuild' }}"
+          git push origin main
+          gh workflow run deploy.yml --ref main

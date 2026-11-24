@@ -13,7 +13,8 @@ Sitio de Finca El Péndulo (Tepatitlán de Morelos, Jalisco). Astro estático, e
 | Eventos (cada uno con su página: campamentos, conciertos, cenas, festivales) | `src/data/eventos.json` + `src/views/EventoDetalle.astro` |
 | Próximos eventos (fecha, título, tipo; se ocultan solos al pasar) | `src/data/proximos.json` |
 | Equipo (Comunidad) | `src/data/equipo.json` |
-| Blog | `src/content/blog/<nombre>.<es|en>.md` (title, description, date, image, slug, pair) |
+| Blog | `src/content/blog/<nombre>.<es|en>.md` (title, description, date, image, slug, pair); los de fecha futura no se publican hasta su día |
+| Blog automático (plan mensual, redactor, tablero de aprobación, portadas y posts en Instagram/Facebook) | `blog/WORKER.md` (ronda diaria), agentes `blog-planner` y `blog-writer`, datos en `blog/house-facts.md` y `blog/guest-profiles.md`, scripts en `scripts/blog/`, tablero https://claude.ai/artifact/3uQc8JSiadkA6kaffktA4W |
 | Newsletter (pop-up una vez por visita y franja sobre el pie) | `NewsletterForm.astro`, `[data-newsletter]` en `site.js`; sin Worker abre WhatsApp |
 | Testimonios de voluntarios (solo en /voluntariado; en correos y demás páginas van reseñas de Google) | `src/data/testimonios.json` |
 | Menú, pie de página, textos de botones | `src/data/ui.ts` |

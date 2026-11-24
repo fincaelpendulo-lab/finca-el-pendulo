@@ -19,10 +19,11 @@ const fmt = new Date(`${post.date}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 
 ---
 <BaseLayout lang={lang} path={path} alternate={twin} ogType="article" ogImage={post.og} title={`${post.title} | Finca El Péndulo`} description={post.description} schema={[article]}
   breadcrumbs={[{ name: 'Blog', path: localize('/blog', lang) }, { name: post.title, path }]}>
-  <PageHeader lang={lang} image={post.image} alt={post.title} eyebrow={`Blog · ${fmt}`} title={post.title} />
+  <PageHeader lang={lang} image={post.image} alt={post.imageAlt ?? post.title} eyebrow={`Blog · ${fmt}`} title={post.title} />
   <article class="section">
     <div class="wrap prose post">
       <p class="t-lead muted">{post.description}</p>
+      {post.imageCredit && <p class="credit muted">{es ? 'Foto de portada: ' : 'Cover photo: '}{post.imageCreditUrl ? <a href={post.imageCreditUrl}>{post.imageCredit}</a> : post.imageCredit}</p>}
       <Content />
       <div class="cluster" style="margin-top: 48px">
         <Button href={whatsappUrl} track="whatsapp">{es ? 'Escríbenos por WhatsApp' : 'Message us on WhatsApp'}</Button>
@@ -34,4 +35,5 @@ const fmt = new Date(`${post.date}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 
 <style>
   .post { margin-left: auto; margin-right: auto; }
   .post :global(ul) { padding-left: 1.2em; }
+  .credit { font-size: 0.8rem; margin-top: -8px; }
 </style>

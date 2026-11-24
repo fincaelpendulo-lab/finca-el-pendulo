@@ -1,0 +1,15 @@
+{
+  "siteUrl": "https://fincaelpendulo.com.mx",
+  "brand": "Finca El Péndulo",
+  "contactEmail": "fincaelpendulo@gmail.com",
+  "dashboardUrl": "https://claude.ai/artifact/3uQc8JSiadkA6kaffktA4W",
+  "repo": "fincaelpendulo-lab/finca-el-pendulo",
+  "cover": {
+    "veil": "#1f1a14",
+    "accent": "#f0cf98",
+    "logo": "brand-src/lockup-white.png",
+    "displayFont": "blog/covers/fonts/Cormorant.ttf",
+    "italicFont": "blog/covers/fonts/Cormorant-Italic.ttf",
+    "textFont": "blog/covers/fonts/Montserrat-Regular.ttf"
+  }
+}
