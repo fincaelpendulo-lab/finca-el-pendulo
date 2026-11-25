@@ -84,6 +84,8 @@ no responde), Retreat Guru Industry Report (PDF ilegible), sitios de cifras de m
 | Profeco: precio total, cargos extra y cancelación antes de cobrar; contrato claro | 11 |
 | Paquete de la Finca: hospedaje, 3 alimentos, coffee break, uso de espacios | blog/house-facts.md, src/data/retiros.json |
 | Cifras del ejemplo ($3,800, $27,500, $6,800) | Ilustrativas, cálculo propio; no son tarifas de la Finca |
+| En la Finca el grupo mínimo es de 12 personas contando al staff; el paquete incluye hospedaje, comidas y uso de instalaciones | Carlos, en el chat del 2026-11-25 (confirmado para publicarse) |
+| Ejemplo en la Finca: 10 participantes + 2 de staff; fijos 27,500 + 2 × 3,800 = 35,100; precio 3,800 + 3,510 = 7,310 → 7,400 | Ilustrativo, cálculo propio |
 
 Cálculo del ejemplo: costo por persona 3,800; fijos 15,000 + 6,000 + 3,000 + 1,000 + 2,500 = 27,500; precio 6,800;
 aporte 3,000; equilibrio 27,500 ÷ 3,000 = 9.17 → 10. Resultados: 8 → 54,400 − 57,900 = −3,500; 10 → +2,500;

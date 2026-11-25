@@ -83,6 +83,17 @@ La forma más segura de decidir **cuánto cobrar por un retiro** es elegir prime
 
 Con un mínimo de 10: $3,800 + $2,750 = $6,550. Redondea hacia arriba, nunca hacia abajo.
 
+Si haces tu retiro en la Finca, hay un dato más: el grupo mínimo es de **12 personas contando a tu staff**. El paquete incluye hospedaje, comidas y uso de las instalaciones para las 12, también para ti y tu equipo.
+
+Eso cambia la cuenta en dos puntos. Si van tú y tu cofacilitadora, tu mínimo son 10 participantes que pagan. Y los paquetes de tu equipo pasan a ser un costo fijo, porque los pagas aunque se inscriban pocas.
+
+Con las mismas cifras ilustrativas, y el paquete de tu equipo al mismo costo que el de una participante:
+
+- Costos fijos: $27,500 + 2 paquetes de $3,800 = $35,100.
+- Precio: $3,800 + ($35,100 ÷ 10) = $7,310. Redondeado, **$7,400**.
+
+Cada persona de staff es un lugar menos que paga y un paquete más en tus costos fijos. Haz la cuenta con tu equipo real.
+
 ## Margen, preventa y precio de lanzamiento
 
 Una vez cubierto tu punto de equilibrio, decide cuánto quieres ganar. Una [guía de Expansión de 2021](https://expansion.mx/carrera/2021/04/29/guia-freelancers-cuanto-tienes-que-cobrar) para trabajadores independientes en México sitúa la ganancia promedio entre el 20 y el 30 % por proyecto. Es una referencia de otros oficios, no una regla para retiros, pero sirve para no quedarte en cero.
@@ -113,6 +124,9 @@ Depende de la sede, tu trabajo y tu grupo mínimo. Suma el costo por persona de 
 
 **¿Qué pasa si no se llena mi retiro?**
 Si calculaste el precio con tu mínimo y no con el grupo lleno, cubres tus costos aunque queden lugares vacíos. Fija una fecha para decidir si el retiro se hace y dila desde el principio.
+
+**¿Cuál es el grupo mínimo para hacer un retiro?**
+Depende de la sede y de tus números. En la Finca el mínimo es de 12 personas contando a tu staff, con hospedaje, comidas y uso de instalaciones en el paquete. Para tu precio, cuenta solo a quienes pagan: con tu cofacilitadora y tú, son 10 participantes.
 
 **¿Debo cobrar anticipo a mis alumnas?**
 Sí, conviene. El anticipo aparta el lugar y te permite pagar el tuyo a la sede. Explica por escrito cuánto es, cuándo vencen los demás pagos y qué pasa si alguien cancela.

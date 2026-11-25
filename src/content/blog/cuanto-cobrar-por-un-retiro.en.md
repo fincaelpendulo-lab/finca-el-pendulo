@@ -83,6 +83,17 @@ The safest way to price a retreat is to choose the minimum first. Neuman's examp
 
 With a minimum of 10: MXN 3,800 + MXN 2,750 = MXN 6,550. Round up, never down.
 
+If you hold your retreat at the Finca, there is one more number to plan around: the minimum group is **12 people, including your staff**. The package covers lodging, meals and use of the facilities for all 12, you and your team included.
+
+That changes the sums in two ways. If you bring one co-facilitator, your minimum is 10 paying guests. And your team's packages become a fixed cost, because you pay for them however few people sign up.
+
+Using the same illustrative figures, and assuming a staff package costs the same as a guest's:
+
+- Fixed costs: MXN 27,500 + 2 packages at MXN 3,800 = MXN 35,100.
+- Price: MXN 3,800 + (MXN 35,100 ÷ 10) = MXN 7,310. Rounded up, **MXN 7,400**.
+
+Every staff member is one fewer paying place and one more package in your fixed costs. Run the numbers with your actual team.
+
 ## Margin, early bird and launch pricing
 
 Once break-even is covered, decide what you want to earn. A [2021 guide in Expansión](https://expansion.mx/carrera/2021/04/29/guia-freelancers-cuanto-tienes-que-cobrar) for freelancers in Mexico puts the average profit at 20 to 30 percent per project. That comes from other trades, not retreats, but it keeps you from settling for zero.
@@ -113,6 +124,9 @@ It depends on the venue, your own pay and your minimum group. Add the venue's co
 
 **What happens if my retreat does not fill?**
 If you priced for your minimum rather than a full house, you cover your costs even with empty places. Set a go or no-go date and tell guests about it from the start.
+
+**What is the minimum group size for a retreat?**
+It depends on the venue and on your numbers. At the Finca the minimum is 12 people including your staff, with lodging, meals and use of the facilities in the package. For your price, count only the people who pay: with you and one co-facilitator, that is 10 guests.
 
 **Should I take a deposit?**
 Yes. A deposit holds the place and lets you pay your own deposit to the venue. Put in writing how much it is, when the other payments are due and what happens if someone cancels.
