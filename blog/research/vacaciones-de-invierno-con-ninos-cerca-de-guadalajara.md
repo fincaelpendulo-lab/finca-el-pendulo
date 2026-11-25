@@ -129,12 +129,12 @@ leyeron con WebFetch (los resúmenes académicos con la API de Europe PMC).
 | Jacuzzi: médico antes de menores de 5, nunca solos, máximo 40 °C | 6 |
 | Precios, horario, inclusiones del Day Pass; alberca climatizada; reglamento; caballos; lago; lobos; cabaña | Datos de la Finca |
 
-## Pendiente de confirmar (Carlos)
+## Confirmado por Carlos (2026-11-25)
 
-- ¿El Day Pass opera el 24, 25 y 31 de diciembre y el 1 de enero? El artículo no da fechas: invita a confirmar por
-  WhatsApp.
-- ¿Hay edad mínima (o estatura) para montar? ¿La Finca presta casco para niños? El artículo pide preguntar al reservar.
-- ¿Los visitantes de Day Pass pueden ver a los lobos o hacer cuidado equino o actividades infantiles? ¿Con costo
-  aparte? El artículo dice que se pregunta al reservar.
-- Comida en Day Pass: ¿se puede llevar comida propia o hay que reservar alimentos? El artículo cita el reglamento (no
-  hay restaurante; preparación de alimentos con reserva previa) y pide preguntar.
+- El Day Pass abre el 24, 25 y 31 de diciembre y el 1 de enero; se reserva por WhatsApp.
+- No hay edad mínima para montar a caballo; la Finca presta casco.
+- En el Day Pass se puede llevar comida propia; hay asadores para usar y la Finca refrigera los alimentos.
+  (Sustituye en el artículo la mención del reglamento sobre restaurante, preparación de alimentos y parrillas a leña.)
+- Quien viene con Day Pass puede reservar cualquiera de las experiencias (cuidado equino, actividades infantiles,
+  piñatas, encuentro con los lobos).
+- Registrado en `blog/house-facts.md` → "Confirmado por Carlos (2026-11-25)".

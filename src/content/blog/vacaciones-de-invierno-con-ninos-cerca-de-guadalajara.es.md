@@ -55,11 +55,11 @@ El Day Pass va de 10:00 am a 7:00 pm. Este es un plan posible; ajústalo a la ed
 - **11:00 am.** Paseo a caballo, que debe estar reservado desde antes.
 - **12:30 pm.** Caminata al Lago Ávalon. Ahí viven peces koi y tortugas.
 - **1:30 pm.** Alberca. Está climatizada todos los días del año, así que diciembre no es problema.
-- **3:00 pm.** Comida. La Finca no tiene restaurante y la preparación de alimentos se reserva antes, según el [reglamento](/reglamento). Pregunta por WhatsApp cómo resolver la comida de tu grupo; las fogatas y parrillas a leña tienen costo adicional.
+- **3:00 pm.** Comida. Puedes llevar tu propia comida: hay asadores que puedes usar y la Finca puede refrigerar tus alimentos mientras disfrutan el día.
 - **4:30 pm.** Un rato tranquilo: jacuzzi para los grandes, juego libre en el jardín para los chicos.
 - **6:00 pm.** Atardecer en los senderos del lago y regreso a casa a las 7:00 pm.
 
-La Finca también tiene [experiencias](/experiencias) que se reservan aparte, como cuidado equino (cepillar, alimentar y convivir con los caballos), actividades infantiles y creación de piñatas. En la Finca viven además Fifi y Vico, dos lobos rescatados en 2019; los encuentros con ellos los guía el equipo. Pregunta al reservar cuáles están disponibles en tu fecha.
+Con el Day Pass también puedes reservar cualquiera de las [experiencias de la Finca](/experiencias): cuidado equino (cepillar, alimentar y convivir con los caballos), actividades infantiles, creación de piñatas o un encuentro con Fifi y Vico, dos lobos rescatados en 2019, guiado por el equipo. Pídelas por WhatsApp junto con tu Day Pass.
 
 Una familia que pasó aquí un fin de semana lo resumió así en Google: "convivencia cercana con los animales de la finca y una atención cálida y agradable por cada uno de los miembros del equipo".
 
@@ -69,13 +69,13 @@ El paseo a caballo viene incluido en el Day Pass si lo reservas antes. Nuestro e
 
 La Academia Americana de Pediatría resume en su guía de [seguridad a caballo para niños](https://healthychildren.org/English/healthy-living/sports/Pages/Horseback-Riding.aspx) lo esencial:
 
-1. **Casco cada vez que se monta.** Pregunta al reservar si hay casco de la talla de tu hijo, o lleva el suyo.
+1. **Casco cada vez que se monta.** La Finca presta el casco; al reservar, dinos la edad de tu hijo para tener su talla.
 2. **Siempre con supervisión.** Los niños no montan solos ni en caballos de temperamento desconocido.
 3. **Calzado firme.** Botas o tenis cerrados, con un tacón pequeño, que cubran el tobillo. Nada de sandalias.
 4. **Nunca por detrás del caballo.** Tampoco gritos ni movimientos bruscos cerca de él.
 5. **El equipo se revisa antes.** Una persona con experiencia ajusta la silla, los estribos y las riendas.
 
-La misma guía señala que el riesgo es mayor en quien tiene menos experiencia. Por eso conviene que el primer paseo de un niño sea a paso tranquilo y acompañado. Si tienes dudas sobre la edad o el tamaño de tu hijo para montar, escríbenos por WhatsApp antes de reservar.
+La misma guía señala que el riesgo es mayor en quien tiene menos experiencia. Por eso conviene que el primer paseo de un niño sea a paso tranquilo y acompañado. En la Finca no hay edad mínima para montar.
 
 ## Alberca y jacuzzi con niños
 
@@ -105,7 +105,7 @@ Por ejemplo, dos adultos con un niño de 8 años y otro de 3 pagan $1,000 por el
 - Traje de baño y toalla para cada uno.
 - Bloqueador, gorra y agua.
 - Botas o tenis cerrados para el caballo.
-- Casco propio, si tu hijo ya tiene uno.
+- Comida para asar y, si quieres, una hielera.
 - Chaleco salvavidas, si alguno no nada bien.
 - Una muda de ropa y algo abrigador para el regreso.
 
@@ -120,10 +120,10 @@ Los menores de 11 años pagan la mitad, $200, y los menores de 5 entran gratis. 
 Sí. La alberca de la Finca está climatizada todos los días del año. Su horario es de 9:00 am a 8:00 pm.
 
 **¿Hay edad mínima para montar a caballo?**
-Escríbenos por WhatsApp con la edad de tus hijos antes de reservar y te decimos cómo hacerlo. Recuerda que el paseo se reserva con anticipación y que se monta con casco y calzado cerrado.
+No, en la Finca no hay edad mínima. El paseo se reserva antes y se monta con casco, que presta la Finca, y calzado cerrado. El primer paseo de un niño va a paso tranquilo y acompañado.
 
 **¿Abren el Day Pass en Navidad y Año Nuevo?**
-Si quieres venir el 24, 25 o 31 de diciembre o el 1 de enero, escríbenos por WhatsApp para confirmar que haya Day Pass ese día antes de salir.
+Sí. El Day Pass abre el 24, 25 y 31 de diciembre y el 1 de enero. Se reserva por WhatsApp, como cualquier otro día.
 
 **¿Podemos quedarnos a dormir?**
 Sí. La Cabaña Burra recibe hasta 7 personas, con camas matrimoniales y literas, y hay otras opciones en [hospedaje](/hospedaje). Así los niños aprovechan la alberca y el lago dos días.

@@ -55,11 +55,11 @@ The Day Pass runs from 10:00 am to 7:00 pm. Here is one way to spend it; adjust 
 - **11:00 am.** Horse ride, booked ahead of time.
 - **12:30 pm.** Walk to Lake Ávalon, home to koi and turtles.
 - **1:30 pm.** Pool time. The pool is heated every day of the year, so December is no problem.
-- **3:00 pm.** Lunch. The Finca has no restaurant and meals must be arranged in advance, according to the [house rules](/en/house-rules). Ask us on WhatsApp how to sort out food for your group; bonfire areas and wood-fired grills carry an extra fee.
+- **3:00 pm.** Lunch. You are welcome to bring your own food: there are grills you can use, and the Finca can keep your food refrigerated while you enjoy the day.
 - **4:30 pm.** Quiet time: the jacuzzi for the grown-ups, free play in the garden for the kids.
 - **6:00 pm.** Sunset on the lakeside paths, then head home at 7:00 pm.
 
-The Finca also offers [experiences](/en/experiences) booked separately, such as horse care (brushing, feeding and spending time with the horses), children's activities and piñata making. Fifi and Vico, two wolves rescued in 2019, also live here; time with them is guided by the team. Ask when you book which of these are available on your date.
+With a Day Pass you can also book any of the [Finca's experiences](/en/experiences): horse care (brushing, feeding and spending time with the horses), children's activities, piñata making, or time with Fifi and Vico, two wolves rescued in 2019, guided by the team. Ask for them on WhatsApp when you book your Day Pass.
 
 One family who spent a weekend here put it this way in a Google review: "time close to the Finca's animals and warm, friendly care from every member of the team."
 
@@ -69,13 +69,13 @@ The horse ride is included in the Day Pass if you book it in advance. Our team t
 
 The American Academy of Pediatrics sums up the essentials in its guide to [horseback riding safety for children](https://healthychildren.org/English/healthy-living/sports/Pages/Horseback-Riding.aspx):
 
-1. **A helmet every time.** Ask when you book whether there is one in your child's size, or bring their own.
+1. **A helmet every time.** The Finca lends helmets; tell us your child's age when you book so we have the right size.
 2. **Always supervised.** Children should not ride alone or on horses of unknown temperament.
 3. **Sturdy footwear.** Closed boots or trainers with a small heel that cover the ankle. No sandals.
 4. **Never walk behind a horse.** Avoid shouting and sudden movements near it too.
 5. **Tack checked first.** Someone experienced adjusts the saddle, stirrups and reins before anyone mounts.
 
-The same guide notes that injury risk is highest for the least experienced riders. That is why a child's first ride is best taken at a walk, with someone alongside. If you are unsure whether your child is old or tall enough to ride, message us on WhatsApp before you book.
+The same guide notes that injury risk is highest for the least experienced riders. That is why a child's first ride is best taken at a walk, with someone alongside. There is no minimum age to ride at the Finca.
 
 ## Pool and jacuzzi with kids
 
@@ -105,7 +105,7 @@ For example, two adults with an 8-year-old and a 3-year-old pay $1,000 MXN for t
 - Swimsuit and towel for everyone.
 - Sunscreen, a cap and water.
 - Closed boots or trainers for the horse ride.
-- Your child's own helmet, if they have one.
+- Food for the grill and, if you like, a cooler.
 - A life jacket for anyone who cannot swim well.
 - A change of clothes and a warm layer for the drive home.
 
@@ -120,10 +120,10 @@ Children under 11 pay half, $200 MXN, and children under 5 come in free. Adults 
 Yes. The Finca pool is heated every day of the year. Pool hours are 9:00 am to 8:00 pm.
 
 **Is there a minimum age for the horse ride?**
-Message us on WhatsApp with your children's ages before you book and we will tell you how it works. Remember that rides are booked in advance and children ride with a helmet and closed shoes.
+No, there is no minimum age at the Finca. Rides are booked in advance, and children ride in closed shoes with a helmet the Finca lends them. A child's first ride is taken at a walk, with someone alongside.
 
 **Is the Day Pass open on Christmas and New Year?**
-If you want to come on 24, 25 or 31 December or on 1 January, message us on WhatsApp to confirm the Day Pass is running that day before you set off.
+Yes. The Day Pass is open on 24, 25 and 31 December and on 1 January. Book it on WhatsApp, as you would any other day.
 
 **Can we stay the night?**
 Yes. The Cabaña Burra sleeps up to 7, with double beds and bunks, and there are more options on our [stay](/en/stay) page. That way the kids get two days of pool and lake.
