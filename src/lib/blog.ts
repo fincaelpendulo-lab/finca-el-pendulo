@@ -6,7 +6,7 @@
 // their date (.github/workflows/publish-scheduled-posts.yml pushes the rebuild that morning).
 import type { Lang } from './i18n';
 interface Frontmatter { title: string; description: string; date: string | Date; image: string; slug: string; pair?: string; og?: string; imageAlt?: string; imageCredit?: string; imageCreditUrl?: string; keyword?: string; profile?: string }
-type Module = { frontmatter: Frontmatter; Content: any };
+type Module = { frontmatter: Frontmatter; Content: any; compiledContent: () => string | Promise<string> };
 const files = import.meta.glob<Module>('/src/content/blog/*.md', { eager: true });
 const iso = (d: unknown) => (d instanceof Date ? d.toISOString() : String(d)).slice(0, 10);
 // Today in Guadalajara (UTC-6), so a post dated today is in the morning build.
@@ -14,7 +14,11 @@ const iso = (d: unknown) => (d instanceof Date ? d.toISOString() : String(d)).sl
 const today = (globalThis as any).process?.env?.BLOG_PREVIEW === '1' ? '9999-12-31' : new Date(Date.now() - 6 * 3600 * 1000).toISOString().slice(0, 10);
 export const posts = (lang: Lang) => Object.entries(files)
   .filter(([f]) => f.endsWith(`.${lang}.md`))
-  .map(([, m]) => ({ ...m.frontmatter, date: iso(m.frontmatter.date), Content: m.Content }))
+  .map(([, m]) => ({ ...m.frontmatter, date: iso(m.frontmatter.date), Content: m.Content, html: async () => withBase(await m.compiledContent()) }))
   .filter((p) => p.date <= today)
   .sort((a, b) => b.date.localeCompare(a.date));
+// Posts link to pages with absolute paths (/retiros). On the GitHub Pages preview the site lives under BASE_PATH,
+// so those links get the prefix; on the real domain (base "/") the HTML is unchanged.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (html: string) => (base ? html.replace(/href="\/(?!\/)/g, `href="${base}/`) : html);
 export const postPath = (lang: Lang, slug: string) => (lang === 'es' ? `/blog/${slug}` : `/en/blog/${slug}`);
