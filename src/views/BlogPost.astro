@@ -13,7 +13,7 @@ const post = posts(lang).find((p) => p.slug === slug)!;
 const other = es ? 'en' : 'es';
 const twin = post.pair && posts(other).some((p) => p.slug === post.pair) ? postPath(other, post.pair) : null;
 const path = postPath(lang, slug);
-const { Content } = post;
+const body = await post.html();
 const article = { '@type': 'BlogPosting', headline: post.title, description: post.description, datePublished: post.date, inLanguage: es ? 'es-MX' : 'en', mainEntityOfPage: `${site.url}${path}`, ...(post.og && { image: `${site.url}/og/${post.og}.jpg` }), author: { '@id': `${site.url}/#organization` }, publisher: { '@id': `${site.url}/#organization` } };
 const fmt = new Date(`${post.date}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
@@ -24,7 +24,7 @@ const fmt = new Date(`${post.date}T12:00:00`).toLocaleDateString(es ? 'es-MX' : 
     <div class="wrap prose post">
       <p class="t-lead muted">{post.description}</p>
       {post.imageCredit && <p class="credit muted">{es ? 'Foto de portada: ' : 'Cover photo: '}{post.imageCreditUrl ? <a href={post.imageCreditUrl}>{post.imageCredit}</a> : post.imageCredit}</p>}
-      <Content />
+      <Fragment set:html={body} />
       <div class="cluster" style="margin-top: 48px">
         <Button href={whatsappUrl} track="whatsapp">{es ? 'Escríbenos por WhatsApp' : 'Message us on WhatsApp'}</Button>
         <Button href={href(localize('/blog', lang))} variant="secondary">{es ? 'Ver más artículos' : 'See more articles'}</Button>
