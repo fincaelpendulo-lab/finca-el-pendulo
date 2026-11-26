@@ -1,7 +1,7 @@
 ---
 title: "How to start meditating: five minutes a day for beginners"
 description: "How to start meditating with five minutes a day: your first session, a four-week plan, what to do with a restless mind, and what research shows."
-date: 2026-12-09
+date: 2026-11-28
 image: esp-osho-hut-1
 imageAlt: "Inside the Osho Hut: meditation seats in a circle, cushions and chairs"
 slug: meditation-for-beginners

@@ -1,7 +1,7 @@
 ---
 title: "How to price a retreat: work out your cost per person"
 description: "How to price a retreat without losing money: split fixed and per-person costs, find your break-even group size and set margin, early bird and payments."
-date: 2026-12-02
+date: 2026-11-27
 image: invernadero-mesa
 imageAlt: "A long wooden table inside a greenhouse full of plants, ready for a planning session"
 slug: how-to-price-a-retreat

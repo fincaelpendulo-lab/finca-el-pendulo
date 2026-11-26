@@ -119,8 +119,14 @@ async function fetchOk(url) {
 async function verify(url) {
   const doi = url.match(/doi\.org\/(10\.[^\s?#]+)/i)?.[1];
   if (doi) {
-    const res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`, { headers: { 'User-Agent': `blog-checker/1.0 (mailto:${config.contactEmail})` } });
-    if (!res.ok) return errors.push(`DOI not found in Crossref (rerun once; Crossref fails at times): ${url}`);
+    // Crossref throttles bursts and fails at times: retry with a pause before calling a DOI missing. A 404 is final.
+    let res;
+    for (let i = 0; i < 4; i++) {
+      try { res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`, { headers: { 'User-Agent': `blog-checker/1.0 (mailto:${config.contactEmail})` } }); } catch { res = undefined; }
+      if (res?.ok || res?.status === 404) break;
+      await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
+    }
+    if (!res?.ok) return errors.push(`DOI not found in Crossref${res ? ` (HTTP ${res.status})` : ''}: ${url}`);
     const w = (await res.json()).message;
     return notes.push(`DOI ${doi}: "${w.title?.[0]}" (${w['container-title']?.[0] ?? ''}, ${w.issued?.['date-parts']?.[0]?.[0] ?? '?'})`);
   }
