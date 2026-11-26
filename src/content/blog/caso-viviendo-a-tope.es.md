@@ -2,7 +2,7 @@
 title: "Caso de éxito: Mindfulness en la vida cotidiana, de Viviendo a Tope"
 description: "Juan Cruz y Antonio León llevaron su retiro de yoga y meditación Mindfulness en la vida cotidiana a Finca El Péndulo, cerca de Guadalajara, con 45 participantes."
 date: 2026-11-18
-image: yoga-matutino
+image: vat-yoga-terraza
 slug: caso-viviendo-a-tope
 pair: case-viviendo-a-tope
 og: post-caso-viviendo-a-tope

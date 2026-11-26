@@ -68,10 +68,16 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
           <a class="fp-btn fp-btn--primary" href="https://viviendoatope.com/" rel="noopener" target="_blank">{es ? 'Visita Viviendo a Tope' : 'Visit Viviendo a Tope'}</a>
         </div>
       </div>
-      <blockquote class="case-quote">
+      <div class="stack">
+        <div class="pair">
+          <Photo name="vat-yoga-terraza" alt={es ? 'Práctica de yoga en la terraza durante el retiro' : 'Yoga practice on the terrace during the retreat'} class="ratio-3-4" sizes="(max-width: 900px) 50vw, 25vw" widths={[480, 800]} />
+          <Photo name="vat-meditacion-fogata" alt={es ? 'Meditación nocturna alrededor del fuego' : 'Night meditation around the fire'} class="ratio-3-4" sizes="(max-width: 900px) 50vw, 25vw" widths={[480, 800]} />
+        </div>
+        <blockquote class="case-quote case-quote--arena-in">
         <p>{es ? '“El espíritu de servicio de todo su personal y las instalaciones son óptimas y muy bien cuidadas. Tienen una organización excelente y el personal es grandioso.”' : '“The whole staff has a true spirit of service, and the facilities are excellent and very well kept. The organization is excellent and the staff is wonderful.”'}</p>
         <footer class="label">Viviendo a Tope</footer>
       </blockquote>
+      </div>
     </div>
   </section>
 
@@ -112,6 +118,8 @@ const mexisolFinca = es ? 'https://mexisol.world/es/finca-el-pendulo' : 'https:/
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .case-logo { width: auto; height: auto; max-width: 200px; max-height: 140px; }
   .case-quote--arena { background: var(--arena); }
+  .case-quote--arena-in { padding: clamp(20px, 3vw, 32px); }
+  .case-quote--arena-in p { font-size: clamp(18px, 1.6vw, 22px); }
   .case-quote { margin: 0; padding: clamp(24px, 4vw, 48px); background: var(--white, #fff); }
   .case-quote p { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 30px); line-height: 1.35; margin: 0 0 var(--space-4); }
 </style>

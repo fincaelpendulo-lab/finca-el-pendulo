@@ -2,7 +2,7 @@
 title: "Success story: Mindfulness in Everyday Life, by Viviendo a Tope"
 description: "Juan Cruz and Antonio León brought their yoga and meditation retreat Mindfulness in Everyday Life to Finca El Péndulo, near Guadalajara, Mexico, with 45 participants."
 date: 2026-11-18
-image: yoga-matutino
+image: vat-yoga-terraza
 slug: case-viviendo-a-tope
 pair: caso-viviendo-a-tope
 og: post-caso-viviendo-a-tope
