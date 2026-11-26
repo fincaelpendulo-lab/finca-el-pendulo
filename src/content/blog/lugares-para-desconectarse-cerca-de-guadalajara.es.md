@@ -1,7 +1,7 @@
 ---
 title: "Lugares para desconectarse cerca de Guadalajara"
 description: "Lugares para desconectarse cerca de Guadalajara sin ir a la playa: bosque, lago o campo, qué buscar para descansar de verdad y cómo armar tu fin de semana."
-date: 2026-12-04
+date: 2026-11-26
 image: ventana-al-agavero
 imageAlt: "Vista desde una ventana de la Finca hacia un campo de agave azul y los cerros"
 slug: lugares-para-desconectarse-cerca-de-guadalajara

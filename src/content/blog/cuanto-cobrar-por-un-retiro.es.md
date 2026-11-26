@@ -1,7 +1,7 @@
 ---
 title: "Cuánto cobrar por un retiro: calcula tu precio por persona"
 description: "Cuánto cobrar por un retiro sin perder dinero: separa costos fijos y por persona, calcula tu punto de equilibrio y define margen, preventa y pagos."
-date: 2026-12-02
+date: 2026-11-27
 image: invernadero-mesa
 imageAlt: "Mesa larga de madera dentro de un invernadero lleno de plantas, lista para una reunión de trabajo"
 slug: cuanto-cobrar-por-un-retiro

@@ -1,7 +1,7 @@
 ---
 title: "Weekend getaways near Guadalajara to truly unplug"
 description: "Weekend getaways near Guadalajara without the beach: forest, lake or farmland, what makes a place restful and how to plan two quiet days in the highlands."
-date: 2026-12-04
+date: 2026-11-26
 image: ventana-al-agavero
 imageAlt: "A view from a window at the Finca over a blue agave field and the hills"
 slug: places-to-unplug-near-guadalajara

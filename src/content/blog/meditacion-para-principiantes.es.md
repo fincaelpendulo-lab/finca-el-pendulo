@@ -1,7 +1,7 @@
 ---
 title: "Meditación para principiantes: empieza con 5 minutos al día"
 description: "Meditación para principiantes: cómo empezar con 5 minutos, un plan de 4 semanas, qué hacer con la mente inquieta y qué dice la investigación."
-date: 2026-12-09
+date: 2026-11-28
 image: esp-osho-hut-1
 imageAlt: "Interior del Osho Hut con asientos de meditación en círculo, cojines y sillas"
 slug: meditacion-para-principiantes
