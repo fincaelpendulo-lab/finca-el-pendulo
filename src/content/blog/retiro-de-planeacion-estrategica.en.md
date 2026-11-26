@@ -47,8 +47,9 @@ Day one looks back and looks outward. Priorities are not chosen yet.
 | 2:00 pm | Lunch; rooms ready |
 | 3:30 pm | SWOT in small groups, using the pre-work |
 | 5:00 pm | Break and coffee |
-| 5:30 pm | Plenary: what we learned this year, on one page |
-| 7:00 pm | Free time |
+| 5:15 pm | Plenary: what we learned this year, on one page |
+| 6:30 pm | Suggested activity: art workshop, temazcal or sound meditation |
+| 8:00 pm | Dinner and bonfire |
 
 ### Why a walk in the middle of the day
 
@@ -56,9 +57,17 @@ The walk is part of the work, not a reward. A [2014 Stanford study](https://doi.
 
 Breaks matter as well. In [a 2021 Microsoft study](https://www.microsoft.com/en-us/worklab/work-trend-index/brain-research) of 14 people wearing EEG caps, stress built up over four back-to-back meetings and held steady when there were 10-minute breaks between them. It is preliminary evidence, but it matches what any team feels by six in the evening.
 
+### Closing day one: art, temazcal or sound
+
+After the plenary, the team does not need another meeting. We suggest picking one of the [Finca's experiences](/en/experiences):
+
+- **Art workshop.** Tables and materials to paint and draw together. A way to work as a team with your hands and think differently after a day of numbers.
+- **Temazcal.** Mexico's traditional steam bath, as a group. Anyone who is pregnant or has high blood pressure or a heart condition should check with their doctor first.
+- **Sound meditation.** Bowls, drums and other instruments to unwind before dinner. The quietest of the three.
+
 ## The evening: dinner and a bonfire for a different kind of talk
 
-After dinner, a bonfire changes the tone. With no screen and no flip chart, people tell stories instead of reporting progress.
+After dinner, the bonfire changes the tone. With no screen and no flip chart, people tell stories instead of reporting progress.
 
 Anthropologist Polly Wiessner documented that shift in a [2014 PNAS study](https://doi.org/10.1073/pnas.1404212111) of the Ju/'hoan people of southern Africa: daytime talk centred on economic matters and complaints about others, while talk around the fire at night turned to stories. It is research on another culture, so take it as inspiration rather than a formula.
 
@@ -66,14 +75,14 @@ One simple prompt for the fire: each person shares a moment this year when the t
 
 ## Day 2: priorities, owners and dates
 
-Day two looks ahead and ends with decisions on paper.
+Day two looks ahead and ends with decisions on paper. Before that, we suggest an early horse ride among the trees and agave fields, a quiet hour to take in the landscape without talking shop. Anyone who would rather not ride can walk or do yoga.
 
 | Time | Block |
 | --- | --- |
-| 7:30 am | Optional walk or yoga |
-| 8:00 am | Breakfast |
-| 9:00 am | Ten minutes to note what came up last night |
-| 9:15 am | Strategic options: from a long list to three to five priorities |
+| 7:00 am | Suggested activity: horse riding |
+| 8:15 am | Breakfast |
+| 9:15 am | Ten minutes to note what came up last night |
+| 9:30 am | Strategic options: from a long list to three to five priorities |
 | 11:00 am | Break and coffee; room check-out by 12:00 pm |
 | 11:30 am | For each priority: an owner, an indicator and a first review date |
 | 1:00 pm | Commitment round: each leader names what they will stop doing to deliver |
@@ -93,7 +102,7 @@ The Finca is the venue: we provide the spaces, the lodging and the food, and you
 
 - **A working room.** The [Ágora Gnosis room](/en/spaces) is an indoor space with a square table, a projector and a speaker, made for meetings, presentations and workshops.
 - **Meals.** The [retreat package](/en/retreats) includes lodging, three meals a day, a coffee break and use of the spaces. Menus are adapted to diets and allergies.
-- **Bonfire and walks.** A bonfire can be added to your programme. For walking there are trails around Lake Ávalon and a hike up Cerro de la Campana, among other [experiences](/en/experiences).
+- **Activities.** A bonfire, art workshop, temazcal, sound meditation and horse riding can be added to your programme. For walking there are trails around Lake Ávalon and a hike up Cerro de la Campana.
 - **Transport.** Round-trip transport from Guadalajara or its airport is available at an extra cost.
 - **Times.** Check-in at 2:00 pm and check-out at 12:00 pm. The minimum group is 12 people.
 
@@ -114,7 +123,7 @@ Few. Three to five priorities for the year, each with an owner, an indicator and
 Book the first review before you leave the venue, ideally 30 days out. Share a one-page summary of the priorities and their owners with the rest of the company.
 
 **What does the Finca include for a company retreat?**
-Lodging, three meals a day, a coffee break and use of spaces such as the Ágora Gnosis room. Activities like a bonfire, walks or horse riding are added to suit your programme.
+Lodging, three meals a day, a coffee break and use of spaces such as the Ágora Gnosis room. Activities like a bonfire, an art workshop, a temazcal, sound meditation or horse riding are added to suit your programme.
 
 **Get a quote for your team's retreat:** write to us through the [contact page](/en/contact) or see [how retreats work](/en/retreats) and book a call.
 

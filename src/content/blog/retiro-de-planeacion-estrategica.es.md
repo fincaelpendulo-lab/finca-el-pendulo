@@ -47,8 +47,9 @@ El primer día mira hacia atrás y hacia afuera. Todavía no se eligen prioridad
 | 14:00 | Comida; entrega de habitaciones |
 | 15:30 | FODA en grupos pequeños, con los documentos previos |
 | 17:00 | Receso y coffee break |
-| 17:30 | Plenaria: lo que aprendimos del año, en una página |
-| 19:00 | Tiempo libre |
+| 17:15 | Plenaria: lo que aprendimos del año, en una página |
+| 18:30 | Actividad sugerida: taller de arte, temazcal o meditación acústica |
+| 20:00 | Cena y fogata |
 
 ### Por qué una caminata a media jornada
 
@@ -56,9 +57,17 @@ La caminata no es un premio, es parte del trabajo. Un [estudio de Stanford de 20
 
 Las pausas también cuentan. En [un estudio de Microsoft de 2021](https://www.microsoft.com/en-us/worklab/work-trend-index/brain-research), con 14 personas y sensores de actividad cerebral, el estrés se acumuló en cuatro juntas seguidas y se mantuvo estable cuando hubo descansos de 10 minutos entre ellas. Es evidencia preliminar, pero coincide con lo que cualquier equipo nota a las seis de la tarde.
 
+### Para cerrar el primer día: arte, temazcal o sonido
+
+Después de la plenaria, el equipo ya no necesita otra junta. Te sugerimos elegir una de estas [experiencias de la Finca](/experiencias):
+
+- **Taller de arte.** Mesas y materiales para pintar y dibujar en equipo. Sirve para trabajar juntos con las manos y pensar distinto después de un día de datos.
+- **Temazcal.** El baño de vapor tradicional de México, en grupo. Si alguien está embarazada, tiene presión alta o una enfermedad del corazón, que consulte a su médico antes.
+- **Meditación acústica.** Cuencos, tambores y otros instrumentos para relajarse antes de la cena. Es la opción más tranquila.
+
 ## La noche: cena y fogata para hablar distinto
 
-Después de cenar, una fogata cambia el tono. Sin pantalla ni rotafolio, la gente cuenta historias en lugar de reportar avances.
+Después de cenar, la fogata cambia el tono. Sin pantalla ni rotafolio, la gente cuenta historias en lugar de reportar avances.
 
 La antropóloga Polly Wiessner registró ese cambio en un [estudio de 2014 en PNAS](https://doi.org/10.1073/pnas.1404212111) con el pueblo ju/'hoan del sur de África: de día, la conversación giraba sobre asuntos económicos y quejas sobre otros; de noche, alrededor del fuego, sobre historias. Es un trabajo sobre otra cultura y otra época, así que tómalo como inspiración, no como receta.
 
@@ -66,14 +75,14 @@ Una sugerencia sencilla para la fogata: cada persona cuenta un momento del año 
 
 ## Día 2: prioridades, responsables y fechas
 
-El segundo día mira hacia adelante y termina con decisiones escritas.
+El segundo día mira hacia adelante y termina con decisiones escritas. Antes, te sugerimos un paseo a caballo temprano, entre árboles y agaves, para contemplar sin hablar de trabajo. Quien no quiera montar puede caminar o hacer yoga.
 
 | Hora | Bloque |
 | --- | --- |
-| 7:30 | Opcional: caminata o yoga |
-| 8:00 | Desayuno |
-| 9:00 | Lo que quedó de la noche: diez minutos para anotarlo |
-| 9:15 | Opciones estratégicas: de la lista larga a tres o cinco prioridades |
+| 7:00 | Actividad sugerida: paseo a caballo |
+| 8:15 | Desayuno |
+| 9:15 | Lo que quedó de la noche: diez minutos para anotarlo |
+| 9:30 | Opciones estratégicas: de la lista larga a tres o cinco prioridades |
 | 11:00 | Receso y coffee break; check-out de habitaciones a las 12:00 |
 | 11:30 | Para cada prioridad: responsable, indicador, primera fecha de revisión |
 | 13:00 | Ronda de compromiso: cada director dice qué deja de hacer para cumplir |
@@ -93,7 +102,7 @@ La Finca es sede: pone los espacios, el hospedaje y la comida; el contenido lo l
 
 - **Sala de trabajo.** El [Salón Ágora Gnosis](/espacios) es un espacio cerrado con mesa cuadrada, proyector y bocina, pensado para juntas, presentaciones y talleres.
 - **Alimentos.** El paquete de [retiros](/retiros) incluye hospedaje, tres alimentos al día, coffee break y uso de espacios. Los menús se adaptan a dietas y alergias.
-- **Fogata y caminatas.** La fogata se agrega al programa. Para caminar hay senderos alrededor del Lago Ávalon y la opción de subir al Cerro de la Campana, entre otras [experiencias](/experiencias).
+- **Actividades.** Fogata, taller de arte, temazcal, meditación acústica y paseo a caballo se agregan al programa. Para caminar hay senderos alrededor del Lago Ávalon y el Cerro de la Campana.
 - **Traslado.** Hay transporte redondo desde Guadalajara o su aeropuerto, con costo extra.
 - **Horarios.** Check-in a las 2:00 pm y check-out a las 12:00 pm. El grupo mínimo es de 12 personas.
 
@@ -114,7 +123,7 @@ Pocas. Entre tres y cinco prioridades para el año, cada una con responsable, in
 Agenda la primera revisión antes de irte de la sede, idealmente a los 30 días. Comparte con el resto de la empresa un resumen de una página con las prioridades y sus responsables.
 
 **¿Qué incluye la Finca para un retiro empresarial?**
-Hospedaje, tres alimentos al día, coffee break y uso de espacios como el Salón Ágora Gnosis. Actividades como fogata, caminatas o paseos a caballo se agregan según tu programa.
+Hospedaje, tres alimentos al día, coffee break y uso de espacios como el Salón Ágora Gnosis. Actividades como fogata, taller de arte, temazcal, meditación acústica o paseo a caballo se agregan según tu programa.
 
 **Cotiza el retiro de tu equipo:** escríbenos desde [contacto](/contacto) o revisa [cómo funcionan los retiros](/retiros) y agenda una llamada.
 

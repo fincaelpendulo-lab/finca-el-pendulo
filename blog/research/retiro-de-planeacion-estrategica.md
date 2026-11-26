@@ -78,6 +78,8 @@ Consultadas y descartadas: Líder Empresarial (ABC de la planeación con PwC y P
 | Fogata como actividad agregada; senderos alrededor del lago; Hike al Cerro de la Campana | `src/data/retiros.json` (extras, types), `src/data/experiencias.json` |
 | Transporte redondo desde Guadalajara o aeropuerto con costo extra; a poco más de una hora | `src/views/Retiros.astro` |
 | Check-in 2:00 pm, check-out 12:00 pm, grupo mínimo 12 | `src/data/retiros.json` |
+| Actividades sugeridas (pedido de Carlos, 2026-11-25): taller de arte (mesas y materiales para pintar y dibujar), temazcal (baño de vapor tradicional de México), meditación acústica (cuencos, tambores y otros instrumentos para relajarse), paseo a caballo (entre árboles y agaves) | `src/data/experiencias.json`, `src/views/Temazcal.astro`, `blog/house-facts.md` |
+| Aviso de salud del temazcal (embarazo, presión alta, corazón: consulta a tu médico) | `blog/house-facts.md` |
 
 ## Lo que no se afirma (preguntas para Carlos)
 
