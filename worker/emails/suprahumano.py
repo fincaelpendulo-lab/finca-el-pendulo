@@ -104,10 +104,12 @@ retreats = row(
     '<div style="height:16px;line-height:16px;font-size:0;">&nbsp;</div>' +
     button('Cotiza tu retiro', CALL) + button('Ver los espacios', url('/espacios', LANG), 'outline'), ARENA, '40px 48px')
 
+# Bumped when photos change, so Gmail's image proxy and the CDN don't serve an old or missing copy.
+VERSION = 2
 SUBJECT = 'Gracias por venir a Suprahumano'
 PREVIEW = '15% de descuento en hospedaje, Año Nuevo en la Finca y algo más.'
 BODY = (
-    hero('supra-hero', 'Danza de listones frente a la palapa durante Suprahumano', 'Suprahumano · Gracias', 'Gracias por venir a la Finca') +
+    hero('supra-hero', 'Danza de listones frente a la palapa durante Suprahumano', '', 'Gracias por venir a la Finca').replace(label(''), '') +
     row(p(HI) +
         p('Gracias por ser parte de Suprahumano. Fue un gusto recibirte en Finca El Péndulo: las conferencias, meditaciones, el árbol de la vida, '
           'danzas de paz universal, ceremonia de cacao, constelaciones con caballos y todo lo que compartimos juntos.') +
@@ -123,6 +125,6 @@ BODY = (
 
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
-    open(os.path.join(OUT, 'gracias.html'), 'w', encoding='utf-8').write(email(LANG, SUBJECT, PREVIEW, BODY, marketing=True))
+    open(os.path.join(OUT, 'gracias.html'), 'w', encoding='utf-8').write(email(LANG, SUBJECT, PREVIEW, BODY, marketing=True).replace('.jpg"', f'.jpg?v={VERSION}"'))
     open(os.path.join(OUT, 'subjects.json'), 'w', encoding='utf-8').write(json.dumps({'gracias': SUBJECT}, indent=1, ensure_ascii=False) + '\n')
     print(SUBJECT)
