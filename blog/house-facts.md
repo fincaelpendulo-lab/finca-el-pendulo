@@ -63,3 +63,9 @@ Tres temas, sin bodas ni eventos:
 - Bodas y eventos como tema (no están en los temas del blog; sí se puede enlazar a esas páginas si viene al caso).
 - Botones o frases "Conoce más"; usar verbos concretos: "Cotiza tu retiro", "Hospédate con nosotros", "Ver los espacios".
 - Guiones largos (—) o medios (–).
+
+## Confirmado por Carlos (2026-11-25)
+
+- Retiros: grupo mínimo de 12 personas, incluyendo staff. El paquete incluye hospedaje, comidas y uso de instalaciones. Las tarifas no se publican y la retención de pagos no se menciona.
+- Day Pass: abre el 24, 25 y 31 de diciembre y el 1 de enero. Se puede llevar comida propia, hay asadores para usar y la Finca refrigera los alimentos. Quien viene con Day Pass puede reservar cualquiera de las experiencias.
+- Caballos: no hay edad mínima para montar; la Finca presta casco.
